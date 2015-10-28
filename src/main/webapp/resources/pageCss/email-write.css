@@ -1,0 +1,26 @@
+.page-header {
+	border-bottom:	1px solid #858C8F;
+}
+
+h1.page-header {
+	font-family: regular;
+	font-size: 18px;
+}
+
+#email-section {
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	background: #E0DFDD;
+	padding-bottom: 10px;
+}
+
+#preview {
+	min-height: 300px;
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+
+#preview-content {
+	font-size: 2em;
+}

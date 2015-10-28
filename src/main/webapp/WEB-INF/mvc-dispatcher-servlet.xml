@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+  http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+	
+	<context:component-scan base-package="com.aug.controllers" />
+	<context:component-scan base-package="com.aug.services" />
+	<context:component-scan base-package="com.aug.validators" />
+	<mvc:annotation-driven enable-matrix-variables="true" />
+	<mvc:resources mapping="/static/**" location="/" />
+
+	<!-- Message Resource config -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:/i18n/messages"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+
+	<!-- Declare the Interceptor -->
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+			p:paramName="locale" />
+	</mvc:interceptors>
+
+	<!-- Declare the Resolver -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en" />
+	</bean>
+
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize" value="50000000" /> </bean> -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- set the max upload size100MB -->
+		<property name="maxUploadSize">
+			<value>104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+	<tx:annotation-driven />
+
+
+<!-- SimpleMappingExceptionResolver use anotation java config -->
+<!-- 	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="AuthException">errorPages/errorPageCustom</prop>
+				<prop key="IOException">errorPages/errorPageCustom</prop>
+			</props>
+			<entry key="Exception">errorpages/errorPage404</entry> <entry key="IOException">errorpages/errorPage404</entry> 
+				<entry key="IndexOutOfBoundsException">errorpages/errorPage404</entry>
+		</property>
+		<property name="defaultErrorView" value="errorpages/errorPageCustom" />
+	</bean> -->
+	<!-- Email -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="www.augmentis.biz" />
+		<property name="port" value="465" />
+		<property name="username" value="anat.abd@augmentis.biz" />
+		<property name="password" value="Anat111" />
+ 
+		<!-- The name of the property, following JavaBean naming conventions -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.stqarttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			    <prop key="mail.mime.charset">UTF-8</prop>
+			    <prop key="mail.transport.protocol">smtp</prop>
+			    <prop key="mail.smtp.ssl.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+       <!-- <property name="resourceLoaderPath" value="/WEB-INF/mail-template/"/> -->
+	</bean>
+	
+
+</beans>

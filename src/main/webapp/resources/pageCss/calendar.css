@@ -1,0 +1,124 @@
+@CHARSET "UTF-8";
+
+div.fc-row>table>thead > tr:first-child {
+	background-color: #ababab;
+	color:#ffffff;
+}
+
+body {
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	font-size: 14px;
+}
+
+#calendar {
+	max-width : 100%;
+	margin-bottom: 15px;
+}
+
+.fc-unthemed .fc-today {
+   background: #FF9900;
+}
+
+div.fc-toolbar{
+	padding-left : 1px;
+	padding-right: 2px;
+}
+
+div.fc-center{
+	background-color: #ffc000;
+	color:#ffffff;
+	width: 100%;
+	border: 2px solid rgba(1,1,1,0);
+	padding: 5px 5px 5px 5px;
+	margin-top: 40px;
+	margin-bottom: -30px;
+}
+
+div.fc-view-container{
+    margin-top: -5px;
+}
+
+div.fc-center.text-center > h2{
+	float: initial;
+}
+div.fc-toolbar{
+	margin-top:15px;
+}
+
+div.fc-day-grid div.fc-row:nth-child(odd) {
+	background-color: #e7e7e7;
+}
+
+div.fc-day-grid div.fc-row:nth-child(even) {
+	background-color: #d6d6d6;
+}
+
+textarea {
+   overflow-y: scroll;
+   resize: none; 
+} 
+
+
+div.popover > h3.popover-title.danger{
+	background-color: #FF4512;
+	color: #ffffff;
+}
+
+div.popover > h3.popover-title.warning{
+	background-color: #EBCD26;
+	color: #ffffff;
+}
+
+div.popover > h3.popover-title.success{
+	background-color: #91E650;
+	color: #ffffff;
+}
+
+#calendarHeader > h2{
+	padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+	background-color: #ffc000;
+	color:#ffffff;
+}
+
+#calendarDiv{
+	background-color: #E0DFDD;
+	margin-left : 40px;
+}
+
+#calendar-container{
+	margin-top: 20px;
+	margin-right: 40px;
+}
+
+.media{
+	margin-left: 15px;	
+}
+
+#mailStatusPropSm{
+	background-color: #E0DFDD;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+#mailStatusPropMd{
+	background-color: #E0DFDD;
+	width : 270px;
+	padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+span.label-danger{
+	background-color: #FF4512;
+}
+
+span.label-warning{
+	background-color: #EBCD26;
+}
+
+span.label-success{
+	background-color: #91E650;
+}
