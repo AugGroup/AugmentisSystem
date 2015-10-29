@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="summaryMonthly" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8dcf62fb-fcf7-43cf-92f7-4ad2fceb5bc5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="49"/>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT applicant.ID AS id,
+applicant.AGE AS age,
+applicant.APPLICANT_STATUS AS applicantStatus,
+applicant.APPLY_DATE AS applyDate,
+applicant.ATTITUDE_HOME AS attitudeHome,
+applicant.ATTITUDE_OFFICE AS attitudeOffice,
+applicant.APPLICANT_CODE AS appCode,
+applicant.EMAIL AS email,
+applicant.FIRSTNAME_EN AS firstNameEN,
+applicant.LASTNAME_EN AS lastNameEN,
+applicant.SCORE AS score,
+applicant.SEX AS sex,
+applicant.TECH_SCORE AS techScore,
+applicant.TEL AS tel,
+applicant.TRACKING_STATUS AS trackingStatus,
+applicant.MASTECHNOLOGY_ID AS technologyId,
+applicant.MASJOBLEVEL_ID AS joblevelId,
+education.DEGREETYPE_ID AS degreeId,
+degreeType.ID,
+degreeType.NAME AS degreeName,
+education.FACULTY AS faculty,
+education.GPA AS gpa,
+education.MAJOR AS major,
+education.UNIVERSITY AS university,
+education.APPLICANT_ID AS ApplicantId,
+joblevel.ID AS joblevelId,
+joblevel.CODE AS joblevelCode,
+joblevel.NAME AS joblevelName,
+technology.ID AS technologyId,
+technology.CODE AS technologyCode,
+technology.NAME AS technologyName
+FROM APPLICANT applicant
+LEFT JOIN EDUCATION education ON applicant.ID = education.APPLICANT_ID
+LEFT JOIN MAS_DEGREETYPE degreeType ON degreeType.ID = education.DEGREETYPE_ID
+LEFT JOIN MAS_JOBLEVEL joblevel ON applicant.MASJOBLEVEL_ID = joblevel.ID
+LEFT JOIN MAS_TECHNOLOGY technology ON applicant.MASTECHNOLOGY_ID = technology.ID
+
+]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="age" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="applicantStatus" class="java.lang.String"/>
+	<field name="applyDate" class="java.sql.Timestamp"/>
+	<field name="attitudeHome" class="java.lang.String"/>
+	<field name="attitudeOffice" class="java.lang.String"/>
+	<field name="appCode" class="java.lang.String"/>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="firstNameEN" class="java.lang.String"/>
+	<field name="lastNameEN" class="java.lang.String"/>
+	<field name="score" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sex" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="techScore" class="java.lang.String"/>
+	<field name="tel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trackingStatus" class="java.lang.String"/>
+	<field name="technologyId" class="java.lang.Integer"/>
+	<field name="joblevelId" class="java.lang.Integer"/>
+	<field name="degreeId" class="java.lang.Integer"/>
+	<field name="degreeName" class="java.lang.String"/>
+	<field name="faculty" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gpa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="major" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="university" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ApplicantId" class="java.lang.Integer"/>
+	<field name="joblevelCode" class="java.lang.String"/>
+	<field name="joblevelName" class="java.lang.String"/>
+	<field name="technologyCode" class="java.lang.String"/>
+	<field name="technologyName" class="java.lang.String"/>
+	<variable name="name" class="java.lang.String">
+		<variableExpression><![CDATA[$F{firstNameEN}+" "+$F{lastNameEN}]]></variableExpression>
+	</variable>
+	<group name="By_Date" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{applyDate}.getMonth()]]></groupExpression>
+		<groupHeader>
+			<band height="82">
+				<staticText>
+					<reportElement uuid="78dce6cd-38f9-419e-9adf-4cef3ee01a59" x="178" y="24" width="96" height="30"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MONTH : ]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="bdec4ae9-e967-49f9-aa02-798258329bd2" x="0" y="70" width="555" height="1"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<textField pattern="MMMMM">
+					<reportElement uuid="d4c7c4c8-96dc-434d-b746-e400d5cd799f" x="279" y="24" width="100" height="32"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{applyDate}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="112">
+				<line>
+					<reportElement uuid="c3264a59-65e0-4d6b-9ef4-097e71e9b552" x="0" y="48" width="555" height="1"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement uuid="131e6c7b-3887-44aa-b787-85c34a3aeff9" x="0" y="20" width="555" height="1"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement uuid="fb637bc3-9e26-4530-8e82-0e98ef184ebc" x="1" y="25" width="137" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MONTH SUMMARY : ]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="54265baa-b3be-43c8-beaa-097f742896bf" x="138" y="24" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{By_Date_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="By_major">
+		<groupExpression><![CDATA[$F{major}]]></groupExpression>
+		<groupHeader>
+			<band height="53">
+				<staticText>
+					<reportElement uuid="6303f258-6444-498d-b811-38de0a1e406b" x="183" y="30" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[Apply Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="36e8646e-137e-40dd-bf5e-4b778abc5267" x="268" y="30" width="66" height="20"/>
+					<textElement/>
+					<text><![CDATA[Joblevel]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="3db6da27-95dd-4244-8bdf-5523a866f4ff" x="334" y="30" width="63" height="20"/>
+					<textElement/>
+					<text><![CDATA[Technology]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="b1282873-f812-4b5e-8768-5893cf187acd" x="424" y="30" width="63" height="20"/>
+					<textElement/>
+					<text><![CDATA[Degree]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="b8d1bb7e-db8a-41d7-98ac-88a890e8fb48" x="487" y="30" width="68" height="20"/>
+					<textElement/>
+					<text><![CDATA[Major]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="c374d32d-63a6-4489-b923-78698d4fc024" x="78" y="30" width="100" height="20"/>
+					<textElement/>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="e0d015aa-8252-4710-b212-1ad2152dbdf0" x="6" y="0" width="128" height="24"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Major "+$F{major}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="ce0280c1-5ae0-4a28-a8ae-d78c58a75b84" x="0" y="24" width="555" height="1"/>
+				</line>
+				<line>
+					<reportElement uuid="db9e0947-714b-4b78-9d18-86db62524037" x="0" y="52" width="555" height="1"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement uuid="61c52f27-07ff-4dd5-8665-17bf8945bb41" x="7" y="30" width="70" height="20"/>
+					<textElement/>
+					<text><![CDATA[appCode]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="72">
+				<staticText>
+					<reportElement uuid="bc13ac00-58fe-4a00-a58c-bf85107570bf" x="350" y="13" width="161" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<text><![CDATA[MAJOR SUMMARY :]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="9ad8186b-0575-481a-8567-69d303a237eb" x="0" y="9" width="555" height="1"/>
+				</line>
+				<line>
+					<reportElement uuid="042919f9-d86c-4e67-a9ed-0f21de887d79" x="0" y="37" width="555" height="1"/>
+				</line>
+				<textField>
+					<reportElement uuid="98a1b8a0-0e5a-4074-aa18-6dc22a25eb3a" x="515" y="13" width="38" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{By_major_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="dacfbcf9-ccfc-418f-bf04-8c80bf39b8b2" x="52" y="1" width="452" height="69" backcolor="#FFCC00"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="dd159cbc-a60f-44da-b19e-c5f1caacb3a1" x="52" y="19" width="452" height="51"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTHLY SUMMARY]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField pattern="d/M/yyyy">
+				<reportElement uuid="ff1c507e-1474-46ba-96e4-9b1ceeffe7ef" x="183" y="17" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{applyDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="35ba11db-5730-4930-9119-2f76033dce5c" x="268" y="17" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{joblevelName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="44302e2f-383e-4cab-95d2-1d4722b8d57d" x="334" y="17" width="63" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{technologyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="435c56a8-80d9-48aa-94b3-7d172ed8012c" x="424" y="17" width="63" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{degreeName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4706881-f2f7-4312-bd20-502a56819e08" x="489" y="17" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{major}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="441c5b08-7078-425d-9bf0-7aa92bdb1b35" x="78" y="17" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d6358219-2ffb-45d0-b64f-d70beff7d2cf" x="7" y="17" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{appCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="8b03bc79-7fd8-4420-9a29-0e5ff2dae4df" x="232" y="14" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["- "+$V{PAGE_NUMBER}+" -"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
