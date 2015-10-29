@@ -409,12 +409,6 @@ ul.pagination li.next>a{
     clear: both;
 }
 
-#top-flag {
-	display: block;
-    margin-top: -50px;
-	z-index: 10;
-}
-
 #flag-link{
 	background-color: rgba(0,0,0,0);
 	display: inline; 
@@ -501,10 +495,6 @@ ul.pagination li.next>a{
 	#linkLogout {
 		color: #fff;
 		text-decoration: none;
-	}
-	
-	#top-flag {	    
-    	margin-top: 0px;
 	}
 	
 	.flags-link{

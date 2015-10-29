@@ -18,6 +18,10 @@
 	background-color: #FFFFFF;
 }
 
+#email-badge {
+	background-color: #b70000;
+}
+
 .email-notififation-li:hover {
 	background-color: #FFFFFF;	
 }
@@ -30,22 +34,29 @@
 	color: rgb(222, 145, 4) !important;
 }
 
-.tooltip{
+#email-dropdown .tooltip{
 	z-index: 0 !important;
 }
 
-.tooltip.right .tooltip-arrow {
-	border-right-color: rgb(222, 145, 4) !important;
+#email-dropdown .tooltip.right .tooltip-arrow {
+	border-right-color: #b70000 !important;
 }
 
-.tooltip-inner {
-	background-color: rgb(222, 145, 4) !important;
+#email-dropdown .tooltip-inner {
+	background-color: #b70000 !important;
+	max-width: 140px;
+    /* If max-width does not work, try using width instead */
+    width: 140px; 
 }
 
 @media ( max-width : 768px) {
 	.email-notification {
 		border: none;
-		background-color: rgb(222, 145, 4) !important;
+		background-color: rgb(222, 145, 4);
+	}
+	
+	.tooltip {
+		display: none;
 	}
 	
 	.dropdown-menu .divider {
@@ -54,3 +65,4 @@
 	    overflow: hidden;
 	    background-color: #e5e5e5;
 	}
+}
