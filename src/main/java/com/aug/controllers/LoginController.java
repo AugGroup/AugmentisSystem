@@ -29,10 +29,10 @@ public class LoginController implements Serializable {
 
 	}
 
-	@RequestMapping(value = "/applicant", method = { RequestMethod.POST })
+	@RequestMapping(value = "/welcome", method = { RequestMethod.POST })
 	public String loginSpringPost(Model model) {
 
-		return "mainApplicant";
+		return "welcome";
 	}
 	
 	@RequestMapping(value = "/logout", method = { RequestMethod.GET })

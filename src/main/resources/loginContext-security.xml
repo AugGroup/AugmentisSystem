@@ -24,7 +24,7 @@
 		<intercept-url pattern="/index" access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF','ROLE_HR')" />
 		<intercept-url pattern="/**" access="isAuthenticated()" />
 		<logout logout-success-url="/logout" delete-cookies="JSESSIONID" invalidate-session="true" />
-		<form-login login-page="/login" default-target-url="/applicant"
+		<form-login login-page="/login" default-target-url="/welcome"
 			authentication-failure-url="/login" username-parameter="j_username"
 			password-parameter="j_password" always-use-default-target="true" />
 	</http>
