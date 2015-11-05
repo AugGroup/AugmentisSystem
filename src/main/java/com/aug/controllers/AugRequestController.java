@@ -114,7 +114,7 @@ public class AugRequestController implements Serializable {
 		augRequest.setId(augRequestDto.getId());
 		augRequest.setRequestDate(augRequestDto.getRequestDate());
 		augRequest.setStatus(augRequestDto.getStatus());
-//		augRequest.setApproveDate(augRequestDto.getApproveDate());
+		augRequest.setApproveDate(augRequestDto.getApproveDate());
 		augRequest.setJoblevel(masJoblevel);
 		augRequest.setTechnology(masTechnology);
 		augRequest.setNumberApplicant(augRequestDto.getNumberApplicant());

@@ -391,7 +391,7 @@ $(document).ready(function () {
     function previewShowData(data){
     	$('#tx_requester').text(data.requesterName);
         $('#tx_requestDate').text(data.requestDate);
-        
+                
         if(!data.approvalName ){
         	$('#tx_approvalName').text("-");
         }else {

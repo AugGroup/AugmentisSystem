@@ -1,7 +1,6 @@
 package com.aug.controllers;
 
 import java.io.Serializable;
-import java.text.ParseException;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,8 +73,8 @@ public class RequestApproveController implements Serializable {
 			
 		AugRequest augRequest = augRequestService.findById(augRequestDTO.getId());
 		augRequest.setStatus(augRequestDTO.getStatus());
-//		augRequest.setApprover(employee);
-//		augRequest.setApproveDate(augRequestDTO.getApproveDate());
+		augRequest.setApprover(employee);
+		augRequest.setApproveDate(augRequestDTO.getApproveDate());
 		augRequestService.update(augRequest);
 		
 		return augRequestService.findAugRequestById(id);
