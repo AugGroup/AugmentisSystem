@@ -63,4 +63,6 @@
 	var technologyVal = "<spring:message code="valid.req.technology"/>";
 	var resumeMultipartFile = "<spring:message code="valid.req.resume"/>";
 	var imageMultipartFile =  "<spring:message code="valid.req.image"/>";
+	var maxSize = "<spring:message code="valid.req.maxSize"/>";
+	var typeSize = "<spring:message code="valid.req.typeSize"/>";
 </script>

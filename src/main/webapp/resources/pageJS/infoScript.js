@@ -258,6 +258,7 @@
 			   		}, thaiOnly);
 		   		
 		   		$.validator.addMethod('filesize', function(value, element, param) {
+		   			console.log(param);
 		   		    // param = size (en bytes) 
 		   		    // element = element to validate (<input>)
 		   		    // value = value of the element (file name)
@@ -274,7 +275,7 @@
 					tel : {required : true},
 					email : {required : true, email : true},
 					birthDate : {required : true},
-					placeBirth : {required : true,lettersonly: true},
+					placeBirth : {required : true},
 					age : {required : true, digits: true, minlength : 2, maxlength:3},
 					religion : {required : true,lettersonly: true},
 					nationality : {required : true,lettersonly: true},
@@ -313,7 +314,7 @@
  					employedPosition : {required : true,lettersonly: true},
  					employedRelation : {required : true,lettersonly: true},
  					resumeMultipartFile : {required : true},
- 					imageMultipartFile :{ required: true, accept: "png|jpe?g|gif", filesize: 20971520  }
+ 					imageMultipartFile :{ required: true, accept: "png|jpe?g|gif", filesize: 5242880  }
 				},
 				messages : {firstNameTH : {required : firstNameTH},
 					lastNameTH : {required : lastNameTH},
@@ -364,7 +365,7 @@
 					previousEmployers : {required :  previousEmployers},
  					previousEmployersReason : {required : previousEmployersReason},
  					resumeMultipartFile : {required : resumeMultipartFile},
-					imageMultipartFile :{required : imageMultipartFile}
+					imageMultipartFile :{required : imageMultipartFile,accept:typeSize,filesize: maxSize}
 				}
 			});
 				

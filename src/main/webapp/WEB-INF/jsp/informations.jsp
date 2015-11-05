@@ -77,7 +77,9 @@ $(document).ready(function(){
 									<input id="imageMultipartFile" name="imageMultipartFile" type="file" accept="image/*" class="file"/>
 								</span><br>
 								<div style="color: red;font-size: 0.8em;">
-								<span class="glyphicon glyphicon-star" ></span>Image size 20 MB.
+								<span class="glyphicon glyphicon-star" ></span>Image size 5 MB.
+								<br><label for="imageMultipartFile" class="error" ></label>
+								
 
 							</div>
 							<f:hidden path="image" />
