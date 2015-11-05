@@ -431,7 +431,7 @@ public class ApplicantController implements Serializable {
 	@RequestMapping(value = "/saveInformations", method = { RequestMethod.POST })
 	public String saveInformations(@ModelAttribute ApplicantDto applicantDto,MultipartFile multipartFile,Model model)
 			throws ParseException {
-		
+		System.out.println("bank");
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		
 		applicantDto.setCode("C"+year+(applicantService.getMaxApplicantId().getId()+1));

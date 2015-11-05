@@ -313,8 +313,9 @@
  					employedName : {required : true,lettersonly: true},
  					employedPosition : {required : true,lettersonly: true},
  					employedRelation : {required : true,lettersonly: true},
- 					resumeMultipartFile : {required : true},
- 					imageMultipartFile :{ required: true, accept: "png|jpe?g|gif", filesize: 5242880  }
+ 					resumeMultipartFile : {required : true}
+// 					,
+// 					imageMultipartFile :{ required: true, accept: "png|jpe?g|gif", filesize: 5242880  }
 				},
 				messages : {firstNameTH : {required : firstNameTH},
 					lastNameTH : {required : lastNameTH},
@@ -364,8 +365,9 @@
 					employedRelation : {required : employedRelation},
 					previousEmployers : {required :  previousEmployers},
  					previousEmployersReason : {required : previousEmployersReason},
- 					resumeMultipartFile : {required : resumeMultipartFile},
-					imageMultipartFile :{required : imageMultipartFile,accept:typeSize,filesize: maxSize}
+ 					resumeMultipartFile : {required : resumeMultipartFile}
+// 					,
+//					imageMultipartFile :{required : imageMultipartFile,accept:typeSize,filesize: maxSize}
 				}
 			});
 				
