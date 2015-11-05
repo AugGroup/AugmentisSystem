@@ -74,8 +74,8 @@ public class RequestApproveController implements Serializable {
 			
 		AugRequest augRequest = augRequestService.findById(augRequestDTO.getId());
 		augRequest.setStatus(augRequestDTO.getStatus());
-		augRequest.setApprover(employee);
-		augRequest.setApproveDate(augRequestDTO.getApproveDate());
+//		augRequest.setApprover(employee);
+//		augRequest.setApproveDate(augRequestDTO.getApproveDate());
 		augRequestService.update(augRequest);
 		
 		return augRequestService.findAugRequestById(id);
