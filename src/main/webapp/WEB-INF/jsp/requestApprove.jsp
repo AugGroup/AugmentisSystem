@@ -32,13 +32,16 @@
 			<thead>
 				<tr>
 					<th><spring:message code="request.id" /></th>
+					<th>Code</th>
 					<th><spring:message code="request.date" /></th>
 					<th><spring:message code="request.human" /></th>
 					<th><spring:message code="main.position1" /></th>
 					<th><spring:message code="main.position2"/></th>
 					<th><spring:message code="request.number" /></th>
 					<th><spring:message code="main.status" /></th>
+					<th>RmStatus</th>
 					<th><spring:message code="request.approve" /></th>
+					<th>Edit</th>
 				</tr>
 			</thead>
 		</table>
@@ -67,6 +70,7 @@
 					<div class="form-group">
 						<label for="inputStatus"><spring:message code="request.as" /></label>
 						<select name="inputStatus" id='inputStatus' class="form-control">
+							<option value="" label="---Select Function---"></option>
 							<option value='Approve'><spring:message code="edit.approve" /></option>
 							<option value='Not Approve'><spring:message code="edit.notApprove" /></option>
 						</select>
@@ -86,6 +90,47 @@
 			</div>
 		</div>
 	</div>
+	
+		<!------------------- Rm Function Modal ------------------->
+	<div class="modal fade" id="RmFunctionModal" tabindex="-1" role="dialog"
+		aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="ModalLabel">
+						<spring:message code="request.ar" />
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="inputRmStatus">RmStatus</label>
+						<select name="inputRmStatus" id='inputRmStatus' class="form-control">
+							<option value="" label="---Select Function---"></option>
+							<option value='On-boarding'>On-boarding</option>
+							<option value='Full-fill'>Full-fill</option>
+							<option value='Cancel'>Cancel</option>
+						</select>
+					</div>
+					<br>
+					<div align="right">
+				 	<button id="btn_approve_submit" type="button"
+						class="btn btn-warning" data-dismiss="modal">
+						<span class="glyphicon glyphicon-save"></span><spring:message code="edit.button.save" />
+					</button>
+					<button id="btn_close" type="button" class="btn btn-default"
+						data-dismiss="modal">
+						<spring:message code="button.cancel" />
+					</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+				
 	<!-------------------- Exception Model -------------------->
 	<div class="modal fade" id="exceptionModal" tabindex="-1" role="dialog"
 		aria-labelledby="ModalLabel" aria-hidden="true">

@@ -241,6 +241,12 @@
             <artifactId>hibernate-validator</artifactId> 
             <version>5.0.0.Final</version> 
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.9</version>
+        </dependency>
+        
 
 
 		<!-- TESTING DEPENDENCIES -->

@@ -9,7 +9,7 @@
 	<a type="submit" id="btn_new_app" class="btn btn-warning" href="${pageContext.request.contextPath}/applicant">
 	<span class="glyphicon glyphicon-plus "></span>RM SYSTEM</a>
 	
-	<a type="submit" id="btn_new_app" class="btn btn-warning" href="${pageContext.request.contextPath}/request">
+	<a type="submit" id="btn_new_app" class="btn btn-warning" href="${pageContext.request.contextPath}/employee/list">
 	<span class="glyphicon glyphicon-plus "></span>HR SYSTEM</a>
 			
 </div>

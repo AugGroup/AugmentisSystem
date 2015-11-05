@@ -1,0 +1,432 @@
+@font-face {
+    font-family: 'Dosis-Bold';
+    src: url('../resource/fonts/Dosis-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-Regular';
+    src: url('../resource/fonts/Dosis-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-SemiBold';
+    src: url('../resource/fonts/Dosis-SemiBold.ttf') format('truetype');
+}
+
+
+.tab-content {
+    background-color: #eeeeee;
+    border: 5px solid #eeeeee;
+    border-radius: 3px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fa9900;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    border-bottom-color: transparent;
+    border-top: 3px solid #fa9900;
+    border-radius: 3px;
+}
+
+.nav-tabs > li > a {
+    color: #414141;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    border-top: 3px solid #414141;
+    border-radius: 3px;
+}
+
+    .nav-tabs > li > a:hover {
+        color: #b1b1b1;
+        cursor: pointer;
+        background-color: #eeeeee;
+        border: 1px solid #dddddd;
+        border-top: 3px solid #b1b1b1;
+        border-radius: 3px;
+
+    }
+
+
+.navbar-defaults .navbar-nav > li > a {
+    height: 65px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: Dosis-SemiBold;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #707070;
+    color: white;
+    
+}
+
+    .navbar-defaults .navbar-nav > li > a:hover {
+        background-color: #ff9900;
+        color: white;
+    }
+
+    .navbar-defaults .navbar-nav > li > a:focus {
+       	background-color: #ff9900;
+        color: white;
+    }
+
+
+.navbar-defaults {
+
+    border-color: transparent;
+}
+
+
+.navbar-link {
+	position:center;
+}
+
+.navbar-link img {
+width:40px;
+height:25px;
+border:1px solid white; 
+padding-left:7px;
+padding-right:7px;
+margin-top:5px;
+margin-right:7px;
+}
+
+.navbar-link > img:hover {
+	background-color: #fff;
+    color: white;
+}
+
+.navbar-link > img:focus{
+       	background-color: #fff;
+        color: white;
+}
+
+
+.navbar-link > img:visited{
+       	background-color: #fff;
+        color: #292929;
+        
+}
+
+.navbar-link > img:active{
+       	background-color: #fff;
+        color: #292929;
+        
+}
+
+.navbar-link-report b{
+width:75px;
+height:25px;
+margin-top:5px;
+padding-left:3px;
+margin-left:5px;
+border:1px solid white; 
+font-family: Dosis-Regular;
+font-size:16px;
+color:#fff;
+}
+
+.navbar-defaults > a:hover > b {
+       	background-color: #fff;
+        color: #292929;
+        
+}
+
+.navbar-defaults > a:focus > b {
+       	background-color: #fff;
+        color: #292929;
+        
+}
+
+/* .navbar-header img {
+    background-color: #707070;
+    box-shadow: 0px 2px 10px #1A1A1A;
+} */
+
+.container{
+margin-left:40px;
+margin-right:40px;
+width: 93%;
+
+}
+
+/* .pull-right{
+padding-right:55px;
+} */
+
+/* Set Table */
+table.dataTable thead th,
+table.dataTable tfoot th {
+    font-weight: normal;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: 10px 18px;
+    border-bottom: 0px none #111111;
+}
+
+
+table.dataTable.no-footer {
+    border-bottom: 1px none #111111;
+}
+
+.defaultTable {
+    border: none;
+    border-collapse: separate;
+    border-bottom: 0px;
+}
+
+    .defaultTable th {
+        border-left: 0px solid #ffffff;
+        border-right: 1px solid #ffffff;
+    }
+
+        .defaultTable th:last-child {
+            border-right: none;
+        }
+
+    .defaultTable td {
+        border-left: 0px solid #ffffff;
+        border-right: 1px solid #ABABAB;
+    }
+
+        .defaultTable td:first-child {
+            border-left: none;
+        }
+
+        .defaultTable td:last-child {
+            border-right: none;
+        }
+
+    .defaultTable thead {
+        background-color: #ababab;
+    }
+
+        .defaultTable thead tr th {
+            color: #ffffff;
+        }
+
+.dataTables_info {
+    padding-left: 10px;
+}
+
+.defaultTable tbody tr.odd{
+    background-color:#e7e7e7;
+}
+
+.previous, .next {
+    padding: 5px;
+}
+
+.glyphicon-calendar {
+    color: white;
+}
+
+.input-group-addon {
+    background-color: #ff9900;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+/* --------------------------------------------------- nav-bar header --------------------------------------------------  */
+
+#top-container {
+	margin-left: 40px;
+	margin-right: 95px;
+}
+
+#logo {
+	width: 135px;
+	height: 75px;
+}
+
+#navbar-collapse {
+	margin-top: -12px;
+	margin-right: -15px;
+	margin-left: -25px;
+	background-color: #707070;
+}
+
+.navbar-collapse.in {
+	overflow-y: visible;
+}
+
+.container-fluid>.navbar-collapse {
+	margin-right: 0px;
+	margin-left: -15px;
+}
+
+.navbar-black .navbar-toggle {
+	margin-top: 20px;
+	border-color: #fff;
+}
+
+.navbar-black .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+.navbar-black .navbar-toggle:hover, .navbar-black .navbar-toggle:focus {
+	background-color: #555;
+}
+	
+.navbar-black {
+	background: #707070;
+}
+	
+.navbar-black #nav-main>li>a {
+	padding: 25px 15px;
+}
+.navbar-black .navbar-nav>li>a {
+	color: #fff;
+}
+
+.navbar-black .navbar-nav>li>a:hover {
+	color: rgb(222, 145, 4);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-black .navbar-nav>.open>a:hover, .navbar-black .navbar-nav>.open>a:focus {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+/* -------------------------------------------- Logout ------------------------------------- */
+#bgLogout {
+	background-color: #fff;
+	width: 190px;
+	height: 25px;
+	text-align: center;
+}
+#linkLogout {
+	color: #808080;
+}
+	
+#linkLogout:hover {
+	color: rgb(222, 145, 4);
+}
+
+/* -------------------------------------------- END Logout ------------------------------------- */
+	
+.clearFloat {
+	clear: both;
+}
+
+/* -------------------------------------------- Language icon picture ------------------------------------- */
+
+#language-button {
+	margin-top: -40px;
+	margin-right: -16px;
+}
+
+#language-link {
+	background-color: rgba(0, 0, 0, 0);
+	display: inline !important;
+}
+	
+/* -------------------------------------------- END Language icon picture ------------------------------------- */	
+
+.navbar-nav>li>a#btn_report {
+	width: 86px;
+	height: 27px;
+	border: 2px solid #ffffff;
+	padding: 2px 2px 2px 15px;
+	margin-top: 4px;
+	text-decoration: none;
+}
+
+/* -----------------------------------------------Active Report Botton ---------------------------------------  */
+.active-report {
+	background-color: rgb(222, 145, 4) !important;	
+	color: #fff !important;
+}
+
+@media ( max-width : 768px ) {
+	
+		.container {
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+		
+		#top-container {
+			margin-left: 10px;
+			margin-right: 0px;
+		}
+		.navbar-black .navbar-nav>li>a {
+			color: #fff;
+			padding-top: 10px;
+			height: 40px;
+		}
+		.navbar-black .navbar-nav>li>a:hover {
+			color: rgb(222, 145, 4);
+			background-color: #444;
+		}
+		.navbar-black #nav-main>li>a {
+			padding: 10px 5px;
+		}
+		#nav-main {
+			margin-top: 20px;
+		}
+		#taplogout-down {
+			margin-top: 50px;
+			margin-bottom: 10px;
+		}
+		#bgLogout {
+			background-color: #707070 !important;
+			width: 100% !important;
+			height: 25px !important;
+			text-align: left !important;
+			color: #fff !important;
+			margin-top: -10px !important;
+		}
+		.navbar-link-report b {
+			width: 100%;
+			height: 25px;
+			margin-top: 5px;
+			padding-left: 3px;
+			margin-left: 5px;
+			border: none;
+			font-family: Dosis-Regular;
+			font-size: 16px;
+			color: #fff;
+		}
+		#dropdown-menu-report>li>a {
+			color: #fff;
+		}
+		.dropdown-menu>li>a {
+			color: #000;
+		}
+		.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+			background-color: #444;
+		}
+		.nav>li>a:hover, .nav>li>a:focus {
+			background-color: rgba(0, 0, 0, 0);
+		}
+		#linkLogout {
+			color: #fff !important;
+		}
+		#linkLogout:hover {
+			color: rgb(222, 145, 4) !important;
+		}
+		.navbar-black .navbar-nav>.open>a:hover, .navbar-black .navbar-nav>.open>a:focus
+			{
+			background-color: #444;
+			color: rgb(222, 145, 4);
+		}
+		.nav li>a#btn_report {
+			width: 100% !important;
+			height: 40px !important;
+			border: none !important;
+			padding: 10px 5px !important;
+			margin-top: 0px !important;
+		}
+}

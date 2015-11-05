@@ -62,8 +62,11 @@
 			        	   } else {
 			        		   return '<button " class="btn btn-primary" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
 			        	   }
-			        	}}
-			           ],
+			        	}},
+				       { data : function(data){
+				    	   return '<button " class="btn btn-warning data-id="' + data.id + '" data-toggle="modal" data-target="#RmFunctionModal"><span class="glyphicon glyphicon-pencil"></span> '+approve_tx+' </button>';
+				       }},
+			          ],
 			language:{
 			    url: datatablei18n
 			},
