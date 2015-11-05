@@ -75,9 +75,13 @@ $(document).ready(function(){
 								<span class="btn btn-warning btn-file" class="glyphicon glyphicon-picture" style="margin-bottom: 10px;"> 
 									<span class="glyphicon glyphicon-picture"></span> Add Photo 
 									<input id="imageMultipartFile" name="imageMultipartFile" type="file" accept="image/*" class="file"/>
-								</span>
-								<f:hidden path="image" />
+								</span><br>
+								<div style="color: red;font-size: 0.8em;">
+								<span class="glyphicon glyphicon-star" ></span>Image size 20 MB.
+
 							</div>
+							<f:hidden path="image" />
+						</div>
 						</div>
 					</div>
 					
