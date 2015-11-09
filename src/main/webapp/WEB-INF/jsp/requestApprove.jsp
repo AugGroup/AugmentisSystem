@@ -75,6 +75,16 @@
 							<option value='Not Approve'><spring:message code="edit.notApprove" /></option>
 						</select>
 					</div>
+					
+					<div class="form-group">
+						<label for="inputJobcaseStatus">JobcaseStatus</label>
+						<select name="inputJobcaseStatus" id='inputJobcaseStatus' class="form-control">
+							<option value="" label="---Select Function---"></option>
+							<option value='On-boarding'>On-boarding</option>
+							<option value='Full-fill'>Full-fill</option>
+							<option value='Cancel'>Cancel</option>
+						</select>
+					</div>
 					<br>
 					<div align="right">
 				 	<button id="btn_approve_submit" type="button"
@@ -91,8 +101,8 @@
 		</div>
 	</div>
 	
-		<!------------------- Rm Function Modal ------------------->
-	<div class="modal fade" id="RmFunctionModal" tabindex="-1" role="dialog"
+		<!------------------- Jobcase Function Modal ------------------->
+	<div class="modal fade" id="jobcaseStatusModal" tabindex="-1" role="dialog"
 		aria-labelledby="ModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -107,8 +117,8 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="inputRmStatus">RmStatus</label>
-						<select name="inputRmStatus" id='inputRmStatus' class="form-control">
+						<label for="inputJobcaseStatus">JobcaseStatus</label>
+						<select name="inputJobcaseStatus" id='inputJobcaseStatus' class="form-control">
 							<option value="" label="---Select Function---"></option>
 							<option value='On-boarding'>On-boarding</option>
 							<option value='Full-fill'>Full-fill</option>
@@ -117,7 +127,7 @@
 					</div>
 					<br>
 					<div align="right">
-				 	<button id="btn_approve_submit" type="button"
+				 	<button id="btn_jobcaseStatus_submit" type="button"
 						class="btn btn-warning" data-dismiss="modal">
 						<span class="glyphicon glyphicon-save"></span><spring:message code="edit.button.save" />
 					</button>

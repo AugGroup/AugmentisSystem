@@ -9,6 +9,7 @@ $(document).ready(function () {
     var $inputJoblevel = $('#inputJoblevel');
     var $inputTechnology = $('#inputTechnology');
     var $inputStatus = $('#inputStatus');
+    var $inputJobCode = $('#inputJobcaseCode');
     
 	/* ------------------ Date picker format ------------------ */
 	$('.input-group.date').datepicker({
@@ -118,6 +119,7 @@ $(document).ready(function () {
     	 },
     	columns: [
     	          {data: "id"},
+    	          {data: "jobcaseCode"},
     	          {data: "requestDate"},
     	          {data: "requesterName"},
     	          {data: "masJobLevelName"},
@@ -213,6 +215,7 @@ $(document).ready(function () {
 
     /*-------------------- Save Function--------------------*/
     function save(button) {
+    	var jobcaseCode = $inputJobCode.val();
     	var requestDate = $inputRequestDate.val();
     	var numberApplicant = $inputNumberApplicant.val();
     	var specificSkill = $inputSpecificSkill.val();
@@ -221,8 +224,10 @@ $(document).ready(function () {
     	var requestTechnologyId = $inputTechnology.val();
     	var requestJoblevelId = $inputJoblevel.val();
     	var requestId = $("#requestId").val();
+    	var jobcaseStatus = $("#inputJobcaseStatus option:selected").val();
     	
     	var json = {
+    			"jobcaseCode": jobcaseCode,
     			"requestDate": requestDate,
     			"numberApplicant" : numberApplicant,
     			"specificSkill": specificSkill,
@@ -230,9 +235,11 @@ $(document).ready(function () {
     			"technology" : {"id" : requestTechnologyId },
     			"joblevel" : {"id" : requestJoblevelId },
     			"status": status,
+    			"jobcaseStatus": jobcaseStatus,
     			"requester": {"id" : requestId}
     			};
     	console.log(json);
+    	console.log(jobcaseStatus);
     	var isValid = $("#requestForm").valid();
         //debugger;
         if(isValid){
@@ -245,8 +252,8 @@ $(document).ready(function () {
         			console.log(data);
         			$('#addRequestModal').modal('hide');
         			dtRequest.ajax.reload();
-        			//console.log(data.requesterName);
-        			
+        			console.log(data.jobcaseCode);
+        			console.log(data.jobcaseStatus);
         			setNotAllowed();
         			
         			new PNotify({
@@ -282,6 +289,7 @@ $(document).ready(function () {
     
     /*-------------------- Edit Function (Fill Data)--------------------*/
     function editShowData(data) {
+    	$inputJobCode.val(data.jobcaseCode)
     	$inputRequesterName.val(data.requesterName);
     	$inputRequestDate.val(data.requestDate);
     	$inputNumberApplicant.val(data.numberApplicant);
@@ -295,6 +303,7 @@ $(document).ready(function () {
     /*-------------------- Edit Function --------------------*/
     function edit(button){
         var id = $(button).data("id");
+        var jobcaseCode = $inputJobCode.val();
     	var requestName = $inputRequesterName.val();
     	var requestDate = $inputRequestDate.val();
     	var approvalName = $inputApprovalName.val();
@@ -313,6 +322,7 @@ $(document).ready(function () {
         
         var request = {
             'id': id,
+            'jobcaseCode' : jobcaseCode,
             'requesterName': requestName,
             'requestDate' : requestDate,
             'approvalName' : approvalName,
@@ -335,7 +345,10 @@ $(document).ready(function () {
 	            data: JSON.stringify(request),
 	            success: function (data) {
 	                var dt = dtRequest.data();
+	                console.log(data.jobcaseCode);
+	                
 	                dt.id = data.id;
+	                dt.jobcaseCode = data.jobcaseCode;
 	                dt.requesterName = data.requesterName;
 	                dt.requestDate = data.requestDate;
 	                dt.approvalName = data.approvalName;
@@ -391,6 +404,7 @@ $(document).ready(function () {
     function previewShowData(data){
     	$('#tx_requester').text(data.requesterName);
         $('#tx_requestDate').text(data.requestDate);
+        $('#tx_jobcaseCode').text(data.jobcaseCode);
                 
         if(!data.approvalName ){
         	$('#tx_approvalName').text("-");

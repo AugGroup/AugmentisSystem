@@ -70,9 +70,10 @@ public class RequestApproveController implements Serializable {
 		
 		Employee employee = employeeService.findById(augRequestDTO.getApproverId());
 		Hibernate.initialize(employee.getApplicant());
-			
+		
 		AugRequest augRequest = augRequestService.findById(augRequestDTO.getId());
 		augRequest.setStatus(augRequestDTO.getStatus());
+		augRequest.setJobcaseStatus(augRequestDTO.getJobcaseStatus());
 		augRequest.setApprover(employee);
 		augRequest.setApproveDate(augRequestDTO.getApproveDate());
 		augRequestService.update(augRequest);

@@ -38,7 +38,7 @@
 		sort : false,
 		ajax: {
 			type: "GET",
-			url: 'request/search',
+			url: contextPath + '/request/search',
 			data: function (d) {
 				$("#id").val(d.id);
 				$("#requestDate").val(d.requestDate);
@@ -46,25 +46,32 @@
 				$("#technology").val(d.masTechnologyName);
 				$("#numberApplicant").val(d.numberApplicant);
 				$("#status").val(d.status);
+				$("#inputJobcaseStatus").val(d.jobcaseStatus);
 				}
 			},
 			columns : [
 			           {"data": "id"},
+			           {"data": "jobcaseCode"},
 			           {"data": "requestDate"},
 			           {"data": "requesterName"},
 			           {"data": "masJobLevelName"},
 			           {"data": "masTechnologyName"},
 			           {"data": "numberApplicant"},
 			           {"data": "status"},
+			           {"data": "jobcaseStatus"},
 			           {data: function (data) {
-			        	   if(data.status == "Approve"){
-			        		   return '<button " class="btn btn-primary disabled btn_approve" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
-			        	   } else {
+//			        	   if(data.status == "Approve"){
+//			        		   return '<button " class="btn btn-primary disabled btn_approve" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
+//			        	   } else {
 			        		   return '<button " class="btn btn-primary" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
-			        	   }
+//			        	   }
 			        	}},
-				       { data : function(data){
-				    	   return '<button " class="btn btn-warning data-id="' + data.id + '" data-toggle="modal" data-target="#RmFunctionModal"><span class="glyphicon glyphicon-pencil"></span> '+approve_tx+' </button>';
+				       {data: function (data) {
+				    	   if(data.status == "Approve"){
+				    		   return '<button " class="btn btn-warning" data-id="' + data.id + '" data-toggle="modal" data-target="#jobcaseStatusModal"><span class="glyphicon glyphicon-pencil"></span> '+approve_tx+' </button>';
+				    	   } else {
+				    		   return '<button " class="btn btn-warning disabled btn_approve" data-id="' + data.id + '" data-toggle="modal" data-target="#jobcaseStatusModal"><span class="glyphicon glyphicon-pencil"></span> '+approve_tx+' </button>';
+				    	   }
 				       }},
 			          ],
 			language:{
@@ -85,9 +92,22 @@
 			editSearch(id);
 			$('#btn_approve_submit').off('click').on('click', function () {
 				approve(button);
-				});
-			}
-		});
+			});
+		}
+	});
+	
+	/*------------------- JobcaseStatus Modal Function------------------- */
+	$('#jobcaseStatusModal').on('shown.bs.modal', function (e) {
+		var button = e.relatedTarget;
+		var id = $(button).data("id");
+		if(id !== null){
+			editSearch(id);
+			$('#btn_jobcaseStatus_submit').off('click').on('click', function(){
+				approve(button);
+			});
+		}
+	});
+	
 	/*------------------- Edit Function (Search id and fill)------------------- */
 	function editSearch(id) {
     	$.ajax({
@@ -95,19 +115,66 @@
     		type: 'POST',
     		success: function (data) {
     			 $('#inputStatus').val(data.status);
-    			 /* console.log(data.status); */
     		}
     	});
     }
+	
+	/*------------------- Approve JobcaseStatus ------------- */
+	function jobcaseStatus(button){
+		var id = $(button).data("id");
+		var jobcaseStatus = $('#inputJobcaseStatus option:selected').val();
+		var index = dtRequest.row(button.closest("tr")).index();
+		
+		console.log(jobcaseStatus);
+		var json = {
+				'id': id,
+				'jobcaseStatus': jobcaseStatus,
+				};
+		
+		$.ajax({
+			contentType: "application/json",
+			type: "POST",
+			url: 'approve/update/' + id,
+			data: JSON.stringify(json),
+			success: function (data) {
+				var dt = dtRequest.data();
+				dt.id = data.id;
+				dt.jobcaseStatus = data.jobcaseStatus;
+				
+				$("#jobcaseStatusModal").modal('hide');
+				
+				dtRequest.ajax.reload();
+				
+				new PNotify({
+			        title: pnotifySuccess,
+			        text: pnotifyEdit,
+			        type: 'success',
+			        delay: 1000,
+			        buttons:{
+			        	closer_hover: false,
+			        	sticker: false
+			        }		
+			    });
+			},
+			error : function() {
+				alert("error");
+				}
+			});
+	}
+	
 	/*------------------- Approve Function------------------- */
 	function approve(button) {
 		var id = $(button).data("id");
 		var status = $('#inputStatus option:selected').val();
+		var jobcaseStatus = $('#inputJobcaseStatus option:selected').val();
 		var index = dtRequest.row(button.closest("tr")).index();
 		var approveId = $('#approveId').val();
+		
+		console.log(jobcaseStatus);
 		var json = {
 				'id': id,
 				'status': status,
+				'jobcaseStatus': jobcaseStatus,
 				'approverId': approveId,
 				'approveDate': moment(new Date()).format('DD-MM-YYYY')
 				};
@@ -118,7 +185,6 @@
 			url: 'approve/update/' + id,
 			data: JSON.stringify(json),
 			success: function (data) {
-				
 				var dt = dtRequest.data();
 				dt.id = data.id;
 				dt.requesterName = data.requesterName;
@@ -127,6 +193,7 @@
 				dt.masTechnologyName = data.masTechnologyName;
 				dt.numberApplicant = data.numberApplicant;
 				dt.status = data.status;
+				dt.jobcaseStatus = data.jobcaseStatus;
 				
 				$("#approveModal").modal('hide');
 				

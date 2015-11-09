@@ -68,6 +68,7 @@
 			<thead>
 				<tr>
 					<th><spring:message code="request.id" /></th>
+					<th>JobcaseCode</th>
 					<th><spring:message code="request.date" /></th>
 					<th><spring:message code="request.human" /></th>
 					<th><spring:message code="main.position1" /></th>
@@ -106,6 +107,11 @@
 								<input type="hidden" id="technologyId" name="technologyId">
 								<input type="hidden" id="degreeType" name="degreeType">
 								<input type="hidden" id="requestId" name="requestId" value="${ employee.id }">
+							</div>
+							
+							<div class="form-group">
+								<label for="inputJobcaseCode">JobcaseCode</label> 
+								<input type="text" class="form-control" name="inputJobcaseCode" id="inputJobcaseCode"/>
 							</div>
 							
 							<div class="form-group">
@@ -164,10 +170,8 @@
 							</div>
 							
 							<div class="form-group">
-								<label for="inputStatus"><spring:message code="main.status" /></label> 
-								<select name="inputStatus" id='inputStatus' class="form-control">
-									<option value='New Request' selected='selected'><spring:message code="request.new" /></option>
-								</select>
+								<label for="inputStatus"><spring:message code="main.status" /></label>
+								<input type="text" class="form-control" name="inputStatus" id="inputStatus" value='<spring:message code="request.new" />' disabled="disabled"/>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -229,6 +233,10 @@
 					<h4 class="modal-title" id="ModalLabel"><spring:message code="request.desc" /></h4>
 				</div>
 				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;">JobcaseCode: </div>
+						<div class="col-md-6"><p id="tx_jobcaseCode"></p></div>
+					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.request" /></div>
 						<div class="col-md-6"><p id="tx_requester"></p></div>

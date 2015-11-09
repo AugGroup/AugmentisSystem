@@ -84,9 +84,7 @@ public class AugRequestController implements Serializable {
 	public @ResponseBody AugRequestDto searchRequestById(
 			@PathVariable Integer id, Model model){
 		//AugRequestDTO augRequest = augRequestService.findAugRequestById(500);//test 404 resource not found
-		AugRequestDto augRequest = augRequestService.findAugRequestById(id);
-		
-		return augRequest;
+		return augRequestService.findAugRequestById(id);
 	}
 
 	
@@ -112,8 +110,10 @@ public class AugRequestController implements Serializable {
 		AugRequest augRequest = augRequestService.findById(augRequestDto.getId());
 		
 		augRequest.setId(augRequestDto.getId());
+		augRequest.setJobcaseCode(augRequestDto.getJobcaseCode());
 		augRequest.setRequestDate(augRequestDto.getRequestDate());
 		augRequest.setStatus(augRequestDto.getStatus());
+		augRequest.setJobcaseStatus(augRequestDto.getJobcaseStatus());
 		augRequest.setApproveDate(augRequestDto.getApproveDate());
 		augRequest.setJoblevel(masJoblevel);
 		augRequest.setTechnology(masTechnology);
