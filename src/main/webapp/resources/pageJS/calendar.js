@@ -297,8 +297,6 @@ function setApplicantNameList(){//set Applicant
 			$penndingApproveNameListSm.empty();
 			$penndingApproveNameListMd.empty();
 			$.each(data, function(i, item) {
-				
-				
 			    var getName = data[i].firstNameEN +" "+ data[i].lastNameEN +" ( " + (data[i].technologyStr == '-' ? '' : data[i].technologyStr) + " " + data[i].joblevelStr + "  )";
 			    var $div = "<div id='"+data[i].id+"' role='button' "+
 			    			"class='list-group-item applicant-list-item' >"+getName+"</div>";
@@ -316,7 +314,7 @@ function setApplicantNameList(){//set Applicant
 
 function setApplicant(trackingStatus){
 	$.ajax({
-		url : "/RmSystem/calendar/findByTrackingStatus/" + trackingStatus,
+		url : "calendar/findByTrackingStatus/" + trackingStatus,
 		type : "GET",
 		dataType : "json",
 		success : function(data){
@@ -342,7 +340,7 @@ function findNoEmailSending(){
 		contentType : "application/json",
 		dataType : "json",
 		success : function(data){
-			$(".noSendEmail").html("<span class='label label-nosend'>   </span> <span class='badge'>"+data+"</span> &nbsp;&nbsp;"+appointmentEmailNosent);
+			$(".noSendEmail").html("<span class='label' style='background-color: #FF4512;'>   </span> <span class='badge'>"+data+"</span> &nbsp;&nbsp;"+appointmentEmailNosent);
 		},
 		error : function(){
 			alert("Load appointment error")
@@ -357,7 +355,7 @@ function findNoEmailUpdate(){
 		contentType : "application/json",
 		dataType : "json",
 		success : function(data){
-			$(".noEmailUpdate").html("<span class='label label-noupdate'>   </span> <span class='badge'>"+data+"</span> &nbsp;&nbsp;"+appointmentEmailNoUpdate);
+			$(".noEmailUpdate").html("<span class='label' style='background-color: #EBCD26;'>   </span> <span class='badge'>"+data+"</span> &nbsp;&nbsp;"+appointmentEmailNoUpdate);
 		},
 		error : function(){
 			alert("Load appointment error")
@@ -372,7 +370,7 @@ function findEmailSent(){
 		contentType : "application/json",
 		dataType : "json",
 		success : function(data){
-			$(".emailSent").html("<span class='label label-mailsent'>   </span> <span class='badge'>"+data+"</span> &nbsp;&nbsp;"+appointmentEmailSuccess);
+			$(".emailSent").html("<span class='label' style='background-color: #91E650;'>   </span> <span class='badge'>"+data+"</span> &nbsp;&nbsp;"+appointmentEmailSuccess);
 		},
 		error : function(){
 			alert("Load appointment error")
@@ -446,26 +444,8 @@ function renderCalendar(){
 		eventSources: [
 		    {
 				url : 'calendar/findAppointment',
-				data : { mailStatus : 0},
 				success: function(data) {},
 				error: function() {},
-				color : "#FF4512",
-				textColor :'white'
-		    },
-		    {
-				url : 'calendar/findAppointment',
-				data : { mailStatus : 1},
-				success: function(data) {},
-				error: function() {},
-				color : "#91E650",
-				textColor :'white'
-		    },
-		    {
-				url : 'calendar/findAppointment',
-				data : { mailStatus : 2},
-				success: function(data) {},
-				error: function() {},
-				color : "#EBCD26",
 				textColor :'white'
 		    }
 		],
@@ -504,16 +484,16 @@ function renderCalendar(){
 			eventdata = event;
 	    } ,
 		eventAfterRender: function (event, element) {
-			var colorClass;
-			if(event.mailStatus==0){
-				colorClass = "nosend";
-			}else if(event.mailStatus==1){
-				colorClass = "sent";
-			}else if(event.mailStatus==2){
-				colorClass = "noupdate";
-			}
+//			var colorClass;
+//			if(event.mailStatus==0){
+//				colorClass = "nosend";
+//			}else if(event.mailStatus==1){
+//				colorClass = "sent";
+//			}else if(event.mailStatus==2){
+//				colorClass = "noupdate";
+//			}
 			
-			var divTemplate = '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title '+colorClass+'"></h3><div class="popover-content"></div></div>'
+			var divTemplate = '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title" style="color:#ffffff; background-color: '+event.color+';"></h3><div class="popover-content"></div></div>'
 			
 			element.popover({
 	            title: event.topic,
@@ -637,7 +617,8 @@ $( function(){
 					detail : $("#appoint_detail").val(),
 					start: insStart.tz("Asia/Bangkok").format("YYYY-MM-DD HH:mm:ss"),
 					end : insEnd.tz("Asia/Bangkok").format("YYYY-MM-DD HH:mm:ss"),
-					mailStatus : 0
+					mailStatus : 0,
+					color: '#FF4512'
 					//applicant : { id : 1/*$("#applicantName option:selected").val()*/}
 					/* login : login_id who insert this appointment will insert in controller :) */
 			};
@@ -736,5 +717,4 @@ $( function(){
 			 });
 			 }  
 		 })
-		
-});//end doc ready
+ });//end doc ready

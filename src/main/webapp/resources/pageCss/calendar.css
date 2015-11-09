@@ -109,6 +109,8 @@ div.popover > h3.popover-title.success{
 	width : 270px;
 	padding-top: 10px;
     padding-bottom: 15px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 span.label-danger{
@@ -121,4 +123,10 @@ span.label-warning{
 
 span.label-success{
 	background-color: #91E650;
+}
+
+#trackingStatusPanelMd{
+	background-color: #E0DFDD;
+    margin: 7%;
+    width: 125%;
 }
