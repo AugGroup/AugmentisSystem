@@ -153,7 +153,7 @@ $(document).ready(function () {
      }
         
     /*-------------------- Delete Modal Function--------------------*/
-    $('#deleteModal').off("click").on('shown.bs.modal', function (e) {
+    $('#deleteModal').off("click").on('show.bs.modal', function (e) {
     	var button = e.relatedTarget;
         var id = $(button).data("id");
         if (id !== null) {
@@ -195,7 +195,7 @@ $(document).ready(function () {
         
         
     /*-------------------- Save and Edit Request Modal Function--------------------*/
-    $('#addRequestModal').off("click").on('shown.bs.modal', function (e) {
+    $('#addRequestModal').off("click").on('show.bs.modal', function (e) {
     	var button = e.relatedTarget;
     	if (button != null) {
     		var id = $(button).data("id");
@@ -385,7 +385,7 @@ $(document).ready(function () {
     }
 
     /*-------------------- Preview Modal Function --------------------*/
-    $('#previewModal').off("click").on('shown.bs.modal', function (e) {
+    $('#previewModal').off("click").on('show.bs.modal', function (e) {
         var button = e.relatedTarget;
         var id = $(button).data("id");
         if (id !== null) {

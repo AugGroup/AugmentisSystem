@@ -60,11 +60,11 @@
 			           {"data": "status"},
 			           {"data": "jobcaseStatus"},
 			           {data: function (data) {
-//			        	   if(data.status == "Approve"){
-//			        		   return '<button " class="btn btn-primary disabled btn_approve" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
-//			        	   } else {
+			        	   if(data.status == "Approve"){
+			        		   return '<button " class="btn btn-primary disabled btn_approve" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
+			        	   } else {
 			        		   return '<button " class="btn btn-primary" data-id="' + data.id + '" data-toggle="modal" data-target="#approveModal"><span class="glyphicon glyphicon-edit"></span> '+approve_tx+' </button>';
-//			        	   }
+			        	   }
 			        	}},
 				       {data: function (data) {
 				    	   if(data.status == "Approve"){
@@ -85,7 +85,7 @@
 	}
 		
 	/*------------------- Approve Modal Function------------------- */
-	$('#approveModal').on('shown.bs.modal', function (e) {
+	$('#approveModal').on('show.bs.modal', function (e) {
 		var button = e.relatedTarget;
 		var id = $(button).data("id");
 		if (id !== null) {
@@ -97,10 +97,10 @@
 	});
 	
 	/*------------------- JobcaseStatus Modal Function------------------- */
-	$('#jobcaseStatusModal').on('shown.bs.modal', function (e) {
+	$('#jobcaseStatusModal').on('show.bs.modal', function (e) {
 		var button = e.relatedTarget;
 		var id = $(button).data("id");
-		if(id !== null){
+		if(id != null){
 			editSearch(id);
 			$('#btn_jobcaseStatus_submit').off('click').on('click', function(){
 				approve(button);
@@ -114,7 +114,13 @@
     		url: 'request/search/' + id,
     		type: 'POST',
     		success: function (data) {
-    			 $('#inputStatus').val(data.status);
+    			 if(data.status == 'New Request'){
+    				 $('#inputStatus').val('');
+    			 }else{
+    				 $('#inputStatus').val(data.status);
+        			 $('#inputJobcaseStatus').val(data.jobcaseStatus);
+    			 }
+    			 
     		}
     	});
     }
@@ -169,8 +175,6 @@
 		var jobcaseStatus = $('#inputJobcaseStatus option:selected').val();
 		var index = dtRequest.row(button.closest("tr")).index();
 		var approveId = $('#approveId').val();
-		
-		console.log(jobcaseStatus);
 		var json = {
 				'id': id,
 				'status': status,
@@ -219,7 +223,7 @@
 		}
 	
     //set default date
-    $("#addRequestModal").on('shown.bs.modal', function() {
+    $("#addRequestModal").on('show.bs.modal', function() {
     	$("#inputApproveDate").val(moment(new Date()).format('DD-MM-YYYY'));
     });
     

@@ -76,15 +76,16 @@
 						</select>
 					</div>
 					
-					<div class="form-group">
-						<label for="inputJobcaseStatus">JobcaseStatus</label>
-						<select name="inputJobcaseStatus" id='inputJobcaseStatus' class="form-control">
-							<option value="" label="---Select Function---"></option>
-							<option value='On-boarding'>On-boarding</option>
-							<option value='Full-fill'>Full-fill</option>
-							<option value='Cancel'>Cancel</option>
-						</select>
-					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<label for="inputJobcaseStatus">JobcaseStatus</label> -->
+<!-- 						<select name="inputJobcaseStatus" id='inputJobcaseStatus111' class="form-control"> -->
+<!-- 							<option value="" label="---Select Function---"></option> -->
+<!-- 							<option value='On-boarding'>On-boarding</option> -->
+<!-- 							<option value='Full-fill'>Full-fill</option> -->
+<!-- 							<option value='Cancel'>Cancel</option> -->
+<!-- 						</select> -->
+<!-- 					</div> -->
+					
 					<br>
 					<div align="right">
 				 	<button id="btn_approve_submit" type="button"
