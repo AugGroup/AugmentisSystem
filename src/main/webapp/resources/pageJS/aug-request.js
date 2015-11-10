@@ -222,7 +222,9 @@ $(document).ready(function () {
     	var yearExperience = $inputYearExperience.val();
     	var status = $inputStatus.val();
     	var requestTechnologyId = $inputTechnology.val();
+    	var requestTechnologyName = $("#inputTechnology option:selected").text();
     	var requestJoblevelId = $inputJoblevel.val();
+    	var requestJoblevelName = $("#inputJoblevel option:selected").text();
     	var requestId = $("#requestId").val();
     	var jobcaseStatus = $("#inputJobcaseStatus option:selected").val();
     	
@@ -255,7 +257,7 @@ $(document).ready(function () {
         			console.log(data.jobcaseCode);
         			console.log(data.jobcaseStatus);
         			setNotAllowed();
-        			
+        			       
         			new PNotify({
 				        title: pnotifySuccess,
 				        text: pnotifyAdd,
@@ -266,6 +268,32 @@ $(document).ready(function () {
 				        	sticker: false
 				        }		
 				    });
+        			
+        			$('#emailModal').modal('show');
+        	        $('#email_requestDate').text(requestDate);
+        	        $('#email_jobcaseCode').text(jobcaseCode);
+        	        $('#email_noOfApplicant').text(numberApplicant);
+        	        $('#email_specificSkill').text(specificSkill);
+        	        $('#email_yearExperience').text(yearExperience);
+        	        $('#email_jobLevel').text(requestJoblevelName);
+
+        	        if(requestTechnologyName != "please select data"){
+        	        	$('#email_technology').text(requestTechnologyName);
+        	        }else{
+        	        	$('#email_technology').text("-")
+        	        }
+        	        
+        	        $("#btn_confirm").off().on("click",function(){
+        	        	$.ajax({
+        	        		contentType: "application/json",
+        	        		type: "POST",
+        	        		url: 'request/sendEmail',
+        	        		data: JSON.stringify(json),
+        	        		success: function (data) {
+        	        			
+        	        		}
+        	        	});
+        	        });
 				},
 				error : function() {
 					alert("error");

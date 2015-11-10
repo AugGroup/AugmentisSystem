@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.context.Context;
+import org.codehaus.groovy.util.Finalizable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,6 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Appointment;
+import com.aug.hrdb.entities.AugRequest;
+import com.aug.hrdb.services.MasJoblevelService;
+import com.aug.hrdb.services.MasTechnologyService;
 
 @Transactional
 @Service(value="emailService")
@@ -30,6 +34,12 @@ public class EmailService {
 	
 	@Autowired
 	private VelocityEngine velocityEngine;
+	
+	@Autowired
+	private MasJoblevelService masJoblevelService;
+	
+	@Autowired
+	private MasTechnologyService masTechnologyService;
 
 	public void sendEmail(final String receiver, final String cc, final String subject, 
 			final String content,HttpServletRequest request) throws UnsupportedEncodingException {
@@ -135,6 +145,49 @@ public class EmailService {
 		          FileSystemResource map = new FileSystemResource(path + "map.jpg");
 		          message.addAttachment(map.getFilename(), map);
 		          
+		          message.setText(encode, true);
+		  }
+		};
+		
+		//send email
+		mailSender.send(preparator);
+	}
+	
+	public void sendNewJobCaseMail(final Applicant sender,
+			final String subject, final AugRequest augRequest, final String content, HttpServletRequest request) throws UnsupportedEncodingException {
+		//date format
+		SimpleDateFormat formatDate = new SimpleDateFormat("dd MMM yyyy");
+		
+		////create mail
+		velocityEngine.init();
+		StringWriter writer = new StringWriter();
+		
+		//define variable in mail template
+		Context context = new VelocityContext();
+		context.put("CODE", augRequest.getCodeRequest());
+		context.put("REQUESTER", sender.getFirstNameEN() + " " + sender.getLastNameEN());
+		context.put("REQUESTE_DATE", formatDate.format(augRequest.getCreatedTimeStamp()));
+		context.put("JOB_LEVEL",  masJoblevelService.find(augRequest.getJoblevel().getId()).getName());
+		context.put("TECHNOLOGY", masTechnologyService.find(augRequest.getTechnology().getId()).getName());
+		context.put("QUANTITY", augRequest.getNumberApplicant());
+		context.put("SKILL", augRequest.getSpecificSkill());
+		context.put("EXPERIENCE", augRequest.getYearExperience());
+		
+		//merge context and writer to String 
+		velocityEngine.evaluate(context, writer, "Email", content); 
+		
+		//encode Template
+		final String encode = new String(writer.toString().getBytes("UTF-8"),"UTF-8");
+		
+		//create mime message
+		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+		  public void prepare(MimeMessage mimeMessage) throws Exception {
+		          MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+//		          message.setTo(receiver.getEmail());
+		          message.setFrom("anat.abd@augmentis.biz", "Anat Abdullagasim");
+		          //message.setTo(sender.getEmail());
+		          message.setTo("bp_clash@hotmail.com");
+		          message.setSubject(subject);
 		          message.setText(encode, true);
 		  }
 		};

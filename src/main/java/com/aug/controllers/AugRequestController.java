@@ -1,12 +1,23 @@
 package com.aug.controllers;
 
 import java.io.Serializable;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.context.Context;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -21,15 +32,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.aug.hrdb.dto.AugRequestDto;
+import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.AugRequest;
 import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Login;
+import com.aug.hrdb.entities.MailTemplate;
 import com.aug.hrdb.entities.MasJoblevel;
 import com.aug.hrdb.entities.MasTechnology;
 import com.aug.hrdb.services.AugRequestService;
 import com.aug.hrdb.services.LoginService;
+import com.aug.hrdb.services.MailTemplateService;
 import com.aug.hrdb.services.MasJoblevelService;
 import com.aug.hrdb.services.MasTechnologyService;
+import com.aug.services.EmailService;
 
 /**
  *
@@ -46,8 +61,21 @@ public class AugRequestController implements Serializable {
 	private MasTechnologyService masTechnologyService;
 	@Autowired
 	private MasJoblevelService masJoblevelService;
+	
+	@Autowired
+	private MailTemplateService mailTemplateService;
+	
 	@Autowired
 	private LoginService loginService;
+	
+	@Autowired
+	private EmailService emailService;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	@Autowired
+	private VelocityEngine velocityEngine;
 
 	@Transactional
 	@RequestMapping(value = "/request", method = { RequestMethod.GET })
@@ -92,11 +120,33 @@ public class AugRequestController implements Serializable {
 	/*-------------------- Save Request--------------------*/
 	@Transactional
 	@RequestMapping(value = "/request/save", method = RequestMethod.POST)
-	public @ResponseBody AugRequest saveRequest(@RequestBody AugRequest augRequest,HttpSession session,Model model){
+	public @ResponseBody AugRequest saveRequest(@RequestBody AugRequest augRequest,HttpSession session,Model model) throws UnsupportedEncodingException{
+		
+		augRequestService.create(augRequest);
+		AugRequest augRe = augRequestService.findById(augRequest.getId());
+			
+		return augRe;
+	}
+	
+	@Transactional
+	@RequestMapping(value = "/request/sendEmail", method = RequestMethod.POST)
+	public @ResponseBody AugRequest sendEmail(@RequestBody AugRequest augRequest,HttpServletRequest request,HttpSession session,Model model) throws UnsupportedEncodingException{
 		
 		augRequestService.create(augRequest);
 		AugRequest augRe = augRequestService.findById(augRequest.getId());
 		
+			//find employee
+			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			System.out.println("userName : " + userDetails.getUsername());
+			Login login = loginService.findByUserName(userDetails.getUsername());
+			Employee employee = login.getEmployee();
+			Applicant sender = employee.getApplicant();
+			System.out.println("sender: " + sender.getFirstNameEN());
+			MailTemplate content = mailTemplateService.findByName("New Job Case");
+			String subject = "You have new job case " + augRequest.getCodeRequest();
+			//create mail
+			emailService.sendNewJobCaseMail(sender, subject,augRe, content.getTemplate(), request);
+			
 		return augRe;
 	}
 

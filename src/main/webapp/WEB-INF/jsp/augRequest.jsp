@@ -289,6 +289,63 @@
 		</div>
 	</div>
 
+	<!-------------------- Confirm send email Model -------------------->
+	<div class="modal fade" id="emailModal" tabindex="-1" role="dialog"
+	aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close"><span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="ModalLabel">
+						Confirm to send E-mail
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;">JobcaseCode: </div>
+						<div class="col-md-6"><p id="email_jobcaseCode"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.request.date" /></div>
+						<div class="col-md-6"><p id="email_requestDate"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.job" /></div>
+						<div class="col-md-6"><p id="email_jobLevel"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.tech" /></div>
+						<div class="col-md-6"><p id="email_technology"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.number.appli" /></div>
+						<div class="col-md-6"><p id="email_noOfApplicant"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.spec.skill" /></div>
+						<div class="col-md-6"><p id="email_specificSkill"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.year.exper" /></div>
+						<div class="col-md-6"><p id="email_yearExperience"></p></div>
+					</div>
+			
+				</div>
+				<div class="modal-footer">
+					<div class="row" style="float: right; padding-right: 20px;">
+							<button id="btn_confirm" type="button" class="btn btn-warning" data-dismiss="modal">
+								<span class="glyphicon glyphicon glyphicon-ok "></span>Confirm
+							</button>
+							<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
+								<spring:message code="button.cancel" />
+							</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-------------------- Exception Model -------------------->
 	<!-- <div class="modal fade" id="exceptionModal" tabindex="-1" role="dialog"
 		aria-labelledby="ModalLabel" aria-hidden="true">
