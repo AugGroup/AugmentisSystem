@@ -46,7 +46,6 @@ import com.aug.hrdb.dto.ApplicantDto;
 import com.aug.hrdb.dto.AugRequestDto;
 import com.aug.hrdb.dto.CertificationDto;
 import com.aug.hrdb.dto.EducationDto;
-import com.aug.hrdb.dto.EmployeeDto;
 import com.aug.hrdb.dto.ExperienceDto;
 import com.aug.hrdb.dto.FamilyDto;
 import com.aug.hrdb.dto.JoblevelDto;
@@ -57,7 +56,6 @@ import com.aug.hrdb.dto.SearchReportDto;
 import com.aug.hrdb.entities.Ability;
 import com.aug.hrdb.entities.Address;
 import com.aug.hrdb.entities.Applicant;
-import com.aug.hrdb.entities.AugRequest;
 import com.aug.hrdb.entities.Certification;
 import com.aug.hrdb.entities.Education;
 import com.aug.hrdb.entities.Employee;
@@ -229,7 +227,6 @@ public class ApplicantController implements Serializable {
 			Login login = loginService.findByUserName(userDetails.getUsername());
 			System.out.println("LOCATIONAPPLICANT :: " + applicant.getMasLocation());
 			
-			EmployeeDto employeeDto = new EmployeeDto();
 			Employee employee = new Employee();
 
 			employee.setApplicant(applicant);
@@ -243,8 +240,6 @@ public class ApplicantController implements Serializable {
 			employee.setMasLocation(masLocation);
 			employee.setTelHome("00-0000000");
 			employeeService.create(employee);
-			
-			System.out.println("SECCESS" + employee.getId());
 		}
 
 		applicantService.update(applicant);
@@ -438,7 +433,12 @@ public class ApplicantController implements Serializable {
 			throws ParseException {
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		
-		applicantDto.setCode("C"+year+(applicantService.getMaxApplicantId().getId()+1));
+		if(applicantService.getMaxApplicantId().getId() < 10){
+			applicantDto.setCode("C"+year+"0"+(applicantService.getMaxApplicantId().getId()+1));
+		} else {
+			applicantDto.setCode("C"+year+(applicantService.getMaxApplicantId().getId()+1));
+		}
+		
 		
 		if(applicantDto.getImageMultipartFile()!=null&&applicantDto.getImageMultipartFile().getSize()>0){
 			try {
