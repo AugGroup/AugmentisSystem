@@ -20,6 +20,12 @@
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.bootstrap.css'/>"></link>
 <script src='<c:url value ="/static/resources/js/alertify.js"/>'></script>
 
+<!-- Date Time Picker -->
+<script src='<c:url value ="/static/resources/js/moment.js"/>'></script>
+<script src="<c:url value="/static/resources/js/bootstrap-datetimepicker.js" />"></script>
+<link href="<c:url value="/static/resources/css/bootstrap-datetimepicker.min.css" />" rel="stylesheet" media="all">
+
+
 <script src='<c:url value ="/static/resources/js/bootstrap-datepicker.min.js"/>'></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/bootstrap-datepicker3.min.css"/>" />
 
@@ -42,7 +48,6 @@
 <script src='<c:url value ="/static/resources/js/dataTables.bootstrap.js"/>'></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/dataTables.bootstrap.css"/>" />
 
-<script src='<c:url value ="/static/resources/js/moment.js"/>'></script>
 <script src='<c:url value ="/static/resources/js/daterangepicker.js"/>'></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/daterangepicker-bs3.css"/>" />
 

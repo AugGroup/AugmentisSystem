@@ -5,6 +5,7 @@ var dataUpdate;
 var getIndex = 0;
 
 	$(document).ready(function() {
+		 		
 		new jQueryCollapse($("#collapse-show-hide-info"), {
 		      open: function() {
 		        this.slideDown(300);
@@ -134,10 +135,12 @@ $("#validateAddress").validate({
 		     async: false,  
 		    
 		     success : function(data) {  
-		   	       
 		    	 		val=data;
 		    	 		//console.log('a: '+val[0].id);
-			     } 
+		     },
+		     error:function(error){
+		    	 console.log(error);
+		     }
 		    
 		     }); 	
 		    
@@ -962,7 +965,7 @@ if($('#previousEmployer').val()=="No"){
 							 
 							 var appId = $('#appId').val();
 							 
-							// alert("app: "+appId);
+							 /*console.log("app: "+appId);*/
 							 
 							 var id=0;
 							 var status="add";
@@ -1411,7 +1414,11 @@ if($('#previousEmployer').val()=="No"){
 							} 
 						}); 
 					}
-
+				
+			 
+			   		
+			  
+			   		
 			   		$('.renew').click(function() {
 				
 					 if( $('#id').val()==null||$('#id').val()===''){
@@ -1420,6 +1427,89 @@ if($('#previousEmployer').val()=="No"){
 						 window.location = $getContextPath+"/employee/init/"+$('#id').val();
 					 }
 				 });
+			
+          
+			   	 //---------------------check Division---------------------
+			   if($("#masDivision").val()!=""){
+				  // $('select option[value='+$("#masDivision").val()+']').attr("selected",true);
+					
+				   console.log("Division"+$("#masDivision").val());
+				   initTagDivision($("#masDivision").val());
+			   }
+			   	
+			   	
+			   	 $("#masDivision").on("change", function(){
+					 var $id = $("#masDivision").val();
+					 var divSelect = $("#masDivision option:selected").text();
+					 console.log(divSelect);
+					 getTagDivision($id);
+					 var find = false;
+					 
+				 })   
+				 
+				
+				 function getTagDivision(id){
+						
+						$.ajax({
+							url : $getContextPath+"/employee/division/"+id,
+							type : "GET",
+							success : function(data) {
+								getTagJoblevel(data);
+							} 
+						}); 
+				 }  
+			   	 
+			   	function getTagJoblevel(tagJob){
+				   		console.log(">>>>>>>>>>"+tagJob);
+						$.ajax({
+							url : $getContextPath+"/employee/joblevel/"+tagJob,
+							type : "GET",
+							success : function(data) {
+					
+								 $('#masJoblevel').html('');
+								for(var i in data){
+								     $('#masJoblevel')
+								         .append($("<option></option>")
+								         .attr("value",data[i].jobId)
+								         .text(data[i].jobName)); 
+								}
+								
+								
+							} 
+						}); 
+					} 
+			   	
+				    function initTagDivision(id){
+						
+							$.ajax({
+								url : $getContextPath+"/employee/division/"+id,
+								type : "GET",
+								success : function(data) {
+									initTagJoblevel(data);
+								} 
+							}); 
+					 } 
+				    
+					function initTagJoblevel(tagJob){
+						$.ajax({
+							url : $getContextPath+"/employee/joblevel/"+tagJob,
+							type : "GET",
+							success : function(data) {
+								var job = $("#masJoblevel").val();
+								console.log("job :"+job);
+								$('#masJoblevel').html('');
+								for(var i in data){
+								     $('#masJoblevel')
+								         .append($("<option></option>")
+								         .attr("value",data[i].jobId)
+								         .text(data[i].jobName)); 
+								}
+								
+								$('select option[value='+job+']').attr("selected",true);
+								
+							} 
+						}); 
+					} 
 			});
 		
 

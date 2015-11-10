@@ -8,9 +8,12 @@
 
 <link href="<c:url value="/static/resources/pageCss/headerHr.css" />" rel="stylesheet" type="text/css">
 <div style="margin-left:15px;">
-<jsp:include page="employeeMenu.jsp"></jsp:include></div>
+	<jsp:include page="employeeMenu.jsp"></jsp:include>
+	<jsp:include page="springMessageVariable.jsp"></jsp:include>
+</div>
+
 <script src="<c:url value="/static/resources/pageJS/employee.js" />"></script>
-<script src="<c:url value="/static/resource/js/jquery.collapse.js" />"></script>
+<script src="<c:url value="/static/resources/js/jquery.collapse.js" />"></script>
 
 
 
@@ -68,7 +71,7 @@
 										<div class="row" align="center">
 										   <c:if test="${empty employeeDto.image}">
 												<div  id="imagePreview" class="img-rounded img-responsive"
-													style="background-image:url('<c:url value="/resource/images/photo_2.jpg" />');">
+													style="background-image:url('<c:url value="/static/resources/images/photo_2.jpg" />');">
 												</div>
 											</c:if>
 											
