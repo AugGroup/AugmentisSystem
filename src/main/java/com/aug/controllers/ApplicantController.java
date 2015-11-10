@@ -43,6 +43,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.aug.hrdb.dto.AbilityDto;
 import com.aug.hrdb.dto.AddressDto;
 import com.aug.hrdb.dto.ApplicantDto;
+import com.aug.hrdb.dto.AugRequestDto;
 import com.aug.hrdb.dto.CertificationDto;
 import com.aug.hrdb.dto.EducationDto;
 import com.aug.hrdb.dto.EmployeeDto;
@@ -56,6 +57,7 @@ import com.aug.hrdb.dto.SearchReportDto;
 import com.aug.hrdb.entities.Ability;
 import com.aug.hrdb.entities.Address;
 import com.aug.hrdb.entities.Applicant;
+import com.aug.hrdb.entities.AugRequest;
 import com.aug.hrdb.entities.Certification;
 import com.aug.hrdb.entities.Education;
 import com.aug.hrdb.entities.Employee;
@@ -76,6 +78,7 @@ import com.aug.hrdb.entities.Reference;
 import com.aug.hrdb.services.AbilityService;
 import com.aug.hrdb.services.AddressService;
 import com.aug.hrdb.services.ApplicantService;
+import com.aug.hrdb.services.AugRequestService;
 import com.aug.hrdb.services.CertificationService;
 import com.aug.hrdb.services.EducationService;
 import com.aug.hrdb.services.EmployeeService;
@@ -151,6 +154,8 @@ public class ApplicantController implements Serializable {
 	private LoginService loginService;
 	@Autowired
 	private ReportService reportService;
+	@Autowired
+	private AugRequestService augRequestService;
 	
 	@RequestMapping(value = {"/","/applicant"}, method = { RequestMethod.GET })
 	public String helloPage(Model model) {
@@ -431,7 +436,6 @@ public class ApplicantController implements Serializable {
 	@RequestMapping(value = "/saveInformations", method = { RequestMethod.POST })
 	public String saveInformations(@ModelAttribute ApplicantDto applicantDto,MultipartFile multipartFile,Model model)
 			throws ParseException {
-		System.out.println("bank");
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		
 		applicantDto.setCode("C"+year+(applicantService.getMaxApplicantId().getId()+1));
@@ -439,7 +443,6 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getImageMultipartFile()!=null&&applicantDto.getImageMultipartFile().getSize()>0){
 			try {
 				applicantDto.setImage(applicantDto.getImageMultipartFile().getOriginalFilename());
-				//System.out.println(applicantDto.getImageMultipartFile().getOriginalFilename());
 				uploadService.upload("Applicant",applicantDto.getImageMultipartFile().getOriginalFilename(),applicantDto.getImageMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
@@ -1101,5 +1104,12 @@ public class ApplicantController implements Serializable {
 	@Transactional
 	public List<MasSpecialty> masspecialtyList(){
 		return masSpecialtyService.findAll();
-	}	
+	}
+	
+	@ModelAttribute("augRequests")
+	@Transactional
+	public List<AugRequestDto> augRequestList(){
+		return augRequestService.getJobcaseCode();
+	}
+
 }

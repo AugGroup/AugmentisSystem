@@ -30,11 +30,11 @@
 		dtRequest.ajax.reload(); // clear and call ajax, draw table?
 	}else{
 		dtRequest = $('#requestTable').DataTable({
-				"columnDefs": [{ "width": "7%", "targets": 0 },
+/*				"columnDefs": [{ "width": "7%", "targets": 0 },
 				               { "width": "10%", "targets": 1 },
 				               { "width": "17%", "targets": 2 },
 				               { "width": "7%", "targets": 4 },
-			             ],
+			             ],*/
 		sort : false,
 		ajax: {
 			type: "GET",

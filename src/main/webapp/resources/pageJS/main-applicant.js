@@ -47,6 +47,7 @@ $(document).ready(function(){
 					},
 				 },
 				 columns:[{data : "code"},
+				          {data : "jobcaseCode"},
 				          {data : "applyDate"},
 					      {data : "firstNameEN"},
 					      {data : "joblevelStr"},

@@ -389,6 +389,9 @@
 						 }
 					 })
 				 })
+				 $("#augRequest").on("change", function(){
+					 var jobcaseCode = $("#augRequest option:selected").text();
+				 })
 				 
 
 });

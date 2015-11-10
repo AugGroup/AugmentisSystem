@@ -97,23 +97,38 @@ $(document).ready(function(){
 					</div>
 					
 					<div class="col-sm-9">
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="col-sm-12">
-								<label for="firstNameEng"><spring:message code="info.firstname.en"/></label>
-								<spring:message code="info.text.first.en" var="firstnameEn"/><br>
-								<f:input path="firstNameEN" id="firstNameEN" name="firstNameEN" placeholder="${firstnameEn}" class="form-control btn-information" type="text"></f:input>
+						<div class="col-sm-6">
+							<div class="col-sm-12" id="jobcaseCode">
+								<label for="augRequest">jobcaseCode </label><br>
+								 <div id="augRequestLists">
+			
+									<f:select  id="augRequest" path="augRequest.id"  class="form-control" >
+			    						
+				    						<option  value="">--- Select Code--- </option>
+				  							<f:options items="${ augRequests }"  itemValue="id" itemLabel="jobcaseCode" />
+				  							
+										</f:select>
+											<br><label for="augRequest" class="error" ></label>
+								</div>
 							</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="col-sm-12">
-								<label for="lastnameEng"><spring:message code="info.lastname.en"/> </label>
-								<spring:message code="info.text.last.en" var="lastnameEn"/><br>
-								<f:input path="lastNameEN" id="lastNameEN" name="lastNameEN" placeholder="${lastnameEn}" class="form-control btn-information" type="text"></f:input>
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="col-sm-12">
+									<label for="firstNameEng"><spring:message code="info.firstname.en"/></label>
+									<spring:message code="info.text.first.en" var="firstnameEn"/><br>
+									<f:input path="firstNameEN" id="firstNameEN" name="firstNameEN" placeholder="${firstnameEn}" class="form-control btn-information" type="text"></f:input>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="col-sm-12">
+									<label for="lastnameEng"><spring:message code="info.lastname.en"/> </label>
+									<spring:message code="info.text.last.en" var="lastnameEn"/><br>
+									<f:input path="lastNameEN" id="lastNameEN" name="lastNameEN" placeholder="${lastnameEn}" class="form-control btn-information" type="text"></f:input>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 				
 				</div>
 				</div>

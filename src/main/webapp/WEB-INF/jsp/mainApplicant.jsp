@@ -71,6 +71,7 @@
 				<thead>
 					<tr>
 						<th><spring:message code="main.code" /></th>
+						<th>JobCode</th>
 						<th><spring:message code="main.date" /></th>
 						<th><spring:message code="main.name" /></th>
 						<th><spring:message code="main.position1" /></th>
