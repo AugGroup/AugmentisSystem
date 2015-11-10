@@ -107,8 +107,10 @@ public class CalendarController {
 		Appointment appointmentToUpdate = appointmentService.find(appointment.getId());
 		if(appointment.getMailStatus()==0){
 			appointmentToUpdate.setMailStatus(0);
+			appointmentToUpdate.setColor("#FF4512");
 		}else {
 			appointmentToUpdate.setMailStatus(2);
+			appointmentToUpdate.setColor("#EBCD26");
 		}
 		/*                Change time for insert                      */
 		Date dateStart = appointment.getStart();//get date from appointment
