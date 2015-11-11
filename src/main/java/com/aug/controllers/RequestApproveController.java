@@ -51,17 +51,6 @@ public class RequestApproveController implements Serializable {
 		return "requestApprove";
 	}
 
-	/*--------------------Search All Request ------------------*/
-	/*@RequestMapping(value = "/request/search", method = { RequestMethod.GET })
-	public @ResponseBody Object findAllApprove() {
-		final List<AugRequestDTO> data = augRequestService.findAllAugRequest();
-		return new Object() {
-			public List<AugRequestDTO> getData(){
-				return data;
-			}
-		};
-	}*/
-
 	/*--------------------Update Approve Status ------------------*/
 	@Transactional
 	@RequestMapping(value = "/approve/update/{id}", method = { RequestMethod.POST })
@@ -80,17 +69,5 @@ public class RequestApproveController implements Serializable {
 		
 		return augRequestService.findAugRequestById(id);
 	}
-	
-	/*--------------------Update Approve Status (Test throws ParseException)------------------*/
-	/*@RequestMapping(value = "/approve/update/{id}", method = { RequestMethod.POST })
-	public @ResponseBody AugRequestDTO editApproveTest(
-			@RequestBody AugRequestDTO augRequestDTO, @PathVariable Integer id)
-			throws ParseException{
-		AugRequest augRequest = augRequestService.findById(augRequestDTO.getId());
-		augRequest.setStatus(augRequestDTO.getStatus());
-		augRequestService.update(augRequest);
-		
-		return augRequestService.findAugRequestById(id);
-	}*/
 
 }
