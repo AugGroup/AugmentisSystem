@@ -212,7 +212,10 @@ $(document).ready(function () {
             	}
             }
     });
-
+    
+    $('#inputRequestDate').off("click")
+    $('#icon-date').off("click")
+    
     /*-------------------- Save Function--------------------*/
     function save(button) {
     	var jobcaseCode = $inputJobCode.val();
@@ -251,7 +254,7 @@ $(document).ready(function () {
         		url: 'request/save',
         		data: JSON.stringify(json),
         		success: function (data) {
-        			console.log(data);
+        			console.log(">>>>"+data.id);
         			$('#addRequestModal').modal('hide');
         			dtRequest.ajax.reload();
         			console.log(data.jobcaseCode);
@@ -285,10 +288,8 @@ $(document).ready(function () {
         	        
         	        $("#btn_confirm").off().on("click",function(){
         	        	$.ajax({
-        	        		contentType: "application/json",
-        	        		type: "POST",
-        	        		url: 'request/sendEmail',
-        	        		data: JSON.stringify(json),
+        	        		type: "GET",
+        	        		url: 'request/sendEmail/'+data.id,
         	        		success: function (data) {
         	        			
         	        		}
@@ -326,6 +327,7 @@ $(document).ready(function () {
     	$inputJoblevel.val(data.joblevelId);
     	$inputTechnology.val(data.technologyId);
     	$inputStatus.val(data.status);
+    	
     }
        
     /*-------------------- Edit Function --------------------*/
@@ -388,7 +390,6 @@ $(document).ready(function () {
 	                dt.masJobLevelName = data.masJobLevelName;
 	                dt.masTechnologyName = data.masTechnologyName;
 	                dtRequest.row(index).data(dt).draw();  
-	               
 	                $("#addRequestModal").modal('hide');
 	                /*dtRequest.ajax.reload();*/ //change to use draw table 
 	                
@@ -404,6 +405,24 @@ $(document).ready(function () {
 				        	sticker: false
 				        }		
 				    });
+	                
+	                $('#emailModal').modal('show');
+	                $('#email_requestDate').text(data.requestDate);
+	                $('#email_jobcaseCode').text(data.jobcaseCode);
+	                $('#email_noOfApplicant').text(data.numberApplicant);
+	                $('#email_specificSkill').text(data.specificSkill);
+	                $('#email_yearExperience').text(data.yearExperience);
+	                $('#email_jobLevel').text(data.masJobLevelName);
+	                $('#email_technology').text(data.masTechnologyName);
+	                $("#btn_confirm").off().on("click",function(){
+	                	$.ajax({
+	                		type: "GET",
+	                		url: 'request/sendEmail/'+data.id,
+	                		success: function (data) {
+	                			
+	                		}
+	                	});
+	                });
 				},
 				error : function() {
 					alert("error");

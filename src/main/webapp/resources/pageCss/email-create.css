@@ -40,3 +40,39 @@
 		margin-top: 10px;
 	}
 }
+
+/*-----------------collapse------------------*/
+h4 {
+  margin: 0;
+  background-color: #F7C11F;
+ 
+}
+
+h4 a {
+  background: url("../images/arrow-down.png") no-repeat;
+  background-position: right center;
+  display: block;
+  padding: 10px;
+  padding-left: 20px;
+  color: black !important;
+  text-decoration: none !important;
+  border-bottom: 3px solid #fff;
+  right: 50px;
+}
+
+h4:hover { 
+	background: #FE9A2E; 
+}
+
+h4.open  { 
+	background: #FE9A2E; 
+}
+
+h4.open a { 
+	background: url("../images/arrow-up.png") no-repeat ; 
+    background-position: right center;
+}
+
+h4 + div { 
+	padding: 10px; 
+}

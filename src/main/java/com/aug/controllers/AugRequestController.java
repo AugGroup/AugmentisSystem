@@ -129,11 +129,9 @@ public class AugRequestController implements Serializable {
 	}
 	
 	@Transactional
-	@RequestMapping(value = "/request/sendEmail", method = RequestMethod.POST)
-	public @ResponseBody AugRequest sendEmail(@RequestBody AugRequest augRequest,HttpServletRequest request,HttpSession session,Model model) throws UnsupportedEncodingException{
-		
-		augRequestService.create(augRequest);
-		AugRequest augRe = augRequestService.findById(augRequest.getId());
+	@RequestMapping(value = "/request/sendEmail/{id}", method = RequestMethod.GET)
+	public @ResponseBody AugRequestDto sendEmail(@PathVariable Integer id,HttpServletRequest request,HttpSession session,Model model) throws UnsupportedEncodingException{
+		AugRequestDto augRe = augRequestService.findAugRequestByIdTest(id);
 		
 			//find employee
 			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -143,7 +141,9 @@ public class AugRequestController implements Serializable {
 			Applicant sender = employee.getApplicant();
 			System.out.println("sender: " + sender.getFirstNameEN());
 			MailTemplate content = mailTemplateService.findByName("New Job Case");
-			String subject = "You have new job case " + augRequest.getCodeRequest();
+			System.out.println("content: " + content);
+			String subject = "You have new job case " + augRe.getJobcaseCode();
+			System.out.println(subject);
 			//create mail
 			emailService.sendNewJobCaseMail(sender, subject,augRe, content.getTemplate(), request);
 			

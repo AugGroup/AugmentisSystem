@@ -21,6 +21,16 @@ function cleanModal() {
 $( document ).ready(function() {
 	var $id;
 	var $name;
+	
+	new jQueryCollapse($("#hint-collapse"), {
+        open: function() {
+          this.slideDown(150);
+        },
+        close: function() {
+          this.slideUp(150);
+        }
+      });
+	
 	$("#mailTemplate").change(function(){		
 		$id = $("#mailTemplate").val();
 		$name = $('#mailTemplate option:selected').text();

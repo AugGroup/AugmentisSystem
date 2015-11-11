@@ -15,9 +15,9 @@
 $(document).ready(function(){
 	$(".emailPage").addClass('active-menu'); 
 	$("#emailCreatePage").addClass('active-menu-sub'); 
+	
 });
 </script>
-
 <div class="container-fluid">
 	
 	<div class="col-sm-1"></div>
@@ -71,15 +71,32 @@ $(document).ready(function(){
 			<div class="col-sm-5">
 				<div id="email-hints">
 					<p class="text-center"><strong id="email-hints-header"><spring:message code="request.email.description" /></strong></p>
-					<p><b>$FIRST_NAME</b> : <spring:message code="request.email.hints.firstName" /></p>
-					<p><b>$LAST_NAME</b> : <spring:message code="request.email.hints.lastName" /></p>
-					<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
-					<p><b>$DATE</b> : <spring:message code="request.email.hints.date" /></p>
-					<p><b>$TIME</b> : <spring:message code="request.email.hints.time" /></p>
-					<p><b>$RECRUIT_FIRST_NAME</b> : <spring:message code="request.email.hints.recruitFirstName" /></p>
-					<p><b>$RECRUIT_LAST_NAME</b> : <spring:message code="request.email.hints.recruitLastName" /></p>
-					<p><b>$RECRUIT_POSITION</b> : <spring:message code="request.email.hints.recruitPosition" /></p>
-					<p><b>$RECRUIT_PHONE</b> : <spring:message code="request.email.hints.recruitPhone" /></p>
+						<div id="hint-collapse">
+							<h4><b> <spring:message code="request.email.template.name.appointment" /></b></h4>
+							<div>
+								<p><b>$FIRST_NAME</b> : <spring:message code="request.email.hints.firstName" /></p>
+								<p><b>$LAST_NAME</b> : <spring:message code="request.email.hints.lastName" /></p>
+								<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
+								<p><b>$DATE</b> : <spring:message code="request.email.hints.date" /></p>
+								<p><b>$TIME</b> : <spring:message code="request.email.hints.time" /></p>
+								<p><b>$RECRUIT_FIRST_NAME</b> : <spring:message code="request.email.hints.recruitFirstName" /></p>
+								<p><b>$RECRUIT_LAST_NAME</b> : <spring:message code="request.email.hints.recruitLastName" /></p>
+								<p><b>$RECRUIT_POSITION</b> : <spring:message code="request.email.hints.recruitPosition" /></p>
+								<p><b>$RECRUIT_PHONE</b> : <spring:message code="request.email.hints.recruitPhone" /></p>
+								</div>
+							<h4><b> <spring:message code="request.email.template.name.jobcase" /></b></h4>
+							<div>
+								<p><b>$CODE</b> : <spring:message code="request.email.hints.jobcase.code" /></p>
+								<p><b>$REQUESTER</b> : <spring:message code="request.email.hints.requester" /></p>
+								<p><b>$REQUESTE_DATE</b> : <spring:message code="request.email.hints.request.date" /></p>
+								<p><b>$JOB_LEVEL</b> : <spring:message code="request.email.hints.joblevel" /></p>
+								<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
+								<p><b>$QUANTITY</b> : <spring:message code="request.email.hints.quantity" /></p>
+								<p><b>$SKILL</b> : <spring:message code="request.email.hints.skill" /></p>
+								<p><b>$EXPERIENCE</b> : <spring:message code="request.email.hints.experience" /></p>
+							</div>
+
+						</div>
 				</div>
 			</div>
 		</div>
@@ -125,7 +142,7 @@ $(document).ready(function(){
 	var pnotifyError="<spring:message code="pnotify.error"/>";
 	
 </script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/js/jquery.collapse.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/pageJS/email-create.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/pageJS/email-active.js"></script>

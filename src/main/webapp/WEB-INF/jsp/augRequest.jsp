@@ -52,6 +52,7 @@
 			border: none;
 		}
 	}
+	
 </style>
 
 <script type="text/javascript">
@@ -122,9 +123,9 @@
 							
 							<div class="form-group">
 								<label for="inputRequestDate"><spring:message code="request.date" /></label>
-								<div class="input-group date">
-									<input type="text" class="form-control datepicker_readonly" name="inputRequestDate" id="inputRequestDate">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+								<div class="input-group date" >
+									<input type="text" class="form-control datepicker_readonly" name="inputRequestDate" id="inputRequestDate" disabled="disabled">
+									<span id="icon-date" class="input-group-addon disabled" style="cursor: not-allowed;"><i class="glyphicon glyphicon-th" ></i></span>
 								</div>
 								<label for="inputRequestDate" class="error"></label>
 							</div>

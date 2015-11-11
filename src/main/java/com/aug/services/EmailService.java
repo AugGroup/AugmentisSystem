@@ -19,6 +19,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.aug.hrdb.dto.AugRequestDto;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Appointment;
 import com.aug.hrdb.entities.AugRequest;
@@ -40,7 +41,7 @@ public class EmailService {
 	
 	@Autowired
 	private MasTechnologyService masTechnologyService;
-
+	
 	public void sendEmail(final String receiver, final String cc, final String subject, 
 			final String content,HttpServletRequest request) throws UnsupportedEncodingException {
 		////create mail
@@ -154,21 +155,20 @@ public class EmailService {
 	}
 	
 	public void sendNewJobCaseMail(final Applicant sender,
-			final String subject, final AugRequest augRequest, final String content, HttpServletRequest request) throws UnsupportedEncodingException {
+			final String subject, final AugRequestDto augRequest, final String content, HttpServletRequest request) throws UnsupportedEncodingException {
 		//date format
 		SimpleDateFormat formatDate = new SimpleDateFormat("dd MMM yyyy");
 		
 		////create mail
 		velocityEngine.init();
 		StringWriter writer = new StringWriter();
-		
 		//define variable in mail template
 		Context context = new VelocityContext();
-		context.put("CODE", augRequest.getCodeRequest());
+		context.put("CODE", augRequest.getJobcaseCode());
 		context.put("REQUESTER", sender.getFirstNameEN() + " " + sender.getLastNameEN());
-		context.put("REQUESTE_DATE", formatDate.format(augRequest.getCreatedTimeStamp()));
-		context.put("JOB_LEVEL",  masJoblevelService.find(augRequest.getJoblevel().getId()).getName());
-		context.put("TECHNOLOGY", masTechnologyService.find(augRequest.getTechnology().getId()).getName());
+		context.put("REQUESTE_DATE", formatDate.format(augRequest.getRequestDate()));
+		context.put("JOB_LEVEL", masJoblevelService.find(augRequest.getJoblevelId()).getName());
+		context.put("TECHNOLOGY", masTechnologyService.find(augRequest.getTechnologyId()).getName());
 		context.put("QUANTITY", augRequest.getNumberApplicant());
 		context.put("SKILL", augRequest.getSpecificSkill());
 		context.put("EXPERIENCE", augRequest.getYearExperience());
@@ -191,7 +191,7 @@ public class EmailService {
 		          message.setText(encode, true);
 		  }
 		};
-		
+		System.out.println("ZZZZZZZZZZ "+ augRequest.getTechnologyStr());
 		//send email
 		mailSender.send(preparator);
 	}
