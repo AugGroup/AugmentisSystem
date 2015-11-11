@@ -14,6 +14,7 @@
 
 <script src="<c:url value="/static/resources/pageJS/employee.js" />"></script>
 <script src="<c:url value="/static/resources/js/jquery.collapse.js" />"></script>
+<script src="/static/resources/images/photo_2"></script> 
 
 
 
@@ -71,6 +72,8 @@
 										<div class="row" align="center">
 										   <c:if test="${empty employeeDto.image}">
 												<div  id="imagePreview" class="img-rounded img-responsive"
+				
+				
 													style="background-image:url('<c:url value="/static/resources/images/photo_2.jpg" />');">
 												</div>
 											</c:if>

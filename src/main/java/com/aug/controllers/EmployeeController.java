@@ -198,7 +198,7 @@ public class EmployeeController {
 		Employee employee = employeeService.findById(empId);
 		model.addAttribute("appId", employee.getApplicant().getId());
 
-		return "/employee/employee";
+		return "employee";
 	}
 
 	// InitEdit
