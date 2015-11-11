@@ -7,8 +7,8 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.aug.rm" level="DEBUG" />
-	<logger name="org.hibernate" level="INFO" />
+	<logger name="com.aug.rm" level="INFO" />
+	<logger name="org.hibernate" level="WARN" />
 	<logger name="org.springframework" level="WARN" />
 	<logger name="org.springframework.transaction" level="WARN" />
 
