@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,8 +41,10 @@ import com.aug.hrdb.services.EmployeeDtoService;
 import com.aug.hrdb.services.AimEmployeeDtoService;
 import com.aug.hrdb.services.LeaveDtoService;
 import com.aug.hrdb.dto.AddressDto;
+import com.aug.hrdb.dto.DivisionDto;
 import com.aug.hrdb.dto.EmployeeDto;
 import com.aug.hrdb.dto.EmployeeListDto;
+import com.aug.hrdb.dto.JoblevelDto;
 import com.aug.hrdb.dto.ReportEmployeeDto;
 import com.aug.hrdb.dto.ReportLeaveDto;
 import com.aug.hrdb.dto.ReportStatusEmployeeDto;
@@ -1036,6 +1039,16 @@ public class EmployeeController {
 		// "+searchText);
 		return employeeLeaveList;
 	}
+	
+	@RequestMapping(value = "/employee/division/{id}", method = RequestMethod.GET)
+	public @ResponseBody String findByIdDivision(@PathVariable Integer id) {	
+		return employeeService.findByIdDivision(id);
+	}
+	
+	@RequestMapping(value = "/employee/joblevel/{tagJob}", method = RequestMethod.GET)
+	public @ResponseBody List<JoblevelDto> findTagJoblevel(@PathVariable String tagJob) {	
+		return employeeService.checkTagDivision(tagJob);
+	}
 
 	@ModelAttribute("employee")
 	Employee setupForm() {
@@ -1046,5 +1059,12 @@ public class EmployeeController {
 	Applicant setupApplicant() {
 		return new Applicant();
 	}
+	
+	@ModelAttribute("checktagsDivision")
+	@Transactional
+	public List<DivisionDto> tagList(){	
+		return employeeService.checkTag("B");
+	}
+
 
 }

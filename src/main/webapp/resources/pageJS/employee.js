@@ -135,12 +135,10 @@ $("#validateAddress").validate({
 		     async: false,  
 		    
 		     success : function(data) {  
+		   	       
 		    	 		val=data;
 		    	 		//console.log('a: '+val[0].id);
-		     },
-		     error:function(error){
-		    	 console.log(error);
-		     }
+			     } 
 		    
 		     }); 	
 		    
