@@ -15,7 +15,7 @@
 
 <script src="<c:url value="/static/resources/pageJS/employee.js" />"></script>
 <script src="<c:url value="/static/resources/js/jquery.collapse.js" />"></script>
-<script src="<c:url value="/static/resources/images/photo_2.jpg" />"></script>
+
 
 
 
@@ -87,7 +87,7 @@
 
 								<c:if test="${not empty employeeDto.image}">
 									<div id="imagePreview" class="img-rounded img-responsive"
-										style="background-image:url('${pageContext.request.contextPath}/DisplayImageServlet?namespace=EMPLOYEE&fileName=${employeeDto.image}');"></div>
+										style="background-image:url('${pageContext.request.contextPath}/static/resources/images/photo_2.jpg');"></div>
 								</c:if>
 							</div>
 							<br> <label> <spring:message
