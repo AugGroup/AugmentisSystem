@@ -5,6 +5,10 @@
 		<pattern>/*modal*</pattern>
 	</excludes>
 	
+	<excludes>
+		<pattern>/welcome*</pattern>
+	</excludes>
+	
 
 	<decorator name="basic-theme" page="basic-theme.jsp">
 		<pattern>/*</pattern>
