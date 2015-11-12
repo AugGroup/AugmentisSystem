@@ -96,7 +96,7 @@ import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.hrdb.services.ReferenceService;
 import com.aug.services.DownloadService;
 import com.aug.services.ReportService;
-import com.aug.services.UploadService;
+import com.aug.services.utils.UploadService;
 
 import net.sf.jasperreports.engine.JRParameter;
 
@@ -109,7 +109,7 @@ public class ApplicantController implements Serializable {
 	@Autowired
 	private ApplicantService applicantService;
 	@Autowired
-	private UploadService uploadService;
+	UploadService uploadService;
 	@Autowired
 	private ReferenceService referenceService;
 	@Autowired
@@ -443,7 +443,7 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getImageMultipartFile()!=null&&applicantDto.getImageMultipartFile().getSize()>0){
 			try {
 				applicantDto.setImage(applicantDto.getImageMultipartFile().getOriginalFilename());
-				uploadService.upload("Applicant",applicantDto.getImageMultipartFile().getOriginalFilename(),applicantDto.getImageMultipartFile());
+				uploadService.uploadImage("Applicant",applicantDto.getImageMultipartFile().getOriginalFilename(),applicantDto.getImageMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -453,7 +453,7 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getResumeMultipartFile()!=null&&applicantDto.getResumeMultipartFile().getSize()>0){
 			try {
 				applicantDto.setResume(applicantDto.getResumeMultipartFile().getOriginalFilename());
-				uploadService.upload("Applicant",applicantDto.getResumeMultipartFile().getOriginalFilename(),applicantDto.getResumeMultipartFile());
+				uploadService.uploadImage("Applicant",applicantDto.getResumeMultipartFile().getOriginalFilename(),applicantDto.getResumeMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -463,7 +463,7 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getTranscriptMultipartFile()!=null&&applicantDto.getTranscriptMultipartFile().getSize()>0){
 			try {
 				applicantDto.setTranscript(applicantDto.getTranscriptMultipartFile().getOriginalFilename());
-				uploadService.upload("Applicant",applicantDto.getTranscriptMultipartFile().getOriginalFilename(),applicantDto.getTranscriptMultipartFile());
+				uploadService.uploadImage("Applicant",applicantDto.getTranscriptMultipartFile().getOriginalFilename(),applicantDto.getTranscriptMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -698,7 +698,7 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getImageMultipartFile()!=null&&applicantDto.getImageMultipartFile().getSize()>0){
 			try {
 				applicantDto.setImage(applicantDto.getImageMultipartFile().getOriginalFilename());
-				uploadService.upload("Applicant",applicantDto.getImageMultipartFile().getOriginalFilename(),applicantDto.getImageMultipartFile());
+				uploadService.uploadImage("Applicant",applicantDto.getImageMultipartFile().getOriginalFilename(),applicantDto.getImageMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -708,7 +708,7 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getResumeMultipartFile()!=null&&applicantDto.getResumeMultipartFile().getSize()>0){
 			try {
 				applicantDto.setResume(applicantDto.getResumeMultipartFile().getOriginalFilename());
-				uploadService.upload("Applicant",applicantDto.getResumeMultipartFile().getOriginalFilename(),applicantDto.getResumeMultipartFile());
+				uploadService.uploadImage("Applicant",applicantDto.getResumeMultipartFile().getOriginalFilename(),applicantDto.getResumeMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -718,7 +718,7 @@ public class ApplicantController implements Serializable {
 		if(applicantDto.getTranscriptMultipartFile()!=null&&applicantDto.getTranscriptMultipartFile().getSize()>0){
 			try {
 				applicantDto.setTranscript(applicantDto.getTranscriptMultipartFile().getOriginalFilename());
-				uploadService.upload("Applicant",applicantDto.getTranscriptMultipartFile().getOriginalFilename(),applicantDto.getTranscriptMultipartFile());
+				uploadService.uploadImage("Applicant",applicantDto.getTranscriptMultipartFile().getOriginalFilename(),applicantDto.getTranscriptMultipartFile());
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

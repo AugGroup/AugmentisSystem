@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.aug.services.utils.UploadService;
+
 @Service(value = "downloadService")
 public class DownloadService {
 	

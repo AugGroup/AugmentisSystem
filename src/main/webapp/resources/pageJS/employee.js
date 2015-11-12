@@ -339,7 +339,7 @@ $("#validateAddress").validate({
 		idCard: {
 			required: $validateidCard,
 			//rangelength: 'length err',
-			unique: $validateUniqueIdCard 
+			//unique: $validateUniqueIdCard 
 		},
 		/*issuedOffice: $validateissuedOffice,
 		
