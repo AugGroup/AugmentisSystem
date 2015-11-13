@@ -6,9 +6,14 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 
-
-<jsp:include page="employeeMenu.jsp"></jsp:include>
-<script src="<c:url value="/resources/js/family.js" />"></script>
+<link href="<c:url value="/static/resources/pageCss/headerHr.css" />" rel="stylesheet" type="text/css">
+<div style="margin-left:15px;">
+	<jsp:include page="employeeMenu.jsp"></jsp:include>
+	<jsp:include page="springMessageVariable.jsp"></jsp:include>
+</div>
+<script src="<c:url value="/static/resources/bootstrapvalidator/dist/js/bootstrapValidator.js" />"></script>
+<script src="<c:url value="/static/resources/pageJS/family.js" />"></script>
+<script src="<c:url value="/static/resources/js/jquery.collapse.js" />"></script>
 
  
  

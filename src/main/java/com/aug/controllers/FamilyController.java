@@ -88,7 +88,7 @@ public class FamilyController {
 		familyDto.setEmployeeId(id);
 		model.addAttribute("id", familyDto.getEmployeeId());
 	
-		return "familychange";
+		return "/HrSystem/familychange";
 
 	}
 	

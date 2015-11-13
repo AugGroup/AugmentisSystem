@@ -84,7 +84,6 @@ import com.aug.services.utils.UploadService;
 //import com.aug.hrdb.dto.JoblevelDto;
 //import com.aug.hrdb.services.MasJoblevelService;
 
-
 @Controller
 public class EmployeeController {
 	@Resource(name = "employeeService")
@@ -130,16 +129,14 @@ public class EmployeeController {
 	private EmployeeDtoService employeeDtoService;
 	@Autowired
 	private ApplicantService applicantService;
-	
 
-	
 	private static final Logger logger = Logger.getLogger(Employee.class);
 
 	// @RequestMapping(value = "/listemployee", method =
 	// {RequestMethod.GET,RequestMethod.POST})
 	@RequestMapping(value = "/employee/list", method = { RequestMethod.GET, RequestMethod.POST })
 	public String init(ModelMap model) {
-		return "listemployee";
+		return "/HrSystem/listemployee";
 	}
 
 	@InitBinder
@@ -151,11 +148,8 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/employee", method = { RequestMethod.GET, RequestMethod.POST })
-	public String listAll(@ModelAttribute("employeeDto") EmployeeDto employeeDto, 
-			HttpSession session,
-			Locale locale, 
-			ModelMap model
-	) {
+	public String listAll(@ModelAttribute("employeeDto") EmployeeDto employeeDto, HttpSession session, Locale locale,
+			ModelMap model) {
 
 		// model.addAttribute("masspecialtyList",masSpecialtyService.findAll());
 		// model.addAttribute("masAddressTypeList",masAddressTypeService.findAll());
@@ -172,8 +166,7 @@ public class EmployeeController {
 		model.addAttribute("staffTypeList", masStaffTypeService.findAll());
 		model.addAttribute("aimList", aimEmployeeDtoService.listEmployeeAim());
 
-		
-		return "employee";
+		return "/HrSystem/employee";
 
 	}
 
@@ -198,15 +191,15 @@ public class EmployeeController {
 	}
 
 	// findAddress
-	@RequestMapping(value = "/employee/address", method = {RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value = "/employee/address", method = { RequestMethod.POST, RequestMethod.GET })
 	public @ResponseBody List<AddressDto> findAddress(@RequestBody AddressDto addressDto,
-		   @ModelAttribute("employeeDto") EmployeeDto employeeDto, ModelMap model) {
-		
-		model.addAttribute("masAddressTypeList",masAddressTypeService.findAll());
-		model.addAttribute("provinceList",masProvinceService.findAll());
-		
+			@ModelAttribute("employeeDto") EmployeeDto employeeDto, ModelMap model) {
+
+		model.addAttribute("masAddressTypeList", masAddressTypeService.findAll());
+		model.addAttribute("provinceList", masProvinceService.findAll());
+
 		addressDto.setApplicantId(addressDto.getApplicantId());
-		
+
 		return addressService.findAddressByApplicantId(addressDto.getApplicantId());
 	}
 
@@ -243,12 +236,11 @@ public class EmployeeController {
 
 		new SimpleDateFormat("dd-MMM-yyyy").format(employeeDto.getDateOfBirth());
 		System.out.println("date: " + employeeDto.getDateOfBirth());
-		
-		
+
 		Employee employee = employeeService.findById(empId);
 		model.addAttribute("appId", employee.getApplicant().getId());
 
-		return "employee";
+		return "/HrSystem/employee";
 	}
 
 	// InitEdit
@@ -295,20 +287,16 @@ public class EmployeeController {
 		employeeService.deleteById(empId);
 		return "{success:true}";
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/employee/finduniqueidcard", method = RequestMethod.POST)
 	public @ResponseBody List<EmployeeListDto> findUniqueIdCard(@RequestBody EmployeeListDto employeeListDto,
-			Locale locale,
-			ModelMap model){
-			
-		List<EmployeeListDto> employeeList = employeeDtoService.searchEmpForUniqueIdCard(employeeListDto.getId(), employeeListDto.getCardId());
-		return employeeList;
-		
-	}	
-	
+			Locale locale, ModelMap model) {
 
+		List<EmployeeListDto> employeeList = employeeDtoService.searchEmpForUniqueIdCard(employeeListDto.getId(),
+				employeeListDto.getCardId());
+		return employeeList;
+
+	}
 
 	@RequestMapping(value = "/employee/submit", method = RequestMethod.POST)
 	public String manageSubmit(@ModelAttribute EmployeeDto employeeDto, Model model,
@@ -319,7 +307,6 @@ public class EmployeeController {
 		logger.info("infoooo: ================================================================>"
 				+ employeeDto.getAimempid());
 
-
 		Employee employee = new Employee();
 		String employeeCode = null;
 		Employee employee1;
@@ -328,371 +315,395 @@ public class EmployeeController {
 
 		System.out.println("locations: " + employeeDto.getMasLocation());
 
+		/*
+		 * if (employeeDto.getId() == null) {
+		 * 
+		 * logger.info("create employee");
+		 * 
+		 * try { if (employeeDto.getFileupload().getOriginalFilename() == null
+		 * || employeeDto.getFileupload().getOriginalFilename().isEmpty() ==
+		 * true) {
+		 * 
+		 * try { employeeCode =
+		 * employeeService.generateEmployeeCode(employeeDto); employee =
+		 * employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
+		 * } catch (JDBCException je) {
+		 * 
+		 * System.out.println("jdbce " + je.getErrorCode()); try { employeeCode
+		 * = employeeService.generateEmployeeCode(employeeDto); employee =
+		 * employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
+		 * } catch (JDBCException jdbce) {
+		 * 
+		 * redirectAttributes.addFlashAttribute("msgerror",
+		 * "dupicate employeecode");
+		 * 
+		 * return "redirect:/employee";
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * return "redirect:/employee/init/" + employee.getId();
+		 * 
+		 * } else if (employeeDto.getFileupload().getOriginalFilename() != null
+		 * || employeeDto.getFileupload().getOriginalFilename().isEmpty() ==
+		 * false) { String[] result =
+		 * StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),
+		 * '.'); logger.info("length: " + result.length);
+		 * 
+		 * if (result.length == 2) {
+		 * 
+		 * logger.info("length: " + result.length);
+		 * 
+		 * try { employeeCode =
+		 * employeeService.generateEmployeeCode(employeeDto);
+		 * employeeDto.setImage(employeeCode + "." + result[1]); employee =
+		 * employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
+		 * } catch (JDBCException jdbce) {
+		 * 
+		 * try { employeeCode =
+		 * employeeService.generateEmployeeCode(employeeDto);
+		 * employeeDto.setImage(employeeCode + "." + result[1]); employee =
+		 * employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
+		 * } catch (JDBCException je) {
+		 * 
+		 * redirectAttributes.addFlashAttribute("msgerror",
+		 * "dupicate employeecode");
+		 * 
+		 * return "redirect:/employee";
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * if (employee.getId() != null) {
+		 * 
+		 * uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+		 * employeeDto.getFileupload());
+		 * 
+		 * }
+		 * 
+		 * } if (result.length == 0) {
+		 * 
+		 * try { employeeCode =
+		 * employeeService.generateEmployeeCode(employeeDto); employee =
+		 * employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
+		 * 
+		 * } catch (JDBCException jdbce) { try { employeeCode =
+		 * employeeService.generateEmployeeCode(employeeDto); employee =
+		 * employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
+		 * } catch (JDBCException je) {
+		 * 
+		 * redirectAttributes.addFlashAttribute("msgerror",
+		 * "dupicate employeecode");
+		 * 
+		 * return "redirect:/employee";
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * return "redirect:/employee/init/" + employee.getId();
+		 * 
+		 * }
+		 * 
+		 * } catch (IOException e) {
+		 * 
+		 * throw new IOException();
+		 * 
+		 * } catch (Exception e) {
+		 * 
+		 * throw new Exception(); }
+		 * 
+		 * } else
+		 */
 
-		/*if (employeeDto.getId() == null) {
-
-			logger.info("create employee");
-
-			try {
-				if (employeeDto.getFileupload().getOriginalFilename() == null
-						|| employeeDto.getFileupload().getOriginalFilename().isEmpty() == true) {
-
-					try {
-						employeeCode = employeeService.generateEmployeeCode(employeeDto);
-						employee = employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
-					} catch (JDBCException je) {
-
-						System.out.println("jdbce " + je.getErrorCode());
-						try {
-							employeeCode = employeeService.generateEmployeeCode(employeeDto);
-							employee = employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
-						} catch (JDBCException jdbce) {
-
-							redirectAttributes.addFlashAttribute("msgerror", "dupicate employeecode");
-
-							return "redirect:/employee";
-
-						}
-
-					}
-
-					return "redirect:/employee/init/" + employee.getId();
-
-				} else if (employeeDto.getFileupload().getOriginalFilename() != null
-						|| employeeDto.getFileupload().getOriginalFilename().isEmpty() == false) {
-					String[] result = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
-					logger.info("length: " + result.length);
-
-					if (result.length == 2) {
-
-						logger.info("length: " + result.length);
-
-						try {
-							employeeCode = employeeService.generateEmployeeCode(employeeDto);
-							employeeDto.setImage(employeeCode + "." + result[1]);
-							employee = employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
-						} catch (JDBCException jdbce) {
-
-							try {
-								employeeCode = employeeService.generateEmployeeCode(employeeDto);
-								employeeDto.setImage(employeeCode + "." + result[1]);
-								employee = employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
-							} catch (JDBCException je) {
-
-								redirectAttributes.addFlashAttribute("msgerror", "dupicate employeecode");
-							
-								return "redirect:/employee";
-
-							}
-
-						}
-
-						if (employee.getId() != null) {
-
-							uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
-									employeeDto.getFileupload());
-
-						}
-
-					}
-					if (result.length == 0) {
-
-						try {
-							employeeCode = employeeService.generateEmployeeCode(employeeDto);
-							employee = employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
-
-						} catch (JDBCException jdbce) {
-							try {
-								employeeCode = employeeService.generateEmployeeCode(employeeDto);
-								employee = employeeService.createEmployeeAndReturnId(employeeDto, employeeCode);
-							} catch (JDBCException je) {
-
-								redirectAttributes.addFlashAttribute("msgerror", "dupicate employeecode");
-							
-								return "redirect:/employee";
-
-							}
-
-						}
-
-					}
-
-					return "redirect:/employee/init/" + employee.getId();
-
-				}
-
-			} catch (IOException e) {
-				
-				throw new IOException();
-
-			} catch (Exception e) {
-				
-				throw new Exception();
-			}
-
-		} else */
-		
-		
-		
 		if (employeeDto.getId() > 0) {
 
 			logger.info("update emp");
 			employee1 = employeeService.findById(employeeDto.getId());
-			
-			try {
-	
-					
-					
-				if (employeeDto.getEmployeeCode() == null || employeeDto.getEmployeeCode().isEmpty() == true) {
-					
-						
-					
-					employeeCode = employeeService.generateEmployeeCode(employeeDto);
-					
-					
-					
-					if(employeeDto.getFileupload().getOriginalFilename()==null){
-						if(employee1.getApplicant().getImage()==null||employee1.getApplicant().getImage().equals("")){
-						
-							img=null;
-						
-						}else if(employee1.getApplicant().getImage()!=null||employee1.getApplicant().getImage().equals("")==false){
-						
-							img = employee1.getApplicant().getImage();
-						
-						}
-					
-					}else if(employeeDto.getFileupload().getOriginalFilename()!=null){
-							
-							
-							result1 =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-						
-											
-							if(result1.length==2){
-								
-								if(employee1.getApplicant().getImage()==null){
-										
-									img=  employeeCode+"."+result1[1];
-									
-								}else if(employee1.getApplicant().getImage()!=null){
-									
-									img=  employeeCode+"."+result1[1];
-									
-								}
-						
-							}
-				    }
-			
-	
-		
-					
-					
-					
-					employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode,img);
-								
 
-					
-								 if(employeeDto.getFileupload().getOriginalFilename()!=null){
-											
-											System.out.println("img name: "+employeeDto.getImage());
-											System.out.println("original file name: "+employeeDto.getFileupload().getOriginalFilename());
-											String[] result =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-										
-															
-											if(result.length==2){
-												
-												
-												if(employee1.getApplicant().getImage()==null){
-													
-													
-													   
-													 //upload file
-														try {
-															uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-														
-														} catch (RuntimeException e) {
-															// TODO Auto-generated catch block
-															e.printStackTrace();
-														} catch (IOException e) {
-															// TODO Auto-generated catch block
-															e.printStackTrace();
-														}
-													
-														
-													
-												}else if(employee1.getApplicant().getImage()!=null){
-													
-							
-												//delete file upload
-				
-												   try {
-														uploadService .deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
-													} catch (RuntimeException e1) {
-														// TODO Auto-generated catch block
-														e1.printStackTrace();
-													} catch (IOException e1) {
-														// TODO Auto-generated catch block
-														e1.printStackTrace();
-													}
-															
-												  
-												   
-												 //upload file
-													try {
-														uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-														
-													} catch (RuntimeException e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
-													} catch (IOException e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
-													}
-										
-												}
-												
-										
-										
-											}
-								
+			try {
+
+				if (employeeDto.getEmployeeCode() == null || employeeDto.getEmployeeCode().isEmpty() == true) {
+
+					employeeCode = employeeService.generateEmployeeCode(employeeDto);
+
+					if (employeeDto.getFileupload().getOriginalFilename() == null) {
+						if (employee1.getApplicant().getImage() == null
+								|| employee1.getApplicant().getImage().equals("")) {
+
+							img = null;
+
+						} else if (employee1.getApplicant().getImage() != null
+								|| employee1.getApplicant().getImage().equals("") == false) {
+
+							img = employee1.getApplicant().getImage();
+
+						}
+
+					} else if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+						result1 = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+						if (result1.length == 2) {
+
+							if (employee1.getApplicant().getImage() == null) {
+
+								img = employeeCode + "." + result1[1];
+
+							} else if (employee1.getApplicant().getImage() != null) {
+
+								img = employeeCode + "." + result1[1];
+
+							}
+
+						}
+					}
+
+					employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+
+					if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+						System.out.println("img name: " + employeeDto.getImage());
+						System.out.println("original file name: " + employeeDto.getFileupload().getOriginalFilename());
+						String[] result = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+						if (result.length == 2) {
+
+							if (employee1.getApplicant().getImage() == null) {
+
+								// upload file
+								try {
+									uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+											employeeDto.getFileupload());
+
+								} catch (RuntimeException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
 								}
-								
-								
-									
-					
-					
-					
-					
-					
-					
-					
+
+							} else if (employee1.getApplicant().getImage() != null) {
+
+								// delete file upload
+
+								try {
+									uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
+								} catch (RuntimeException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+
+								// upload file
+								try {
+									uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+											employeeDto.getFileupload());
+
+								} catch (RuntimeException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+
+							}
+
+						}
+
+					}
+
 				} else if (employeeDto.getEmployeeCode() != null || employeeDto.getEmployeeCode().isEmpty() == false) {
 
 					employeeCode = employeeDto.getEmployeeCode();
-					
-					
-					
-					if(employeeDto.getFileupload().getOriginalFilename()==null){
-						if(employee1.getApplicant().getImage()==null||employee1.getApplicant().getImage().equals("")){
-						
-							img=null;
-						
-						}else if(employee1.getApplicant().getImage()!=null||employee1.getApplicant().getImage().equals("")==false){
-						
-							img = employee1.getApplicant().getImage();
-						
-						}
-					
-					}else if(employeeDto.getFileupload().getOriginalFilename()!=null){
-							
-							
-							result1 =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-						
-											
-							if(result1.length==2){
-								
-								if(employee1.getApplicant().getImage()==null){
-										
-									img=  employeeCode+"."+result1[1];
-									
-								}else if(employee1.getApplicant().getImage()!=null){
-									
-									img=  employeeCode+"."+result1[1];
-									
-								}
-						
-							}
-				    }
-			
-				
-					
-					employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode,img);
-		
 
-					
-					if(employeeDto.getFileupload().getOriginalFilename()==null){
-						if(employee1.getApplicant().getImage()==null||employee1.getApplicant().getImage().equals("")){
-						
-							img=null;
-						
-						}else if(employee1.getApplicant().getImage()!=null||employee1.getApplicant().getImage().equals("")==false){
-						
-							img = employee1.getApplicant().getImage();
-						
-						}
-					
-					}else if(employeeDto.getFileupload().getOriginalFilename()!=null){
-							
-							
-							result1 =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-						
-											
-							if(result1.length==2){
-								
-								if(employee1.getApplicant().getImage()==null){
-										
-									img=  employeeCode+"."+result1[1];
-									
-								}else if(employee1.getApplicant().getImage()!=null){
-									
-									img=  employeeCode+"."+result1[1];
-									
-								}
-						
-							}
-				    }
-					
-					
-					
-					 if(employeeDto.getFileupload().getOriginalFilename()!=null){
-							
-							System.out.println("img name: "+employeeDto.getImage());
-							System.out.println("original file name: "+employeeDto.getFileupload().getOriginalFilename());
-							String[] result =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-						
-											
-							if(result.length==2){
-								
-								
-								if(employee1.getApplicant().getImage()==null){
-									
-									
-									   
-									 //upload file
-										try {
-											uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-										
-										} catch (RuntimeException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										} catch (IOException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-									
-										
-									
-								}else if(employee1.getApplicant().getImage()!=null){
-									
-			
-								//delete file upload
+					if (employeeDto.getFileupload().getOriginalFilename() == null) {
+						if (employee1.getApplicant().getImage() == null
+								|| employee1.getApplicant().getImage().equals("")) {
 
-								   try {
-										uploadService .deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
-									} catch (RuntimeException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									} catch (IOException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
-											
-								  
-								   
-								 //upload file
+							img = null;
+
+						} else if (employee1.getApplicant().getImage() != null
+								|| employee1.getApplicant().getImage().equals("") == false) {
+
+							img = employee1.getApplicant().getImage();
+
+						}
+
+					} else if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+						result1 = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+						if (result1.length == 2) {
+
+							if (employee1.getApplicant().getImage() == null) {
+
+								img = employeeCode + "." + result1[1];
+
+							} else if (employee1.getApplicant().getImage() != null) {
+
+								img = employeeCode + "." + result1[1];
+
+							}
+
+						}
+					}
+
+					employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+
+					if (employeeDto.getFileupload().getOriginalFilename() == null) {
+						if (employee1.getApplicant().getImage() == null
+								|| employee1.getApplicant().getImage().equals("")) {
+
+							img = null;
+
+						} else if (employee1.getApplicant().getImage() != null
+								|| employee1.getApplicant().getImage().equals("") == false) {
+
+							img = employee1.getApplicant().getImage();
+
+						}
+
+					} else if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+						result1 = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+						if (result1.length == 2) {
+
+							if (employee1.getApplicant().getImage() == null) {
+
+								img = employeeCode + "." + result1[1];
+
+							} else if (employee1.getApplicant().getImage() != null) {
+
+								img = employeeCode + "." + result1[1];
+
+							}
+
+						}
+					}
+
+					if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+						System.out.println("img name: " + employeeDto.getImage());
+						System.out.println("original file name: " + employeeDto.getFileupload().getOriginalFilename());
+						String[] result = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+						if (result.length == 2) {
+
+							if (employee1.getApplicant().getImage() == null) {
+
+								// upload file
+								try {
+									uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+											employeeDto.getFileupload());
+
+								} catch (RuntimeException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+
+							} else if (employee1.getApplicant().getImage() != null) {
+
+								// delete file upload
+
+								try {
+									uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
+								} catch (RuntimeException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+
+								// upload file
+								try {
+									uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+											employeeDto.getFileupload());
+
+								} catch (RuntimeException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+
+							}
+
+						}
+
+					}
+				}
+
+			} catch (DataIntegrityViolationException jdbce) {
+				try {
+					if (employeeDto.getEmployeeCode() == null || employeeDto.getEmployeeCode().isEmpty() == true) {
+
+						employeeCode = employeeService.generateEmployeeCode(employeeDto);
+
+						if (employeeDto.getFileupload().getOriginalFilename() == null) {
+							if (employee1.getApplicant().getImage() == null
+									|| employee1.getApplicant().getImage().equals("")) {
+
+								img = null;
+
+							} else if (employee1.getApplicant().getImage() != null
+									|| employee1.getApplicant().getImage().equals("") == false) {
+
+								img = employee1.getApplicant().getImage();
+
+							}
+
+						} else if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+							result1 = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+							if (result1.length == 2) {
+
+								if (employee1.getApplicant().getImage() == null) {
+
+									img = employeeCode + "." + result1[1];
+
+								} else if (employee1.getApplicant().getImage() != null) {
+
+									img = employeeCode + "." + result1[1];
+
+								}
+
+							}
+						}
+
+						employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+
+						if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+							System.out.println("img name: " + employeeDto.getImage());
+							System.out.println(
+									"original file name: " + employeeDto.getFileupload().getOriginalFilename());
+							String[] result = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+							if (result.length == 2) {
+
+								if (employee1.getApplicant().getImage() == null) {
+
+									// upload file
 									try {
-										uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-										
+										uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+												employeeDto.getFileupload());
+
 									} catch (RuntimeException e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
@@ -700,242 +711,139 @@ public class EmployeeController {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
-						
-								}
-								
-						
-						
-							}
-				
-				}
-			}
-				
-				
-				
-			} catch (DataIntegrityViolationException jdbce) {
-				try {
-					if (employeeDto.getEmployeeCode() == null || employeeDto.getEmployeeCode().isEmpty() == true) {
-						
-						
-						employeeCode = employeeService.generateEmployeeCode(employeeDto);
-						
-						
 
-						if(employeeDto.getFileupload().getOriginalFilename()==null){
-							if(employee1.getApplicant().getImage()==null||employee1.getApplicant().getImage().equals("")){
-							
-								img=null;
-							
-							}else if(employee1.getApplicant().getImage()!=null||employee1.getApplicant().getImage().equals("")==false){
-							
-								img = employee1.getApplicant().getImage();
-							
-							}
-						
-						}else if(employeeDto.getFileupload().getOriginalFilename()!=null){
-								
-								
-								result1 =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-							
-												
-								if(result1.length==2){
-									
-									if(employee1.getApplicant().getImage()==null){
-											
-										img=  employeeCode+"."+result1[1];
-										
-									}else if(employee1.getApplicant().getImage()!=null){
-										
-										img=  employeeCode+"."+result1[1];
-										
+								} else if (employee1.getApplicant().getImage() != null) {
+
+									// delete file upload
+
+									try {
+										uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
+									} catch (RuntimeException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
 									}
-							
+
+									// upload file
+									try {
+										uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+												employeeDto.getFileupload());
+
+									} catch (RuntimeException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+
 								}
-					    }
-						
-						
-						
-						
-						
-						employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode,img);
-							
-						
-							 if(employeeDto.getFileupload().getOriginalFilename()!=null){
-									
-									System.out.println("img name: "+employeeDto.getImage());
-									System.out.println("original file name: "+employeeDto.getFileupload().getOriginalFilename());
-									String[] result =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-								
-													
-									if(result.length==2){
-										
-										
-										if(employee1.getApplicant().getImage()==null){
-											
-											
-											   
-											 //upload file
-												try {
-													uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-												
-												} catch (RuntimeException e) {
-													// TODO Auto-generated catch block
-													e.printStackTrace();
-												} catch (IOException e) {
-													// TODO Auto-generated catch block
-													e.printStackTrace();
-												}
-											
-												
-											
-										}else if(employee1.getApplicant().getImage()!=null){
-											
-					
-										//delete file upload
-		
-										   try {
-												uploadService .deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
-											} catch (RuntimeException e1) {
-												// TODO Auto-generated catch block
-												e1.printStackTrace();
-											} catch (IOException e1) {
-												// TODO Auto-generated catch block
-												e1.printStackTrace();
-											}
-													
-										  
-										   
-										 //upload file
-											try {
-												uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-												
-											} catch (RuntimeException e) {
-												// TODO Auto-generated catch block
-												e.printStackTrace();
-											} catch (IOException e) {
-												// TODO Auto-generated catch block
-												e.printStackTrace();
-											}
-								
-										}
-										
-								
-								
-									}
-						
+
+							}
+
 						}
-							 
-					} else if (employeeDto.getEmployeeCode() != null || employeeDto.getEmployeeCode().isEmpty() == false) {
+
+					} else if (employeeDto.getEmployeeCode() != null
+							|| employeeDto.getEmployeeCode().isEmpty() == false) {
 
 						employeeCode = employeeDto.getEmployeeCode();
-						
-						
-						if(employeeDto.getFileupload().getOriginalFilename()==null){
-							if(employee1.getApplicant().getImage()==null||employee1.getApplicant().getImage().equals("")){
-							
-								img=null;
-							
-							}else if(employee1.getApplicant().getImage()!=null||employee1.getApplicant().getImage().equals("")==false){
-							
+
+						if (employeeDto.getFileupload().getOriginalFilename() == null) {
+							if (employee1.getApplicant().getImage() == null
+									|| employee1.getApplicant().getImage().equals("")) {
+
+								img = null;
+
+							} else if (employee1.getApplicant().getImage() != null
+									|| employee1.getApplicant().getImage().equals("") == false) {
+
 								img = employee1.getApplicant().getImage();
-							
+
 							}
-						
-						}else if(employeeDto.getFileupload().getOriginalFilename()!=null){
-								
-								
-								result1 =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-							
-												
-								if(result1.length==2){
-									
-									if(employee1.getApplicant().getImage()==null){
-											
-										img=  employeeCode+"."+result1[1];
-										
-									}else if(employee1.getApplicant().getImage()!=null){
-										
-										img=  employeeCode+"."+result1[1];
-										
-									}
-							
+
+						} else if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+							result1 = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+							if (result1.length == 2) {
+
+								if (employee1.getApplicant().getImage() == null) {
+
+									img = employeeCode + "." + result1[1];
+
+								} else if (employee1.getApplicant().getImage() != null) {
+
+									img = employeeCode + "." + result1[1];
+
 								}
-					    }
-						
-						
-						
-						
-						
-						employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode,img);
-						
-						
-						 if(employeeDto.getFileupload().getOriginalFilename()!=null){
-								
-								System.out.println("img name: "+employeeDto.getImage());
-								System.out.println("original file name: "+employeeDto.getFileupload().getOriginalFilename());
-								String[] result =  StringUtils.split(employeeDto.getFileupload().getOriginalFilename(),'.');	
-							
-												
-								if(result.length==2){
-									
-									
-									if(employee1.getApplicant().getImage()==null){
-										
-										
-										   
-										 //upload file
-											try {
-												uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-											
-											} catch (RuntimeException e) {
-												// TODO Auto-generated catch block
-												e.printStackTrace();
-											} catch (IOException e) {
-												// TODO Auto-generated catch block
-												e.printStackTrace();
-											}
-										
-											
-										
-									}else if(employee1.getApplicant().getImage()!=null){
-										
-				
-									//delete file upload
-	
-									   try {
-											uploadService .deleteImage("EMPLOYEE",employee1.getApplicant().getImage());
-										} catch (RuntimeException e1) {
-											// TODO Auto-generated catch block
-											e1.printStackTrace();
-										} catch (IOException e1) {
-											// TODO Auto-generated catch block
-											e1.printStackTrace();
-										}
-												
-									  
-									   
-									 //upload file
-										try {
-											uploadService.uploadImage("EMPLOYEE",employeeCode+"."+result[1], employeeDto.getFileupload());
-											
-										} catch (RuntimeException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										} catch (IOException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-							
+
+							}
+						}
+
+						employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+
+						if (employeeDto.getFileupload().getOriginalFilename() != null) {
+
+							System.out.println("img name: " + employeeDto.getImage());
+							System.out.println(
+									"original file name: " + employeeDto.getFileupload().getOriginalFilename());
+							String[] result = StringUtils.split(employeeDto.getFileupload().getOriginalFilename(), '.');
+
+							if (result.length == 2) {
+
+								if (employee1.getApplicant().getImage() == null) {
+
+									// upload file
+									try {
+										uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+												employeeDto.getFileupload());
+
+									} catch (RuntimeException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
 									}
-									
+
+								} else if (employee1.getApplicant().getImage() != null) {
+
+									// delete file upload
+
+									try {
+										uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
+									} catch (RuntimeException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+
+									// upload file
+									try {
+										uploadService.uploadImage("EMPLOYEE", employeeCode + "." + result[1],
+												employeeDto.getFileupload());
+
+									} catch (RuntimeException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (IOException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+
 								}
-					
-					}
-						
-						
+
+							}
+
+						}
+
 					}
 				} catch (DataIntegrityViolationException je) {
-					
+
 					redirectAttributes.addFlashAttribute("msgerror", "dupicate employeecode");
 					return "redirect:/employee/list";
 
@@ -1008,9 +916,9 @@ public class EmployeeController {
 	@RequestMapping(value = "/employee/searchReportEmpName", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView searchEmployeeNameReport(@ModelAttribute(value = "employee") Employee employee, ModelMap map,
 			HttpSession session, Locale locale) {
-		
-		List<ReportEmployeeDto> employeeList;		
-		//map กับ name แทน nameeng		
+
+		List<ReportEmployeeDto> employeeList;
+		// map กับ name แทน nameeng
 		String searchText = employee.getName();
 		if (searchText.equals("forEmptySearch")) {
 			employeeList = employeeDtoService.reportEmployee(searchText);
@@ -1030,10 +938,9 @@ public class EmployeeController {
 			HttpSession session, Locale locale) {
 		List<ReportEmployeeDto> employeeList;
 		String searchText = employee.getName();
-		
-		//System.out.println("searchText: "+employee.getName());
-		
-		
+
+		// System.out.println("searchText: "+employee.getName());
+
 		if (searchText.equals("forEmptySearch")) {
 			employeeList = employeeDtoService.reportEmployeeCode(searchText);
 		} else {
@@ -1058,8 +965,6 @@ public class EmployeeController {
 		}
 		return employeeList;
 	}
-
-	
 
 	// ----------------------------------------EMP
 	// STATUS----------------------------------------------------------------
@@ -1088,9 +993,10 @@ public class EmployeeController {
 
 	}
 
-	@RequestMapping(value = "/employee/searchEmpStatusByStatus/{searchText}", method = { RequestMethod.GET,RequestMethod.POST })
-	public @ResponseBody List<ReportStatusEmployeeDto> searchNameStatusEmp(@PathVariable("searchText") String searchText, 
-			@ModelAttribute(value = "employee") Employee employee,
+	@RequestMapping(value = "/employee/searchEmpStatusByStatus/{searchText}", method = { RequestMethod.GET,
+			RequestMethod.POST })
+	public @ResponseBody List<ReportStatusEmployeeDto> searchNameStatusEmp(
+			@PathVariable("searchText") String searchText, @ModelAttribute(value = "employee") Employee employee,
 			ModelMap map, HttpSession session, Locale locale) {
 		List<ReportStatusEmployeeDto> employeeList;
 		if (searchText.equals("forEmptySearch")) {
@@ -1102,9 +1008,7 @@ public class EmployeeController {
 		// "+searchText);
 		return employeeList;
 	}
-	
-	
-	
+
 	// ------------------------------------------------------------------------------------------------------------------------------------
 
 	@RequestMapping(value = "/employee/ReportLeave", method = { RequestMethod.GET, RequestMethod.POST })
@@ -1117,8 +1021,8 @@ public class EmployeeController {
 			HttpSession session, Locale locale) {
 		// List<ReportLeaveDto> leaveList = employeeDtoService.reportLeave();
 		List<ReportLeaveDto> employeeList;
-		//String searchText = employee.getNameEng();
-		//map กับ name แทน nameeng
+		// String searchText = employee.getNameEng();
+		// map กับ name แทน nameeng
 		/**********************************************/
 		String searchText = applicant.getFirstNameEN();
 		if (searchText.equals("forEmptySearch")) {
@@ -1129,13 +1033,15 @@ public class EmployeeController {
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
 		ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
 		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
-		ModelAndView mv = reportService.getReport(employeeList, "leaveReport1", applicant.getReportType(), parameterMap);
+		ModelAndView mv = reportService.getReport(employeeList, "leaveReport1", applicant.getReportType(),
+				parameterMap);
 		return mv;
 	}
 
 	@RequestMapping(value = "/employee/searchName/{searchText}", method = { RequestMethod.GET, RequestMethod.POST })
 	public @ResponseBody List<ReportEmployeeDto> searchName(@PathVariable("searchText") String searchText,
-			@ModelAttribute(value = "applicant") Applicant applicant, ModelMap map, HttpSession session, Locale locale) {
+			@ModelAttribute(value = "applicant") Applicant applicant, ModelMap map, HttpSession session,
+			Locale locale) {
 		List<ReportEmployeeDto> employeeList;
 		if (searchText.equals("forEmptySearch")) {
 			employeeList = employeeDtoService.reportEmployee("");
@@ -1175,12 +1081,12 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/employee/division/{id}", method = RequestMethod.GET)
-	public @ResponseBody String findByIdDivision(@PathVariable Integer id) {	
+	public @ResponseBody String findByIdDivision(@PathVariable Integer id) {
 		return employeeService.findByIdDivision(id);
 	}
-	
+
 	@RequestMapping(value = "/employee/joblevel/{tagJob}", method = RequestMethod.GET)
-	public @ResponseBody List<JoblevelDto> findTagJoblevel(@PathVariable String tagJob) {	
+	public @ResponseBody List<JoblevelDto> findTagJoblevel(@PathVariable String tagJob) {
 		return employeeService.checkTagDivision(tagJob);
 	}
 
@@ -1193,12 +1099,11 @@ public class EmployeeController {
 	Applicant setupApplicant() {
 		return new Applicant();
 	}
-	
+
 	@ModelAttribute("checktagsDivision")
 	@Transactional
-	public List<DivisionDto> tagList(){	
+	public List<DivisionDto> tagList() {
 		return employeeService.checkTag("B");
 	}
-
 
 }
