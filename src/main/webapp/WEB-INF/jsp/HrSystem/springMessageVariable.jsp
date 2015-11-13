@@ -230,4 +230,6 @@
 	var $requiredDivision = '<spring:message code="require.reservation.division" />';
 	var $requiredDescription = '<spring:message code="require.reservation.description" />';
 	
+
+	
 </script>
