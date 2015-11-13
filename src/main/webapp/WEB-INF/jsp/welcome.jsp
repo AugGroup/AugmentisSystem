@@ -19,29 +19,24 @@
 %>
 
 <style type="text/css">
-
 html, body {
     height: 100%;
     margin: 0 0 1px;
     padding: 0;
 }
-
 #manu-icon-content {
 	margin-top: 50px;
 	font-size: larger;
 	padding: 0px 150px;
 	position: fixed;
 }
-
 .content-block {
 	margin: 40px 0;	
 }
-
 .navbar-back {
     background: #707070;
     height: 65px !important;
 }
-
 @media ( max-width : 768px) {
 	#manu-icon-content {
 		margin-top: 0px;
@@ -50,7 +45,6 @@ html, body {
 		padding: 0px 150p;
 	}
 }
-
 .btn_new_app
 {
 	color: black;
@@ -65,7 +59,6 @@ html, body {
     -moz-transform: scale(1);
     transition: all 200ms ease-in;
     transform: scale(1);   
-
 }
 .btn_new_app:hover
 {
@@ -81,18 +74,14 @@ html, body {
     transform: scale(1.5);
     text-decoration: none;
 }
-
 .fa-5x {
     font-size: 7em !important;
 }
-
 #lan-flag {
 	display: block;
 	margin-right: -22px;
 		
 }
-
-
 .footer {
   position:  fixed !important;
   bottom:0;
