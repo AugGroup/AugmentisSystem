@@ -33,10 +33,11 @@ html, body {
 .content-block {
 	margin: 40px 0;	
 }
-.navbar-back {
-    background: #707070;
-    height: 65px !important;
+
+#navbar-collapse {
+	margin-top: 20px;
 }
+
 @media ( max-width : 768px) {
 	#manu-icon-content {
 		margin-top: 0px;
@@ -113,7 +114,7 @@ html, body {
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 		
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" >
 				<li id="bgLogout">						
 					<a id="linkLogout" class="navbar-link" href="<c:url value="/logout"/>">
 						<spring:message code="sitemesh.logout" /> | <%=name%>
