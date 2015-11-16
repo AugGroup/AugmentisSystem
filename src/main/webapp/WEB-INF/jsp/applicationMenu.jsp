@@ -57,7 +57,7 @@
          		class="glyphicon glyphicon-user"></span> <spring:message code="tab.info"/></a></li>
         		<li class='${ (tag eq "address") ? "active" : ""}' ><a href="${pageContext.request.contextPath}/address/${id}"><span
         		class="glyphicon glyphicon-home"></span> <spring:message code="tab.address"/></a></li>
-      			<li class='${ (tag eq "family") ? "active" : ""}'><a  href="${pageContext.request.contextPath}/family/${id}"><span
+      			<li class='${ (tag eq "family") ? "active" : ""}'><a  href="${pageContext.request.contextPath}/families/${id}"><span
 		        class="glyphicon glyphicon-file"></span> <spring:message code="tab.family"/></a></li>
 		      	<li class='${ (tag eq "education") ? "active" : ""}'><a  href="${pageContext.request.contextPath}/educations/${id}"><span
 		        class="glyphicon glyphicon-education"></span> <spring:message code="tab.education"/></a></li>

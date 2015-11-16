@@ -554,6 +554,7 @@ public class ApplicantController implements Serializable {
         return result;
 	}
 	
+
 	@RequestMapping(value = "/references/{id}", method = { RequestMethod.POST })
 	public @ResponseBody Reference references(@RequestBody Reference reference,@PathVariable Integer id,Model model) {
 		model.addAttribute("id",id);
@@ -573,7 +574,6 @@ public class ApplicantController implements Serializable {
 		
         return exp;
 	}
-
 	//////////////////        LINK PAGE       ///////////////////////////
 	
 
@@ -595,7 +595,7 @@ public class ApplicantController implements Serializable {
         return "address";
 	}
 	
-	@RequestMapping(value = "/family/{id}", method = { RequestMethod.GET })
+	@RequestMapping(value = "/families/{id}", method = { RequestMethod.GET })
 	public String family(@PathVariable Integer id,Model model) {
 		model.addAttribute("id",id);
 		String tag = "family";
@@ -1058,56 +1058,47 @@ public class ApplicantController implements Serializable {
 	}
 	
 	@ModelAttribute("jobLevels")
-	@Transactional
 	public List<MasJoblevel> jobLevelList(){
 		return masJoblevelService.findAll();
 	}
 	
 	@ModelAttribute("checktags")
-	@Transactional
 	public List<JoblevelDto> tagList(){
 		return applicantService.checkTag("t");
 	}
 	
 	
 	@ModelAttribute("technologies")
-	@Transactional
 	public List<MasTechnology> technologyList(){
 		return masTechnologyService.findAll();
 	}
 	
 	@ModelAttribute("addresses")
-	@Transactional
 	public List<MasAddressType> addressList(){
 		return masAddressTypeService.findAll();
 	}
 	
 	@ModelAttribute("provinces")
-	@Transactional
 	public List<MasProvince> provinceList(){
 		return masProvinceService.findAll();
 	}
 	
 	@ModelAttribute("relations")
-	@Transactional
 	public List<MasRelationType> relationList(){
 		return masRelationService.findAll();
 	}
 	
 	@ModelAttribute("degreeTypes")
-	@Transactional
 	public List<MasDegreetype> degreeTypesList(){
 		return masDegreeTypeService.findAll();
 	}
 	
 	@ModelAttribute("masspecialties")
-	@Transactional
 	public List<MasSpecialty> masspecialtyList(){
 		return masSpecialtyService.findAll();
 	}
 	
 	@ModelAttribute("augRequests")
-	@Transactional
 	public List<AugRequestDto> augRequestList(){
 		return augRequestService.getJobcaseCode();
 	}
