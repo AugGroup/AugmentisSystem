@@ -35,7 +35,7 @@ html, body {
 }
 
 #navbar-collapse {
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 @media ( max-width : 768px) {
@@ -45,6 +45,10 @@ html, body {
 		font-size: larger;
 		padding: 0px 150p;
 	}
+	
+	#navbar-collapse {
+	margin-top: 20px;
+}
 }
 .btn_new_app
 {
@@ -147,14 +151,14 @@ html, body {
 		<div class="col-md-6 col-lg-6 text-center content-block">
 			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/applicant">
 				<i class="fa fa-eye fa-5x" ></i>
-				<br>Recuitment System
+				<br><spring:message code="recruitment.system" />
 			</a>
 		</div>
 		
 		<div class="col-md-6 col-lg-6 text-center content-block">
 			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/employee/list">
 				<i class="fa fa-user fa-5x"></i>
-				<br>Human Resource System
+				<br><spring:message code="human.resource.system" />
 			</a>
 		</div>
 		
