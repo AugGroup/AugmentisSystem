@@ -21,6 +21,13 @@
 	
 }
 </style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#employeePage").addClass('active-menu'); 
+	});
+</script>
+
 <div id="contentemp">
 <div class="form">
 <f:form method="post" commandName="listemployee"  role="form">

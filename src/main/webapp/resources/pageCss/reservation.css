@@ -1,0 +1,55 @@
+@CHARSET "ISO-8859-1";
+
+/* --------------------------------- Head Calendar ------------------------- */
+.fc-head{
+	background-color: #ababab;
+}
+
+.fc-unthemed .fc-today {
+   background: #FFFF66;
+}
+
+/* ---------------------------------  Div Back Month Name ------------------------- */
+div.fc-center.text-center{
+	margin-top: 1%;
+	margin-bottom: -1%;
+    background-color: #ffc000;
+    color: #ffffff;
+    padding: 5px;
+    width: 100%;
+}
+
+/* --------------------------------- Month Name ------------------------- */
+div.fc-center.text-center h2{
+	float: initial;
+}
+
+/* ----------------------- Div Search ----------------------- */
+#searchReserveBtn{
+	margin-top: 10px;	
+}
+
+/* ----------------------- Div Filter Search ----------------------- */
+#filterReserveBtn{
+	margin-top: 10px;	
+}
+/* --------------------------------- Footer Calendar ------------------------- */
+
+#calendar-border{
+	padding-bottom : 100px;
+}
+/* --------------------------------- Calendar ------------------------- */
+div.fc-day-grid div.fc-row:nth-child(odd) {
+	background-color: #e7e7e7;
+}
+
+#div-calendar-bg {
+ 	background-color: #E0DFDD;
+    padding-bottom: 25px;
+    padding-top: 0px;
+}
+
+div.fc-day-grid div.fc-row:nth-child(even) {
+	background-color: #d6d6d6;
+}
+

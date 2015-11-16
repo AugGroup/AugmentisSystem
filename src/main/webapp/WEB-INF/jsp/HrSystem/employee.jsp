@@ -6,7 +6,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<link href="<c:url value="/static/resources/pageCss/headerHr.css" />" rel="stylesheet" type="text/css">
+
 <div style="margin-left:15px;">
 	<jsp:include page="employeeMenu.jsp"></jsp:include>
 	<jsp:include page="springMessageVariable.jsp"></jsp:include>

@@ -29,6 +29,7 @@ ul#nav-menu > li > a{
 	height: 65px;
 	padding: 22px 15px;
 	margin-top: -1px;
+	text-decoration: none;
 }
 
 .nav li.dropdown>a{
