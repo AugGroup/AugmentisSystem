@@ -900,17 +900,17 @@ public class EmployeeController {
 	@RequestMapping(value = "/employee/reportPopup", method = { RequestMethod.GET })
 	public String reportPopup(@ModelAttribute(value = "employee") ReportEmployeeDto reportEmployeeDto, Locale locale,
 			ModelMap map) {
-		return "/employee/reportPopup";
+		return "/HrSystem/reportPopup";
 	}
 
 	@RequestMapping(value = "/employee/reportEmpName", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reportEmpName(ModelMap map) {
-		return "/report/reportEmpName";
+		return "/HrSystem/reportEmpName";
 	}
 
 	@RequestMapping(value = "/employee/reportEmpCode", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modalReportEmpCode(ModelMap map) {
-		return "/report/reportEmpCode";
+		return "/HrSystem/reportEmpCode";
 	}
 
 	@RequestMapping(value = "/employee/searchReportEmpName", method = { RequestMethod.POST, RequestMethod.GET })
@@ -971,7 +971,7 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/employee/ReportStatusEmp", method = RequestMethod.GET)
 	public String ReportStatusEmp(ModelMap map) {
-		return "/report/reportStatusEmp";
+		return "/HrSystem/reportStatusEmp";
 	}
 
 	@RequestMapping(value = "/employee/searchEmpStatusReport", method = { RequestMethod.POST, RequestMethod.GET })
@@ -1013,7 +1013,7 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/employee/ReportLeave", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modalReportLeave(ModelMap map) {
-		return "/report/reportEmpLeave";
+		return "/HrSystem/reportEmpLeave";
 	}
 
 	@RequestMapping(value = "/employee/searchReportEmpLeave", method = { RequestMethod.GET, RequestMethod.POST })
