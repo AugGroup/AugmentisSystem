@@ -7,6 +7,7 @@
 <title><spring:message code="applicant.table.head" /></title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" />
+
 <script src="<c:url value ="/static/resources/pageJS/main-applicant.js"/>"></script> 
 
 <script type="text/javascript">

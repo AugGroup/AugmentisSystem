@@ -55,6 +55,7 @@ table.dataTable td, table.dataTable th {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
+	font-family: inherit;
 }
 
 table.dataTable {
@@ -106,6 +107,7 @@ table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sortin
 
 table.dataTable thead>tr>th {
 	padding-right: 30px;
+	font-family: inherit;
 }
 
 table.dataTable th:active {
@@ -356,4 +358,24 @@ div.DTFC_LeftBodyWrapper table.dataTable thead .sorting:after, div.DTFC_LeftBody
  */
 div.FixedHeader_Cloned table {
 	margin: 0 !important
+}
+
+
+@font-face {
+    font-family: 'Dosis-Bold';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-Regular';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-SemiBold';
+    src: url('../fonts/Dosis-SemiBold.ttf') format('truetype');
+}
+
+*{
+ font-family: Dosis-Regular;
 }
