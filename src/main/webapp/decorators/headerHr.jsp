@@ -28,7 +28,9 @@
 				<span class="icon-bar"></span> 
 				<span class="icon-bar"></span>
 			</button>
-			<a href="${pageContext.request.contextPath}/welcome"><img  id="logo" src="${pageContext.request.contextPath}/static/decorators/augmentis.jpg" alt="logo" /></a>
+			<a href="${pageContext.request.contextPath}/welcome">
+				<img id="logo" src="${pageContext.request.contextPath}/static/decorators/augmentis.jpg" alt="logo" />
+			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->

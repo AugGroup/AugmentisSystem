@@ -24,8 +24,24 @@
 	<decorator name="basic-theme-hr" page="basic-theme-hr.jsp">
 		<pattern>/employee*</pattern>
 		<pattern>/reservation*</pattern>
+		
 		<pattern>/history*</pattern>
 		<pattern>/allowances*</pattern>
+		<pattern>/family*</pattern>
+		<pattern>/education*</pattern>
+		<pattern>/experience*</pattern>
+		<pattern>/ability*</pattern>
+		<pattern>/leave*</pattern>
+		<pattern>/education*</pattern>
+		<pattern>/reference*</pattern>
+		<pattern>/reward*</pattern>
+		<pattern>/probation*</pattern>
+		<pattern>/punish*</pattern>
+		<pattern>/skilllanguage*</pattern>
+		<pattern>/site*</pattern>
+		<pattern>/certification*</pattern>
+		<pattern>/card*</pattern>
+		<pattern>/health*</pattern>
 	</decorator>
 	
 	

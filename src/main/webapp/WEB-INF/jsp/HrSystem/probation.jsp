@@ -8,7 +8,6 @@
 
 <jsp:include page="employeeMenu.jsp"></jsp:include>
 <jsp:include page="springMessageVariable.jsp"></jsp:include>
-<script src="<c:url value="/static/resources/bootstrapvalidator/dist/js/bootstrapValidator.js" />"></script>
 <script src="<c:url value ="/static/resources/pageJS/probation.js"/>"></script> 
 <style type="text/css">
 
