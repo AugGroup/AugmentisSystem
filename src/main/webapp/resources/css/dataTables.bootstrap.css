@@ -168,6 +168,7 @@ table.table-bordered thead th, table.table-bordered thead td {
 table.table-bordered tbody th, table.table-bordered tbody td {
 	border-left-width: 0;
 	border-bottom-width: 0;
+	font-family: inherit;
 }
 
 table.table-bordered tfoot th, table.table-bordered tfoot td {
