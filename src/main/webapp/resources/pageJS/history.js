@@ -11,8 +11,6 @@
 // 			$('#addForm').bootstrapValidator('resetForm', true);
 			clearModal();
 // 			bootstrapValidator('validate').hide();
-			
-			
 		});
 		
 // 		$("#addModal").on("click",function(){
@@ -29,7 +27,7 @@
 		
 		$('#dateOfAdjustment').mask("99-99-9999",{placeholder:"DD-MM-YYYY"});
 		
-		$('#salary').mask('0,000,000.00', {reverse: true});
+		$('.money').mask('0,000,000.00', {reverse: true});
 // 		$('.money').mask('000.000.000.000.000,00', {reverse: true});
 // 		$('#salary').autoNumeric('init', {'dGroup': 3});
 // 		$('#oldSalary').autoNumeric('init', {'dGroup': 3});

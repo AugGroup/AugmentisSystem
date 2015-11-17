@@ -12,58 +12,90 @@
 <html>
 <head>
 
+<!-- jQuery -->
 <script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
 <script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
 
-<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
+
+<!-- Alertify.js -->
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.core.css'/>"></link>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.bootstrap.css'/>"></link>
 <script src='<c:url value ="/static/resources/js/alertify.js"/>'></script>
+
+<!-- Bootstrap Validator -->
+<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrapValidator.css'/>"></link>
+<script src="<c:url value="/static/resources/js/bootstrapValidator.min.js" />"></script>
+
+<!-- Mask Input -->
+<script src='<c:url value ="/static/resources/js/jquery.maskedinput.js" />'></script>
+<script src="<c:url value="/static/resources/js/jquery.mask.js" />"></script>
+
+<!-- Accounting JS -->
+<script src="<c:url value="/static/resources/js/accounting.js" />"></script>
 
 <!-- Date Time Picker -->
 <script src='<c:url value ="/static/resources/js/moment.js"/>'></script>
 <script src="<c:url value="/static/resources/js/bootstrap-datetimepicker.js" />"></script>
 <link href="<c:url value="/static/resources/css/bootstrap-datetimepicker.min.css" />" rel="stylesheet" media="all">
 
-
+<!-- Boostrap Datepicker -->
 <script src='<c:url value ="/static/resources/js/bootstrap-datepicker.min.js"/>'></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/bootstrap-datepicker3.min.css"/>" />
 
-<script src='<c:url value ="/static/resources/js/jquery.dataTables.min.js"/>'></script>
+<!-- DataTable -->
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/jquery.dataTables.min.css"/>" />
+<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/dataTables.bootstrap.css"/>" />
+<script src='<c:url value ="/static/resources/js/jquery.dataTables.min.js"/>'></script>
 
+<!-- Boostrap Wizard -->
 <script src='<c:url value ="/static/resources/js/jquery.bootstrap.wizard.js"/>'></script>
 <script src='<c:url value ="/static/resources/js/jquery.bootstrap.wizard.min.js"/>'></script>
 
+<!-- Pnotify -->
 <script src='<c:url value ="/static/resources/js/pnotify.custom.min.js"/>'></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/pnotify.custom.min.css"/>" />
 
+<!-- jQuery Validator -->
 <script src='<c:url value ="/static/resources/js/jquery.validate.min.js"/>'></script>
-	
-<script src='<c:url value ="/static/resources/js/additional-methods.min.js"/>'></script>
-<script src='<c:url value ="/static/resources/js/jquery.inputmask.bundle.min.js" />'></script>
 
-<script src='<c:url value ="/static/resources/js/jquery.maskedinput.js" />'></script>
+<!-- Additional Method -->
+<script src='<c:url value ="/static/resources/js/additional-methods.min.js"/>'></script>
+<%-- <script src='<c:url value ="/static/resources/js/jquery.inputmask.bundle.min.js" />'></script> --%>
+
+<!-- Date Js -->
 <script src='<c:url value ="/static/resources/js/date.js" />'></script>
 <script src='<c:url value ="/static/resources/js/dataTables.bootstrap.js"/>'></script>
-<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/dataTables.bootstrap.css"/>" />
 
+<!-- DateRange Picker -->
 <script src='<c:url value ="/static/resources/js/daterangepicker.js"/>'></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/daterangepicker-bs3.css"/>" />
 
-<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/infoCss.css"/>">
 
-<link href='<c:url value="/static/resources/css/bootstrap.min.css"/>' rel="stylesheet" type="text/css"></link>
+<%-- <link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/infoCss.css"/>"> --%>
+
+<!-- Moment Timezone JS -->
+<script src='<c:url value="/static/resources/js/moment-timezone.js"/>'></script>
+
+<!-- Fullcalendar -->
 <link href='<c:url value="/static/resources/css/fullcalendar.css"/>' rel='stylesheet' type="text/css" />
 <link href='<c:url value="/static/resources/css/fullcalendar.print.css"/>' rel='stylesheet' media='print' />
-<link href='<c:url value="/static/resources/css/jquery-ui.min.css"/>' rel='stylesheet' />
-
-<script src='<c:url value="/static/resources/js/moment-timezone.js"/>'></script>
 <script src='<c:url value="/static/resources/js/fullcalendar.min.js"/>'></script>
 <script src='<c:url value="/static/resources/js/calendar_lang-all.js"/>'></script>
 
+<!-- jQuery UI -->
+<link href='<c:url value="/static/resources/css/jquery-ui.min.css"/>' rel='stylesheet' />
+
+<!-- Main CSS -->
 <link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>">
+
+<!-- Head Hr -->
 <link href="<c:url value="/static/resources/pageCss/headerHr.css" />" rel="stylesheet" type="text/css">
+
+
+
 
 <title><decorator:title/></title>
 <link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/static/decorators/favicon.ico">

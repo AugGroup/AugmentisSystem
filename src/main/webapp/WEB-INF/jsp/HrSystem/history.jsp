@@ -8,8 +8,6 @@
 
 <jsp:include page="employeeMenu.jsp"></jsp:include>
 <jsp:include page="springMessageVariable.jsp"></jsp:include>
-<script src="<c:url value="/static/resources/bootstrapvalidator/dist/js/bootstrapValidator.js" />"></script>
-<script src="<c:url value="/static/resources/accounting/accounting.js" />"></script>
 <script src="<c:url value ="/static/resources/pageJS/history.js"/>"></script> 
 
 <input id="empId" type="hidden" value="${id}">
@@ -87,7 +85,7 @@
 	  
 	  <div class="form-group col-md-6">
 	    <label class="required">${ salary} : </label>
-	    <form:input path="salary" type="text" class="form-control" id="salary" name="salary" placeholder="${enter }${salary }"/>
+	    <form:input path="salary" type="text" class="form-control money" id="salary" name="salary" placeholder="${enter }${salary }"/>
 	  </div>
 	  
 	  <div class="form-group col-md-6">
