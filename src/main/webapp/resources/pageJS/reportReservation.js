@@ -23,7 +23,7 @@ $(document).ready(function () {
 					}
 				},
 				columns :[
-				       {data: "reservationBy"},
+				       {data: "firstName"},
 				       {data: "divisionName"},
 				       {data: "roomName"},
 				       {data: "reservationTypeName"},

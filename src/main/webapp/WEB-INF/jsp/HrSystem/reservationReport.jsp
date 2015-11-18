@@ -5,7 +5,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%-- <title><spring:message code="report.text" /></title> --%>
-<script src="<c:url value ="/resources/js/reportReservation.js"/>"></script> 
+
+<jsp:include page="springMessageVariable.jsp"></jsp:include>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#btn_report").addClass('active-menu'); 
@@ -107,7 +109,7 @@ $(document).ready(function(){
 		<caption title="" class="tableHeader"></caption>
 			<thead>
 				<tr>
-					<th>RESERVATION BY</th>
+					<th>EMPLOYEE NAME</th>
 					<th>DIVISION</th>
 					<th>ROOM</th>
 					<th>RESERVATIONTYPE</th>
@@ -120,3 +122,5 @@ $(document).ready(function(){
 		</table>
 	</div>
 </div>
+
+<script src="<c:url value="/static/resources/pageJS/reportReservation.js" />"></script>
