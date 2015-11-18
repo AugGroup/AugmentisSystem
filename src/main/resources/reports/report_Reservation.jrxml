@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_Reservation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5926a9cc-dd16-4296-844f-e8a439806ec1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="reservationBy" class="java.lang.String"/>
+	<field name="divisionName" class="java.lang.String"/>
+	<field name="roomName" class="java.lang.String"/>
+	<field name="reservationTypeName" class="java.lang.String"/>
+	<field name="dateReservation" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="41" y="0" width="476" height="74" backcolor="#FFCC00" uuid="89e7284e-5eb3-41e2-bfbb-3bc9c6fef830"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="62" y="10" width="439" height="54" uuid="62d0616b-13ce-460b-bef3-70ef570133cc"/>
+				<textElement textAlignment="Center">
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Reservation Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="120" height="20" uuid="37e067fb-01fd-412b-83ee-f8cbf526ec3d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Reservation By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="5" width="120" height="20" uuid="01c982d5-3953-46f7-87d8-db58bc1cd368"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Division]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="5" width="100" height="20" uuid="3b4064de-3a9a-425a-bb38-c49f27902145"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Room]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="5" width="130" height="20" uuid="29679c27-910f-4686-bb66-8e7eeacf8d3a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[ReservationType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="5" width="74" height="20" uuid="f39e53eb-e4ab-4c7d-88df-0d2ccf3aee86"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1" uuid="528754c5-dcd0-4d52-9c2d-89440d05936d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="98242f7f-7318-43e1-8651-c6533d295390"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="120" height="20" uuid="7726c2ca-e670-4d16-80ce-1ab4b36f6551"/>
+				<textFieldExpression><![CDATA[$F{reservationBy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="14" width="120" height="20" uuid="05ed5ddb-1ded-44a4-a87e-d46ce20f35c0"/>
+				<textFieldExpression><![CDATA[$F{divisionName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="248" y="14" width="100" height="20" uuid="7b1f99d1-c7b9-4e3d-8b2d-98b9548a1be9"/>
+				<textFieldExpression><![CDATA[$F{roomName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="14" width="130" height="20" uuid="28b25ea5-6e8a-48d6-af93-ab7c92363dfd"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{reservationTypeName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="483" y="14" width="74" height="20" uuid="56152dd2-49ea-4abb-89a3-07854d2a4dd1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dateReservation}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>

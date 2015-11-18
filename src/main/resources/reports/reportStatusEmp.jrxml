@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportStatusEmp" language="groovy" pageWidth="1224" pageHeight="595" orientation="Landscape" columnWidth="1184" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d3c3217-4ead-4895-ba23-982db41308ff">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="545"/>
+	<property name="ireport.y" value="32"/>
+	<queryString>
+		<![CDATA[SELECT emp.id,emp.EMPLOYEE_CODE as employeeCode,
+DATE_FORMAT(official.START_WORK_DATE,'%d-%m-%Y') as startWorkDate,app.LASTNAME_EN  as lastEng, app.FIRSTNAME_EN  as nameEng, DATE_FORMAT(app.BIRTHDATE,'%d-%m-%Y') as dateOfBirth,app.AGE as age,staff.STAFFTYPENAME as statusStaff,site.PROJECTOWNER as projectOwner,
+DATE_FORMAT(site.STARTDATE,'%d-%m-%Y') as startDate,DATE_FORMAT(site.ENDDATE,'%d-%m-%Y') as endDate,
+TIMESTAMPDIFF(YEAR, app.BIRTHDATE, now() ) as year,TIMESTAMPDIFF(MONTH, app.BIRTHDATE, now() ) % 12 as month,
+FLOOR(TIMESTAMPDIFF( DAY, app.BIRTHDATE, now() ) % 30.4375 ) as day,
+TIMESTAMPDIFF(YEAR, official.start_work_date, now() ) as yearwork,
+TIMESTAMPDIFF(MONTH, official.start_work_date, now() ) % 12 as monthwork,
+FLOOR(TIMESTAMPDIFF( DAY,official.start_work_date, now() ) % 30.4375 ) as daywork
+from EMPLOYEE as emp join applicant as app on emp.applicant_id = app.id
+join SITE as site on site.employee_ID = emp.ID
+join OFFICIAL as official on app.OFFICIAL_ID = OFFICIAL.ID
+join MAS_STAFFTYPE as staff on staff.ID = emp.ID;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="employeeCode" class="java.lang.String"/>
+	<field name="startWorkDate" class="java.lang.String"/>
+	<field name="lastEng" class="java.lang.String"/>
+	<field name="nameEng" class="java.lang.String"/>
+	<field name="dateOfBirth" class="java.lang.String"/>
+	<field name="age" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusStaff" class="java.lang.String"/>
+	<field name="projectOwner" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="startDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="year" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.Long"/>
+	<field name="day" class="java.lang.Long"/>
+	<field name="yearwork" class="java.lang.Long"/>
+	<field name="monthwork" class="java.lang.Long"/>
+	<field name="daywork" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="360" y="16" width="438" height="35" uuid="0a4f650c-b367-48cf-b64b-10af30f168ab"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New" size="24"/>
+				</textElement>
+				<text><![CDATA[Employee Status Report]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<line>
+				<reportElement x="516" y="20" width="135" height="1" uuid="d0b52305-e6d6-46e1-8763-7bbd04a11b43"/>
+			</line>
+			<line>
+				<reportElement x="221" y="20" width="182" height="1" uuid="3026a5e1-f6f9-439a-9297-4603012819fd"/>
+			</line>
+			<line>
+				<reportElement x="19" y="44" width="1111" height="3" uuid="f3297f67-3fdc-4f42-97d8-8e0ca1226a8a"/>
+			</line>
+			<textField>
+				<reportElement x="121" y="15" width="90" height="20" uuid="29f6c38e-ba42-4d43-afd4-fa6c9b06d938"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.datestartwork}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="1" width="68" height="19" uuid="8f323a51-853b-4e9d-81f4-97840d964806"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.duration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="24" width="62" height="20" uuid="126bfff0-606d-466e-98db-49084d24abf6"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.durationy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="24" width="66" height="20" uuid="3171ffac-f769-44e3-847a-39d063179bbb"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.durationm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="24" width="65" height="20" uuid="4b797503-5126-4880-9fa4-d8361c962d7d"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.durationd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="21" width="85" height="20" uuid="785be5b9-58a0-4e00-b047-f7aa6f385c86"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.birthdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="564" y="1" width="59" height="19" uuid="64edac18-443c-4547-a797-4ceccc609104"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.age}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="516" y="25" width="52" height="20" uuid="e8be851b-7f2b-4952-ae3d-d965f482a942"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.agey}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="26" width="48" height="20" uuid="43e83432-5c1b-4588-b44d-517142f71172"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.agem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="621" y="26" width="65" height="20" uuid="694362c0-5b7e-448c-851c-0fef70b0a52f"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.aged}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="705" y="16" width="93" height="25" uuid="e9a456bd-d63d-495d-ac5e-84db04bd1d18"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.resourcenameen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="816" y="15" width="73" height="20" uuid="aac7385e-daae-4666-af43-1abf5df00085"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.statusstaff}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="893" y="16" width="76" height="20" uuid="573932a9-18c2-4920-a9b7-cfe3d91a8147"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.startdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="980" y="16" width="77" height="20" uuid="ce879d11-f220-4d62-a1d3-c2ad85b1fcd0"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.enddate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="15" width="85" height="20" uuid="c550e109-bf4f-48df-acc1-4208300eb0df"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.resource}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="42" y="7" width="74" height="20" uuid="e51cd9bf-1d44-4b61-b1ab-fae7ac0ae863"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeCode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="421" y="7" width="83" height="20" uuid="c56654e3-1670-42d8-afa4-536bdef49e02"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateOfBirth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="705" y="8" width="57" height="20" uuid="666897c2-e39c-417e-b66c-7207f286b6f3"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nameEng}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="893" y="8" width="76" height="20" uuid="08c6f698-b4e5-4537-9e93-c30888e3de06"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="980" y="8" width="77" height="20" uuid="f69c5e1d-9251-4617-acc4-4e50f3778139"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="523" y="8" width="36" height="20" uuid="bf3cacce-99c5-46dc-91c2-03371cb7358b"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="8" width="29" height="20" uuid="f1834d15-7db7-4fc7-9c88-17372f4c84a5"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="637" y="8" width="24" height="20" uuid="b0f559fd-d263-43b4-91f4-be000b057baa"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="7" width="88" height="20" uuid="649cd004-d53a-476b-ad02-4dd62201d8e9"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startWorkDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="7" width="30" height="20" uuid="062f5ca1-ae17-4d95-ba4d-925cc1143443"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{yearwork}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="8" width="29" height="20" uuid="21c4242c-2ddc-4ce9-8369-4e71f56a87f6"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthwork}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="8" width="27" height="20" uuid="458dda72-b0d6-4946-8b74-371b99d819ee"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{daywork}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="19" y="34" width="1111" height="1" forecolor="#CC0000" uuid="f23f4cea-2811-4857-9d32-88f4f8b2f50d"/>
+			</line>
+			<textField>
+				<reportElement x="816" y="8" width="43" height="20" uuid="56658884-ee23-4a3e-9cb7-6d64f4a01d99"/>
+				<textElement>
+					<font fontName="Angsana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{statusStaff}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

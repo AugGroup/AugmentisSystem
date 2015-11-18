@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employee" language="groovy" pageWidth="2100" pageHeight="612" orientation="Landscape" columnWidth="2060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="896b97d3-bb7c-4822-aee2-a94621f66cf4">
+	<property name="ireport.zoom" value="1.1000000000000003"/>
+	<property name="ireport.x" value="1429"/>
+	<property name="ireport.y" value="85"/>
+	<queryString>
+		<![CDATA[SELECT emp.id,emp.employee_code as employeeCode,
+DATE_FORMAT(official.START_WORK_DATE,'%d-%m-%Y') as startWorkDate,exp.salary as salary, TIMESTAMPDIFF(YEAR, official.start_work_date, now() ) as yearStart,
+TIMESTAMPDIFF(MONTH, official.start_work_date, now() ) % 12 as monthStart,
+FLOOR(TIMESTAMPDIFF( DAY,official.start_work_date, now() ) % 30.4375 ) as dayStart,
+DATE_FORMAT(app.BIRTHDATE,'%d-%m-%Y') as dateOfBirth,
+TIMESTAMPDIFF(YEAR, app.BIRTHDATE, now() ) as year,
+TIMESTAMPDIFF(MONTH, app.BIRTHDATE, now() ) % 12 as month,
+FLOOR(TIMESTAMPDIFF( DAY, app.BIRTHDATE, now() ) % 30.4375 ) as day,
+app.FIRSTNAME_TH as nameThai,app.FIRSTNAME_EN
+as nameEng,app.NICKNAME_EN as nicknameEng,
+app.tel as telMobile,app.email as email,mas_employment.name as employmentName, mas_division.name as divisionName,
+mas_technology.name as technologyName, app.LASTNAME_EN as lastNameEN
+from applicant as app right join employee as emp on emp.applicant_id = app.id
+left join official as official on app.official_id = official.id left join mas_employment on emp.employment_id = mas_employment.id left join mas_division on emp.division_id = mas_division.id left join mas_technology on app.mastechnology_id = mas_technology.id left join experience as exp on exp.applicant_id =app.id;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="employeeCode" class="java.lang.String"/>
+	<field name="startWorkDate" class="java.lang.String"/>
+	<field name="salary" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="yearStart" class="java.lang.Long"/>
+	<field name="monthStart" class="java.lang.Long"/>
+	<field name="dayStart" class="java.lang.Long"/>
+	<field name="dateOfBirth" class="java.lang.String"/>
+	<field name="year" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.Long"/>
+	<field name="day" class="java.lang.Long"/>
+	<field name="nameThai" class="java.lang.String"/>
+	<field name="nameEng" class="java.lang.String"/>
+	<field name="nicknameEng" class="java.lang.String"/>
+	<field name="telMobile" class="java.lang.String"/>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="employmentName" class="java.lang.String"/>
+	<field name="divisionName" class="java.lang.String"/>
+	<field name="technologyName" class="java.lang.String"/>
+	<field name="lastNameEN" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="756" y="0" width="450" height="79" forecolor="#333333" uuid="e78f65c2-e9af-421b-a95b-24974f2a8ede"/>
+				<textElement>
+					<font fontName="Angsana New" size="30" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.empName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="60" width="2060" height="1" forecolor="#666666" uuid="6516608a-9197-46b9-aa5a-217c2a52fbfe"/>
+			</line>
+			<textField pattern="">
+				<reportElement x="0" y="0" width="114" height="60" forecolor="#333333" uuid="937c4777-05ba-4cf9-847f-89538087893a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.resourceId}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="114" y="0" width="137" height="60" forecolor="#333333" uuid="d551f6dc-7c41-4485-bdf0-794ea7436723"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.DateStartWork}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="251" y="0" width="42" height="60" forecolor="#333333" uuid="d052d876-a27e-4fe3-ab45-15504062889b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="14" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.durationYear}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="293" y="0" width="43" height="60" forecolor="#333333" uuid="a88f6a21-beaa-4e80-9c74-eee3a04aff96"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="14" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.durationMonth}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="336" y="0" width="44" height="60" forecolor="#333333" uuid="2c587e82-d5ba-4cd6-837d-411363dc7938"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="14" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.durationDay}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="380" y="0" width="167" height="60" forecolor="#333333" uuid="ee9ec657-b598-48aa-a82c-5c1e7b9627e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.birthdate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1266" y="0" width="180" height="61" forecolor="#333333" uuid="274bfae9-1230-4078-8a1e-82c8673d76e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{employee.email}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1583" y="0" width="139" height="61" forecolor="#333333" uuid="bcb517d5-3f36-4ed5-899e-6eade00bf742"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.position}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1798" y="0" width="113" height="61" forecolor="#333333" uuid="0496522f-deb4-43d6-993d-30aceebe7248"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{experience.salary}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="673" y="0" width="167" height="60" forecolor="#333333" uuid="73c35ae0-88e6-4e5b-b15c-1949fb65cdcd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.resourcenameen}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="547" y="0" width="41" height="61" forecolor="#333333" uuid="12f56079-5ae7-492e-80fa-00b671231af8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="14" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.ageYear}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="588" y="0" width="42" height="61" forecolor="#333333" uuid="26179892-3462-4655-99c4-2f85adb1431d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="14" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.ageMonth}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="630" y="0" width="43" height="61" forecolor="#333333" uuid="8f166350-46b6-4a05-86b9-f5e98613932d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="14" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.ageDay}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1018" y="0" width="106" height="61" forecolor="#333333" uuid="03df5fdb-4678-4dae-b1fe-d43d55cfd93f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{employee.nicknameEng}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1124" y="0" width="142" height="61" forecolor="#333333" uuid="8555c41a-74c8-4261-b91d-fd9864c20cb9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{family.list.tel}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1722" y="0" width="76" height="61" forecolor="#333333" uuid="a4279fde-9364-4acc-a45a-1fa1820d18d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.skill}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="840" y="0" width="178" height="60" forecolor="#333333" uuid="04cc3fd9-50c7-4c7a-988d-c17f276ddb0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{reportstatus.resourcelasten}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="1446" y="0" width="137" height="61" forecolor="#333333" uuid="384a08eb-cd0d-47cd-9be4-b1afbd27792a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="16" isBold="false" pdfFontName="..\HrSystem\src\main\resources\fonts\ANGSA.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{report.type}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="30" width="2060" height="1" forecolor="#FF6633" uuid="68af5f06-18d3-4610-99e0-f7ab5f75cd7e"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="114" height="30" uuid="cacb3fd0-9fee-404e-b66a-902066eab98e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="137" height="30" uuid="af3e98ef-4fa9-46ba-8640-3d9b74d746bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startWorkDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="42" height="30" uuid="87a7afad-1a0e-483c-bcc4-ce73713ecbc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{yearStart}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="0" width="43" height="30" uuid="72639642-518d-4f39-9b78-8a4c51d152e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthStart}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="44" height="30" uuid="4b8d9eea-1289-4072-ab7d-6bb4e13c6eb1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dayStart}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="167" height="30" uuid="a104da27-ac5d-41c1-a121-b1d2305c3a2e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateOfBirth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="547" y="0" width="41" height="30" uuid="7c2525f4-467b-4b9f-9aef-904c8c8c7190"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="588" y="0" width="43" height="30" uuid="546fbcbb-a43d-4c8f-87d2-b212982aeb86"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="631" y="0" width="43" height="30" uuid="462c907f-8010-4b37-bf99-030f5fa0a4f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{day}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1019" y="0" width="105" height="30" uuid="126dcaf6-a6e3-409b-9406-a840b94bda90"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nicknameEng}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1124" y="0" width="142" height="30" uuid="cfb9e909-4ca8-4376-bac8-7a10edadbcbf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telMobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1266" y="0" width="180" height="30" uuid="ab3c2029-49e9-46b7-ab97-d400a79c5b9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1446" y="0" width="137" height="30" uuid="4498fb16-be03-442a-9090-fd6dbbb40dce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employmentName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1583" y="0" width="139" height="30" uuid="174951ca-f181-4299-bde1-31538eea7892"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{divisionName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1722" y="0" width="76" height="30" uuid="a28ba0d1-fe9e-44e8-b991-ac265a9069c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{technologyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1798" y="0" width="113" height="30" uuid="1a88f6c2-e27e-4fb1-82e7-de7934ba06c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="674" y="1" width="167" height="30" uuid="fe25b6e1-32c3-4c99-9e78-1542f628a1f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nameEng}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="841" y="1" width="178" height="29" uuid="2abe0353-ff7b-438a-a667-ab1024fe0365"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Angsana New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastNameEN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="43" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

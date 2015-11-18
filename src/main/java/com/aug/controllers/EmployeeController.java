@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 import javax.validation.ConstraintViolationException;
 
 import net.sf.jasperreports.engine.JRParameter;
@@ -28,6 +29,8 @@ import org.hibernate.Hibernate;
 import org.hibernate.JDBCException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,6 +47,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
 
 import com.aug.hrdb.services.MasJoblevelService;
 import com.aug.hrdb.services.EmployeeDtoService;
@@ -947,13 +951,13 @@ public class EmployeeController {
 			employeeList = employeeDtoService.reportEmployeeCode(searchText);
 		}
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
+		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
 		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
 		ModelAndView mv = reportService.getReport(employeeList, "employeeCodeReport", employee.getReportType(),
 				parameterMap);
 		return mv;
 	}
-
+	
 	@RequestMapping(value = "/employee/searchNameCode/{searchText}", method = { RequestMethod.GET, RequestMethod.POST })
 	public @ResponseBody List<ReportEmployeeDto> searchNameCode(@PathVariable("searchText") String searchText,
 			@ModelAttribute(value = "employee") Employee employee, ModelMap map, HttpSession session, Locale locale) {

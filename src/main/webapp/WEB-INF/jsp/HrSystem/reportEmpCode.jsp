@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<script src="<c:url value="/resources/js/reportEmpCode.js" />"></script>
+<jsp:include page="springMessageVariable.jsp"></jsp:include>
 
 <script>
 	$(document).ready(function (){
@@ -83,3 +83,5 @@
 		<button type="button" id="btn_print" class="btn btn-default submit" value="print"><spring:message code="label.print" /></button>
 	</div>
 </f:form>
+
+<script src="<c:url value ="/static/resources/pageJS/reportEmpCode.js"/>"></script> 

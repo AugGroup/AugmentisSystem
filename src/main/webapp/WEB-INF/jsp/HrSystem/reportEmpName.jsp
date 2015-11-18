@@ -6,7 +6,8 @@
 <!-- <div class="modal-header"> -->
 <%-- 	<h4 class="modal-title"><spring:message code="report.empName" /></h4> --%>
 <!-- </div> -->
-<script src="<c:url value="/resources/js/reportEmpName.js" />"></script>
+
+<jsp:include page="springMessageVariable.jsp"></jsp:include>
 
 <script>
 	$(document).ready(function (){
@@ -93,3 +94,5 @@
 		<button type="button" id="btn_print" class="btn btn-default submit" value="print"><spring:message code="label.print" /></button>
 	</div>
 </f:form>
+
+<script src="<c:url value ="/static/resources/pageJS/reportEmpName.js"/>"></script> 
