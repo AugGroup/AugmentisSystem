@@ -930,7 +930,7 @@ public class EmployeeController {
 			employeeList = employeeDtoService.reportEmployee(searchText);
 		}
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
+		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
 		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
 		ModelAndView mv = reportService.getReport(employeeList, "employeeReport", employee.getReportType(),
 				parameterMap);
@@ -989,7 +989,7 @@ public class EmployeeController {
 			employeeList = employeeDtoService.reportStatusEmployee(searchText);
 		}
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
+		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
 		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
 		ModelAndView mv = reportService.getReport(employeeList, "reportStatusEmp", employee.getReportType(),
 				parameterMap);
