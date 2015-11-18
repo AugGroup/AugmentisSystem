@@ -69,9 +69,9 @@
 	<div id="groupbtn" align="right">
 	<f:form action="${pageContext.request.contextPath}/employee" method="POST" role="form">
 		<div class="form-group">
-		<button type="submit" class="btn btn-warning btn-md">
+		<%-- <button type="submit" class="btn btn-warning btn-md">
  	 	<spring:message code="label.add" />
-		</button>
+		</button> --%>
 		</div>
 	</f:form>
 	</div> 
