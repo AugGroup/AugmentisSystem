@@ -3,11 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<field name="reservationBy" class="java.lang.String"/>
 	<field name="divisionName" class="java.lang.String"/>
 	<field name="roomName" class="java.lang.String"/>
 	<field name="reservationTypeName" class="java.lang.String"/>
 	<field name="dateReservation" class="java.util.Date"/>
+	<field name="lastName" class="java.lang.String"/>
+	<field name="firstName" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -28,15 +29,15 @@
 	<columnHeader>
 		<band height="43" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="5" width="120" height="20" uuid="37e067fb-01fd-412b-83ee-f8cbf526ec3d"/>
+				<reportElement x="3" y="5" width="120" height="20" uuid="37e067fb-01fd-412b-83ee-f8cbf526ec3d"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<text><![CDATA[Reservation By]]></text>
+				<text><![CDATA[Employee Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="125" y="5" width="120" height="20" uuid="01c982d5-3953-46f7-87d8-db58bc1cd368"/>
-				<textElement textAlignment="Center">
+				<reportElement x="126" y="5" width="120" height="20" uuid="01c982d5-3953-46f7-87d8-db58bc1cd368"/>
+				<textElement>
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Division]]></text>
@@ -73,10 +74,6 @@
 	<detail>
 		<band height="54" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="14" width="120" height="20" uuid="7726c2ca-e670-4d16-80ce-1ab4b36f6551"/>
-				<textFieldExpression><![CDATA[$F{reservationBy}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="125" y="14" width="120" height="20" uuid="05ed5ddb-1ded-44a4-a87e-d46ce20f35c0"/>
 				<textFieldExpression><![CDATA[$F{divisionName}]]></textFieldExpression>
 			</textField>
@@ -93,6 +90,10 @@
 				<reportElement x="483" y="14" width="74" height="20" uuid="56152dd2-49ea-4abb-89a3-07854d2a4dd1"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{dateReservation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="14" width="107" height="20" uuid="714f5943-ec28-4979-b90f-7e7cd7f7faf2"/>
+				<textFieldExpression><![CDATA[$F{firstName} + " "+ $F{lastName}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
