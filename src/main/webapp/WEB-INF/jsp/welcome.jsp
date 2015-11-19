@@ -24,6 +24,10 @@ html, body {
     margin: 0 0 1px;
     padding: 0;
 }
+
+
+
+
 #manu-icon-content {
 	margin-top: 50px;
 	font-size: larger;
@@ -64,7 +68,9 @@ html, body {
     -moz-transform: scale(1);
     transition: all 200ms ease-in;
     transform: scale(1);   
+    font-family: Dosis-Bold;
 }
+
 .btn_new_app:hover
 {
 	color: rgb(222, 145, 4);

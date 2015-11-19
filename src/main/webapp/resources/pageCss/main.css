@@ -1,6 +1,22 @@
 *{
 	font-family: Dosis-Regular;
 }
+
+
+@font-face {
+    font-family: 'Dosis-Bold';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-Regular';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-SemiBold';
+    src: url('../fonts/Dosis-SemiBold.ttf') format('truetype');
+}
 #imagePreview {
 	margin-bottom: 5px;
 	margin-right: 75px;
