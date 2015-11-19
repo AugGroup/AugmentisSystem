@@ -130,14 +130,14 @@ color:#fff;
 }
 
 .navbar-defaults > a:hover > b {
-       	background-color: #fff;
-        color: #292929;
+       	/* background-color: #fff;
+        color: #292929; */
         
 }
 
 .navbar-defaults > a:focus > b {
-       	background-color: #fff;
-        color: #292929;
+       	/* background-color: #fff;
+        color: #292929; */
         
 }
 
@@ -345,6 +345,23 @@ table.dataTable.no-footer {
 .active-report {
 	background-color: rgb(222, 145, 4) !important;	
 	color: #fff !important;
+}
+
+.caret-header-hr {
+	display: inline;
+	border-top:none;
+	width:100%;
+	font-size:large;
+	margin-left: 2px;
+    border-radius: 10px;
+    width: 75px;	
+}
+
+#emp-menu {
+	padding: 5px;
+    background-color: #CFD4D4;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 @media ( max-width : 768px ) {

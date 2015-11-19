@@ -64,7 +64,7 @@
 					
 					<li >
 						<a href="#" id="btn_report" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<spring:message code="report.text" /> <span class="caret"></span>
+							<spring:message code="report.text" /> <span class="caret "></span>
 						</a>
 						<ul class="dropdown-menu sub-menu" id="dropdown_report">
 							<li>

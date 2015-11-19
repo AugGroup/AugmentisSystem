@@ -6,7 +6,11 @@
 
 
 <div class="form-group navbar navbar-defaults">
-  <a class="dropdown-link-menu" href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="label.menu" var="menu" /><b class="caret">${menu}  <span class="glyphicon glyphicon-triangle-bottom" ></span></b></a>
+  <a class="dropdown-link-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" id="emp-menu">
+  	<spring:message code="label.menu" var="menu" />
+  	<b class="caret caret-header-hr">${menu}</b>
+  	<span class="glyphicon glyphicon-triangle-bottom" ></span>
+  </a>
 	        	
    		<ul class="dropdown-menu">
    			<c:if test="${ id == 0 || id == null}">
