@@ -106,7 +106,7 @@ $(document).ready(function(){
 	<!------------------- Report DataTable------------------->
 	<div class="table-responsive" id="table2">
 		<table class="dataTable" id="reportTable" class="cell-border" style="width: 100%">
-		<caption title="" class="tableHeader"></caption>
+		<caption title="" class="tableHeader">Reservation Report</caption>
 			<thead>
 				<tr>
 					<th>EMPLOYEE NAME</th>

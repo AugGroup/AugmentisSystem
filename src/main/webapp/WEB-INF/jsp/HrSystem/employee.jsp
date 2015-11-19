@@ -12,12 +12,6 @@
 	<jsp:include page="springMessageVariable.jsp"></jsp:include>
 </div>
 
-<script src="<c:url value="/static/resources/pageJS/employee.js" />"></script>
-<script src="<c:url value="/static/resources/js/jquery.collapse.js" />"></script>
-
-
-
-
 <c:if test="${ not empty msgerror }">
 	<div class="alert alert-danger" >
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;${msgerror }</div>
@@ -195,9 +189,8 @@
 									id="nicknameEng" name="nicknameEng" placeholder="${please}${enter}<spring:message code="employee.nicknameEng"></spring:message>" value="${employeeDto.nicknameEng}">
 								</div>
 							</div>
-			</div>		
+			
 	         </div>
-	      </div>   
 	         
    
 	         
@@ -241,7 +234,8 @@
 					</table>
 					
 	     </div>
-	     
+	      </div>   
+	    </div> 
 	   
 	
  <!----------------------------------------- Start General------------------------------------------------------>
@@ -1252,4 +1246,5 @@
 </div>    
 
 
-
+<script src="<c:url value="/static/resources/pageJS/employee.js" />"></script>
+<script src="<c:url value="/static/resources/js/jquery.collapse.js" />"></script>

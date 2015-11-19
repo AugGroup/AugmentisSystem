@@ -22,6 +22,9 @@ $(document).ready(function () {
 			            return data;
 					}
 				},
+				searching : false,
+				paging: true,
+				sort : false,
 				columns :[
 				       {data: function(data) {
 				    	   return data.firstName + " " + data.lastName;

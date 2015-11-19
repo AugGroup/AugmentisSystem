@@ -143,6 +143,33 @@
 	padding: 3px;
 }
 
+h3 {
+  margin: 0;
+}
+h3 a{
+	display: block !important;
+	color:white !important;
+	text-decoration: none !important;
+}
+#div-information {
+	/* height: 30px;
+	color:#ffffff;
+	background-color: #ffcc00;
+	font-size: 18px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	font-family: Dosis-Regular;
+	font-weight: bold; */
+	background-color: #F7C11F ;
+	color: white;
+	border-bottom: 3px solid white;
+	text-shadow: 2px 2px #EEBA10;
+	height: 30px;
+	font-size: 18px;
+	padding-top: 5px;
+}
+
 /* -------- for titleHeader ------ */
 #titleHead {
 	background: #E0DFDD;
