@@ -267,6 +267,17 @@ ul.pagination li.next>a{
  color: #747474;
 }  
 
+caption {
+    height: 30px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #ffcc00;
+    font-family: Dosis-Regular;
+    font-weight: bold;
+}
 
 /* -------- for report -------- */
 .report_search {
