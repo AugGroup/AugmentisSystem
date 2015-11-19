@@ -23,7 +23,9 @@ $(document).ready(function () {
 					}
 				},
 				columns :[
-				       {data: "firstName"},
+				       {data: function(data) {
+				    	   return data.firstName + " " + data.lastName;
+				       }},
 				       {data: "divisionName"},
 				       {data: "roomName"},
 				       {data: "reservationTypeName"},
