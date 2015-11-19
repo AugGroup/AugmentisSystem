@@ -153,20 +153,26 @@ html, body {
 </nav>
 <div class="container" id="manu-icon-content">
 	<div class="row">
-		<div class="col-md-6 col-lg-6 text-center content-block">
+		<div class="col-md-4 col-lg-4 text-center content-block">
 			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/applicant">
 				<i class="fa fa-user-plus fa-5x" ></i>
 				<br><spring:message code="recruitment.system" />
 			</a>
 		</div>
 		
-		<div class="col-md-6 col-lg-6 text-center content-block">
+		<div class="col-md-4 col-lg-4 text-center content-block">
 			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/employee/list">
 				<i class="fa fa-users fa-5x"></i>
 				<br><spring:message code="human.resource.system" />
 			</a>
 		</div>
 		
+		<div class="col-md-4 col-lg-4 text-center content-block">
+			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/reservation">
+				<i class="fa fa-calendar fa-5x"></i>
+				<br><spring:message code="reservation.room.system" />
+			</a>
+		</div>
 	</div>	
 </div>
 
