@@ -118,9 +118,8 @@ html, body {
 				<span class="icon-bar"></span> 
 				<span class="icon-bar"></span>
 			</button>
-			<img  id="logo" src="${pageContext.request.contextPath}/static/decorators/augmentis.jpg" alt="logo" />
+			<img  id="logo" src="${pageContext.request.contextPath}/static/decorators/Logo.png" alt="logo" />
 		</div>
-
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 		
@@ -156,14 +155,14 @@ html, body {
 	<div class="row">
 		<div class="col-md-6 col-lg-6 text-center content-block">
 			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/applicant">
-				<i class="fa fa-eye fa-5x" ></i>
+				<i class="fa fa-user-plus fa-5x" ></i>
 				<br><spring:message code="recruitment.system" />
 			</a>
 		</div>
 		
 		<div class="col-md-6 col-lg-6 text-center content-block">
 			<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/employee/list">
-				<i class="fa fa-user fa-5x"></i>
+				<i class="fa fa-users fa-5x"></i>
 				<br><spring:message code="human.resource.system" />
 			</a>
 		</div>

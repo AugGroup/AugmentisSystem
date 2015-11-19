@@ -29,7 +29,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a href="${pageContext.request.contextPath}/welcome">
-				<img  id="logo" src="${pageContext.request.contextPath}/static/decorators/augmentis.jpg" alt="logo" />
+				<img  id="logo" src="${pageContext.request.contextPath}/static/decorators/Logo.png" alt="logo" />
 			</a>
 		</div>
 
