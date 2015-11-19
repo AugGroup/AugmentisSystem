@@ -36,7 +36,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav" id="nav-menu">
-				<li><a href="<%=request.getContextPath()%>/employee/list" id="employeePage"><span class="glyphicon glyphicon-home "></span></a></li>
+				<li><a href="<%=request.getContextPath()%>/reservation" id="reservationPage"><span class="glyphicon glyphicon-home "></span></a></li>
 <%-- 				<li><a href="<%=request.getContextPath()%>/reservation" id="reservationPage"> Reservation </a></li> --%>
 			</ul>
 		
@@ -67,25 +67,9 @@
 							<spring:message code="report.text" /> <span class="caret "></span>
 						</a>
 						<ul class="dropdown-menu sub-menu" id="dropdown_report">
-							<li>
-			    				<a id = "reportEmpName-tap" href="<%=request.getContextPath()%>/employee/reportEmpName"><spring:message code="report.empName" /></a>
-			    			</li>
-			    			
 			    			<li>
-			    				<a id = "reportEmpCode-tap" href="<%=request.getContextPath()%>/employee/reportEmpCode"><spring:message code="report.empCode" /></a>
+			    				<a id = "" href="<%=request.getContextPath()%>/reservation/report">Reservation Report</a>
 			    			</li>
-			    			
-			    			<li>
-			    				<a  id = "reportStatusEmp-tap" href="<%=request.getContextPath()%>/employee/ReportStatusEmp"><spring:message code="report.empStatus" /></a>
-			    			</li>
-			    			
-			    			<li>
-			    				<a id = "reportLeave-tap" href="<%=request.getContextPath()%>/employee/ReportLeave"><spring:message code="report.empLeave" /></a>
-			    			</li>
-			    			
-<!-- 			    			<li> -->
-<%-- 			    				<a id = "" href="<%=request.getContextPath()%>/reservation/report">Reservation Report</a> --%>
-<!-- 			    			</li> -->
 		    			</ul>
 					</li>
 			

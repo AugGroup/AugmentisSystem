@@ -48,7 +48,7 @@
 		  <div class="panel panel-default">
 		    <div class="panel-heading" role="tab" id="pendingTestHead">
 		      <h4 class="panel-title">
-		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#applicantStatusListSm" href="#pendingTestListSm" aria-expanded="true" aria-controls="pendingTestListSm">
+		        <a class="collapsed collapseLink" role="button" data-toggle="collapse" data-parent="#applicantStatusListSm" href="#pendingTestListSm" aria-expanded="true" aria-controls="pendingTestListSm">
 		          <spring:message code="appointment.status.pending.test"/>
 		        </a>
 		      </h4>
@@ -62,7 +62,7 @@
 		  <div class="panel panel-default">
 		    <div class="panel-heading" role="tab" id="pendingApproveHead">
 		      <h4 class="panel-title">
-		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#applicantStatusListSm" href="#pendingApproveListSm" aria-expanded="false" aria-controls="pendingApproveListSm">
+		        <a class="collapsed collapseLink" role="button" data-toggle="collapse" data-parent="#applicantStatusListSm" href="#pendingApproveListSm" aria-expanded="false" aria-controls="pendingApproveListSm">
 		          <spring:message code="appointment.status.pending.approve"/>
 		        </a>
 		      </h4>
@@ -99,7 +99,7 @@
 				  <div class="panel panel-default">
 				    <div class="panel-heading" role="tab" id="pendingTestHead">
 				      <h4 class="panel-title">
-				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#applicantStatusListMd" href="#pendingTestListMd" aria-expanded="true" aria-controls="pendingTestListMd">
+				        <a class="collapsed collapseLink" role="button" data-toggle="collapse" data-parent="#applicantStatusListMd" href="#pendingTestListMd" aria-expanded="true" aria-controls="pendingTestListMd">
 				          <spring:message code="appointment.status.pending.test"/>
 				        </a>
 				      </h4>
@@ -113,7 +113,7 @@
 				  <div class="panel panel-default">
 				    <div class="panel-heading" role="tab" id="pendingApproveHead">
 				      <h4 class="panel-title">
-				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#applicantStatusListMd" href="#pendingApproveListMd" aria-expanded="false" aria-controls="pendingApproveListMd">
+				        <a class="collapsed collapseLink" role="button" data-toggle="collapse" data-parent="#applicantStatusListMd" href="#pendingApproveListMd" aria-expanded="false" aria-controls="pendingApproveListMd">
 				          <spring:message code="appointment.status.pending.approve"/>
 				        </a>
 				      </h4>

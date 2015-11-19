@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 div.fc-row>table>thead > tr:first-child {
-	background-color: #ababab;
+	background-color: #E06464;
 	color:#ffffff;
 }
 
@@ -129,4 +129,23 @@ span.label-success{
 	background-color: #E0DFDD;
     margin: 7%;
     width: 125%;
+}
+.collapseLink{
+	text-decoration: none;
+}
+
+.collapseLink:link{
+	text-decoration: none;
+}
+
+.collapseLink:active{
+	text-decoration: none;
+}
+
+.collapseLink:visited{
+	text-decoration: none;
+}
+
+.collapseLink:hover{
+	text-decoration: none;
 }

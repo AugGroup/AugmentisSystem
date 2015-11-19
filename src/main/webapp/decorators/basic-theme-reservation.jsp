@@ -11,86 +11,61 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	
-		<!-- jQuery -->
+		<!--jQuery -->
 		<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
-		
-		<!-- jQuery UI -->
-		<link href='<c:url value="/static/resources/css/jquery-ui.min.css"/>' rel='stylesheet' />
-		
+
 		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
 		<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
 		
-		<!-- Alertify.js -->
+		<!-- Alertify -->
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.core.css'/>"></link>
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.bootstrap.css'/>"></link>
 		<script src='<c:url value ="/static/resources/js/alertify.js"/>'></script>
 		
-		<!-- Bootstrap Validator -->
-		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrapValidator.css'/>"></link>
-		<script src="<c:url value="/static/resources/js/bootstrapValidator.min.js" />"></script>
-		
-		<!-- Mask Input -->
-		<script src='<c:url value ="/static/resources/js/jquery.maskedinput.js" />'></script>
-		<script src="<c:url value="/static/resources/js/jquery.mask.js" />"></script>
-		
-		<!-- Accounting JS -->
-		<script src="<c:url value="/static/resources/js/accounting.js" />"></script>
-		
-		<!-- Date Time Picker -->
+		<!-- momentJS -->
 		<script src='<c:url value ="/static/resources/js/moment.js"/>'></script>
-		<script src="<c:url value="/static/resources/js/bootstrap-datetimepicker.js" />"></script>
-		<link href="<c:url value="/static/resources/css/bootstrap-datetimepicker.min.css" />" rel="stylesheet" media="all">
+		<script src='<c:url value="/static/resources/js/moment-timezone.js"/>'></script>
 		
-		<!-- Boostrap Datepicker -->
-		<script src='<c:url value ="/static/resources/js/bootstrap-datepicker.min.js"/>'></script>
+		<!-- Bootstrap Datetime Picker -->
+		<link href="<c:url value="/static/resources/css/bootstrap-datetimepicker.min.css" />" rel="stylesheet" media="all">
+		<script src="<c:url value="/static/resources/js/bootstrap-datetimepicker.js" />"></script>
+		
+		<!-- Bootstrap Datepicker -->
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/bootstrap-datepicker3.min.css"/>" />
+		<script src='<c:url value ="/static/resources/js/bootstrap-datepicker.min.js"/>'></script>
 		
 		<!-- DataTable -->
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/jquery.dataTables.min.css"/>" />
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/dataTables.bootstrap.css"/>" />
 		<script src='<c:url value ="/static/resources/js/jquery.dataTables.min.js"/>'></script>
+		<script src='<c:url value ="/static/resources/js/dataTables.bootstrap.js"/>'></script>
 		
-		<!-- Boostrap Wizard -->
+		<!-- Bootstrap Wizard -->
 		<script src='<c:url value ="/static/resources/js/jquery.bootstrap.wizard.js"/>'></script>
 		<script src='<c:url value ="/static/resources/js/jquery.bootstrap.wizard.min.js"/>'></script>
 		
 		<!-- Pnotify -->
-		<script src='<c:url value ="/static/resources/js/pnotify.custom.min.js"/>'></script>
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/pnotify.custom.min.css"/>" />
+		<script src='<c:url value ="/static/resources/js/pnotify.custom.min.js"/>'></script>
 		
-		<!-- jQuery Validator -->
+		<!-- jQuery Validate -->
 		<script src='<c:url value ="/static/resources/js/jquery.validate.min.js"/>'></script>
-		
-		<!-- Additional Method -->
-		<script src='<c:url value ="/static/resources/js/additional-methods.min.js"/>'></script>
-		<%-- <script src='<c:url value ="/static/resources/js/jquery.inputmask.bundle.min.js" />'></script> --%>
-		
-		<!-- Date Js -->
+			
+		<!-- Date js -->
 		<script src='<c:url value ="/static/resources/js/date.js" />'></script>
-		<script src='<c:url value ="/static/resources/js/dataTables.bootstrap.js"/>'></script>
 		
-		<!-- DateRange Picker -->
-		<script src='<c:url value ="/static/resources/js/daterangepicker.js"/>'></script>
-		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/daterangepicker-bs3.css"/>" />
-
-		<!-- Moment Timezone JS -->
-		<script src='<c:url value="/static/resources/js/moment-timezone.js"/>'></script>
-		
-		<!-- Fullcalendar -->
+		<!-- Full Calendar -->
 		<link href='<c:url value="/static/resources/css/fullcalendar.css"/>' rel='stylesheet' type="text/css" />
 		<link href='<c:url value="/static/resources/css/fullcalendar.print.css"/>' rel='stylesheet' media='print' />
 		<script src='<c:url value="/static/resources/js/fullcalendar.min.js"/>'></script>
 		<script src='<c:url value="/static/resources/js/calendar_lang-all.js"/>'></script>
 		
-		<!-- Main CSS -->
+		<!-- main.css -->
 		<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>">
 		
-		<!-- Head Hr -->
-		<link href="<c:url value="/static/resources/pageCss/headerHr.css" />" rel="stylesheet" type="text/css">
-		
 		<title><decorator:title/></title>
+		
 		<link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/static/decorators/favicon.ico">
 		
 		<script type="text/javascript">
@@ -149,22 +124,19 @@
 			var contextPath = "${pageContext.request.contextPath}";
 			var local = '${pageContext.response.locale}';
 		</script>
-		
-		<!-- Email -->
-		<link href="${ pageContext.request.contextPath }/static/resources/pageCss/email-main.css" rel="stylesheet" type="text/css"></link>
-		<script type="text/javascript" src="${ pageContext.request.contextPath }/static/resources/pageJS/email-main.js"></script>
-		
 	</head>
 	<%
 		User user = (User) SecurityContextHolder.getContext()
 				.getAuthentication().getPrincipal();
 		String name = user.getUsername();
 	%>
-	
+
 	<body background="${ pageContext.request.contextPath }/static/decorators/BG_W.jpg">
 		
-		<jsp:include page="headerHr.jsp" />
-		<div class="container"> <decorator:body /></div>
+		<jsp:include page="headerReservation.jsp" />
+		<div class="container">
+			<decorator:body />
+		</div>
 		<a href="#" class="scrollToTop" id="goToTop"><img src = "${ pageContext.request.contextPath }/static/decorators/uparrow.png" width="54px" height="54px" /></a>
 		<jsp:include page="footer.jsp"></jsp:include>
 		

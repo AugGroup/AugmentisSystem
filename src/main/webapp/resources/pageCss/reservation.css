@@ -46,10 +46,42 @@ div.fc-day-grid div.fc-row:nth-child(odd) {
 #div-calendar-bg {
  	background-color: #E0DFDD;
     padding-bottom: 25px;
-    padding-top: 0px;
+    padding-top: 10px;
 }
 
 div.fc-day-grid div.fc-row:nth-child(even) {
 	background-color: #d6d6d6;
 }
 
+.collapseLink{
+	text-decoration: none;
+}
+
+.collapseLink:link{
+	text-decoration: none;
+}
+
+.collapseLink:active{
+	text-decoration: none;
+}
+
+.collapseLink:visited{
+	text-decoration: none;
+}
+
+.collapseLink:hover{
+	text-decoration: none;
+}
+
+td.fc-widget-header{
+	background-color: #E06464;
+	color : #ffffff;
+}
+
+#calendarPanel{
+	padding-left: 30px;
+}
+
+#printPanel{
+	padding: 10px;
+}

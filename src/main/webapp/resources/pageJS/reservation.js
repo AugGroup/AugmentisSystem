@@ -138,14 +138,18 @@ function renderCalendar() {
 						$calendar.fullCalendar('changeView', 'agendaDay');
 						$calendar.fullCalendar('gotoDate', start);
 					} else {
-						$validform.resetForm();
-						$('#formInsert').trigger('reset');
-						$("#insStartTime").text(moment(start).format("HH:mm MMMM D, YYYY"));
-						$("#insEndTime").text(moment(end).format("HH:mm MMMM D, YYYY"));
-						$('#insModal').modal('show');
-						insStartTime = start;
-						insEndTime = end;
-						$calendar.fullCalendar('unselect');
+						if(start.format('YYYY-MM-DD-HH-mm') < moment().format('YYYY-MM-DD-HH-mm')){
+							alertify.alert(cantInsPassTime);
+						}else{
+							$validform.resetForm();
+							$('#formInsert').trigger('reset');
+							$("#insStartTime").text(moment(start).format("HH:mm MMMM D, YYYY"));
+							$("#insEndTime").text(moment(end).format("HH:mm MMMM D, YYYY"));
+							$('#insModal').modal('show');
+							insStartTime = start;
+							insEndTime = end;
+							$calendar.fullCalendar('unselect');
+						}
 					}
 				},
 				eventClick : function(event) {

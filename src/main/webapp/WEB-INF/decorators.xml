@@ -23,7 +23,6 @@
 
 	<decorator name="basic-theme-hr" page="basic-theme-hr.jsp">
 		<pattern>/employee*</pattern>
-		<pattern>/reservation*</pattern>
 		
 		<pattern>/history*</pattern>
 		<pattern>/allowances*</pattern>
@@ -48,5 +47,10 @@
 	<decorator name="basic-login" page="basic-login.jsp">
 		<pattern>/*login*</pattern>
 	</decorator>
+	
+	<decorator name="basic-theme-reservation" page="basic-theme-reservation.jsp">
+		<pattern>/*reservation*</pattern>
+	</decorator>
 
+	
 </decorators>
