@@ -27,7 +27,7 @@
 		margin-top: 50px;
 		font-size: larger;
 		padding: 0px 150px;
-		position: fixed;
+		padding-bottom: 100px;
 	}
 	.content-block {
 		margin: 40px 0;	

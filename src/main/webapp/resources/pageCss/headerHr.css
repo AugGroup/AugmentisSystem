@@ -442,5 +442,6 @@ table.dataTable.no-footer {
 			border: none !important;
 			padding: 10px 5px !important;
 			margin-top: 0px !important;
+			margin-left: 10px;
 		}
 }
