@@ -1,13 +1,19 @@
 $(document).ready(function () {
-	var dtReport;
+	var isResultTable = false;
+	var dtReport = $('#reportTable').DataTable({
+		searching : false,
+		paging: true,
+		sort : false
+	});
 	//GPA pattern
 	/*$("#gpa").inputmask('Regex', { regex: "[0-3]\\.[0-9][0-9]?$ |4\\.00$" });*/
 	
 	//Search By Criteria and Show function 
 	$('#btn_search').off('click').on('click', function(){
-		if(dtReport){
+		if(isResultTable){
 			dtReport.ajax.reload();
 		}else{
+			dtReport.destroy();
 			dtReport = $('#reportTable').DataTable({
 				columnDefs : [
 				               { "width": "14%", "targets": 2 },
@@ -52,9 +58,8 @@ $(document).ready(function () {
 				}	
 			});
 		}
+		isResultTable = true;
 	});
-	
-	$('#btn_search').trigger("click");
 	
  	$(".submit").click(function() {
 		$("form[name='reportForm']").submit();

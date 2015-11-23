@@ -1,50 +1,56 @@
 $(document).ready(function () {
-	var dtReport;
-	var $dataReport;
-	$('#btn_search').off('click').on('click', function(){
-		if(dtReport){
-			dtReport.ajax.reload();
-		}else{
-			dtReport = $('#reportTable').DataTable({
-				ajax :{
-					type:'POST',
-					url: $getContextPath+'/reservation/report/findReservationReport',
-					data: function (d) {	
-
-						d.roomId = $("#room").val();
-						d.reservationTypeId = $("#reservationType").val();
-						d.divisionId = $("#masDivisionInsert").val();
-						d.reservationBy = $("#reservationBy").val();
-					},
-					dataSrc: function (data) {
-						$dataReport = data;
-						console.log(data.length)
-			            return data;
-					}
-				},
-				searching : false,
-				paging: true,
-				sort : false,
-				columns :[
-				       {data: function(data) {
-				    	   return data.firstName + " " + data.lastName;
-				       }},
-				       {data: "divisionName"},
-				       {data: "roomName"},
-				       {data: "reservationTypeName"},
-				       {data: "dateReservation"},				      
-
-				       ]
-//				language:{
-//
-//						    url: datatablei18n
-//
-//						  }	
-			});
-			
-		}
-		
+	var isResultTable = false;
+	var dtReport = $('#reportTable').DataTable({
+		searching : false,
+		paging: true,
+		sort : false
 	});
+	
+    $('#btn_search').off('click').on('click', function(){
+    	
+    	if (isResultTable) {
+    		dtReport.ajax.reload();
+    	}
+    	else {
+    		dtReport.destroy();
+    		dtReport = $('#reportTable').DataTable({
+    			ajax :{
+    				type:'POST',
+    				url: $getContextPath+'/reservation/report/findReservationReport',
+    				data: function (d) {	
+    		
+    					d.roomId = $("#room").val();
+    					d.reservationTypeId = $("#reservationType").val();
+    					d.divisionId = $("#masDivisionInsert").val();
+    					d.reservationBy = $("#reservationBy").val();
+    				},
+    				dataSrc: function (data) {
+    		            return data;
+    				}
+    			},
+    			searching : false,
+    			paging: true,
+    			sort : false,
+    			columns :[
+    			       {data: function(data) {
+    			    	   return data.firstName + " " + data.lastName;
+    			       }},
+    			       {data: "divisionName"},
+    			       {data: "roomName"},
+    			       {data: "reservationTypeName"},
+    			       {data: "dateReservation"},				      
+    		
+    			       ]
+    		//	language:{
+    		//
+    		//			    url: datatablei18n
+    		//
+    		//			  }	
+    		});
+    	}
+    	isResultTable = true;
+    });
+	
 	
 	$("#btn_preview").off().on("click",function(){
 		var typePreview = $('input[name=reportType]:checked','#reportForm').val();
@@ -64,8 +70,6 @@ $(document).ready(function () {
 				+$("#room").val()+'/'+$("#reservationType").val()+'/'+$("#masDivisionInsert").val()
 				+'/'+reservationBy);
 	});
-	
-	$('#btn_search').trigger("click");
 	
  	 $(".submit").click(function() {
 		$("form[name='reportForm']").submit();

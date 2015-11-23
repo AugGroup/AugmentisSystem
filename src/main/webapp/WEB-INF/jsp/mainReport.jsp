@@ -4,6 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <title><spring:message code="report.text" /></title>
 <link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/mainReport.css"/>">
 <script src="<c:url value ="/static/resources/pageJS/main-report.js"/>"></script> 
