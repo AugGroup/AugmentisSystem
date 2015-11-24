@@ -190,15 +190,30 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="ModalLabel"><spring:message code="preview.tiile" /></h4>
 				</div> 
+	
+	
 				<div class="modal-body">
-					 
-					<div align="right">
-						
+					
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /> :</div>
+						<div class="col-md-6"><p id="approvename"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.number" /> :</div>
+						<div class="col-md-6"><p id="approvenumber"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.email" /> :</div>
+						<div class="col-md-6"><p id="approveemail"></p></div>
+					</div>
+			
+				
+				<div class="modal-body">					 
+					<div align="right">					
 						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 							<spring:message code="button.close" />
 						</button>
-						
-					
+										
 					</div>
 				</div>
 			</div>
