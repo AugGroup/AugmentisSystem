@@ -4,26 +4,22 @@
 	<excludes>
 		<pattern>/*modal*</pattern>
 	</excludes>
-	
 	<excludes>
 		<pattern>/welcome*</pattern>
 	</excludes>
-	
 
 	<decorator name="basic-theme" page="basic-theme.jsp">
-		<pattern>/*</pattern>
 		<excludes>
 			<pattern>/*login*</pattern>
 		</excludes>
-		
 		<excludes>
-		<pattern>/calendar*</pattern>
-	</excludes>
+			<pattern>/calendar*</pattern>
+		</excludes>
+		<pattern>/*</pattern>
 	</decorator>
 
 	<decorator name="basic-theme-hr" page="basic-theme-hr.jsp">
 		<pattern>/employee*</pattern>
-		
 		<pattern>/history*</pattern>
 		<pattern>/allowances*</pattern>
 		<pattern>/family*</pattern>
@@ -43,7 +39,6 @@
 		<pattern>/health*</pattern>
 	</decorator>
 	
-	
 	<decorator name="basic-login" page="basic-login.jsp">
 		<pattern>/*login*</pattern>
 	</decorator>
@@ -51,6 +46,5 @@
 	<decorator name="basic-theme-reservation" page="basic-theme-reservation.jsp">
 		<pattern>/*reservation*</pattern>
 	</decorator>
-
 	
 </decorators>

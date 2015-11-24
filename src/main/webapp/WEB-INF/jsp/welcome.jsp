@@ -6,102 +6,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
-<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
-<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/header.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/footer.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.css"/>">
-<%
-	User user = (User) SecurityContextHolder.getContext()
-			.getAuthentication().getPrincipal();
-	String name = user.getUsername();
-%>
-<style type="text/css">
-	html, body {
-	    height: 100%;
-	    margin: 0 0 1px;
-	    padding: 0;
-	}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- jQuery -->
+	<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
 	
-	#manu-icon-content {
-		margin-top: 50px;
-		font-size: larger;
-		padding: 0px 150px;
-		padding-bottom: 100px;
-	}
-	.content-block {
-		margin: 40px 0;	
-	}
+	<!-- Bootstrap CSS-->
+	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
 	
-	#navbar-collapse {
-		margin-top: 0px;
-	}
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/header.css"/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/footer.css"/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/welcome.css"/>">
 	
-	@media ( max-width : 768px) {
-		#manu-icon-content {
-			margin-top: 0px;
-			margin-left: 0px;
-			font-size: larger;
-			padding: 0px 150p;
-		}
-		
-		#navbar-collapse {
-		margin-top: 20px;
-	}
-	}
-	.btn_new_app
-	{
-		color: black;
-	    display:inline-block;
-	    border:0;
-	    position: relative;
-	    -webkit-transition: all 200ms ease-in;
-	    -webkit-transform: scale(1); 
-	    -ms-transition: all 200ms ease-in;
-	    -ms-transform: scale(1); 
-	    -moz-transition: all 200ms ease-in;
-	    -moz-transform: scale(1);
-	    transition: all 200ms ease-in;
-	    transform: scale(1);   
-	    font-family: Dosis-Bold;
-	}
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.css"/>">
 	
-	.btn_new_app:hover
-	{
-		color: rgb(222, 145, 4);
-	    z-index: 2;
-	    -webkit-transition: all 200ms ease-in;
-	    -webkit-transform: scale(1.5);
-	    -ms-transition: all 200ms ease-in;
-	    -ms-transform: scale(1.5);   
-	    -moz-transition: all 200ms ease-in;
-	    -moz-transform: scale(1.5);
-	    transition: all 200ms ease-in;
-	    transform: scale(1.5);
-	    text-decoration: none;
-	}
-	.fa-5x {
-	    font-size: 7em !important;
-	}
-	#lan-flag {
-		display: block;
-		margin-right: -22px;
-			
-	}
-	.footer {
-	  position:  fixed !important;
-	  bottom:0;
-	  width: 100%;
-	  /* Set the fixed height of the footer here */
-	  height: 60px; 
-	  background-color: #ffc000;
-	  margin-top: 0;
-	  /* background-image: linear-gradient(to bottom, #ffc000 0%, #ffc000 100%); */ 
-	  
-	}
-</style>
-
-<body background="${ pageContext.request.contextPath }/static/decorators/BG_W.jpg">
+	<%
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String name = user.getUsername();
+	%>
+</head>
+<body>
 
 	<nav class="navbar navbar-back">
 		<div id="top-con" class="container-fluid ">
@@ -178,7 +106,8 @@
 			</div>
 		</div>
 	</footer>
+	
+	<!-- Bootstrap JS-->
+	<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
 </body>
-
-<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
-<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
+</html>

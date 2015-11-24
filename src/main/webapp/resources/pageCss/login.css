@@ -1,27 +1,83 @@
-body {
-background-image: url(body1.jpg);
--moz-background-size: cover;
--webkit-background-size: cover;
-background-size: cover;
-background-position: top center !important;
-background-repeat: no-repeat !important;
-background-attachment: fixed;
-}
-.container{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.login{
-background-color:white;
-border-radius: 15px 15px 15px 15px;
--moz-border-radius: 15px 15px 15px 15px;
--webkit-border-radius: 15px 15px 15px 15px;
-border: 0px solid #635f63;
+*{
+	font-family: Dosis-Regular;
 }
 
-img{
-	width: 200px; 
-	text-align: left;
+@font-face {
+    font-family: 'Dosis-Bold';
+    src: url('../fonts/Dosis-Bold.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Dosis-Regular';
+    src: url('../fonts/Dosis-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dosis-SemiBold';
+    src: url('../fonts/Dosis-SemiBold.ttf') format('truetype');
+}
+
+body {
+	background-image: url(body1.jpg);
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	margin-top: 10%;
+}
+
+#login {
+	background-color: rgba(0, 0, 0, 0.6);
+	border-top: 1px solid #FF9900 !important;
+	padding-bottom: 20px;
+	border-radius: 2px 2px 2px 2px;
+	-moz-border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	border: 0px solid #635f63;
+}
+
+.navbar {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.navbar-brand {
+	padding-top: 0px;
+}
+
+#login-header{
+	color: #FFFFFF;
+	padding-bottom: 15px;
+}
+
+#login-error {
+	padding-left: 0px;
+	padding-right: 0px;
+} 
+
+#login-nav {
+	height: 75px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+#login-logo {
+	background-color: #FFFFFF;
+	text-align: left;
+	margin-left: 40px;
+}
+
+#login-btn {
+	width: 100%;
+}
+
+.footer {
+  position:  fixed !important;
+  bottom:0;
+  width: 100%;
+  height: 50px !important; 
+  background-color: #ffc000;
+  margin-top: 0;
+}
+
+

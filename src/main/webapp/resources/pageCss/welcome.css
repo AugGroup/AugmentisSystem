@@ -1,0 +1,86 @@
+html, body {
+    height: 100%;
+    margin: 0 0 1px;
+    padding: 0;
+}
+
+body {
+	background: url(BG_W.jpg);
+}
+
+#manu-icon-content {
+	margin-top: 50px;
+	font-size: larger;
+	padding: 0px 150px;
+	position: fixed;
+}
+.content-block {
+	margin: 40px 0;	
+}
+
+#navbar-collapse {
+	margin-top: 0px;
+}
+
+@media ( max-width : 768px) {
+	#manu-icon-content {
+		margin-top: 0px;
+		margin-left: 0px;
+		font-size: larger;
+		padding: 0px 150p;
+	}
+	
+	#navbar-collapse {
+	margin-top: 20px;
+}
+}
+.btn_new_app
+{
+	color: black;
+    display:inline-block;
+    border:0;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+    font-family: Dosis-Bold;
+}
+
+.btn_new_app:hover
+{
+	color: rgb(222, 145, 4);
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+    text-decoration: none;
+}
+.fa-5x {
+    font-size: 7em !important;
+}
+#lan-flag {
+	display: block;
+	margin-right: -22px;
+		
+}
+.footer {
+  position:  fixed !important;
+  bottom:0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px; 
+  background-color: #ffc000;
+  margin-top: 0;
+  /* background-image: linear-gradient(to bottom, #ffc000 0%, #ffc000 100%); */ 
+  
+}
