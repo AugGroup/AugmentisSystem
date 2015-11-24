@@ -66,7 +66,7 @@
       <div class="modal-body">
           
 	     <div class="form-group">
-			      <label class="required" ><spring:message code="label.fullname" /> : </label>	 		
+			      <label class="required" ><spring:message code="label.fullname" />  </label>	 		
 			      <f:input  id="familyName"  path="familyName" cssClass="form-control required" placeholder="Full Name" />   		
 			     </div>
 		  
@@ -74,7 +74,7 @@
 	     <div class="form-group">
 			    
 			     <label class="required" >
-			     	  <spring:message code="family.gender" /> :
+			     	  <spring:message code="family.gender" /> 
 			     </label>	 		
 
 			      <div class="form-group">					    
@@ -93,7 +93,7 @@
 		    <div class="form-group">
 			        
 			      <label class="required" for="age">
-			       	 <spring:message code="family.age" /> :
+			       	 <spring:message code="family.age" /> 
 			     </label>	 		
 					<f:input  type="number" id="age" name="age" path="age" cssClass="form-control required" placeholder="Age" />		
 			     </div>		   
@@ -104,7 +104,7 @@
 		   <div class="form-group">
 						 
 			    <label class="required" for="mobile" >
-			    	 <spring:message code="label.mobile" /> :
+			    	 <spring:message code="label.mobile" /> 
 			    </label>	 		
 			     	<f:input  type="tel" id="mobile" name="mobile" path="mobile" cssClass="form-control required" placeholder="Mobile" />
 			     </div>		   
@@ -113,7 +113,7 @@
 		   <div class="form-group">
 		   
 			     <label class="required" for="address" >
-			           <spring:message code="label.address" /> :
+			           <spring:message code="label.address" /> 
 			     </label>	 		
 			     	<f:textarea rows="2" id="address" name="address"  path="address" cssClass="form-control required" placeholder="Address" />
 			   
@@ -123,7 +123,7 @@
 		   <div class="form-group">
 		   
 			     <label for="occupation">
-			           <spring:message code="family.occupation" /> :
+			           <spring:message code="family.occupation" /> 
 			     </label>	 		
 			     	 <f:input id="occupation" name="occupation" path="occupation" cssClass="form-control" placeholder="Occupation" />	     		
 			     		
@@ -134,7 +134,7 @@
 		   
 	         
 			     <label for="position">
-			     		<spring:message code="family.position" />:
+			     		<spring:message code="family.position" />
 			     </label>	 		
 			     		<f:input id="position" name="position" path="position" cssClass="form-control" placeholder="Positon" />	     		
 			     	
@@ -149,7 +149,7 @@
 		    <div class="form-group">
 		   
 		        <label class="required" for="masRelation" >
-		        	   <spring:message code="family.relation" />:
+		        	   <spring:message code="family.relation" />
 			          
 			    </label>	 		
 			    

@@ -54,7 +54,7 @@
   		<spring:message code="default.enter" var="enter" />
   		<spring:message code="default.date" var="date" />
     		<label class="required">
-    			<spring:message code="probation.dateFrom" var="dateFrom" /> ${dateFrom} : 
+    			<spring:message code="probation.dateFrom" var="dateFrom" /> ${dateFrom}  
     		</label>
   			<div class="input-group date" id="dateTimeFrom">
   				<f:input path="dateFrom" id="dateFrom" type="text" class="form-control" placeholder="${date}"/> 
@@ -64,7 +64,7 @@
 		
 		<div class="form-group col-md-6">
     		<label class="required">
-    			<spring:message code="probation.dateTo" var="dateTo" /> ${dateTo} : 
+    			<spring:message code="probation.dateTo" var="dateTo" /> ${dateTo} 
     		</label> 	
   			<div class="input-group date" id="dateTimeTo">
   				<f:input path="dateTo" id="dateTo" type="text" class="form-control" placeholder="${date}"/>
@@ -73,7 +73,7 @@
 		</div>
   		
   		<div class="form-group col-md-12">
-    			<label class="required"><spring:message code="probation.status" var="status" /> ${status} : </label>
+    			<label class="required"><spring:message code="probation.status" var="status" /> ${status}  </label>
     				<f:select path="status" id="status"  class="form-control">
 						<option value=""><spring:message code="probation.chooseStatus" /></option>
 						<option value="Pass"><spring:message code="probation.pass" /></option>
@@ -83,7 +83,7 @@
 		</div>
   		
   		<div class="form-group col-md-12">
-	    	<label><spring:message code="probation.reason" var="reason" /> ${reason} : </label>
+	    	<label><spring:message code="probation.reason" var="reason" /> ${reason}  </label>
 	   		<input type="text" class="form-control" id="reason" placeholder="${enter}${reason}"/>
 	  	</div>
       </div>

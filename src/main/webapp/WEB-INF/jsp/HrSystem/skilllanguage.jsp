@@ -64,7 +64,7 @@
 
 					<div class='col-sm-12' align="left">
 						<label class="required"><spring:message
-								code="skilllanguage.name.lang" var="namelang" />${namelang } :</label>
+								code="skilllanguage.name.lang" var="namelang" />${namelang } </label>
 					</div>
 
 
@@ -200,7 +200,7 @@
 			     <div class="row">
 			     
 				     <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label required" >
-				          ${Understanding}:
+				          ${Understanding}
 				     </label>	 		
 	
 	

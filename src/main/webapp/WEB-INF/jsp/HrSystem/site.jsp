@@ -61,7 +61,7 @@
 	    <div class="row">
 		   <div class="form-group col-md-6">
 			    
-			     <label class="required">${startDate}:</label>	 		
+			     <label class="required">${startDate}</label>	 		
 				 <div  class="input-group date" id='startDate'>		     		
 				 <f:input name="startDate" path="startDate" class="form-control" placeholder="${date}"/>
 				 <span class="input-group-addon">
@@ -71,7 +71,7 @@
 		   		</div>	
 		   		
 			<div class="form-group col-md-6">
-			     <label class="required">${endDate}:</label>	 		
+			     <label class="required">${endDate}</label>	 		
 				     <div  class="input-group date" id='endDate'>		     		
 				     		<f:input name="endDate" path="endDate" class="form-control" placeholder="${date}"/>
 				     		<span class="input-group-addon">
@@ -84,7 +84,7 @@
 		     <div class="form-group">
 			    
 			      <label class="required" >
-			            ${projectname}:
+			            ${projectname}
 			      </label>	 		
 			     		<f:input  id="projectName" path="projectName" cssClass="form-control required" placeholder="${projectname}" />			     		
 			     </div>
@@ -93,7 +93,7 @@
 		    <div class="form-group form-group-sm">
 			    
 			     <label class="required" >
-			            ${projectOwner}:
+			            ${projectOwner}
 			     </label>	 		
 			     		<f:input id="projectOwner" path="projectOwner" cssClass="form-control required" placeholder="${projectOwner}"/>
 			     </div>
@@ -102,7 +102,7 @@
 		  <div class="form-group">
 			    
 			     <label class="required" >
-			            ${projectOwnerContact}:
+			            ${projectOwnerContact}
 			     </label>	 		
 			     		<f:input id="projectOwnerContact" path="projectOwnerContact" cssClass="form-control required" placeholder="${projectOwnerContact}"/>
 			     </div>

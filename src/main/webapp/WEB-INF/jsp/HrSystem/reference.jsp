@@ -71,25 +71,25 @@
 							<spring:message code="default.enter" var="enter"/>
 												
 						<div class="form-group ">
-								<label class="required" ><spring:message code="reference.fullname" var="fullname"/>${fullname} :</label>
+								<label class="required" ><spring:message code="reference.fullname" var="fullname"/>${fullname} </label>
 								<form:input path="name" type="text" class="form-control" id="name" placeholder="${enter}${fullname}"/>					
 					    </div>	
 					    
 					    <spring:message code="reference.telephone" var="telephone" />
 					    <div class="form-group " >
-							<label class="required" ><spring:message code="reference.telephoneheader" var="telephoneheader" />${telephoneheader} :</label>
+							<label class="required" ><spring:message code="reference.telephoneheader" var="telephoneheader" />${telephoneheader} </label>
 							<form:input path="tel" type="text" class="form-control" id="tel" placeholder="${telephone}"/>							
 				    	</div>
 				    	
 				    	<spring:message code="reference.address" var="address" />
 				    	<div class="form-group " >
-							<label class="required" ><spring:message code="reference.address" var="address" />${address} :</label>
+							<label class="required" ><spring:message code="reference.address" var="address" />${address} </label>
 							<form:input path="address" type="text" class="form-control" id="address" placeholder="${address}"/>							
 				    	</div>	
 				    	
 				    	<spring:message code="reference.occupation" var="occupation" />
 				    	<div class="form-group " >
-							<label class="required" ><spring:message code="reference.address" var="address" />${occupation} :</label>
+							<label class="required" ><spring:message code="reference.address" var="address" />${occupation} </label>
 							<form:input path="occupation" type="text" class="form-control" id="occupation" placeholder="${occupation}"/>							
 				    	</div>		
 				    			    			    				  					    

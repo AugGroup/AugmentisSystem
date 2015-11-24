@@ -77,7 +77,7 @@
 	
 	  
 	  <div class="form-group">
-	    <label class="required"><spring:message code="ability.specialty" /> :</label>
+	    <label class="required"><spring:message code="ability.specialty" /> </label>
 	    
 		<div class="form-group">
 		  <form:select path="masspecialty" class="form-control"

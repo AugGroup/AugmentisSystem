@@ -75,13 +75,13 @@
       						<spring:message code="default.date" var="date"/>
    							 <spring:message code="default.enter" var="enter"/>
    							 
-							<label class="required" ><spring:message code="card.cardno" var="cardno" />${cardno} :</label>
+							<label class="required" ><spring:message code="card.cardno" var="cardno" />${cardno} </label>
 							<form:input path="card_no" type="text" class="form-control" name="cardno" id="cardno" placeholder="${enter}${cardno}"/>							
 				</div>			
       					
 																																		
 				    <div class="form-group "  align="left">
-							<label class="required"><spring:message code="card.startdate" var="startdate"/>${startdate} :</label>
+							<label class="required"><spring:message code="card.startdate" var="startdate"/>${startdate} </label>
 						<div class='input-group date' id='datetimepicker1'>
 	   						 <form:input path="startdate" type="text" class="form-control" name="startdate" id="startdate"  placeholder="${date}"/>
 	  						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>	  	
@@ -90,7 +90,7 @@
 				    		
 			
 				    <div class="form-group "  align="left">
-							<spring:message code="card.enddate" var="enddate"/>${enddate} :
+							<spring:message code="card.enddate" var="enddate"/>${enddate} 
 						<div class='input-group date' id='datetimepicker2'>
 	   						 <form:input path="enddate" type="text" class="form-control" name="enddate" id="enddate" placeholder="${date}"/>
 	  						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>	  	
@@ -98,7 +98,7 @@
 					</div>    		
 				    		
 				    		<div class="form-group " align="left">
-									 <label class="required"><spring:message code="card.status" var="status"/>${status} :</label>
+									 <label class="required"><spring:message code="card.status" var="status"/>${status} </label>
 									<form:select path="status" class="form-control" name="status" id="status">									
 										<%-- <c:forEach var="obj" items="${ masdegreetypeList }"> --%>		
 										<option value=""><spring:message code="card.selectsite" var="selectsite"/>${selectsite}</option>				
@@ -111,7 +111,7 @@
 				    						    		
 				    			    
 				  		  <div class="form-group "  align="left">
-								<label for="remark" ><spring:message code="card.remark" var="remark" />${remark} :</label>
+								<label for="remark" ><spring:message code="card.remark" var="remark" />${remark} </label>
 								<form:input path="remark" type="text" class="form-control" id="remark" placeholder="${enter}${remark}"/>							
 				   		 </div>	
 				    

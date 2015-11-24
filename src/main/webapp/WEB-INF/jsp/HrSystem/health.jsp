@@ -129,7 +129,7 @@
 		           
 		       
 			    <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label required" for="geneticDisease" >
-			           <spring:message code="health.question.GeneticDisease" />?
+			           <spring:message code="health.question.GeneticDisease" />? :
 			    </label> 		
 			    
 			     
@@ -224,7 +224,7 @@
 		       <div class="row">
 				    
 				    <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label required" for="geneticDisease" >
-				          <spring:message code="health.question.TakeMedicine" />?			          
+				          <spring:message code="health.question.TakeMedicine" />? :		          
 				    </label>		
 				    
 				    <div class="form-group form-group-sm col col-lg-6 col-md-6 col-sm-6 col-xs-6">				     
@@ -276,7 +276,7 @@
 		     	   <div class="row">
 				    
 				    <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label required" for="intolerance" >
-				          <spring:message code="health.question.Intolerance" />?
+				          <spring:message code="health.question.Intolerance" />? :
 				    </label>
 				    		
 				    

@@ -73,7 +73,7 @@
   		<spring:message code="default.date" var="date" />
        	
        	<div class="form-group col-md-6">
-    		<label class="required"><spring:message code="experience.dateFrom" var="dateFrom" /> ${dateFrom} : </label>
+    		<label class="required"><spring:message code="experience.dateFrom" var="dateFrom" /> ${dateFrom}  </label>
   			<div class="input-group date" id="dateTimeFrom">
   				<f:input data-format="dd-mm-yyyy" path="dateFrom" id="dateFrom" type="text" class="form-control" placeholder="${date}" />
   				<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -81,47 +81,47 @@
 		</div>
 		
 		<div class="form-group col-md-6">
-    		<label class="required"><spring:message code="experience.dateTo" var="dateTo" /> ${dateTo} : </label> 	
+    		<label class="required"><spring:message code="experience.dateTo" var="dateTo" /> ${dateTo}  </label> 	
   			<div class="input-group date" id="dateTimeTo">
   				<f:input path="dateTo" type="text" class="form-control" id="dateTo" placeholder="${date}" />
   				<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 			</div>
 		</div>
         <div class="form-group col-md-6">
-  			<label class="required"><spring:message code="experience.companyName" var="cName" /> ${cName} : </label>
+  			<label class="required"><spring:message code="experience.companyName" var="cName" /> ${cName}  </label>
   			<f:input path="companyName" type="text" class="form-control" id="cName" placeholder="${enter}${cName}" />
   		</div>
   		<div class="form-group col-md-6">
-  			<label><spring:message code="experience.businessType" var="businessType" /> ${businessType} : </label>
+  			<label><spring:message code="experience.businessType" var="businessType" /> ${businessType}  </label>
   			<input type="text" class="form-control" id="businessType" placeholder="${businessType}">
   		</div>
   		
       	<div class="form-group col-md-6">
-      		<label class="required"><spring:message code="experience.position" var="position" /> ${position} : </label>
+      		<label class="required"><spring:message code="experience.position" var="position" /> ${position}  </label>
   			<f:input path="position" type="text" class="form-control" id="position" placeholder="${enter}${position}" />
 		</div>
 		
 		<div class="form-group col-md-6">
-      		<label class="required"><spring:message code="experience.salary" var="salary" /> ${salary} : </label>
+      		<label class="required"><spring:message code="experience.salary" var="salary" /> ${salary}  </label>
   			<f:input path="salary" type="text" class="form-control" id="salary" placeholder="${enter}${salary}" />
 		</div>
   		
 		<div class="form-group col-md-6">
-  			<label><spring:message code="experience.responsibility" var="responsibility" /> ${responsibility} : </label>
+  			<label><spring:message code="experience.responsibility" var="responsibility" /> ${responsibility}  </label>
   			<input type="text" class="form-control" id="responsibility" placeholder="${enter}${responsibility}">
   		</div>
   		<div class="form-group col-md-6">
-  			<label><spring:message code="experience.reference" var="reference" /> ${reference} : </label>
+  			<label><spring:message code="experience.reference" var="reference" /> ${reference}  </label>
   			<input type="text" class="form-control" id="reference" placeholder="${enter}${reference}">
   		</div>
   		
   		<div class="form-group col-md-12">
-  			<label><spring:message code="experience.address" var="address" /> ${address} : </label>
+  			<label><spring:message code="experience.address" var="address" /> ${address}  </label>
   			<input type="text" class="form-control" id="address" placeholder="${enter}${address} ">
   		</div>
   		
   		<div class="form-group col-md-12">
-  			<label class="required"><spring:message code="experience.reason" var="reason" /> ${reason} : </label>
+  			<label class="required"><spring:message code="experience.reason" var="reason" /> ${reason}  </label>
   			<f:input path="reason" type="text" class="form-control" id="reason" placeholder="${enter}${reason}" />
   		</div>
         

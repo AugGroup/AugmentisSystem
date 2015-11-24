@@ -70,7 +70,7 @@
 	    
 	     <div class='col-sm-6'>
             <div class="form-group">
-            <label  class="required"><spring:message code="leave.start.date.time" />:</label>
+            <label  class="required"><spring:message code="leave.start.date.time" /></label>
                 <div class='input-group date' id="startTime1">
 				    <form:input id="startTime" name="startTime" path="startTime" cssClass="form-control" placeholder="${date}"/>
                     <span class="input-group-addon">
@@ -89,7 +89,7 @@
 
 		 <div class='col-sm-6'>
             <div class="form-group">
-            <label  class="required">  <spring:message code="leave.end.date.time" />:</label>
+            <label  class="required">  <spring:message code="leave.end.date.time" /></label>
                 <div class='input-group date' id="endTime1">
           <form:input type='text' class="form-control" name="endTime" path="endTime" id="endTime" placeholder="${date}"/>
 
@@ -108,7 +108,7 @@
 	<spring:message code="default.enter" var="enter"/>
 		
   	<div  class=" form-group col-md-6">
-	    <label  class="required"><spring:message code="leave.leavetype" />:</label>
+	    <label  class="required"><spring:message code="leave.leavetype" /></label>
 	    
 		<div class="form-group">
 		  <form:select path="masleavetype" class="form-control" id="masleavetype">
@@ -123,7 +123,7 @@
 	  
 	  
 	<div  class=" form-group col-md-6">
-	 <label  class="required"><spring:message code="leave.aim" />:</label>
+	 <label  class="required"><spring:message code="leave.aim" /></label>
 		  <form:select path="aim" class="form-control"
 			id="aim">
 			<form:option  value="" label="${aim }" />
@@ -137,7 +137,7 @@
 	     <div  class=" form-group col-md-12">
 		
 		
-		 <label  class="required"><spring:message code="leave.reason" var="reason"/>${reason } :</label>
+		 <label  class="required"><spring:message code="leave.reason" var="reason"/>${reason } </label>
 	    <form:textarea path="reason" type="text" class="form-control" id="reason" placeholder="${enter }${reason }"/>
 	 
 	

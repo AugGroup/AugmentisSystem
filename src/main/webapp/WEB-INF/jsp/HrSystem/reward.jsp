@@ -69,11 +69,11 @@
 							
 									  <spring:message code="default.enter" var="enter"/>
 									  
-									  <label class="required" ><spring:message code="reward.reward.name" var="rewardname"/>${rewardname} :</label>
+									  <label class="required" ><spring:message code="reward.reward.name" var="rewardname"/>${rewardname} </label>
 										<form:input path="typereward" type="text" class="form-control" id="typereward" placeholder="${enter}${rewardname}" />
 							</div>
 								<div class="form-group " align="left">
-									 <label class="required"><spring:message code="reward.year" var="year"/>${year} :</label>
+									 <label class="required"><spring:message code="reward.year" var="year"/>${year} </label>
 									<form:select path="year" id="year" class="form-control required" >
 										<option value=""><spring:message code="reward.selectyear" var="year"/>${year}</option>						
 										<option value="2020">2020</option>
@@ -202,7 +202,7 @@
 								</div>
 
 								<div class="form-group " align="left">
-									 <label><spring:message code="reward.description" var="description"/>${description} :</label>
+									 <label><spring:message code="reward.description" var="description"/>${description} </label>
 									<form:textarea path="reason" type="text" class="form-control" id="reason" placeholder="${enter}${description}" />
 								</div>
 							</div>

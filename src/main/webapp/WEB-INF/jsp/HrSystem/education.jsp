@@ -69,7 +69,7 @@
    		<spring:message code="default.enter" var="enter"/>
    		
    	  <div class="form-group col-md-6">
-	    <label class="required"><spring:message code="education.start.date" /> :</label>
+	    <label class="required"><spring:message code="education.start.date" /> </label>
 	    <div class='input-group date' id='datetimepickerStart'>
 	    <form:input path="start_date" type="text" class="form-control" id="startDate" name="startDate" placeholder="${date}"/>
 	    <span class="input-group-addon">
@@ -79,7 +79,7 @@
 	   </div> 
 	   
 	   <div class="form-group col-md-6">
-	    <label class="required"><spring:message code="education.finish.date" /> :</label>
+	    <label class="required"><spring:message code="education.finish.date" /> </label>
 	    <div class='input-group date' id='datetimepickerGrad'>
 	    <form:input path="graduated_date" type="text" class="form-control" id="graduatedDate" name="graduatedDate" placeholder="${date}"/>
 	    <span class="input-group-addon">
@@ -89,24 +89,24 @@
 	  </div>
 	  
 	  <div class="form-group col-md-6">
-	    <label class="required"><spring:message code="education.university" var="university"/>${university} :</label>
+	    <label class="required"><spring:message code="education.university" var="university"/>${university} </label>
 	    <form:input path="university" type="text" class="form-control" id="university" name="university" placeholder="${enter}${university}"/>
 	  </div>
 	  
 	  
 	  
 	  <div class="form-group col-md-6">
-	    <label class="required"><spring:message code="education.major" var="major"/>${major} :</label>
+	    <label class="required"><spring:message code="education.major" var="major"/>${major} </label>
 	    <form:input path="major" type="text" class="form-control" id="major" name="major" placeholder="${enter}${major}"/>
 	  </div>
 	  
 	  <div class="form-group col-md-12">
-	    <label class="required"><spring:message code="education.faculty" var="faculty"/>${faculty} :</label>
+	    <label class="required"><spring:message code="education.faculty" var="faculty"/>${faculty} </label>
 	    <form:input path="faculty" type="text" class="form-control" id="faculty" name="faculty" placeholder="${enter}${faculty}"/>
 	  </div>
 	  
 	  <div class="form-group col-md-12">
-	    <label class="required"><spring:message code="education.deegreetype" /> :</label>
+	    <label class="required"><spring:message code="education.deegreetype" /> </label>
 	    
 	    <div class="form-group">
 		  <form:select path="masdegreetype" class="form-control"
@@ -128,12 +128,12 @@
 	  
 	  
 	   <div class="form-group col-md-6">
-	    <label><spring:message code="education.gpa" var="gpa"/>${gpa} :</label>
+	    <label><spring:message code="education.gpa" var="gpa"/>${gpa} </label>
 	    <form:input path="gpa" type="text" class="form-control" name="gpa" id="gpa" placeholder="${enter}${gpa}"/>
 	  </div>
 	  
 	  <div class="form-group col-md-6">
-	    <label><spring:message code="education.certification" var="certification"/>${certification} :</label>
+	    <label><spring:message code="education.certification" var="certification"/>${certification} </label>
 	    <form:input path="certification" type="text" class="form-control" id="certificate" name="certificate" placeholder="${enter}${certification}"/>
 	  </div>
 	  

@@ -75,7 +75,7 @@
 				    		 <spring:message code="default.date" var="date"/>
    							 <spring:message code="default.enter" var="enter"/>
    							 
-							<label class="required" ><spring:message code="punish.dateform" var="dateform"/>${dateform} :</label>
+							<label class="required" ><spring:message code="punish.dateform" var="dateform"/>${dateform} </label>
 						<div class='input-group date' id='datetimepicker1'>
 	   						 <form:input path="datepunish" type="text" class="form-control" id="datepunish"  placeholder="${date}"/>
 	  						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>	  	
@@ -84,12 +84,12 @@
 				    		  
 				    		    
 				    <div class="form-group "  align="left">
-							<label class="required" ><spring:message code="punish.description" var="description"/>${description} :</label>
+							<label class="required" ><spring:message code="punish.description" var="description"/>${description} </label>
 							<form:input path="description" type="text" class="form-control" name="description"  id="description" placeholder="${enter}${description}"/>							
 				    </div>	
 				    	
 				     <div class="form-group "  align="left">
-							<label class="required" ><spring:message code="punish.penalty" var="penalty"/>${penalty} :</label>
+							<label class="required" ><spring:message code="punish.penalty" var="penalty"/>${penalty} </label>
 							<form:input path="penalty" type="text" class="form-control" name="penalty" id="penalty" placeholder="${enter}${penalty}"/>							
 				    </div>	
 				    			

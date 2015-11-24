@@ -62,7 +62,7 @@
       <div class="modal-body">
         
 	  <div class="form-group">
-	    <label class="required"><spring:message code="allowances.masallowances" /> : </label>
+	    <label class="required"><spring:message code="allowances.masallowances" />  </label>
 	    <form:select path="masallowances" class="form-control"
 			id="masallowances" name="masallowances" onchange="myFunction(this.value)">
 			<option value=""><spring:message code="allowances.enter.allowances" /></option>
@@ -73,7 +73,7 @@
 	  </div>
 	  
 	  <div class="form-group">
-	    <label><spring:message code="allowances.amount" var="amount"/>${amount } : </label>
+	    <label><spring:message code="allowances.amount" var="amount"/>${amount }  </label>
 	    <form:input path="amount" type="text" class="form-control" id="amount" name="amount" placeholder="${enter }${amount }"/>
 	  </div>
 	  
