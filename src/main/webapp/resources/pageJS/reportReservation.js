@@ -3,6 +3,7 @@ $(document).ready(function () {
 	var dtReport = $('#reportTable').DataTable({
 		searching : false,
 		paging: true,
+		bLengthChange: false,
 		sort : false
 	});
 	
@@ -30,6 +31,7 @@ $(document).ready(function () {
     			},
     			searching : false,
     			paging: true,
+    			bLengthChange: false,
     			sort : false,
     			columns :[
     			       {data: function(data) {

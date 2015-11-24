@@ -1,11 +1,10 @@
 $(document).ready(function () {
 	var dt=$("#tdResult").dataTable({
-			"bLengthChange": false,
-			"iDisplayLength": 10,
-			"pagingType": "simple_numbers",
-			"ordering": false,
-			"info": false,
-			 "scrollX": true
+		searching : false,
+		paging: true,
+		bLengthChange: false,
+		sort : false,
+		scrollX: true
 	});
 	
 	if($('.dataTables_empty').length > 0){

@@ -3,6 +3,7 @@ $(document).ready(function () {
 	var dtReport = $('#reportTable').DataTable({
 		searching : false,
 		paging: true,
+		bLengthChange: false,
 		sort : false
 	});
 	//GPA pattern
@@ -24,6 +25,7 @@ $(document).ready(function () {
 				             ],
 				searching : false,
 				paging: true,
+				bLengthChange: false,
 				sort : false,
 				ajax :{
 					type:'POST',
