@@ -25,6 +25,8 @@
 	var pnotifySuccess="<spring:message code="pnotify.success"/>";
 	var pnotifyError="<spring:message code="pnotify.error"/>";
 	var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
+    var preview="<spring:message code="button.preview"/>";
+   
 </script>
 
 <style>
@@ -81,6 +83,7 @@
 						<th><spring:message code="main.edit" /></th>
 						<th><spring:message code="main.edit.info" /></th>
 						<th><spring:message code="main.delete" /></th>
+						<th><spring:message code="main.preview" /></th>
 					</tr>
 				</thead>
 			</table>
@@ -171,9 +174,35 @@
 						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 							<spring:message code="button.cancel" />
 						</button>
+					
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+		<!-- Preview Model -->
+	<div class="modal fade" id="previewModal" tabindex="-1" role="dialog"
+	aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="ModalLabel"><spring:message code="preview.tiile" /></h4>
+				</div> 
+				<div class="modal-body">
+					 
+					<div align="right">
+						
+						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
+							<spring:message code="button.close" />
+						</button>
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </div>
