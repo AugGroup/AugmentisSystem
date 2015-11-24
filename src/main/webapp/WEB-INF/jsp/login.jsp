@@ -18,22 +18,7 @@
 	      		<a class="navbar-brand" href="#"><img src="<c:url value="/static/decorators/Logo.png" />" id="login-logo"/></a>
 	    	</div>
 		</div>
-	</nav>	    	
-
-	<div class="row">
-		<div class="col-sm-4 col-sm-offset-4" id="login-error">
-			<div id="message">
-			   	<c:choose>
-			   		<c:when test="${sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message ne null}">
-						<div class="alert alert-danger" role="alert">
-							${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-						</div>
-			   		</c:when>
-			   		<c:otherwise></c:otherwise>
-			   	</c:choose>
-		   	</div>
-		</div>
-	</div>
+	</nav>	    
 	
 	<div class="row">
 		<form name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
@@ -70,8 +55,24 @@
 			</div>
 		</form>
 	</div>
-</div>
-<div class="footer">
-	<jsp:include page="../../decorators/footer.jsp"></jsp:include>
+	
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" id="login-error">
+			<div id="message">
+			   	<c:choose>
+			   		<c:when test="${sessionScope['SPRING_SECURITY_LAST_EXCEPTION'].message ne null}">
+						<div class="alert alert-danger" role="alert">
+							${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+						</div>
+			   		</c:when>
+			   		<c:otherwise></c:otherwise>
+			   	</c:choose>
+		   	</div>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<jsp:include page="../../decorators/footer.jsp"></jsp:include>
+	</div>
 </div>
 </body>
