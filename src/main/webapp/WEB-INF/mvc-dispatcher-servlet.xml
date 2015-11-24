@@ -19,6 +19,7 @@
 	
 	<context:component-scan base-package="com.aug.constants"/>
 	<context:component-scan base-package="com.aug.controllers" />
+	<context:component-scan base-package="com.aug.resources" />
 	<context:component-scan base-package="com.aug.db.securities" />
 	<context:component-scan base-package="com.aug.entity.editor"/>
 	<context:component-scan base-package="com.aug.exception" />
