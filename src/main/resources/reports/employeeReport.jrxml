@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employee" language="groovy" pageWidth="2100" pageHeight="612" orientation="Landscape" columnWidth="2060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="896b97d3-bb7c-4822-aee2-a94621f66cf4">
 	<property name="ireport.zoom" value="1.1000000000000003"/>
-	<property name="ireport.x" value="1429"/>
-	<property name="ireport.y" value="85"/>
+	<property name="ireport.x" value="828"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="empKey" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT emp.id,emp.employee_code as employeeCode,
 DATE_FORMAT(official.START_WORK_DATE,'%d-%m-%Y') as startWorkDate,exp.salary as salary, TIMESTAMPDIFF(YEAR, official.start_work_date, now() ) as yearStart,
@@ -16,8 +17,14 @@ app.FIRSTNAME_TH as nameThai,app.FIRSTNAME_EN
 as nameEng,app.NICKNAME_EN as nicknameEng,
 app.tel as telMobile,app.email as email,mas_employment.name as employmentName, mas_division.name as divisionName,
 mas_technology.name as technologyName, app.LASTNAME_EN as lastNameEN
-from applicant as app right join employee as emp on emp.applicant_id = app.id
-left join official as official on app.official_id = official.id left join mas_employment on emp.employment_id = mas_employment.id left join mas_division on emp.division_id = mas_division.id left join mas_technology on app.mastechnology_id = mas_technology.id left join experience as exp on exp.applicant_id =app.id;]]>
+from applicant as app
+right join employee as emp on emp.applicant_id = app.id
+left join official as official on app.official_id = official.id
+left join mas_employment on emp.employment_id = mas_employment.id
+left join mas_division on emp.division_id = mas_division.id
+left join mas_technology on app.mastechnology_id = mas_technology.id
+left join experience as exp on exp.applicant_id =app.id
+where app.FIRSTNAME_EN LIKE $P{empKey};]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -52,13 +59,13 @@ left join official as official on app.official_id = official.id left join mas_em
 	</background>
 	<title>
 		<band height="80" splitType="Stretch">
-			<textField pattern="">
-				<reportElement x="756" y="0" width="450" height="79" forecolor="#333333" uuid="e78f65c2-e9af-421b-a95b-24974f2a8ede"/>
+			<staticText>
+				<reportElement x="761" y="21" width="363" height="42" uuid="f1463de0-bd94-4812-9ffb-16d5050cda58"/>
 				<textElement>
-					<font fontName="Angsana New" size="30" isBold="false" />
+					<font fontName="Angsana New" size="30"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.empName}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Employee Name Report]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -72,126 +79,126 @@ left join official as official on app.official_id = official.id left join mas_em
 			<textField pattern="">
 				<reportElement x="0" y="0" width="114" height="60" forecolor="#333333" uuid="937c4777-05ba-4cf9-847f-89538087893a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.resourceId}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="114" y="0" width="137" height="60" forecolor="#333333" uuid="d551f6dc-7c41-4485-bdf0-794ea7436723"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.DateStartWork}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="251" y="0" width="42" height="60" forecolor="#333333" uuid="d052d876-a27e-4fe3-ab45-15504062889b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="14" isBold="false" />
+					<font fontName="Angsana New" size="14" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.durationYear}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="293" y="0" width="43" height="60" forecolor="#333333" uuid="a88f6a21-beaa-4e80-9c74-eee3a04aff96"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="14" isBold="false" />
+					<font fontName="Angsana New" size="14" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.durationMonth}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="336" y="0" width="44" height="60" forecolor="#333333" uuid="2c587e82-d5ba-4cd6-837d-411363dc7938"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="14" isBold="false" />
+					<font fontName="Angsana New" size="14" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.durationDay}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="380" y="0" width="167" height="60" forecolor="#333333" uuid="ee9ec657-b598-48aa-a82c-5c1e7b9627e8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{reportstatus.birthdate}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1266" y="0" width="180" height="61" forecolor="#333333" uuid="274bfae9-1230-4078-8a1e-82c8673d76e4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{employee.email}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1583" y="0" width="139" height="61" forecolor="#333333" uuid="bcb517d5-3f36-4ed5-899e-6eade00bf742"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.position}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1798" y="0" width="113" height="61" forecolor="#333333" uuid="0496522f-deb4-43d6-993d-30aceebe7248"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{experience.salary}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="673" y="0" width="167" height="60" forecolor="#333333" uuid="73c35ae0-88e6-4e5b-b15c-1949fb65cdcd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{reportstatus.resourcenameen}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="547" y="0" width="41" height="61" forecolor="#333333" uuid="12f56079-5ae7-492e-80fa-00b671231af8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="14" isBold="false" />
+					<font fontName="Angsana New" size="14" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.ageYear}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="588" y="0" width="42" height="61" forecolor="#333333" uuid="26179892-3462-4655-99c4-2f85adb1431d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="14" isBold="false" />
+					<font fontName="Angsana New" size="14" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.ageMonth}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="630" y="0" width="43" height="61" forecolor="#333333" uuid="8f166350-46b6-4a05-86b9-f5e98613932d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="14" isBold="false" />
+					<font fontName="Angsana New" size="14" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.ageDay}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1018" y="0" width="106" height="61" forecolor="#333333" uuid="03df5fdb-4678-4dae-b1fe-d43d55cfd93f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{employee.nicknameEng}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1124" y="0" width="142" height="61" forecolor="#333333" uuid="8555c41a-74c8-4261-b91d-fd9864c20cb9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{family.list.tel}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1722" y="0" width="76" height="61" forecolor="#333333" uuid="a4279fde-9364-4acc-a45a-1fa1820d18d7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.skill}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="840" y="0" width="178" height="60" forecolor="#333333" uuid="04cc3fd9-50c7-4c7a-988d-c17f276ddb0d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{reportstatus.resourcelasten}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="1446" y="0" width="137" height="61" forecolor="#333333" uuid="384a08eb-cd0d-47cd-9be4-b1afbd27792a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.type}]]></textFieldExpression>
 			</textField>

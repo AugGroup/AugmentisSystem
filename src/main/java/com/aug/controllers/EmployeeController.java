@@ -20,7 +20,9 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import javax.validation.ConstraintViolationException;
 
+import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpException;
@@ -133,6 +135,12 @@ public class EmployeeController {
 	private EmployeeDtoService employeeDtoService;
 	@Autowired
 	private ApplicantService applicantService;
+	@Autowired 
+	private MessageSource message;
+	@Autowired 
+    private ApplicationContext appContext;  
+	@Autowired 
+    private DataSource dataSource;
 
 	private static final Logger logger = Logger.getLogger(Employee.class);
 
@@ -919,43 +927,52 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/employee/searchReportEmpName", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView searchEmployeeNameReport(@ModelAttribute(value = "employee") Employee employee, ModelMap map,
-			HttpSession session, Locale locale) {
+			HttpSession session) {
 
-		List<ReportEmployeeDto> employeeList;
-		// map กับ name แทน nameeng
-		String searchText = employee.getName();
-		if (searchText.equals("forEmptySearch")) {
-			employeeList = employeeDtoService.reportEmployee(searchText);
-		} else {
-			employeeList = employeeDtoService.reportEmployee(searchText);
-		}
+//		List<ReportEmployeeDto> employeeList;
+//		// map กับ name แทน nameeng
+//		String searchText = employee.getName();
+//		if (searchText.equals("forEmptySearch")) {
+//			employeeList = employeeDtoService.reportEmployee(searchText);
+//		} else {
+//			employeeList = employeeDtoService.reportEmployee(searchText);
+//		}
+//		Map<String, Object> parameterMap = new HashMap<String, Object>();
+//		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
+//		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
+//		ModelAndView mv = reportService.getReport(employeeList, "employeeReport", employee.getReportType(),
+//				parameterMap);
+//		return mv;
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
-		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
-		ModelAndView mv = reportService.getReport(employeeList, "employeeReport", employee.getReportType(),
-				parameterMap);
-		return mv;
+		   
+		String searchText = "%"+employee.getName()+"%";
+		
+		parameterMap.put("format", employee.getReportType());
+		parameterMap.put("empKey", searchText);
+		   
+		   JasperReportsMultiFormatView view = new JasperReportsMultiFormatView();
+		   view.setJdbcDataSource(dataSource);
+		   view.setUrl("classpath:reports/employeeReport.jasper");
+		   view.setApplicationContext(appContext);
+		   
+		   return new ModelAndView(view, parameterMap);
 	}
 
 	@RequestMapping(value = "/employee/searchReportEmpCode", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView searchEmployeeCodeReport(@ModelAttribute(value = "employee") Employee employee, ModelMap map,
-			HttpSession session, Locale locale) {
-		List<ReportEmployeeDto> employeeList;
-		String searchText = employee.getName();
-
-		// System.out.println("searchText: "+employee.getName());
-
-		if (searchText.equals("forEmptySearch")) {
-			employeeList = employeeDtoService.reportEmployeeCode(searchText);
-		} else {
-			employeeList = employeeDtoService.reportEmployeeCode(searchText);
-		}
+			HttpSession session) {
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
-		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
-		ModelAndView mv = reportService.getReport(employeeList, "employeeCodeReport", employee.getReportType(),
-				parameterMap);
-		return mv;
+		
+		String searchText = "%"+employee.getEmployeeCode()+"%";
+
+		parameterMap.put("format", employee.getReportType());
+		parameterMap.put("empCode", searchText);
+		
+		JasperReportsMultiFormatView view = new JasperReportsMultiFormatView();
+		   view.setJdbcDataSource(dataSource);
+		   view.setUrl("classpath:reports/employeeCodeReport.jasper");
+		   view.setApplicationContext(appContext);
+		   return new ModelAndView(view, parameterMap);
 	}
 	
 	@RequestMapping(value = "/employee/searchNameCode/{searchText}", method = { RequestMethod.GET, RequestMethod.POST })
@@ -980,22 +997,21 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/employee/searchEmpStatusReport", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView searchEmpStatusReport(@ModelAttribute(value = "employee") Employee employee, ModelMap map,
-			HttpSession session, Locale locale) {
-		List<ReportStatusEmployeeDto> employeeList;
-		String searchText = employee.getMasStaffType().getName();
-		if (searchText.equals("forEmptySearch")) {
-			employeeList = employeeDtoService.reportStatusEmployee(searchText);
-		} else {
-			employeeList = employeeDtoService.reportStatusEmployee(searchText);
-		}
+			HttpSession session) {
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", locale);
-		parameterMap.put(JRParameter.REPORT_RESOURCE_BUNDLE, bundle);
-		ModelAndView mv = reportService.getReport(employeeList, "reportStatusEmp", employee.getReportType(),
-				parameterMap);
-		return mv;
-
+		
+		String searchText = "%"+employee.getMasStaffType().getName()+"%";
+		System.out.println("XXXXXXXXXX"+searchText);
+		parameterMap.put("format", employee.getReportType());
+		parameterMap.put("empStatus", searchText);
+		
+		JasperReportsMultiFormatView view = new JasperReportsMultiFormatView();
+		   view.setJdbcDataSource(dataSource);
+		   view.setUrl("classpath:reports/reportStatusEmp.jasper");
+		   view.setApplicationContext(appContext);
+		   return new ModelAndView(view, parameterMap);
 	}
+		
 
 	@RequestMapping(value = "/employee/searchEmpStatusByStatus/{searchText}", method = { RequestMethod.GET,
 			RequestMethod.POST })

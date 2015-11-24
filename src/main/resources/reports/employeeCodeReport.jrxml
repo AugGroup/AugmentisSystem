@@ -2,7 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employeeCodeReport" language="groovy" pageWidth="792" pageHeight="1008" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5f6ae44-4baa-47f5-9759-e672f14fa46e">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="126"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="empCode" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[Select emp.id,emp.employee_code as employeeCode, DATE_FORMAT(official.START_WORK_DATE,'%d-%m-%Y') as startWorkDate,exp.salary as salary,
 TIMESTAMPDIFF(YEAR, official.start_work_date, now() ) as yearStart,
@@ -23,7 +24,8 @@ from applicant as app left join employee as emp on emp.applicant_id = app.id
 join official as official on app.official_id = official.id join mas_employment on emp.employment_id = mas_employment.id
 join mas_division on emp.division_id = mas_division.id
 join mas_technology on app.mastechnology_id = mas_technology.id
-join experience as exp on exp.applicant_id = app.id;]]>
+join experience as exp on exp.applicant_id = app.id
+where emp.employee_code LIKE $P{empCode};]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -61,7 +63,7 @@ join experience as exp on exp.applicant_id = app.id;]]>
 			<textField pattern="">
 				<reportElement x="296" y="12" width="221" height="57" forecolor="#333333" uuid="b0f972b6-ddda-40c0-a37b-fca44835322f"/>
 				<textElement>
-					<font fontName="Angsana New" size="30" isBold="false" />
+					<font fontName="Angsana New" size="30" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.empCode}]]></textFieldExpression>
 			</textField>
@@ -78,49 +80,49 @@ join experience as exp on exp.applicant_id = app.id;]]>
 			<textField pattern="">
 				<reportElement x="654" y="0" width="74" height="45" forecolor="#333333" uuid="700a45e0-2fbf-4bce-891e-cb393653c338"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.skill}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="426" y="0" width="98" height="45" forecolor="#333333" uuid="5a5e2772-06af-406a-8157-37306acde4ca"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.type}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="524" y="0" width="130" height="45" forecolor="#333333" uuid="922f46ef-e3f1-4c31-acd2-e919143273ad"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.position}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="304" y="0" width="122" height="45" forecolor="#333333" uuid="c42e6b3c-47ea-4dd1-ad12-fceefdc109cd"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.lastEn}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="76" y="0" width="122" height="45" forecolor="#333333" uuid="a67b23d9-d246-49cc-bd75-6213f11f3813"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.DateStartWork}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="0" y="0" width="76" height="45" forecolor="#333333" uuid="6b01512c-ce9e-4831-b8e0-7e7348d9ae21"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.resourceId}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
 				<reportElement x="198" y="0" width="106" height="45" forecolor="#333333" uuid="12634389-36b0-45cc-9f35-98ac836d0092"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false" />
+					<font fontName="Angsana New" size="16" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{report.nameEn}]]></textFieldExpression>
 			</textField>
