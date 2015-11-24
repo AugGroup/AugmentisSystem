@@ -36,29 +36,29 @@ public class RequestApproveController implements Serializable {
 
 	
 	/*--------------------Approve ------------------*/
-	@Transactional
+//	@Transactional
 	@RequestMapping(value = "/approve", method = { RequestMethod.GET })
 	public String listApprove(Model model) {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		System.out.println("userName : " + userDetails.getUsername());
-		Login login = loginService.findByUserName(userDetails.getUsername());
-		Employee employee = login.getEmployee();
-		Hibernate.initialize(employee.getApplicant());
+//		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		System.out.println("userName : " + userDetails.getUsername());
+//		Login login = loginService.findByUserName(userDetails.getUsername());
+//		Employee employee = login.getEmployee();
+//		Hibernate.initialize(employee.getApplicant());
 		
-		model.addAttribute("employee", employee);
+//		model.addAttribute("employee", employee);
 		
 		
 		return "requestApprove";
 	}
 
 	/*--------------------Update Approve Status ------------------*/
-	@Transactional
+//	@Transactional
 	@RequestMapping(value = "/approve/update/{id}", method = { RequestMethod.POST })
 	public @ResponseBody AugRequestDto editApprove(@RequestBody AugRequestDto augRequestDTO,
 			@PathVariable Integer id) throws Exception{
 		
 		Employee employee = employeeService.findById(augRequestDTO.getApproverId());
-		Hibernate.initialize(employee.getApplicant());
+//		Hibernate.initialize(employee.getApplicant());
 		
 		AugRequest augRequest = augRequestService.findById(augRequestDTO.getId());
 		augRequest.setStatus(augRequestDTO.getStatus());

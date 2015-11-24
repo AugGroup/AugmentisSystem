@@ -1,23 +1,14 @@
 package com.aug.controllers;
 
 import java.io.Serializable;
-import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.context.Context;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -29,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.aug.hrdb.dto.AugRequestDto;
 import com.aug.hrdb.entities.Applicant;
@@ -46,54 +36,44 @@ import com.aug.hrdb.services.MasJoblevelService;
 import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.services.EmailService;
 
-/**
- *
- * @author Supannika Pattanodom
- */
 @Controller
-@EnableWebMvc
-public class AugRequestController implements Serializable {
+public class JobcaseController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Autowired 
 	private AugRequestService augRequestService;
-	@Autowired
-	private MasTechnologyService masTechnologyService;
-	@Autowired
-	private MasJoblevelService masJoblevelService;
-	
-	@Autowired
-	private MailTemplateService mailTemplateService;
 	
 	@Autowired
 	private LoginService loginService;
 	
 	@Autowired
+	private MasJoblevelService masJoblevelService;
+	
+	@Autowired
+	private MasTechnologyService masTechnologyService;
+	
+	@Autowired
+	private MailTemplateService mailTemplateService;
+	
+	@Autowired
 	private EmailService emailService;
 	
-	@Autowired
-	private JavaMailSender mailSender;
-	
-	@Autowired
-	private VelocityEngine velocityEngine;
-
-	@Transactional
-	@RequestMapping(value = "/request", method = { RequestMethod.GET })
+//	@Transactional
+	@RequestMapping(value = "/request", method = { RequestMethod.GET})
 	public String listRequest(Model model){
-		
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("userName : " + userDetails.getUsername());
 		Login login = loginService.findByUserName(userDetails.getUsername());
-		Employee employee = login.getEmployee();
-		Hibernate.initialize(employee.getApplicant());
+//		Employee employee = login.getEmployee();
+//		Hibernate.initialize(employee.getApplicant());
 
-		model.addAttribute("employee", employee);
-		
+//		model.addAttribute("employee", employee);
 		return "augRequest";
 	}
-
+	
 	/*-------------------- Search All Request ----Exception handler-------------*/
-	@RequestMapping(value = "/request/search", method = { RequestMethod.GET })
+	@RequestMapping(value = "/request/search", method = { RequestMethod.POST, RequestMethod.GET })
 	public @ResponseBody Object findAllRequest() throws Exception{
 		final List<AugRequestDto> data = augRequestService.findAllAugRequest();
 		if(data == null){
@@ -106,7 +86,6 @@ public class AugRequestController implements Serializable {
 		};
 	}
 	
-	
 	/*-------------------- Search Request By Id--------------------*/
 	@RequestMapping(value = "/request/search/{id}", method = { RequestMethod.POST, RequestMethod.GET  })
 	public @ResponseBody AugRequestDto searchRequestById(
@@ -118,7 +97,7 @@ public class AugRequestController implements Serializable {
 	
 
 	/*-------------------- Save Request--------------------*/
-	@Transactional
+//	@Transactional
 	@RequestMapping(value = "/request/save", method = RequestMethod.POST)
 	public @ResponseBody AugRequest saveRequest(@RequestBody AugRequest augRequest,HttpSession session,Model model) throws UnsupportedEncodingException{
 		
@@ -128,24 +107,24 @@ public class AugRequestController implements Serializable {
 		return augRe;
 	}
 	
-	@Transactional
+//	@Transactional
 	@RequestMapping(value = "/request/sendEmail/{id}", method = RequestMethod.GET)
 	public @ResponseBody AugRequestDto sendEmail(@PathVariable Integer id,HttpServletRequest request,HttpSession session,Model model) throws UnsupportedEncodingException{
 		AugRequestDto augRe = augRequestService.findAugRequestByIdTest(id);
 		
-			//find employee
-			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			System.out.println("userName : " + userDetails.getUsername());
-			Login login = loginService.findByUserName(userDetails.getUsername());
-			Employee employee = login.getEmployee();
-			Applicant sender = employee.getApplicant();
-			System.out.println("sender: " + sender.getFirstNameEN());
-			MailTemplate content = mailTemplateService.findByName("New Job Case");
-			System.out.println("content: " + content);
-			String subject = "You have new job case " + augRe.getJobcaseCode();
-			System.out.println(subject);
-			//create mail
-			emailService.sendNewJobCaseMail(sender, subject,augRe, content.getTemplate(), request);
+		//find employee
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println("userName : " + userDetails.getUsername());
+		Login login = loginService.findByUserName(userDetails.getUsername());
+		Employee employee = login.getEmployee();
+		Applicant sender = employee.getApplicant();
+		System.out.println("sender: " + sender.getFirstNameEN());
+		MailTemplate content = mailTemplateService.findByName("New Job Case");
+		System.out.println("content: " + content);
+		String subject = "You have new job case " + augRe.getJobcaseCode();
+		System.out.println(subject);
+		//create mail
+		emailService.sendNewJobCaseMail(sender, subject,augRe, content.getTemplate(), request);
 			
 		return augRe;
 	}
@@ -190,25 +169,16 @@ public class AugRequestController implements Serializable {
 		return augRequestService.findById(id);
 	}
 	
-	/*-------------------- Test Exception Handle 'SQLGrammarException'--------------------*/ //NameNativeQuery is wrong
-/*	@RequestMapping(value = "/request/search/testSQLGrammarException/{id}", method = { RequestMethod.POST, RequestMethod.GET })
-	public @ResponseBody AugRequestDTO testHandlerException(
-			@PathVariable Integer id, Model model) throws Exception {
-		AugRequestDTO augRequest = augRequestService.findAugRequestByIdTest(id);
-		return augRequest;
-	}*/
-	
 	@ModelAttribute("jobLevels")
-	@Transactional
+//	@Transactional
 	public List<MasJoblevel> jobLevelList(){
 		return masJoblevelService.findAll();
 	}
 	
 	@ModelAttribute("technologies")
-	@Transactional
+//	@Transactional
 	public List<MasTechnology> technologyList(){
 		return masTechnologyService.findAll();
 	}
-	
 	
 }
