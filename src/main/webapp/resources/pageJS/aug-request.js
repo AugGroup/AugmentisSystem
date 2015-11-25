@@ -127,7 +127,7 @@ $(document).ready(function () {
     	          {data: "numberApplicant"},
     	          {data: "status"},
     	          {data: function (data) {
-    	        	  return '<button id="btn_preview" class="btn btn-primary" data-id="' + data.id + '" data-toggle="modal" data-target="#previewModal"><span class="glyphicon glyphicon-search"></span> '+preview_tx +'</button>';
+    	        	  return '<button id="btn_preview" class="btn btn-info" data-id="' + data.id + '" data-toggle="modal" data-target="#previewModal"><span class="glyphicon glyphicon-search"></span> '+preview_tx +'</button>';
     	        	  }
     	          },
     	          {data: function (data) {
