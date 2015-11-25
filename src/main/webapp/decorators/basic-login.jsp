@@ -9,6 +9,7 @@
 	
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="${ pageContext.request.contextPath }/static/decorators/favicon.ico">
+	
 	<!-- jQuery -->
 	<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
 	

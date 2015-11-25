@@ -26,9 +26,6 @@
 		<form name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
 			<div class="col col-lg-4 col-md-5 col-sm-6 col-xs-12 col-lg-offset-4 col-sm-offset-3" id="login">
 				<spring:message code="default.enter" var="enter" />
-				<%-- <div class="headLogo" >
-					<span><img src="<c:url value="/static/decorators/augmentis-logo.png" />" /></span>	
-				</div> --%>
 				<h3 id="login-header">Login to Augmentis</h3>
 				<div class="form-group">
 					<spring:message code="default.login.user" var="username" />

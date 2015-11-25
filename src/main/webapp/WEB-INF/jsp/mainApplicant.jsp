@@ -4,12 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
+<!-- decorator-title -->
 <title><spring:message code="applicant.table.head" /></title>
 
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" />
-
 <script src="<c:url value ="/static/resources/pageJS/main-applicant.js"/>"></script> 
-
 <script type="text/javascript">
 	var valScore = "<spring:message code="valid.score"/>";
 	var valTech = "<spring:message code="valid.tech"/>";
@@ -25,10 +25,8 @@
 	var pnotifySuccess="<spring:message code="pnotify.success"/>";
 	var pnotifyError="<spring:message code="pnotify.error"/>";
 	var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
-    var preview="<spring:message code="button.preview"/>";
-   
+    var preview="<spring:message code="button.preview"/>"; 
 </script>
-
 <style>
 	#btnScore{
 		width: 400px;
@@ -39,15 +37,17 @@
 		}
 	}
 </style>
-
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#applicantPage").addClass('active-menu'); 
 	});
 </script>
 
+<!-- decorator-body -->
 <div class="container">
-<div><h1 align="center"><spring:message code="applicant.table.head" /></h1></div>
+	<div>
+		<h1 align="center"><spring:message code="applicant.table.head" /></h1>
+	</div>
 
 	<!--Input text for Search Applicant -->
 	<div class="row" id="search_row">
@@ -102,13 +102,12 @@
 						<h4 class="modal-title"><spring:message code="edit.title" /> </h4>
 					</div>
 					<div class="modal-body">
-						<h5> <spring:message code="edit.score.detail" /></h5>
+						<h5><spring:message code="edit.score.detail" /></h5>
 						<form role="form" id="EditStatusForm">
 							<div class="form-group" style="width: 200px">
 								<label for="inputScore"><spring:message code="edit.score" /></label> 
 								<input type="text" class="form-control" id="inputScore" name="inputScore" placeholder="<spring:message code="edit.text.feild"/>">
 							</div>
-							
 							<div class="form-group">
 								<label for="nameTechScore"><spring:message code="edit.tech.score" /></label>
 								<label class="radio-inline"> <input type="radio" value="Pass" id="inputTechScore" name="inputTechScore">
@@ -117,7 +116,6 @@
 								<spring:message code="edit.radio.notPass" /></label>
 								<span id="error-approve"></span>
 							</div>
-							
 							<div class="form-group">
 								<label for="inputScore"><spring:message code="edit.attitude.score" /> </label>
 								<div id="btnScore" class="form-group" class="form-inline">
@@ -133,7 +131,6 @@
 									</div>
 								</div>
 							</div>
-							
 							<div class="form-group">
 								<label for="inputStatus"><spring:message code="edit.status" /></label> 
 								<select name="inputStatus" id="inputStatus" class="form-control">
@@ -174,26 +171,21 @@
 						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 							<spring:message code="button.cancel" />
 						</button>
-					
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-		<!-- Preview Model -->
-	<div class="modal fade" id="previewModal" tabindex="-1" role="dialog"
-	aria-labelledby="ModalLabel" aria-hidden="true">
+	<!-- Preview Model -->
+	<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="ModalLabel"><spring:message code="preview.tiile" /></h4>
 				</div> 
-	
-	
 				<div class="modal-body">
-					
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /> :</div>
 						<div class="col-md-6"><p id="approvename"></p></div>
@@ -206,18 +198,15 @@
 						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.email" /> :</div>
 						<div class="col-md-6"><p id="approveemail"></p></div>
 					</div>
-			
-				
+				</div>
 				<div class="modal-body">					 
 					<div align="right">					
 						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 							<spring:message code="button.close" />
 						</button>
-										
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
 </div>
