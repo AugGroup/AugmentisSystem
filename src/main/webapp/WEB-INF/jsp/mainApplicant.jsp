@@ -197,8 +197,8 @@
 								 		<div class="img-thumbnail" id="imagePreview"  style="background-image:url('${pageContext.request.contextPath}/DisplayImageServlet?namespace=APPLICANT&fileName=${applicant.image}');"></div>
 									</c:when>
 								</c:choose>
-					</div>
-				
+					</div> 
+				<!-- llll -->
 				
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /> :</div>
