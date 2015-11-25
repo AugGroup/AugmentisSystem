@@ -88,7 +88,7 @@
 
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF')">
 		<!-- Modal of Edit Status and Score-->
-		<div id="EditStatusModal" class="modal fade">
+		<div id="EditStatusModal" class="modal fade" >
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -181,10 +181,10 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="ModalLabel"><spring:message code="preview.tiile" /></h4>
 				</div> 
-				<div class="modal-body">
+				<div class="modal-body" >
 				
 				
-					<div class="col-sm-12">
+					<div class="col-sm-12" align="center">
 								<c:choose>
 									<c:when test="${empty applicant.image}">
 										<div class="img-thumbnail" id="imagePreview"  style="background-image:url('${pageContext.request.contextPath}/static/decorators/noPhotoAvailable-resize.jpg')"></div>
@@ -194,26 +194,25 @@
 									</c:when>
 								</c:choose>
 					</div> 
-				<!-- llll -->
 				
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /> :</div>
+						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /> :</strong></div>
 						<div class="col-md-6"><p id="approvename"></p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.Lastname" /> :</div>
+						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.Lastname" /> :</strong></div>
 						<div class="col-md-6"><p id="approveLastname"></p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.number" /> :</div>
+						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.number" /> :</strong></div>
 						<div class="col-md-6"><p id="approveTel"></p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.job" /> </div>
+						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.job" /> </strong></div>
 						<div class="col-md-6"><p id="approvejob"></p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.email" /> :</div>
+						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.email" /> :</strong></div>
 						<div class="col-md-6"><p id="approveemail"></p></div>
 					</div>
 
