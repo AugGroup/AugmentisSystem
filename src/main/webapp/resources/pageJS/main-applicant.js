@@ -59,18 +59,20 @@ $(document).ready(function(){
 					    		  			'"data-toggle="modal" class="btn btn-sm btn-warning disabled btn_edit_score">'+
 					    		  			'<span class="glyphicon glyphicon-pencil"></span> '+ editScore_text+'</b>';
 					    	  } else {
-					    		  return '<a href="#EditStatusModal" data-id="'+data.id+'" data-toggle="modal" class="btn_edit_score btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> '+editScore_text+'</b>'
+					    		  return '<a href="#previewModal" id="btn_preview" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-info"><span class="glyphicon glyphicon glyphicon-search ">'+preview+'</span> </b>'
 					    	  }
 					       }},
+					       { data : function(data){
+						    	  return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> '+editInfo_text+'</b>'
+							   }},
+					       
 					       { data : function(data){
 					    	  return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> '+editInfo_text+'</b>'
 						   }},
 						   { data: function (data) {
 						      return '<a href="#deleteModal" id="btn_delete" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> '+delete_text+'</b>'
-				           }},				   
-						   { data: function (data) {
-							      return '<a href="#previewModal" id="btn_preview" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-info"><span class="glyphicon glyphicon glyphicon-search ">'+preview+'</span> </b>'
-					        }}
+				           }}				   
+						  
 				   ],
 				   language:{
 					    url: datatablei18n
@@ -235,6 +237,41 @@ $(document).ready(function(){
 			}
 		});
 	}
+	
+	  /*-------------------- Preview Modal Function --------------------*/
+    $('#previewModal').off("click").on('show.bs.modal', function (e) {
+        var button = e.relatedTarget;
+        var id = $(button).data("id");
+        if (id !== null) {
+        	$.ajax({
+        		url : 'applicant/search/' + id,
+				type : 'POST',
+				success : function(data){
+					previewShowData(data);
+				}
+        	});
+        }
+    });
+      
+    /*-------------------- Preview Function --------------------*/
+    
+    function previewShowData(data){
+        
+        $('#approvename').text(data.firstNameEN);
+        $('#approveLastname').text(data.lastNameEN);
+        $('#approvenumber').text(data.numberApplicant);
+        $('#approvejob').text(data.joblevel);
+        $('#approveemail').text(data.email);
+
+    }
+        
+    //set default date
+//    $("#addRequestModal").on('shown.bs.modal', function() {
+//    	$("#inputRequestDate").val(moment(new Date()).format('DD-MM-YYYY'));
+//    });
+    
+    
+  
 
 	
 });

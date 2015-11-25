@@ -80,10 +80,10 @@
 						<th><spring:message code="main.position1" /></th>
 						<th><spring:message code="main.position2" /></th>
 						<th><spring:message code="main.status" /></th>
+						<th><spring:message code="main.preview" /></th>
 						<th><spring:message code="main.edit" /></th>
 						<th><spring:message code="main.edit.info" /></th>
-						<th><spring:message code="main.delete" /></th>
-						<th><spring:message code="main.preview" /></th>
+						<th><spring:message code="main.delete" /></th>					
 					</tr>
 				</thead>
 			</table>
@@ -199,14 +199,23 @@
 						<div class="col-md-6"><p id="approvename"></p></div>
 					</div>
 					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.Lastname" /> :</div>
+						<div class="col-md-6"><p id="approveLastname"></p></div>
+					</div>
+					<div class="row">
 						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.number" /> :</div>
 						<div class="col-md-6"><p id="approvenumber"></p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.job" /> </div>
+						<div class="col-md-6"><p id="approvejob"></p></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.email" /> :</div>
 						<div class="col-md-6"><p id="approveemail"></p></div>
 					</div>
 			
+			<!-- </div> -->
 				
 				<div class="modal-body">					 
 					<div align="right">					
