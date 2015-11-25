@@ -8,8 +8,7 @@
 <title><spring:message code="applicant.table.head" /></title>
 
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" />
-<script src="<c:url value ="/static/resources/pageJS/main-applicant.js"/>"></script> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/applicant.css" />
 <script type="text/javascript">
 	var valScore = "<spring:message code="valid.score"/>";
 	var valTech = "<spring:message code="valid.tech"/>";
@@ -25,23 +24,9 @@
 	var pnotifySuccess="<spring:message code="pnotify.success"/>";
 	var pnotifyError="<spring:message code="pnotify.error"/>";
 	var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
-    var preview="<spring:message code="button.preview"/>"; 
+    var preview="<spring:message code="button.preview"/>";
 </script>
-<style>
-	#btnScore{
-		width: 400px;
-	}
-	@media ( max-width : 960px) {
-		#btnScore{
-			width: 200px;
-		}
-	}
-</style>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#applicantPage").addClass('active-menu'); 
-	});
-</script>
+<script src="<c:url value ="/static/resources/pageJS/main-applicant.js"/>"></script> 
 
 <!-- decorator-body -->
 <div class="container">

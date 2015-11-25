@@ -1,3 +1,4 @@
+/* Set Font */
 *{
 	font-family: Dosis-Regular;
 }
@@ -17,6 +18,8 @@
     font-family: 'Dosis-SemiBold';
     src: url('../fonts/Dosis-SemiBold.ttf') format('truetype');
 }
+/*End Set Font */
+
 #imagePreview {
 	margin-bottom: 5px;
 	margin-right: 75px;
@@ -32,14 +35,17 @@
 #headId {
 	margin-left: 40px;
 }
+
 #headId > a {
 	color: #ffffff; 
 	padding: 5px;
 }
+
 .user > a{
 	color: #707070; 
 	padding-left: 10px;
 }
+
 .user2 > a >img{
 	width: 40px; 
 	height: 25px;
@@ -260,10 +266,10 @@ table.dataTable tr.even {
 	
 }
 
-#dataTable{
+/* #dataTable{
 	margin-top: 0px !important;
 	color: #ffffff;
-}
+} */
 
 #requestTable{
 	margin-top: 0px !important;
@@ -326,16 +332,16 @@ caption {
 	margin: 0px 15px 0px 5px;
 }
 
-#search_row {
+/* #search_row {
 	margin-top: 15px;
-}
+} */
 
-#btn_search {
-	/* margin: 27px 5px 0px 5px; */
+/* #btn_search {
+	margin: 27px 5px 0px 5px;
 	float: right;
 	margin-left: 2px;
-	/* width: 95px; */
-}
+	width: 95px;
+} */
 
 #btn_preview {
 	margin: 0px 5px 0px 5px;
@@ -395,9 +401,9 @@ caption {
 	border-bottom: 1px solid #000000;
 }
 
-#table2 {
+/* #table2 {
 	margin-top: 15px;
-}
+} */
 
 /*--------- header ----------*/
 

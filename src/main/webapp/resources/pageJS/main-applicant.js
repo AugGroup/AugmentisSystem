@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$("#applicantPage").addClass('active-menu');
+	
 	var dtApplicant
 	$('#EditStatusForm').validate({
 			rules:{

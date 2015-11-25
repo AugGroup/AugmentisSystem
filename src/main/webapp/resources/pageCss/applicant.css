@@ -1,0 +1,22 @@
+#search_row {
+	margin-top: 15px;
+}
+
+#btn_search {
+	float: right;
+	margin-left: 2px;
+}
+
+#table2 {
+	margin-top: 15px;
+}
+
+#btnScore{
+	width: 400px;
+}
+
+@media ( max-width : 960px) {
+	#btnScore{
+		width: 200px;
+	}
+}
