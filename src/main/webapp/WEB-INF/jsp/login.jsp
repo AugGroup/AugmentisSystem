@@ -72,9 +72,8 @@
 		   	</div>
 		</div>
 	</div>
-	
-	<div class="footer">
-		<jsp:include page="../../decorators/footer.jsp"></jsp:include>
-	</div>
+</div>
+<div class="footer">
+	<jsp:include page="../../decorators/footer.jsp"></jsp:include>
 </div>
 </body>
