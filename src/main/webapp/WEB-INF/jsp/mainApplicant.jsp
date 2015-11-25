@@ -46,14 +46,14 @@
 	<div class="row" id="search_row">
 		<div class="col-md-8">
 			<a type="submit" id="btn_new_app" class="btn btn-warning" href="${pageContext.request.contextPath}/informations">
-			<span class="glyphicon glyphicon-plus"></span>&nbsp;<spring:message code="main.button.add" /></a>
+			<span class="fa fa-plus"></span>&nbsp;<spring:message code="main.button.add" /></a>
 		</div>
 		<div class="col-md-4">
 			<div class="input-group">
 				<input type="text" class="form-control" id="inputSearch" placeholder="<spring:message code="main.text.field"/>" /> 
 				<span class="input-group-btn">
 					<button type="button" class="btn btn-primary" id="btn_search">
-						<span class="glyphicon glyphicon-search"></span>
+						<span class="fa fa-search"></span>
 						<spring:message code="main.button.search" />
 					</button>
 				</span>
@@ -138,9 +138,11 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" id="btn_submit" class="btn btn-warning" data-dismiss="alert">
-						<span class="glyphicon glyphicon-save"></span><spring:message code="edit.button.save" /></button>
+							<span class="fa fa-save"></span>&nbsp;<spring:message code="edit.button.save" />
+						</button>
 						<button type="button" id="btn_close" class="btn btn-default" data-dismiss="modal">
-						<spring:message code="button.cancel" /></button>
+							<spring:message code="button.cancel" />
+						</button>
 					</div>
 				</div>
 			</div>
@@ -160,7 +162,7 @@
 					<h4 class="modal-title" id="ModalLabel"><spring:message code="delete.confirm.title" /></h4><br>
 					<div align="right">
 						<button id="btn_delete_submit" type="button" class="btn btn-danger" data-dismiss="modal">
-							<span class="glyphicon glyphicon-remove-sign"></span><spring:message code="main.delete" />
+							<span class="fa fa-trash"></span>&nbsp;<spring:message code="main.delete" />
 						</button>
 						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 							<spring:message code="button.cancel" />

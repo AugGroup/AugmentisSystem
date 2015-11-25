@@ -59,22 +59,20 @@ $(document).ready(function(){
 					    	  if (data.trackingStatus == "Approve") {
 					    		  return '<a href="#EditStatusModal" data-id="'+data.id +
 					    		  			'"data-toggle="modal" class="btn btn-sm btn-warning disabled btn_edit_score">'+
-					    		  			'<span class="glyphicon glyphicon-pencil"></span> '+ editScore_text+'</b>';
+					    		  			'<span class="fa fa-edit"></span>&nbsp;'+ editScore_text+'</b>';
 					    	  } else {
-					    		  return '<a href="#previewModal" id="btn_preview" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-info"><span class="glyphicon glyphicon glyphicon-search ">'+preview+'</span> </b>'
+					    		  return '<a href="#EditStatusModal" data-id="'+data.id+'" data-toggle="modal" class="btn_edit_score btn btn-sm btn-warning"><span class="fa fa-edit"></span>&nbsp;'+editScore_text+'</b>'
 					    	  }
 					       }},
 					       { data : function(data){
-						    	  return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> '+editInfo_text+'</b>'
-							   }},
-					       
-					       { data : function(data){
-					    	  return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> '+editInfo_text+'</b>'
+					    	  return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span>&nbsp;'+editInfo_text+'</b>'
 						   }},
 						   { data: function (data) {
-						      return '<a href="#deleteModal" id="btn_delete" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> '+delete_text+'</b>'
-				           }}				   
-						  
+						      return '<a href="#deleteModal" id="btn_delete" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span>&nbsp;'+delete_text+'</b>'
+				           }},				   
+						   { data: function (data) {
+							      return '<a href="#previewModal" id="btn_preview" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-search ">&nbsp;'+preview+'</span> </b>'
+					        }}
 				   ],
 				   language:{
 					    url: datatablei18n
