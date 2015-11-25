@@ -15,7 +15,9 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
   		<div class="container-fluid">
 	    	<div class="navbar-header">
-	      		<a class="navbar-brand" href="#"><img src="<c:url value="/static/decorators/Logo.png" />" id="login-logo"/></a>
+	      		<div class="navbar-brand">
+	      			<img src="<c:url value="/static/decorators/Logo.png" />" id="login-logo"/>
+	      		</div>
 	    	</div>
 		</div>
 	</nav>	    
