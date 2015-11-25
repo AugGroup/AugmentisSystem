@@ -245,7 +245,7 @@ table.dataTable tr.even {
 	padding: 3px;
 }
 
-#btn_new_app, #btn_new_req {
+#btn_new_req {
 	width:170px;
 	float: right;
 	margin: 20px 5px 20px 5px;
@@ -321,22 +321,20 @@ caption {
 	margin: 5px;
 	padding: 5px;
 }
-#inputSearch.form-control{
-	margin-top: 27px;
-}
-
-#search_row {
-	margin: 30px;
-}
 
 #radio_inputgroup {
 	margin: 0px 15px 0px 5px;
 }
 
+#search_row {
+	margin-top: 15px;
+}
+
 #btn_search {
-	margin: 27px 5px 0px 5px;
+	/* margin: 27px 5px 0px 5px; */
 	float: right;
-	width: 95px;
+	margin-left: 2px;
+	/* width: 95px; */
 }
 
 #btn_preview {
@@ -391,6 +389,14 @@ caption {
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+
+.page-header {
+	border-bottom: 1px solid #000000;
+}
+
+#table2 {
+	margin-top: 15px;
 }
 
 /*--------- header ----------*/
@@ -639,5 +645,4 @@ caption {
 	background-color: #fff;
 	color: #292929;
 }
-
 /* end header */

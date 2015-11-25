@@ -23,6 +23,9 @@
 	<!-- jQuery UI -->
 	<link href='<c:url value="/static/resources/css/jquery-ui.min.css"/>' rel='stylesheet' />
 	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
+	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
 	<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
@@ -142,18 +145,12 @@
 	<!-- Email -->
 	<link href="${ pageContext.request.contextPath }/static/resources/pageCss/email-main.css" rel="stylesheet" type="text/css"></link>
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/static/resources/pageJS/email-main.js"></script>
-
-	<%
-		User user = (User) SecurityContextHolder.getContext()
-				.getAuthentication().getPrincipal();
-		String name = user.getUsername();
-	%>
 </head>
 <body background="${ pageContext.request.contextPath }/static/decorators/BG_W.jpg">
 	<jsp:include page="header.jsp" />
-	<div class="container">
+	<!-- <div class="container"> -->
 		<decorator:body />
-	</div>
+	<!-- </div> -->
 	<a href="#" class="scrollToTop" id="goToTop"><img src = "${ pageContext.request.contextPath }/static/decorators/uparrow.png" width="54px" height="54px" /></a>
 	<jsp:include page="footer.jsp"></jsp:include>	
 </body>

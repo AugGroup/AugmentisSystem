@@ -45,13 +45,24 @@
 
 <!-- decorator-body -->
 <div class="container">
-	<div>
-		<h1 align="center"><spring:message code="applicant.table.head" /></h1>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="applicant.table.head" /></strong></h1>
+			</div>
+		</div>
 	</div>
+	
+	<%-- <div>
+		<h1 align="center"><spring:message code="applicant.table.head" /></h1>
+	</div> --%>
 
 	<!--Input text for Search Applicant -->
 	<div class="row" id="search_row">
-		<div class="col-md-8"></div>
+		<div class="col-md-8">
+			<a type="submit" id="btn_new_app" class="btn btn-warning" href="${pageContext.request.contextPath}/informations">
+			<span class="glyphicon glyphicon-plus"></span>&nbsp;<spring:message code="main.button.add" /></a>
+		</div>
 		<div class="col-md-4">
 			<div class="input-group">
 				<input type="text" class="form-control" id="inputSearch" placeholder="<spring:message code="main.text.field"/>" /> 
@@ -68,7 +79,7 @@
 	<!--Data Table for Applicant List -->
 	<c:set var="ss" value="display:none;"></c:set>
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF','ROLE_HR')">
-		<div class="container table-responsive" id="table2">
+		<div class="table-responsive" id="table2">
 			<table  class="dataTable" id="dataTable" class="cell-border" style="width: 100%" >
 				<caption title="" class="tableHeader"><spring:message code="applicant.table.head" /></caption>
 				<thead>
@@ -87,8 +98,6 @@
 					</tr>
 				</thead>
 			</table>
-			<a type="submit" id="btn_new_app" class="btn btn-warning" href="${pageContext.request.contextPath}/informations">
-			<span class="glyphicon glyphicon-plus "></span><spring:message code="main.button.add" /></a>
 		</div>
 	</sec:authorize>
 
