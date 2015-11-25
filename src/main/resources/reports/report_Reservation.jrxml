@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_Reservation" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5926a9cc-dd16-4296-844f-e8a439806ec1">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="37"/>
 	<field name="divisionName" class="java.lang.String"/>
 	<field name="roomName" class="java.lang.String"/>
 	<field name="reservationTypeName" class="java.lang.String"/>
 	<field name="dateReservation" class="java.util.Date"/>
 	<field name="lastName" class="java.lang.String"/>
 	<field name="firstName" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<rectangle>
-				<reportElement x="41" y="0" width="476" height="74" backcolor="#FFCC00" uuid="89e7284e-5eb3-41e2-bfbb-3bc9c6fef830"/>
-			</rectangle>
 			<staticText>
-				<reportElement x="62" y="10" width="439" height="54" uuid="62d0616b-13ce-460b-bef3-70ef570133cc"/>
+				<reportElement x="208" y="29" width="241" height="33" uuid="62d0616b-13ce-460b-bef3-70ef570133cc"/>
 				<textElement textAlignment="Center">
-					<font size="36"/>
+					<font fontName="Angsana New" size="26" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reservation Report]]></text>
 			</staticText>
+			<image>
+				<reportElement x="19" y="7" width="146" height="61" uuid="4f2353f1-b422-47fa-9390-ee2a62c4bd1f"/>
+				<imageExpression><![CDATA["/Users/POTNOR/Documents/workspace/AugmentisSystem/src/main/webapp/decorators/augmentis-logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
 		<band height="43" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="6" width="555" height="33" forecolor="#FFFFFF" backcolor="#FFFFCC" uuid="fe29f051-cdd4-4b01-81f4-1ca6519a2f6f"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="3" y="5" width="120" height="20" uuid="37e067fb-01fd-412b-83ee-f8cbf526ec3d"/>
+				<reportElement x="6" y="16" width="110" height="20" uuid="37e067fb-01fd-412b-83ee-f8cbf526ec3d"/>
 				<textElement>
-					<font size="14"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Employee Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="126" y="5" width="120" height="20" uuid="01c982d5-3953-46f7-87d8-db58bc1cd368"/>
+				<reportElement x="136" y="16" width="109" height="20" uuid="01c982d5-3953-46f7-87d8-db58bc1cd368"/>
 				<textElement>
-					<font size="14"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Division]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="248" y="5" width="100" height="20" uuid="3b4064de-3a9a-425a-bb38-c49f27902145"/>
+				<reportElement x="258" y="16" width="88" height="20" uuid="3b4064de-3a9a-425a-bb38-c49f27902145"/>
 				<textElement>
-					<font size="14"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Room]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="350" y="5" width="130" height="20" uuid="29679c27-910f-4686-bb66-8e7eeacf8d3a"/>
+				<reportElement x="355" y="16" width="118" height="20" uuid="29679c27-910f-4686-bb66-8e7eeacf8d3a"/>
 				<textElement textAlignment="Center">
-					<font size="14"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ReservationType]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="483" y="5" width="74" height="20" uuid="f39e53eb-e4ab-4c7d-88df-0d2ccf3aee86"/>
+				<reportElement x="481" y="16" width="73" height="20" uuid="f39e53eb-e4ab-4c7d-88df-0d2ccf3aee86"/>
 				<textElement textAlignment="Center">
-					<font size="14"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Date]]></text>
 			</staticText>
@@ -67,43 +68,59 @@
 				<reportElement x="0" y="42" width="555" height="1" uuid="528754c5-dcd0-4d52-9c2d-89440d05936d"/>
 			</line>
 			<line>
-				<reportElement x="0" y="0" width="555" height="1" uuid="98242f7f-7318-43e1-8651-c6533d295390"/>
+				<reportElement x="0" y="5" width="555" height="1" uuid="98242f7f-7318-43e1-8651-c6533d295390"/>
+			</line>
+			<line>
+				<reportElement x="0" y="39" width="555" height="1" uuid="1ed7e37f-6e3b-41e9-b998-48bba0bfde4c"/>
 			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="54" splitType="Stretch">
+		<band height="31" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="116" height="29" forecolor="#FFFFFF" backcolor="#F5F4F4" uuid="dbe5ed54-c6ea-4124-abc0-d432f13d87f2"/>
+			</rectangle>
 			<textField>
-				<reportElement x="125" y="14" width="120" height="20" uuid="05ed5ddb-1ded-44a4-a87e-d46ce20f35c0"/>
+				<reportElement x="133" y="6" width="110" height="20" uuid="05ed5ddb-1ded-44a4-a87e-d46ce20f35c0"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{divisionName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="248" y="14" width="100" height="20" uuid="7b1f99d1-c7b9-4e3d-8b2d-98b9548a1be9"/>
+				<reportElement x="255" y="6" width="89" height="20" uuid="7b1f99d1-c7b9-4e3d-8b2d-98b9548a1be9"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{roomName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="350" y="14" width="130" height="20" uuid="28b25ea5-6e8a-48d6-af93-ab7c92363dfd"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="353" y="6" width="118" height="20" uuid="28b25ea5-6e8a-48d6-af93-ab7c92363dfd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{reservationTypeName}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="483" y="14" width="74" height="20" uuid="56152dd2-49ea-4abb-89a3-07854d2a4dd1"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="478" y="6" width="74" height="20" uuid="56152dd2-49ea-4abb-89a3-07854d2a4dd1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Angsana New"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{dateReservation}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="10" y="14" width="107" height="20" uuid="714f5943-ec28-4979-b90f-7e7cd7f7faf2"/>
+				<reportElement x="5" y="6" width="107" height="20" uuid="714f5943-ec28-4979-b90f-7e7cd7f7faf2"/>
+				<textElement>
+					<font fontName="Angsana New"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{firstName} + " "+ $F{lastName}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="30" width="555" height="1" uuid="8d2b5134-37f7-4b04-a3ea-94e9f2a53e96"/>
+			</line>
+			<line>
+				<reportElement x="116" y="-3" width="1" height="34" uuid="edb605c6-6998-420c-a056-101bcbcd2f63"/>
+			</line>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="23" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="23" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="13" splitType="Stretch"/>
-	</summary>
 </jasperReport>
