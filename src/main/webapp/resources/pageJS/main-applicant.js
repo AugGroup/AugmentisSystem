@@ -259,8 +259,8 @@ $(document).ready(function(){
         
         $('#approvename').text(data.firstNameEN);
         $('#approveLastname').text(data.lastNameEN);
-        $('#approvenumber').text(data.numberApplicant);
-        $('#approvejob').text(data.joblevel);
+        $('#approveTel').text(data.tel);
+        $('#approvejob').text(data.joblevelStr);
         $('#approveemail').text(data.email);
 
     }
