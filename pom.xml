@@ -557,6 +557,7 @@
                     <systemProperties>
                         <JAVA_OPTS>-Xmx1024m -Xms256m -XX:MaxPermSize=256m -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000</JAVA_OPTS>
                     </systemProperties>
+                    <contextReloadable>true</contextReloadable>
                 </configuration>
             </plugin>
 
