@@ -182,42 +182,37 @@
 					<h4 class="modal-title" id="ModalLabel"><spring:message code="preview.tiile" /></h4>
 				</div> 
 				<div class="modal-body" >
-				
-				
 					<div class="col-sm-12" align="center">
-								<c:choose>
-									<c:when test="${empty applicant.image}">
-										<div class="img-thumbnail" id="imagePreview"  style="background-image:url('${pageContext.request.contextPath}/static/decorators/noPhotoAvailable-resize.jpg')"></div>
-								 	</c:when>
-								 	<c:when test="${not empty applicant.image}">
-								 		<div class="img-thumbnail" id="imagePreview"  style="background-image:url('${pageContext.request.contextPath}/DisplayImageServlet?namespace=APPLICANT&fileName=${applicant.image}');"></div>
-									</c:when>
-								</c:choose>
+						<c:choose>
+							<c:when test="${empty applicant.image}">
+								<div class="img-thumbnail" id="imagePreview"  style="background-image:url('${pageContext.request.contextPath}/static/decorators/noPhotoAvailable-resize.jpg')"></div>
+						 	</c:when>
+						 	<c:when test="${not empty applicant.image}">
+						 		<div class="img-thumbnail" id="imagePreview"  style="background-image:url('${pageContext.request.contextPath}/DisplayImageServlet?namespace=APPLICANT&fileName=${applicant.image}');"></div>
+							</c:when>
+						</c:choose>
 					</div> 
-				
 					<div class="row">
-						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /> :</strong></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><strong><spring:message code="request.approve.name" /> :</strong></div>
 						<div class="col-md-6"><p id="approvename"></p></div>
 					</div>
 					<div class="row">
-						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.Lastname" /> :</strong></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><strong><spring:message code="request.approve.Lastname" /> :</strong></div>
 						<div class="col-md-6"><p id="approveLastname"></p></div>
 					</div>
 					<div class="row">
-						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.number" /> :</strong></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><strong><spring:message code="request.number" /> :</strong></div>
 						<div class="col-md-6"><p id="approveTel"></p></div>
 					</div>
 					<div class="row">
-						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.job" /> </strong></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><strong><spring:message code="request.job" /> </strong></div>
 						<div class="col-md-6"><p id="approvejob"></p></div>
 					</div>
 					<div class="row">
-						<strong><div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.email" /> :</strong></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><strong><spring:message code="request.email" /> :</strong></div>
 						<div class="col-md-6"><p id="approveemail"></p></div>
 					</div>
-
 				</div>
-
 				<div class="modal-body">					 
 					<div align="right">					
 						<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">

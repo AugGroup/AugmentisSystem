@@ -61,17 +61,18 @@ $(document).ready(function(){
 					    		  			'"data-toggle="modal" class="btn btn-sm btn-warning disabled btn_edit_score">'+
 					    		  			'<span class="fa fa-edit"></span>&nbsp;'+ editScore_text+'</b>';
 					    	  } else {
-					    		  return '<a href="#EditStatusModal" data-id="'+data.id+'" data-toggle="modal" class="btn_edit_score btn btn-sm btn-warning"><span class="fa fa-edit"></span>&nbsp;'+editScore_text+'</b>'
+					    		  return '<a href="#previewModal" id="btn_preview" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-search ">&nbsp;'+preview+'</span> </b>'
 					    	  }
 					       }},
 					       { data : function(data){
-					    	  return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span>&nbsp;'+editInfo_text+'</b>'
+					    	   return '<a href="#EditStatusModal" data-id="'+data.id+'" data-toggle="modal" class="btn_edit_score btn btn-sm btn-warning"><span class="fa fa-edit"></span>&nbsp;'+editScore_text+'</b>'				    	  
 						   }},
 						   { data: function (data) {
-						      return '<a href="#deleteModal" id="btn_delete" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span>&nbsp;'+delete_text+'</b>'
+							   return '<a href="info/' + data.id + '" id="btn_edit_info"  data-id="'+data.id+'" data-toggle="modal" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span>&nbsp;'+editInfo_text+'</b>'
 				           }},				   
 						   { data: function (data) {
-							      return '<a href="#previewModal" id="btn_preview" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-info"><span class="fa fa-search ">&nbsp;'+preview+'</span> </b>'
+							   return '<a href="#deleteModal" id="btn_delete" data-id="' + data.id + '" data-toggle="modal" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span>&nbsp;'+delete_text+'</b>'
+							      
 					        }}
 				   ],
 				   language:{
@@ -262,19 +263,6 @@ $(document).ready(function(){
         $('#approveTel').text(data.tel);
         $('#approvejob').text(data.joblevelStr);
         $('#approveemail').text(data.email);
-        $("#imagePreview").on("change", function(){
-	        var files = !!this.files ? this.files : [];
-	        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
-	        if (/^image/.test( files[0].type)){ // only image file
-	            var reader = new FileReader(); // instance of the FileReader
-	            reader.readAsDataURL(files[0]); // read the local file
-	            reader.onloadend = function(){ // set image data as background of div
-	            	
-	                $("#imagePreview").css("background-image", "url("+this.result+")");
-	              }
-	        }
-	        
-	    });
 
     }
         
