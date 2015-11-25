@@ -217,7 +217,7 @@ public class ReservationController {
 	
 	@RequestMapping(value = "reservation/report", method = RequestMethod.GET)
 	public String reservationReport() {
-		return "HrSystem/reservationReport";
+		return "HrSystem/reportReservation";
 	}
 
 	@RequestMapping(value = "reservation/report/findReservationReport", method = RequestMethod.POST)
@@ -322,7 +322,7 @@ public class ReservationController {
 
 		  JasperReportsMultiFormatView view = new JasperReportsMultiFormatView();
 
-		  view.setUrl("classpath:reports/report_Reservation.jrxml");
+		  view.setUrl("classpath:reports/reportReservation.jrxml");
 
 		  view.setApplicationContext(appContext);
 
