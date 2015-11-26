@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportCriteria" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9405c330-d3f2-4405-89b3-f942deada506">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="UNIVERSITY" class="java.lang.String">
@@ -117,173 +117,185 @@ $P!{UNIVERSITY} $P!{MAJOR} $P!{TECHNOLOGY} $P!{JOBLEVEL} $P!{DEGREE} $P!{GPA}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<rectangle>
-				<reportElement uuid="0526c416-9514-432c-bb4a-ebdd975a5e3a" x="181" y="0" width="432" height="61" backcolor="#FFCC00"/>
-			</rectangle>
+		<band height="82" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="fe64e803-aa6e-434b-8020-c93869e4b458" x="219" y="19" width="345" height="40"/>
+				<reportElement x="227" y="28" width="345" height="40" uuid="fe64e803-aa6e-434b-8020-c93869e4b458"/>
 				<textElement textAlignment="Center">
-					<font size="24" isBold="true"/>
+					<font fontName="Angsana New" size="26" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Report]]></text>
+				<text><![CDATA[Applicant Report]]></text>
 			</staticText>
+			<image>
+				<reportElement x="19" y="7" width="146" height="61" uuid="722c8c78-4f65-4f0a-95df-1e37a06c13fe"/>
+				<imageExpression><![CDATA["augmentis-logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="50" splitType="Stretch">
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="28" forecolor="#FFFFFF" backcolor="#FFFFCC" uuid="c14ef6af-f054-4eb1-9188-02c6ef4084ec"/>
+			</rectangle>
 			<staticText>
-				<reportElement uuid="ee49f9d2-423e-43f7-a80a-92a751793fab" x="62" y="0" width="95" height="35"/>
+				<reportElement x="62" y="4" width="71" height="21" uuid="ee49f9d2-423e-43f7-a80a-92a751793fab"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Apply Date]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="663ec4dd-6774-4e98-9ea6-c97e9060150e" x="160" y="0" width="120" height="35"/>
+				<reportElement x="141" y="4" width="95" height="21" uuid="663ec4dd-6774-4e98-9ea6-c97e9060150e"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="121c9c83-0b09-408e-82d5-f01b4330f1d5" x="284" y="0" width="75" height="35"/>
+				<reportElement x="248" y="4" width="69" height="21" uuid="121c9c83-0b09-408e-82d5-f01b4330f1d5"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Joblevel]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="75013987-b436-4f75-aaac-fdc3e37e894a" x="359" y="0" width="92" height="35"/>
+				<reportElement x="331" y="4" width="92" height="21" uuid="75013987-b436-4f75-aaac-fdc3e37e894a"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Technology]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2c35806a-8148-4b5a-9fb1-8c64dd23779f" x="454" y="0" width="140" height="35"/>
+				<reportElement x="464" y="4" width="62" height="21" uuid="2c35806a-8148-4b5a-9fb1-8c64dd23779f"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[University]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b73122a3-d203-4b5e-a0de-575e8638014f" x="597" y="0" width="70" height="35"/>
+				<reportElement x="592" y="4" width="70" height="21" uuid="b73122a3-d203-4b5e-a0de-575e8638014f"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Degree]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="945cfee1-0a62-4786-9e70-7d875dd9e671" x="678" y="0" width="75" height="35"/>
+				<reportElement x="672" y="4" width="75" height="21" uuid="945cfee1-0a62-4786-9e70-7d875dd9e671"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Major]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d2cdbcfc-9f63-4f95-b14c-987b2c45656d" x="762" y="0" width="40" height="35"/>
+				<reportElement x="758" y="4" width="40" height="21" uuid="d2cdbcfc-9f63-4f95-b14c-987b2c45656d"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[GPA]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="0babba61-318a-48f5-af54-d8d6808b2622" x="0" y="-1" width="802" height="1"/>
+				<reportElement x="0" y="-1" width="802" height="1" uuid="0babba61-318a-48f5-af54-d8d6808b2622"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="10" y="4" width="48" height="21" uuid="1f16f4d1-cdba-405e-ad27-1fae14f2aeeb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Code]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="28" width="802" height="1" uuid="799d6ecf-56d2-4719-b4da-12320925b0ed"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="32" width="802" height="1" uuid="4fd39875-bc99-417d-9bf2-4775ccf24690"/>
 				<graphicElement>
 					<pen lineWidth="2.0"/>
 				</graphicElement>
 			</line>
-			<staticText>
-				<reportElement uuid="1f16f4d1-cdba-405e-ad27-1fae14f2aeeb" x="0" y="0" width="60" height="35"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Code]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="44" splitType="Stretch">
+		<band height="33" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-1" width="53" height="31" forecolor="#FFFFFF" backcolor="#F5F4F4" uuid="511fc4ca-0625-4351-8c4a-b1ab7b16e3de"/>
+			</rectangle>
 			<textField pattern="d/M/yyyy">
-				<reportElement uuid="ab01a892-1c7e-403a-8d28-b99d0d5ebb1b" x="62" y="0" width="95" height="30"/>
+				<reportElement x="68" y="4" width="65" height="20" uuid="ab01a892-1c7e-403a-8d28-b99d0d5ebb1b"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{applyDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="5e5b8071-49e2-4633-bfe3-040384642951" x="359" y="0" width="92" height="30"/>
+				<reportElement x="342" y="4" width="71" height="20" uuid="5e5b8071-49e2-4633-bfe3-040384642951"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{technologyName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="3e936806-11ef-46ee-a151-8ef8ee7f553f" x="454" y="0" width="140" height="30"/>
+				<reportElement x="423" y="4" width="140" height="20" uuid="3e936806-11ef-46ee-a151-8ef8ee7f553f"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{university}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="a299f976-cea8-4ed5-a61e-a83842a8ae16" x="284" y="0" width="75" height="30"/>
+				<reportElement x="239" y="4" width="85" height="20" uuid="a299f976-cea8-4ed5-a61e-a83842a8ae16"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{joblevelName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="a557df0b-8e0a-4a17-a1f7-399ac9a3dc85" x="678" y="0" width="75" height="30"/>
+				<reportElement x="673" y="4" width="75" height="20" uuid="a557df0b-8e0a-4a17-a1f7-399ac9a3dc85"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{major}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="7e570207-dd58-40b6-aea2-13dbd813e369" x="597" y="0" width="70" height="30"/>
+				<reportElement x="592" y="4" width="70" height="20" uuid="7e570207-dd58-40b6-aea2-13dbd813e369"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{degreeName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="47df7374-223d-474e-a0ca-d17605da4888" x="762" y="0" width="40" height="30"/>
+				<reportElement x="764" y="4" width="30" height="20" uuid="47df7374-223d-474e-a0ca-d17605da4888"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{gpa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c0abcfd5-b801-431f-b47c-e38d31c1da3b" x="0" y="0" width="60" height="30"/>
+				<reportElement x="5" y="4" width="41" height="20" uuid="c0abcfd5-b801-431f-b47c-e38d31c1da3b"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{appCode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="f51da805-2838-4cac-8d5a-07aa53dd8f6d" x="160" y="0" width="120" height="30"/>
+				<reportElement x="141" y="4" width="95" height="20" uuid="f51da805-2838-4cac-8d5a-07aa53dd8f6d"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Angsana New" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{name}]]></textFieldExpression>
 			</textField>
-		</band>
-	</detail>
-	<columnFooter>
-		<band height="42" splitType="Stretch">
 			<line>
-				<reportElement uuid="799d6ecf-56d2-4719-b4da-12320925b0ed" x="0" y="0" width="802" height="1"/>
+				<reportElement x="0" y="29" width="802" height="1" uuid="f986ebaa-6d1b-4400-9aae-9556ddbf77e0"/>
 				<graphicElement>
-					<pen lineWidth="2.0"/>
+					<pen lineWidth="1.0"/>
 				</graphicElement>
 			</line>
+			<line>
+				<reportElement x="52" y="-3" width="1" height="31" uuid="c9e0009e-c948-4eee-9ade-0def18191f61"/>
+			</line>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
+	</detail>
 </jasperReport>

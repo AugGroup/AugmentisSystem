@@ -288,7 +288,7 @@ public class ApplicantController implements Serializable {
 	/*-------------------- preview reports function--------------------*/
 	@RequestMapping(value = "/report/preview", method = { RequestMethod.POST,RequestMethod.GET })
 	public ModelAndView previewReport(@ModelAttribute SearchReportDto searchReportDTO,
-			HttpSession session, Locale locale) throws Exception {
+			HttpSession session) throws Exception {
 		
 		List<ReportApplicantDto> reportApplicantList = null;
 		Integer technology = searchReportDTO.getTechnology();
@@ -342,9 +342,8 @@ public class ApplicantController implements Serializable {
 		parameterMap.put("DEGREE",masdegreetype1);
 		parameterMap.put("GPA",gpa1);
 		
-		parameterMap.put(JRParameter.REPORT_LOCALE, Locale.ENGLISH);
 		ModelAndView mv = reportService.getReport(reportApplicantList,
-				"reportCriteria", reportType, parameterMap);
+				"mainReport", reportType, parameterMap);
 		return mv;
 	}
 

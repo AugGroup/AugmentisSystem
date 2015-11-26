@@ -7,7 +7,7 @@
 
 <title><spring:message code="report.text" /></title>
 <link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/mainReport.css"/>">
-<script src="<c:url value ="/static/resources/pageJS/main-report.js"/>"></script> 
+<script src="<c:url value ="/static/resources/pageJS/mainReport.js"/>"></script> 
 <script type="text/javascript">
 var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
 $(document).ready(function(){
