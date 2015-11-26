@@ -19,6 +19,58 @@
     src: url('../fonts/Dosis-SemiBold.ttf') format('truetype');
 }
 /*End Set Font */
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #FFC000;
+  color: #FFFFFF;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 50px 15px 0;
+}
+/* ------------------------ */
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: none;
+    border:none;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #ffc000;
+}
+
+.scrollToTop{
+	width:60px;
+	height:60px;		
+	position:fixed;
+	bottom:55px;
+	right:40px;
+}
+
+.scrollToTop:hover{
+	text-decoration:none;
+}
 
 #imagePreview {
 	margin-bottom: 5px;

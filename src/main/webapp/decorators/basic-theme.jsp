@@ -107,34 +107,6 @@
 	});
 	
 	</script>
-	<style type="text/css">
-		.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-		    background: none;
-		    border:none;
-		}
-		
-		.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-		    background-color: #ffc000;
-		}
-		
-		.scrollToTop{
-			width:60px;
-			height:60px;		
-			position:fixed;
-			bottom:55px;
-			right:40px;
-		}
-		
-		.scrollToTop:hover{
-			text-decoration:none;
-		}
-		
-		html, body {
-	      height: 100%;
-	      margin: 0 0 1px;
-	      padding: 0;
-		}
-	</style>
 	
 	<!-- Page Context -->
 	<script type="text/javascript">

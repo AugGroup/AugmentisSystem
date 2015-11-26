@@ -15,8 +15,11 @@
 	width: 400px;
 }
 
-.container {
+/* .container {
 	margin-bottom: 10px;
+} */
+#applicant-content {
+	margin-bottom: 50px;
 }
 
 @media ( max-width : 960px) {

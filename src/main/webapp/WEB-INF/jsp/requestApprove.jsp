@@ -5,7 +5,7 @@
 
 <title><spring:message code="request.title.approve" /></title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" />
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" /> --%>
 <script src="<c:url value ="/static/resources/pageJS/aug-approve.js"/>"></script>
 
 <script type="text/javascript">

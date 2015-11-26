@@ -19,9 +19,36 @@
 }
 /* End Set Font*/
 
-body {
-	background: url(BG_W.jpg);
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  min-height: 100%;
+  position: relative;
 }
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+  background: url(BG_W.jpg);
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #FFC000;
+  color: #FFFFFF;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 50px 15px 0;
+}
+/* ------------------------ */
 
 .navbar {
 	background-color: #707070;

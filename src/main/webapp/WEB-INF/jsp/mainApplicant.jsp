@@ -61,30 +61,35 @@
 		</div>
 	</div>
 	
-	<!--Data Table for Applicant List -->
-	<c:set var="ss" value="display:none;"></c:set>
-	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF','ROLE_HR')">
-		<div class="table-responsive" id="table2">
-			<table  class="dataTable" id="dataTable" class="cell-border" style="width: 100%" >
-				<caption title="" class="tableHeader"><spring:message code="applicant.table.head" /></caption>
-				<thead>
-					<tr>
-						<th><spring:message code="main.code" /></th>
-						<th>JobCode</th>
-						<th><spring:message code="main.date" /></th>
-						<th><spring:message code="main.name" /></th>
-						<th><spring:message code="main.position1" /></th>
-						<th><spring:message code="main.position2" /></th>
-						<th><spring:message code="main.status" /></th>
-						<th><spring:message code="main.preview" /></th>
-						<th><spring:message code="main.edit" /></th>
-						<th><spring:message code="main.edit.info" /></th>
-						<th><spring:message code="main.delete" /></th>					
-					</tr>
-				</thead>
-			</table>
+	<div class="row">
+		<div class="col-sm-12" id="applicant-content">
+			<!--Data Table for Applicant List -->
+			<c:set var="ss" value="display:none;"></c:set>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF','ROLE_HR')">
+				<div class="table-responsive" id="table2">
+					<table  class="dataTable" id="dataTable" class="cell-border" style="width: 100%" >
+						<caption title="" class="tableHeader"><spring:message code="applicant.table.head" /></caption>
+						<thead>
+							<tr>
+								<th><spring:message code="main.code" /></th>
+								<th>JobCode</th>
+								<th><spring:message code="main.date" /></th>
+								<th><spring:message code="main.name" /></th>
+								<th><spring:message code="main.position1" /></th>
+								<th><spring:message code="main.position2" /></th>
+								<th><spring:message code="main.status" /></th>
+								<th><spring:message code="main.preview" /></th>
+								<th><spring:message code="main.edit" /></th>
+								<th><spring:message code="main.edit.info" /></th>
+								<th><spring:message code="main.delete" /></th>					
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</sec:authorize>	
 		</div>
-	</sec:authorize>
+	</div>
+	
 
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF')">
 		<!-- Modal of Edit Status and Score-->

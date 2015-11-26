@@ -19,6 +19,36 @@
 }
 /* End Set Font*/
 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #FFC000;
+  color: #FFFFFF;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 50px 15px 0;
+}
+/* ------------------------ */
+
 body {
 	background-image: url(body1.jpg);
 	-moz-background-size: cover;
@@ -30,9 +60,9 @@ body {
 	margin-top: 75px;
 }
 
-.container {
+/* .container {
 	margin-top: 15%;
-}
+} */
 
 #login {
 	background-color: rgba(0, 0, 0, 0.6);
