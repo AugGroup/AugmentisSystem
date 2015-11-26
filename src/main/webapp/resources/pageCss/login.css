@@ -1,3 +1,4 @@
+/* Set font */
 *{
 	font-family: Dosis-Regular;
 }
@@ -16,6 +17,7 @@
     font-family: 'Dosis-SemiBold';
     src: url('../fonts/Dosis-SemiBold.ttf') format('truetype');
 }
+/* End Set Font*/
 
 body {
 	background-image: url(body1.jpg);
@@ -66,10 +68,14 @@ body {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
+#login-nav-container {
+	padding-left: 40px;
+	padding-right: 40px;		
+}
+
 #login-logo {
 	background-color: #FFFFFF;
 	text-align: left;
-	margin-left: 40px;
 }
 
 #login-btn {

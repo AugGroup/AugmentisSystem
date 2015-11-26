@@ -30,7 +30,7 @@
 <body>
 	<!-- Header -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
- 		<div class="container-fluid">
+ 		<div class="container-fluid" id="login-nav-container">
 	    	<div class="navbar-header">
 	      		<div class="navbar-brand">
 	      			<img src="<c:url value="/static/decorators/Logo.png" />" id="login-logo"/>

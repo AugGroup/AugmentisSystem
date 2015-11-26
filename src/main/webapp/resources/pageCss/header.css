@@ -1,6 +1,6 @@
 #top-con {
-	margin-left: 40px;
-	margin-right: 95px;
+	padding-left: 40px;
+	padding-right: 40px;
 }
 
 #logo{
@@ -18,7 +18,8 @@
 
 .navbar-back {
 	background: #707070;
-	height: 65px;
+	/* height: 65px; */
+	border: none;
 }
 
 #nav-menu{

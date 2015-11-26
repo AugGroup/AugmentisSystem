@@ -22,9 +22,8 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/bootstrap/css/bootstrap.min.css"/>">
 	
 	<!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>">
+	<%-- <link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>"> --%>
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/header.css"/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/footer.css"/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/welcome.css"/>">
 	
 	<!-- Font Awesome -->
@@ -36,7 +35,34 @@
 	%>
 </head>
 <body>
-
+	<!-- Header -->
+	<%-- <nav class="navbar navbar-default">
+  		<div class="container-fluid" id="welcome-nav-container">
+    		<!-- Brand and toggle get grouped for better mobile display -->
+    		<div class="navbar-header">
+	      			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      		</button>
+	      		<div class="navbar-brand">
+	      			<img src="<c:url value="/static/decorators/Logo.png" />" id="welcome-logo"/>
+	      		</div>
+    		</div>
+    		
+    		<!-- Collect the nav links, forms, and other content for toggling -->
+    		<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right" >
+					<li id="bgLogout">						
+						<a id="linkLogout" class="navbar-link" href="<c:url value="/logout"/>">
+							<spring:message code="sitemesh.logout" /> | <%=name%>
+						</a>
+					</li>
+				</ul>
+			</div>
+    	</div>
+	</nav> --%>
 	<nav class="navbar navbar-back">
 		<div id="top-con" class="container-fluid ">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -59,21 +85,21 @@
 						</a>
 					</li>
 				</ul>
-				<div class="clearFloat"></div> 
+				<%-- <div class="clearFloat"></div> 
 				<ul class="nav navbar-nav navbar-right" id="lan-flag">
-						<c:set var="locale">${pageContext.response.locale}</c:set>					
-						<li class="flags-link" >
-						
-						<a id="flag-link" class="navbar-link" href="${request.getRequestURL}?locale=th" > 
-							<img src="${pageContext.request.contextPath}/static/resources/images/flag_thailand.png" alt="logo" class='img-flag ${ (locale eq "th") ? "flag-active" : ""}' />
-						</a>
-						
-						<a id="flag-link" class="navbar-link" href="${request.getRequestURL}?locale=en" > 
-							<img src="${pageContext.request.contextPath}/static/resources/images/flag_usa.png" alt="logo" class='img-flag ${ (locale eq "en") ? "flag-active" : ""}' />
-						</a>
-						
-						</li>
-				</ul>
+					<c:set var="locale">${pageContext.response.locale}</c:set>					
+					<li class="flags-link" >
+					
+					<a id="flag-link" class="navbar-link" href="${request.getRequestURL}?locale=th" > 
+						<img src="${pageContext.request.contextPath}/static/resources/images/flag_thailand.png" alt="logo" class='img-flag ${ (locale eq "th") ? "flag-active" : ""}' />
+					</a>
+					
+					<a id="flag-link" class="navbar-link" href="${request.getRequestURL}?locale=en" > 
+						<img src="${pageContext.request.contextPath}/static/resources/images/flag_usa.png" alt="logo" class='img-flag ${ (locale eq "en") ? "flag-active" : ""}' />
+					</a>
+					
+					</li>
+				</ul> --%>
 				
 			</div>
 			<!-- /.navbar-collapse -->
