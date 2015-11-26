@@ -137,7 +137,7 @@
 	
 	
 	<!-- Insert Modal -->
-	<div class="modal fade" id="insModal" data-backdrop="static" data-keyboard="false">
+	<div class="modal fade" id="insModal" data-backdrop="static" data-keyboard="false" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    

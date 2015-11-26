@@ -14,7 +14,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#reservationPage").addClass('active-menu'); 
-	});
+	}); 
 </script>
 
 <div class="container-fluid">
@@ -25,7 +25,7 @@
 		<div id="div-calendar-bg" class="col-md-9">
 			<div id="calendar"></div>
 		</div>
-		<div id="calendarPanel" class="col-md-3">
+		<div id="calendarPanel"  class="col-md-3">
 <!-- 			<div class="row"> -->
 <!-- 				<div id="printPanel" class="col-md-12 text-center content-block"> -->
 <%-- 					<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/reservation/report"> --%>
