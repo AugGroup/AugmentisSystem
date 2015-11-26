@@ -26,20 +26,16 @@
 
 	<div class="container">     
 	
-
           <f:form id="formAddUpdate" name="healthForm" method="post" commandName="healthDto" class="form-horizontal" role="form">	      	 
 	  
-	  
-		    <div  class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12 divHealth">
+    <div  class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12 divHealth">
 		   	
 			     <div class="row">  
 	
-				   
-					    <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label required" for="congenitalDisease" >
+			    <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label required" for="congenitalDisease" >
 					        <spring:message code="health.question.congenitalDisease" />?
 					    </label> 		
-				    
-				     
+
 				    	 <div class="form-group form-group-sm col col-lg-6 col-md-6 col-sm-6 col-xs-6">	
 		
 						 	 <div class="radio">
@@ -55,18 +51,11 @@
 								  <label> 
 								  	<f:radiobutton id="congenitalDiseaseNo" path="congenitalDisease" value="No"/><spring:message code="default.no"/>
 								  </label>
-								
+							
 							 </div>	
-	
-			         	 </div>	     
-			          
-			    </div>
-		       	  
+			         	 </div>	     		          
+			    </div>		       	  
 		  </div> 
-		  
-		 
-		 
-		   
 		   
 		   <div id="congenitaldiv" class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		   
@@ -98,10 +87,7 @@
 			 	 </div>
 		   
 		   </div>
-		   
-		   
-		   
-		   
+
 		      <div  id="congenital3div" class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		   
 			     <div class="row">
@@ -116,27 +102,17 @@
 				 </div>
 			</div>
 			 	
-			 	
-		   
-		   
-		   
-		   
-		   
-		   
+
 		     <div  class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12 divHealth">
 		   
 		      <div class="row">
-		           
-		       
+
 			    <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label required" for="geneticDisease" >
 			           <spring:message code="health.question.GeneticDisease" />? :
 			    </label> 		
 			    
-			     
-			     
 			    <div class="form-group form-group-sm col col-lg-6 col-md-6 col-sm-6 col-xs-6">	
-			     
-				 	 
+
 				 	  <div class="radio">			 	  
 				 	      <label>			    
 						  	<f:radiobutton id="geneticDiseaseYes" path="geneticDisease" value="Yes"/><spring:message code="default.yes"/>
@@ -156,12 +132,6 @@
 		    </div>
 		   </div>
 		   
-		   
-		
-		   
-		   
-		   
-		   
 		   <div id="geneticDiseaseExplainDiv" class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		   
 			     <div class="row">
@@ -174,14 +144,10 @@
 				     <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">	
 				        	<f:input  id="geneticDiseaseExplain" path="geneticDiseaseExplain" cssClass="form-control required" placeholder="${geneticDiseaseExplain1 }" value="${healthDto.geneticDiseaseExplain}"/>					     								
 				     </div>	
-				 
-		        
+
 			 	 </div>
-		   
 		   </div>
-		   
-		   
-		   
+
 		    <div id="geneticDiseaseExplainDiv2" class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		   
 			     <div class="row">
@@ -193,13 +159,9 @@
 		     
 				     <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">	
 				        	<f:input  id="geneticDiseaseExplain2" path="geneticDiseaseExplain2" cssClass="form-control required" placeholder="${geneticDiseaseExplain1}"  value="${healthDto.geneticDiseaseExplain2}"/>					     								
-				     </div>			 	 			 
-			         
+				     </div>			 	 			    
 			 	 </div>
-		   
 		   </div>
-		   
-		   
 		   
 		    <div id="geneticDiseaseExplainDiv3" class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		   
@@ -246,10 +208,7 @@
 				</div>
 			</div>
 			    
-			    
-			
-			  
-			    
+		  
 			     <div id="takeMedicineDiv" class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			         <div class="row">
 						    
@@ -257,20 +216,13 @@
 					           <spring:message code="health.takeMedicineExplain1" var="takeMedicineExplain1"/>${takeMedicineExplain1 }: 
 					    </label> 		
 	
-	     
 					     <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">	
 					        	<f:input  id="takeMedicineExplain" path="takeMedicineExplain" cssClass="form-control required" placeholder="${takeMedicineExplain1}"  value="${healthDto.takeMedicineExplain}" />					     								
 					     </div>	
 					  </div>
 				
 			    </div>
-			    
-			    
-			    
-			    
-			    
-			    
-			    
+			  
 			     <div class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12 divHealth">
 		   
 		     	   <div class="row">
@@ -279,7 +231,6 @@
 				          <spring:message code="health.question.Intolerance" />? :
 				    </label>
 				    		
-				    
 				      <div class="form-group form-group-sm col col-lg-6 col-md-6 col-sm-6 col-xs-6">				     
 				 		
 					 		
@@ -301,10 +252,6 @@
 				  
 				  </div> 
 			    </div>
-			    
-			    
-			  
-			  
 			    
 			     <div id="intoleranceDiv"  class="form-group form-group-sm col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			      <div class="row">
@@ -335,9 +282,8 @@
  
 
 
-
 <!-- Modal Create and Update -->
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
@@ -356,9 +302,8 @@
 
 
 
-
 <!-- Modal Delete -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">

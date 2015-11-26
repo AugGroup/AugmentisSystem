@@ -59,7 +59,7 @@
 	
 	<!-- ---------------------------------------Modal------------------------------------------------------------------ -->
 	
-		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">		
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">		
 			<div class="modal-dialog modal-md">
 				<div class="modal-content">
 					<div class="modal-header">			
@@ -95,7 +95,7 @@
 				    			
 				</div>
 				
-					<div class="form-group" align="center">
+					<div class="modal-footer">
 					<button type="button" class="btn btn-default btnClose" data-dismiss="modal"><spring:message code="label.close" /></button>
 						<button type="button" class="btn btn-info btnSave"><spring:message code="label.save" /></button>
 					</div>	
@@ -111,7 +111,7 @@
 
 		<!-- Modal -->
 		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+			aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">

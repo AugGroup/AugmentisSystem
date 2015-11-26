@@ -78,7 +78,7 @@
 	</sec:authorize>
 
 <!-- Modal Delete -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
@@ -87,7 +87,7 @@
       <div class="modal-body">
       	<spring:message code="default.delete.confirm" />
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" data-backdrop="static" data-keyboard="false">
       	<button type="button" class="btn btn-danger yesButton" ><spring:message code="default.yes" /></button>
       	<button type="button" class="btn btn-info" data-dismiss="modal"><spring:message code="default.no" /></button>
       </div>

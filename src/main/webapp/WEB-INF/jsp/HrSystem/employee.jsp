@@ -1127,7 +1127,7 @@
 	    </div>
 
 	<div class="form-group row">
-			<div class="col-md-12" align="right">
+			<div class="col-md-12" align="right" data-backdrop="static" data-keyboard="false">
 				<button type="button" class="btn btn-default renew" data-dismiss="modal" style="margin-right: 15px;"><spring:message code="label.renew" /></button>
     			<!-- <button type="button" class="btn btn-primary saveButton">Save</button> -->
     			<button type="button" id="saveButton" class="btn btn-warning" name="saveButton" ><spring:message code="label.saveAndCon" /></button>
@@ -1140,7 +1140,7 @@
 <!----------------------------------------------------------- Modal Address --------------------------------------------------->
 		
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+			aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -1216,7 +1216,7 @@
 						
 					 </form> 
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer" data-backdrop="static" data-keyboard="false">
 							<button type="button" class="btn btn-default closeAddressButton" 
 								data-dismiss="modal"><spring:message code="label.close"></spring:message></button>
 							<button type="button" id= "saveAddressButton" name="saveAddressButton" class="btn btn-primary saveAddressButton"><spring:message code="label.saveAndCon"></spring:message></button>
@@ -1228,7 +1228,7 @@
 	    
 <!------------------------------------------------- Modal Delete --------------------------------------------->
 
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
