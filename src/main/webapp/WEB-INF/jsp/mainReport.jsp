@@ -20,10 +20,13 @@ $(document).ready(function(){
 <div class="container">
 	<!------------------- Report header------------------->
 	<div class="row">
-		<h1 align="center">
-			<spring:message code="report.text" />
-		</h1>
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="report.text" /></strong></h1>
+			</div>
+		</div>
 	</div>
+	
 	<!------------------- Report search------------------->
 	<div class="container" id="divCon">
 	<div class="report_search">

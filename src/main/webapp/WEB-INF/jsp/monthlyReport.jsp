@@ -21,10 +21,16 @@ $(document).ready(function(){
 </script>
 
 <div class="container">
-<!------------------- Report header-------------------> 
- 	<div class="row"><h1 align="center"><spring:message code="report.text.monthly"/></h1></div>
+	<!------------------- Report header-------------------> 
+ 	<div class="row">
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="report.text.monthly"/></strong></h1>
+			</div>
+		</div>
+	</div>
  
-<!------------------- Report search-------------------> 
+	<!------------------- Report search-------------------> 
 	<div class="container">
 	<div class="report_search " align="right" style="float: right;">
 		<f:form method="post" name="reportForm" target="_blank" commandName="searchReportDTO" action="${pageContext.request.contextPath}/reportMonthly/preview" cssClass="form-inline">
@@ -44,7 +50,6 @@ $(document).ready(function(){
             	</div>
        			<button type="button" class="btn btn-primary" id="btn_search"><span class="glyphicon glyphicon-search"></span> <spring:message code="main.button.search"/> </button>				
    			</div>
-	
 		</f:form>
 	</div>
 	</div>
