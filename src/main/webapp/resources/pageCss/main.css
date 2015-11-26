@@ -419,7 +419,7 @@ caption {
 
 .navbar-back {
 	background: #707070;
-	height: 65px;
+	/* height: 65px; */
 }
 
 .navbar-back .navbar-nav>li>a {
@@ -638,8 +638,7 @@ caption {
 .nav>li>a {
 	position: relative;
 	display: block;
-	padding: 10px 15px
-
+	/* padding: 10px 15px */
 }
 
 .navbar-link>img:visited {

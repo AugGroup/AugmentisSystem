@@ -103,7 +103,7 @@
 				</li>
 			</ul>
 			
-			<div class="clearFloat"></div>
+			<%-- <div class="clearFloat"></div>
 			
 			<ul class="nav navbar-nav navbar-right" id="top-flag">
 				<c:set var="locale">${pageContext.response.locale}</c:set>					
@@ -124,7 +124,7 @@
 						<li><a href="${pageContext.request.contextPath}/monthlyReport" id="monthlyPage"><spring:message code="report.text.monthly" /></a></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> --%>
 		</div> <!-- /.navbar-collapse -->
 	</div> <!-- /.container-fluid -->
 </nav>
