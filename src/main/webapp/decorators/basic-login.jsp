@@ -14,11 +14,8 @@
 	<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
 	
 	<!-- Bootstrap -->
-	<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-	
-	<%-- <link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link> --%>
-	<%-- <link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/css/bootstrap-theme.min.css"/>" /> --%> 
+	<script src='<c:url value ="/static/resources/bootstrap/js/bootstrap.min.js"/>'></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/bootstrap/css/bootstrap.min.css"/>"> 
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
@@ -31,6 +28,21 @@
 	
 </head>
 <body>
+	<!-- Header -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+ 		<div class="container-fluid">
+	    	<div class="navbar-header">
+	      		<div class="navbar-brand">
+	      			<img src="<c:url value="/static/decorators/Logo.png" />" id="login-logo"/>
+	      		</div>
+	    	</div>
+		</div>
+	</nav>
+	
+	<!-- Content -->
 	<decorator:body />
+	
+	<!-- Footer -->
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

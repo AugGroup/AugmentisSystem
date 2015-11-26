@@ -9,19 +9,7 @@
 
 <!-- decorator-body -->
 <body>
-
 <div class="container">
-		
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-  		<div class="container-fluid">
-	    	<div class="navbar-header">
-	      		<div class="navbar-brand">
-	      			<img src="<c:url value="/static/decorators/Logo.png" />" id="login-logo"/>
-	      		</div>
-	    	</div>
-		</div>
-	</nav>	    
-	
 	<div class="row">
 		<form name='loginForm' action="<c:url value='j_spring_security_check' />" method='POST'>
 			<div class="col col-lg-4 col-md-5 col-sm-6 col-xs-12 col-lg-offset-4 col-sm-offset-3" id="login">
@@ -69,8 +57,5 @@
 		   	</div>
 		</div>
 	</div>
-</div>
-<div class="footer">
-	<jsp:include page="../../decorators/footer.jsp"></jsp:include>
 </div>
 </body>

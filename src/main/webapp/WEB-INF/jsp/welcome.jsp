@@ -17,8 +17,9 @@
 	<!-- jQuery -->
 	<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
 	
-	<!-- Bootstrap CSS-->
-	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
+	<!-- Bootstrap -->
+	<script src='<c:url value ="/static/resources/bootstrap/js/bootstrap.min.js"/>'></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/bootstrap/css/bootstrap.min.css"/>">
 	
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/main.css"/>">
@@ -104,13 +105,8 @@
 		</div>	
 	</div>
 
-	<footer class='footer'>
-		<div class="container">
-			<div class="text-muted">
-				<span class="spe-character">©</span> 2011-2015 Augmentis (Thailand) Limited. All rights reserved.
-			</div>
-		</div>
-	</footer>
+	<!-- Footer -->
+	<jsp:include page="../../decorators/footer.jsp"></jsp:include>
 	
 	<!-- Bootstrap JS-->
 	<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
