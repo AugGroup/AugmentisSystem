@@ -184,6 +184,10 @@ ul#nav-menu > li > a{
 }
 /* ----- end flag ----- */
 
+#report-btn {
+	color: #FFFFFF;
+}
+
 @media ( max-width : 1155px) {
 	#top-con {
 		margin-left: 0px;

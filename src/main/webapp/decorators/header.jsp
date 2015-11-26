@@ -54,6 +54,19 @@
 						</a>
 					</li>
 				</sec:authorize>
+				<li id="report-dropdown">
+					<a href="#" id="report-btn" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<spring:message code="report.text" /> <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu sub-menu" id="dropdown_report">
+						<li>
+							<a href="${pageContext.request.contextPath}/report" id="reportPage" ><spring:message code="report.text" /></a>
+						</li>
+						<li>
+							<a href="${pageContext.request.contextPath}/monthlyReport" id="monthlyPage"><spring:message code="report.text.monthly" /></a>
+						</li>
+					</ul>
+				</li>
 				<li>
 					<a href="${pageContext.request.contextPath}/calendar" id="calendarPage">
 						<spring:message code="request.calendar" />
@@ -93,6 +106,7 @@
 	            		</li>
 					</ul>
 				</li>
+				
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">

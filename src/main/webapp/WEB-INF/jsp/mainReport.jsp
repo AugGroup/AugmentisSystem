@@ -11,7 +11,8 @@
 <script type="text/javascript">
 var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
 $(document).ready(function(){
-	$("#btn_report").addClass('active-menu'); 
+	/* $("#btn_report").addClass('active-menu');  */
+	$("#report-dropdown").addClass('active-menu');
 	$("#reportPage").addClass('active-menu'); 
 });
 </script>
