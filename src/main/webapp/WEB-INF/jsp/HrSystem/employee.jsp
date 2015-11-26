@@ -1128,9 +1128,9 @@
 
 	<div class="form-group row">
 			<div class="col-md-12" align="right" data-backdrop="static" data-keyboard="false">
-				<button type="button" class="btn btn-default renew" data-dismiss="modal" style="margin-right: 15px;"><spring:message code="label.renew" /></button>
+				<button type="button" class="btn btn-default renew" data-dismiss="modal" style="margin-right: 15px;"></span>&nbsp;&nbsp;<spring:message code="label.renew" /></button>
     			<!-- <button type="button" class="btn btn-primary saveButton">Save</button> -->
-    			<button type="button" id="saveButton" class="btn btn-warning" name="saveButton" ><spring:message code="label.saveAndCon" /></button>
+    			<button type="button" class="btn btn-primary" id="saveButton" class="btn btn-warning" name="saveButton" ><span class="fa fa-save"></span>&nbsp;&nbsp;<spring:message code="label.saveAndCon" /></button>
     			
 	    	</div>
 	</div>
@@ -1232,14 +1232,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title" id="deleteModalLabel"><spring:message code="label.delete" /><spring:message code="address.name" /></h4>
+        <h4 class="modal-title" id="deleteModalLabel"><span class="fa fa-trash"></span>&nbsp;<spring:message code="label.delete" /><spring:message code="address.name" /></h4>
       </div>
       <div class="modal-body">
       	<spring:message code="default.delete.confirm"></spring:message>
       </div>
       <div class="modal-footer">
+      <button type="button"id="yesButton" class="btn btn-danger yesButton"><span class="fa fa-trash"></span>&nbsp;<spring:message code="default.yes" /></button>
       <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="default.no" /></button>
-      <button type="button"id="yesButton" class="btn btn-primary yesButton"><spring:message code="default.yes" /></button>
       </div>
     </div>
   </div>

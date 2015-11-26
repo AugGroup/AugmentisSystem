@@ -87,10 +87,14 @@ $(document).ready(function(){
 						
 						<div class="row">	
 							<div class="col-sm-12">
-								<span class="btn btn-warning btn-file" class="glyphicon glyphicon-picture" style="margin-bottom: 10px;"> 
+								<!-- <span class="btn btn-warning btn-file" class="glyphicon glyphicon-picture" style="margin-bottom: 10px;"> 
 									<span class="glyphicon glyphicon-picture"></span> Add Photo 
 									<input id="imageMultipartFile" name="imageMultipartFile" type="file" accept="image/*" class="file"/>
-								</span>
+								</span> -->
+								
+							<label> Upload File </label>
+								<input type="file" id="imageMultipartFile" name="imageMultipartFile" accept="image/*" class="file" data-show-upload="false" data-show-preview="false" data-initial-caption="image.png" data-overwrite-initial="false">
+								<input type="hidden" name="image" class="form-control element-to-paste-filename" value="image.png">
 								<f:hidden path="image" />
 							</div>
 						</div>
@@ -255,8 +259,8 @@ $(document).ready(function(){
 	<div class="row">
 		<div class="col-sm-12">
 				<div align="right">
-					<button type="submit" id="buttonSave" name="buttonSave" class="btn btn-warning" ><span class="glyphicon glyphicon-save"></span> <spring:message code="edit.button.save"/></button>
-					<button type="button" class="btn btn-default" id="buttonBack" name="buttonBack" onclick="window.location='${pageContext.request.contextPath}/applicant'"><span class="glyphicon glyphicon-step-backward"></span> <spring:message code="button.back"/> </button>
+				<button type="button" class="btn btn-default" id="buttonBack" name="buttonBack" onclick="window.location='${pageContext.request.contextPath}/applicant'"><span class="glyphicon glyphicon-step-backward"></span><spring:message code="button.back"/></button>
+				<button type="button" class="btn btn-primary btnSave"><span class="fa fa-save"></span>&nbsp;&nbsp;<spring:message code="edit.button.save" /></button>		
 				</div>
 		</div>
 	</div>

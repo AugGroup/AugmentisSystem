@@ -144,12 +144,13 @@
 						</form>
 					</div>
 					<div class="modal-footer" data-backdrop="static" data-keyboard="false">
-						<button type="button" id="btn_submit" class="btn btn-warning" data-dismiss="alert">
-							<span class="fa fa-save"></span>&nbsp;<spring:message code="edit.button.save" />
-						</button>
 						<button type="button" id="btn_close" class="btn btn-default" data-dismiss="modal">
 							<spring:message code="button.cancel" />
 						</button>
+						<button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="alert">
+							<span class="fa fa-save"></span>&nbsp;<spring:message code="edit.button.save" />
+						</button>
+						
 					</div>
 				</div>
 			</div>

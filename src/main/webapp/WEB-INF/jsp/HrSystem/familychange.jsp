@@ -171,7 +171,7 @@
 		      <div class="modal-footer">
 		       		
 		        <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.close" /></button>
-		        <button id="saveBtn" name="saveBtn" type="button" class="btn btn-primary"><spring:message code="label.save" /></button>
+		        <button id="saveBtn" name="saveBtn" type="button" class="btn btn-primary"><span class="fa fa-save"></span>&nbsp;&nbsp;<spring:message code="label.save" /></button>
 		 		     		     
 		      </div>
 		      
@@ -197,8 +197,8 @@
       	<spring:message code="default.delete.confirm" />
       </div>
       <div class="modal-footer">
-		<button id="delete" type="button" class="btn btn-danger yesButton" ><spring:message code="default.yes" /></button>
-      	<button type="button" class="btn btn-info" data-dismiss="modal"><spring:message code="default.no" /></button>
+		<button id="delete" type="button" class="btn btn-danger yesButton" ><span class="fa fa-trash"></span>&nbsp;<spring:message code="default.yes" /></button>
+      	<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="default.no" /></button>
       </div>
     </div>
   </div>

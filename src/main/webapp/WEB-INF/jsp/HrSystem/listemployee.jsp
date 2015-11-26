@@ -88,8 +88,8 @@
       	<spring:message code="default.delete.confirm" />
       </div>
       <div class="modal-footer" data-backdrop="static" data-keyboard="false">
-      	<button type="button" class="btn btn-danger yesButton" ><spring:message code="default.yes" /></button>
-      	<button type="button" class="btn btn-info" data-dismiss="modal"><spring:message code="default.no" /></button>
+      	<button type="button" class="btn btn-danger yesButton" ><span class="fa fa-trash"></span>&nbsp;<spring:message code="default.yes" /></button>
+      	<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="default.no" /></button>
       </div>
     </div>
   </div>
