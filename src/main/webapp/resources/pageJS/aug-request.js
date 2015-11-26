@@ -127,19 +127,19 @@ $(document).ready(function () {
     	          {data: "numberApplicant"},
     	          {data: "status"},
     	          {data: function (data) {
-    	        	  return '<button id="btn_preview" class="btn btn-info" data-id="' + data.id + '" data-toggle="modal" data-target="#previewModal"><span class="glyphicon glyphicon-search"></span> '+preview_tx +'</button>';
+    	        	  return '<button id="btn_preview" class="btn btn-info" data-id="' + data.id + '" data-toggle="modal" data-target="#previewModal"><span class="fa fa-search"></span>&nbsp;'+preview_tx +'</button>';
     	        	  }
     	          },
     	          {data: function (data) {
     	        	  if(data.status!="Approve"){
-                    	return '<button class="btn btn-warning btn_edit" data-id="' + data.id + '" data-toggle="modal" data-target="#addRequestModal"><span class="glyphicon glyphicon-edit"></span> '+edit_tx + '</button>';
+                    	return '<button class="btn btn-warning btn_edit" data-id="' + data.id + '" data-toggle="modal" data-target="#addRequestModal"><span class="fa fa-edit"></span>&nbsp;'+edit_tx + '</button>';
     	        	  }else{
-    	        		return '<button class="btn btn-warning disabled btn_edit" data-id="' + data.id + '" data-toggle="modal" data-target="#addRequestModal"><span class="glyphicon glyphicon-edit"></span> '+edit_tx + '</button>';
+    	        		return '<button class="btn btn-warning disabled btn_edit" data-id="' + data.id + '" data-toggle="modal" data-target="#addRequestModal"><span class="fa fa-edit"></span>&nbsp;'+edit_tx + '</button>';
         	          }
     	        	}
     	          },
     	          {data: function (data) {
-    	        	 	return '<button class="btn btn-danger btn_delete" data-id="' + data.id + '" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-remove-sign"></span> '+delete_tx + '</button>';
+    	        	 	return '<button class="btn btn-danger btn_delete" data-id="' + data.id + '" data-toggle="modal" data-target="#deleteModal"><span class="fa fa-trash"></span>&nbsp;'+delete_tx + '</button>';
     	        	}
     	          }
     	          ],

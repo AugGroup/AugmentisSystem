@@ -3,11 +3,10 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<!-- decorator title -->
 <title><spring:message code="request.title" /></title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" />
-<script src="<c:url value ="/static/resources/pageJS/aug-request.js"/>"></script> 
-
+<!-- Custom JS --> 
 <script type="text/javascript">
 	var reqName = "<spring:message code="valid.req.name"/>"; 
 	var reqDate = "<spring:message code="valid.req.date"/>"; 
@@ -30,62 +29,56 @@
 	var pnotifyError="<spring:message code="pnotify.error"/>";
 	var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
 </script>
-
-<style>
-	.modal-footer {
-		padding: 15px;
-		text-align: right;
-		border: none;
-	}
-	.inputRequest{
-		width: 400px;
-		padding-left: 50px;
-	}
-	@media ( max-width : 960px) {
-		.inputRequest{
-			width: 100%;
-			padding-left: 0px;
-		}
-		.modal-footer {
-			padding: 0px;
-			text-align: right;
-			border: none;
-		}
-	}
-	
-</style>
-
+<script src="<c:url value ="/static/resources/pageJS/aug-request.js"/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#requestPage").addClass('active-menu'); 
 	});
 </script>
 
+<!-- Custom CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/augRequest.css" /> 
+
+<!-- decorator body -->
 <div class="container">
-	<div><h1 align="center"><spring:message code="request.title"/></h1></div>
-	<div class="table-responsive" id="table2" >
-		<table class="dataTable" id="requestTable" class="cell-border" style="width: 100%">
-			<caption title="" class="tableHeader"><spring:message code="request.title" /></caption>
-			<thead>
-				<tr>
-					<th><spring:message code="request.id" /></th>
-					<th>JobcaseCode</th>
-					<th><spring:message code="request.date" /></th>
-					<th><spring:message code="request.human" /></th>
-					<th><spring:message code="main.position1" /></th>
-					<th><spring:message code="main.position2" /></th>
-					<th><spring:message code="request.number" /></th>
-					<th><spring:message code="main.status" /></th>
-					<th><spring:message code="request.preview" /></th>
-					<th><spring:message code="main.edit" /></th>
-					<th><spring:message code="main.delete" /></th>
-				</tr>
-			</thead>
-		</table>
-		<div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="request.title"/></strong></h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-12">
 			<button id="btn_new_req" class="btn btn-warning" data-toggle="modal" data-target="#addRequestModal">
-				<span class="glyphicon glyphicon-plus"></span><spring:message code="request.add.new" />
+				<span class="fa fa-plus"></span>&nbsp;<spring:message code="request.add.new" />
 			</button>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-12" id="jobcase-content">
+			<div class="table-responsive" id="table2" >
+				<table class="dataTable" id="requestTable" class="cell-border" style="width: 100%">
+					<caption title="" class="tableHeader"><spring:message code="request.title" /></caption>
+					<thead>
+						<tr>
+							<th><spring:message code="request.id" /></th>
+							<th>JobcaseCode</th>
+							<th><spring:message code="request.date" /></th>
+							<th><spring:message code="request.human" /></th>
+							<th><spring:message code="main.position1" /></th>
+							<th><spring:message code="main.position2" /></th>
+							<th><spring:message code="request.number" /></th>
+							<th><spring:message code="main.status" /></th>
+							<th><spring:message code="request.preview" /></th>
+							<th><spring:message code="main.edit" /></th>
+							<th><spring:message code="main.delete" /></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
 		</div>
 	</div>
 
@@ -118,7 +111,7 @@
 							<div class="form-group">
 								<label for="inputRequesterName"><spring:message code="request.human" /></label> 
 								<!-- <input type="text" class="form-control" name="inputRequesterName" id="inputRequesterName" /> -->
-								<input type="text" class="form-control" name="inputRequesterName" id="inputRequesterName" value="${employee.applicant.firstNameEN}" disabled="disabled"/>
+								<input type="text" class="form-control" name="inputRequesterName" id="inputRequesterName" value="${login.employee.applicant.firstNameEN}" disabled="disabled"/>
 							</div>
 							
 							<div class="form-group">
@@ -177,7 +170,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" id="btn_save_req" style="width: 100px;" class="btn btn-warning">
-								<span class="glyphicon glyphicon-save"></span><spring:message code="edit.button.save"/>  
+								<span class="fa fa-save"></span>&nbsp;<spring:message code="edit.button.save"/>  
 							</button>
 							<button type="button" id="btn_close"  style="width: 100px;" class="btn btn-default" data-dismiss="modal">
 								<spring:message code="button.cancel" />
@@ -210,7 +203,7 @@
 						</div>
 						<div class="row" style="float: right; padding-right: 20px;">
 							<button id="btn_delete_submit" type="button" class="btn btn-danger" data-dismiss="modal">
-								<span class="glyphicon glyphicon-remove-sign "></span><spring:message code="main.delete" />
+								<span class="fa fa-trash"></span>&nbsp;<spring:message code="main.delete" />
 							</button>
 							<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 								<spring:message code="button.cancel" />
@@ -255,11 +248,11 @@
 						<div class="col-md-6"><p id="tx_technology"></p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approv.name" /></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.name" /></div>
 						<div class="col-md-6"><p id="tx_approvalName"></p></div>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approv.date" /></div>
+						<div class="col-md-4 col-md-offset-2" style="width: 170px;"><spring:message code="request.approve.date" /></div>
 						<div class="col-md-6"><p id="tx_approveDate"></p></div>
 					</div>
 					<div class="row">
@@ -337,7 +330,7 @@
 				<div class="modal-footer">
 					<div class="row" style="float: right; padding-right: 20px;">
 							<button id="btn_confirm" type="button" class="btn btn-warning" data-dismiss="modal">
-								<span class="glyphicon glyphicon glyphicon-ok "></span>Confirm
+								<span class="fa fa fa-check-square"></span>&nbsp;Confirm
 							</button>
 							<button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">
 								<spring:message code="button.cancel" />

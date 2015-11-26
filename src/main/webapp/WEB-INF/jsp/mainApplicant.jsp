@@ -7,8 +7,7 @@
 <!-- decorator-title -->
 <title><spring:message code="applicant.table.head" /></title>
 
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/applicant.css" />
+<!-- Custom JS -->
 <script type="text/javascript">
 	var valScore = "<spring:message code="valid.score"/>";
 	var valTech = "<spring:message code="valid.tech"/>";
@@ -26,7 +25,10 @@
 	var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
     var preview="<spring:message code="button.preview"/>";
 </script>
-<script src="<c:url value ="/static/resources/pageJS/main-applicant.js"/>"></script> 
+<script src="<c:url value ="/static/resources/pageJS/main-applicant.js"/>"></script>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/applicant.css" /> 
 
 <!-- decorator-body -->
 <div class="container">

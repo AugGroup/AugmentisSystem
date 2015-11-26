@@ -303,11 +303,11 @@ table.dataTable tr.even {
 	padding: 3px;
 }
 
-#btn_new_req {
+/* #btn_new_req {
 	width:170px;
 	float: right;
 	margin: 20px 5px 20px 5px;
-}
+} */
 
 .tableHeader {
 	clear : both;
