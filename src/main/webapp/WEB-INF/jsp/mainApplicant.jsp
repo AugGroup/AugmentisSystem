@@ -88,7 +88,7 @@
 
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF')">
 		<!-- Modal of Edit Status and Score-->
-		<div id="EditStatusModal" class="modal fade" >
+		<div id="EditStatusModal" class="modal fade"  data-backdrop="static" data-keyboard="false" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -136,7 +136,7 @@
 							</div>
 						</form>
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer" data-backdrop="static" data-keyboard="false">
 						<button type="button" id="btn_submit" class="btn btn-warning" data-dismiss="alert">
 							<span class="fa fa-save"></span>&nbsp;<spring:message code="edit.button.save" />
 						</button>
@@ -151,7 +151,7 @@
 
 	<!-- Delete Model -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-	aria-labelledby="ModalLabel" aria-hidden="true">
+	aria-labelledby="ModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -174,7 +174,7 @@
 	</div>
 	
 	<!-- Preview Model -->
-	<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+	<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">

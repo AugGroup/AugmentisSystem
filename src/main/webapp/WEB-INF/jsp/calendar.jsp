@@ -137,7 +137,7 @@
 	
 	
 	<!-- Insert Modal -->
-	<div class="modal fade" id="insModal">
+	<div class="modal fade" id="insModal" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    
@@ -147,7 +147,7 @@
 	      </div>
 	      
 	      <div class="modal-body">
-	        	<div class="container-fluid"><form id="formInsert">
+	        	<div class="container-fluid"><form id="formInsert" data-backdrop="static" data-keyboard="false">
 	        		<div class="row">
 	        			<div class="col-md-12">
 	        			<label for="insStartDate"><spring:message code="appointment.start" /></label>
@@ -200,7 +200,7 @@
 	        		</div>
 	      </div><!-- /.modal-body -->
 	      
-	      <div class="modal-footer">
+	      <div class="modal-footer" data-backdrop="static" data-keyboard="false">
 	        <button id="insBtn" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span><spring:message code="button.insert" /></button>
 	        <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="button.cancel" /></button>
 	      </div>
@@ -210,7 +210,7 @@
 	</div><!-- /.modal -->
 	
 	<!-- Detail Modal -->
-	<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -273,7 +273,7 @@
 	</div>
 	
 	<!-- Delete Modal -->
-	<div class="modal fade" id="delModal">
+	<div class="modal fade" id="delModal" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog modal-sm">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -292,7 +292,7 @@
 	</div><!-- /.modal -->
 	
 	<!-- Edit confirm Modal -->
-	<div class="modal fade" id="confirmEditModal">
+	<div class="modal fade" id="confirmEditModal" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog modal-sm">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -312,14 +312,14 @@
 	
 	
 	<!-- Modal -->
-	<div class="modal fade" id="appointmentListModal" tabindex="-1" role="dialog" aria-labelledby="modal_appointmentList">
+	<div class="modal fade" id="appointmentListModal" tabindex="-1" role="dialog" aria-labelledby="modal_appointmentList" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <h4 class="modal-title" id="modalHeader_appointmentList"></h4>
 	      </div>
-	      <div id="modalBody_appointmentList" class="modal-body">
+	      <div id="modalBody_appointmentList" class="modal-body" data-backdrop="static" data-keyboard="false">
 	      	<div class="table-responsive" style=" width:100%;">
 	      		<table id="appointmentListTable" >
 	      		<caption title="" class="tableHeader"><spring:message code="appointment.description"/></caption>

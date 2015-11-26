@@ -117,7 +117,7 @@
 </div>
 
 <!-- Detail Modal -->
-<div class="modal fade" id="reservDetailModal" tabindex="-1" role="dialog" aria-labelledby="reservDetailLabel">
+<div class="modal fade" id="reservDetailModal" tabindex="-1" role="dialog" aria-labelledby="reservDetailLabel" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -195,7 +195,7 @@
       		
       	</div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" data-backdrop="static" data-keyboard="false">
       	<button id="editReservBtn" type="button" class="btn btn-warning showReservData"><spring:message code="label.edit" /></button>
       	<button id="saveEditReservBtn" type="button" class="btn btn-warning editReservData"><spring:message code="label.save" /></button>
       	<button id="cancelEditReservBtn" type="button" class="btn btn-default editReservData"><spring:message code="label.cancel" /></button>
@@ -208,7 +208,7 @@
 </div>
 
 <!-- Modal Delete -->
-<div class="modal fade" id="deleteReservModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteReservModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
     <div class="modal-header">
@@ -227,7 +227,7 @@
 
     
 <!-- Insert Modal -->
-	<div class="modal fade" id="insModal">
+	<div class="modal fade" id="insModal" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    
@@ -303,7 +303,7 @@
 	        		</div>
 	      </div><!-- /.modal-body -->
 	      
-	      <div class="modal-footer">
+	      <div class="modal-footer" data-backdrop="static" data-keyboard="false">
 	        <button id="insBtn" type="button" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span><spring:message code="label.add" /></button>
 	        <button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.cancel" /></button>
 	      </div>
@@ -312,7 +312,7 @@
 	  </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 	
-	<div class="modal fade" id="reservationListModal" tabindex="-1" role="dialog" aria-labelledby="modal_appointmentList">
+	<div class="modal fade" id="reservationListModal" tabindex="-1" role="dialog" aria-labelledby="modal_appointmentList" data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
