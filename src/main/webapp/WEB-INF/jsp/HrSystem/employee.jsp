@@ -1219,7 +1219,7 @@
 					<div class="modal-footer" data-backdrop="static" data-keyboard="false">
 							<button type="button" class="btn btn-default closeAddressButton" 
 								data-dismiss="modal"><spring:message code="label.close"></spring:message></button>
-							<button type="button" id= "saveAddressButton" name="saveAddressButton" class="btn btn-primary saveAddressButton"><spring:message code="label.saveAndCon"></spring:message></button>
+							<button type="button" id= "saveAddressButton" name="saveAddressButton" class="btn btn-primary saveAddressButton"><span class="fa fa-save"></span>&nbsp;&nbsp;<spring:message code="label.saveAndCon"></spring:message></button>
 						</div>
 				</div>
 	    	</div>

@@ -22,6 +22,9 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
 		<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
 		
+		<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
+		
 		<!-- Alertify.js -->
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.core.css'/>"></link>
 		<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.bootstrap.css'/>"></link>
