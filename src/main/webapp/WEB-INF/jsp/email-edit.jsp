@@ -33,7 +33,7 @@ $(document).ready(function(){
 				<div id="email-template">
 					<form id="templateFormEdit">
 						<div class="form-group">
-							<label for="name"><spring:message code="request.email.form.template.name" /> :</label>
+							<label for="name"><spring:message code="request.email.form.template.name" /> </label>
 							<select class="form-control" id="mailTemplate" name="selectTemplate">
 								<option value=""><spring:message code="request.email.form.select.init.template" /></option>
 								<c:forEach items="${mailTemplate}" var="mailTemplate">
@@ -42,7 +42,7 @@ $(document).ready(function(){
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="template"><spring:message code="request.email.form.template" /> :</label>
+							<label for="template"><spring:message code="request.email.form.template" /> </label>
 							<textarea id="template" name="template"></textarea>
 						</div><br>
 						<button type="button" class="btn btn-warning" id="update" ><span class="glyphicon glyphicon-pencil"></span><spring:message code="button.edit" /></button>

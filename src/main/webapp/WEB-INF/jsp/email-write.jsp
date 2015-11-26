@@ -31,15 +31,15 @@ $(document).ready(function(){
 			<div class="col-sm-12">
 				<div class="col-sm-6" style="margin-bottom: 10px;">
 		  				<div class="form-group">
-		    				<label for="receiver"><spring:message code="request.email.to" />:</label>
+		    				<label for="receiver"><spring:message code="request.email.to" /></label>
 		    				<input type="text" id="receiver" name="receiver" class="form-control" value="${myVar}" placeholder="<spring:message code="request.email.to" />"/>
 		  				</div>
 						<div class="form-group">
-							<label for="cc"><spring:message code="request.email.cc" />:</label>
+							<label for="cc"><spring:message code="request.email.cc" /></label>
 							<input type="text" value="" data-role="tagsinput" id="cc" name="cc" placeholder="<spring:message code="request.email.cc" />"> 
 						</div>
 						<div class="form-group">
-							<label for="subject"><spring:message code="request.email.subject" />:</label>
+							<label for="subject"><spring:message code="request.email.subject" /></label>
 							<input type="text" id="subject" name="subject" class="form-control" placeholder="<spring:message code="request.email.subject" />"/> 
 						</div><br>
 		  				<button class="btn btn-warning" id="send"><spring:message code="request.email.send" /></button>
