@@ -406,7 +406,7 @@ public class ApplicantController implements Serializable {
 		parameterMap.put("endDate", endDate);
 		parameterMap.put(JRParameter.REPORT_LOCALE, Locale.ENGLISH);
 		ModelAndView mv = reportService.getReport(reportApplicantList,
-				"summaryMonthly", reportType, parameterMap);
+				"monthlyReport", reportType, parameterMap);
 		return mv;
 	}
 	/*-------------------- Position List--------------------*/

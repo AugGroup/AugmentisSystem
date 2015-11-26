@@ -6,7 +6,7 @@
 
 <title><spring:message code="report.text.monthly" /></title>
 <link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/monthlyReport.css"/>">
-<script src="<c:url value ="/static/resources/pageJS/monthly-report.js"/>"></script> 
+<script src="<c:url value ="/static/resources/pageJS/monthlyReport.js"/>"></script> 
 
 <script>
 var datatablei18n = "<c:url value='/static/resources/dt-i18n/${pageContext.response.locale}.json' />";
