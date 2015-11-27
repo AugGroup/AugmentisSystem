@@ -20,9 +20,10 @@ var dt;
 			});
 			
 		 $("div.toolbar").html('<b><button type="button"  class="btn btn-warning" data-toggle="modal" data-target="#addModal">'+$msgNewRecord+'</button> </b>');
-			
 
-		$("#saveBtn").off("click").on("click",function(){
+			 	
+
+		$("#btnSave").off("click").on("click",function(){
 			
 			$('#formAddUpdate').bootstrapValidator();
 			$('#formAddUpdate').data('bootstrapValidator').resetForm();
@@ -140,7 +141,82 @@ var dt;
 		 dt=$('#tableResult').dataTable();
 		 doFindData();
 		 
-		 
+		   $("#addModal").on("show.bs.modal", function(event){
+		    	  
+	    	  // clearModal();
+	    	    var button = $(event.relatedTarget);
+	    		var idUpdate = button.data("idupdate"); 
+	    		
+	    	
+	    		if(idUpdate != null){
+	    		
+	    			
+	    			doInitEditDataPost(idUpdate);
+	    			
+				}
+	     		
+	    		$(this).find(".btnSave").off("click").on("click", function()
+	    		{
+	    			if(idUpdate != null){
+	    				/*$('#formAddUpdate').bootstrapValidator();
+	    				$('#formAddUpdate').data('bootstrapValidator').validate();
+	    				if($('#formAddUpdate').data('bootstrapValidator').isValid()){
+	    					*/ 
+	    				doEditDataPost(idUpdate);
+	    				//}
+	    			}
+	    			else {
+	    				$('#formAddUpdate').bootstrapValidator();
+	    				$('#formAddUpdate').data('bootstrapValidator').validate();
+	    				if($('#formAddUpdate').data('bootstrapValidator').isValid()){
+	    					
+	    				//	alert('aaa');
+	    					addSkilllanguage();
+	    				}
+	    			}
+	    		});
+	    	  
+	     
+	
+		
+			
+		   
+		   $('#addModal').on("hide.bs.modal",function(event){
+			   
+			   $('#formAddUpdate')[0].reset();
+		       //$('#formAddUpdate').bootstrapValidator('resetForm', true);
+			   $('#formAddUpdate').bootstrapValidator();
+			   $('#formAddUpdate').data('bootstrapValidator').resetForm();
+			  /* $('#error').text('');*/
+		  
+		   });
+		   
+		   $(this).find(".btnClose").off("click").on("click",function() {
+				$('#formAddUpdate').bootstrapValidator('resetForm', true);
+			});
+			
+		   
+		   });  
+		   
+		   
+		   
+		   $("#deleteModal").on("show.bs.modal", function(event){
+		    	  
+	    	   
+	    	    var button = $(event.relatedTarget);
+	    		var idDelete = button.data("iddelete"); 
+	    		
+	
+	    		$(this).find(".yesButton").off("click").on("click", function()
+	    		{
+	    			
+	    				 doDeleteData(idDelete);
+	    			
+	    		});
+	    	  
+	      });
+		   
+		   
 		   function doFindData() {  
 		   	   
 			  	  var id = $("#empId").val();
@@ -182,59 +258,6 @@ var dt;
 		  	    }); 
 		  	   
 		    }
-	
-		   
-		   
-		   $("#addModal").on("show.bs.modal", function(event){
-		    	  
-	    	    clearModal();
-	    	    var button = $(event.relatedTarget);
-	    		var idUpdate = button.data("idupdate"); 
-	    		
-	    	
-	    		if(idUpdate != null){
-	    		
-	    			
-	    			doInitEditDataPost(idUpdate);
-	    			
-				}
-	     		
-	    		$(this).find("#saveBtn").off("click").on("click", function()
-	    		{
-	    			if(idUpdate != null){
-	    				$('#formAddUpdate').bootstrapValidator();
-	    				$('#formAddUpdate').data('bootstrapValidator').validate();
-	    				if($('#formAddUpdate').data('bootstrapValidator').isValid()){
-	    					 doEditDataPost(idUpdate);
-	    				}
-	    			}
-	    			else {
-	    				$('#formAddUpdate').bootstrapValidator();
-	    				$('#formAddUpdate').data('bootstrapValidator').validate();
-	    				if($('#formAddUpdate').data('bootstrapValidator').isValid()){
-	    					
-	    				//	alert('aaa');
-	    					addSkilllanguage();
-	    				}
-	    			}
-	    		});
-	    	  
-	      });
-	
-		
-			
-		   
-		   $('#addModal').on("hide.bs.modal",function(event){
-			   
-			   $('#formAddUpdate')[0].reset();
-		       //$('#formAddUpdate').bootstrapValidator('resetForm', true);
-			   $('#formAddUpdate').bootstrapValidator();
-			   $('#formAddUpdate').data('bootstrapValidator').resetForm();
-			   $('#error').text('');
-		  
-		   });
-		   
-		   
 		   
 		   
 		   function clearModal(){
@@ -251,7 +274,7 @@ var dt;
 		   
 		   
 		   function addSkilllanguage(){
-			   		
+			   		alert("addSkilllanguage");
 			   
 			  		var masSkillLanguageId = $('#masSkillLanguage').val();
 			  		var speaking;
@@ -605,21 +628,7 @@ var dt;
 	
 		   
 		   
-		   $("#deleteModal").on("show.bs.modal", function(event){
-		    	  
-	    	    clearModal();
-	    	    var button = $(event.relatedTarget);
-	    		var idDelete = button.data("iddelete"); 
-	    		
-	
-	    		$(this).find("#delete").off("click").on("click", function()
-	    		{
-	    			
-	    				 doDeleteData(idDelete);
-	    			
-	    		});
-	    	  
-	      });
+		 
 		   
 		   
 		   

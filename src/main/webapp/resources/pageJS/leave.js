@@ -19,19 +19,24 @@ $(document).ready(function() {
 	/* $("div.toolbar").html('<b><button type="button" id="addBtnLe" class="btn btn-warning btn-md"data-toggle="modal" data-target="#addModal"><spring:message code="label.newRecord" /></button></b>');
 	 */
 	 $("div.toolbar").html('<b><button id="clearModal" type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#addModal">'+$msgNewRecord+'</button> </b>');
-	$("#addBtnLe").on("click", function(){
+	
+	 
+	 $("#addBtnLe").on("click", function(){
 		
 		clearModal();
 	
  }); 
 	
-	$("#Button").on("click",function(){
+ 
+	$("#btnSave").on("click",function(){
 			
-			/* $('#addForm').bootstrapValidator(); */
+			$('#addForm').bootstrapValidator();
 			$('#addForm').data('bootstrapValidator').resetForm();
 
 
 		});
+	 
+	
 	
 	
 	
@@ -186,13 +191,14 @@ $(document).ready(function() {
 				getId(leaveid);
 			}  
 			
-			$(this).find(".saveButton").off("click").on("click",function() {
+			$(this).find(".btnSave").off("click").on("click",function() {
 				 if(leaveid != null){
-				   $('#addForm').bootstrapValidator();
+				   /*$('#addForm').bootstrapValidator();
 	    		   $('#addForm').data('bootstrapValidator').validate();
 	    		   if($('#addForm').data('bootstrapValidator').isValid()){
-					updateLeave(button,leaveid);
-	    		   }
+					*/
+					 updateLeave(button,leaveid);
+	    		   //}
 					
 				}else{ 
 				   
@@ -205,6 +211,16 @@ $(document).ready(function() {
 				  } 
 				
 			});
+			
+			
+			 /* $('#addModal').on("hide.bs.modal",function(event){
+				   
+				   $('#addForm')[0].reset();
+			       $('#addForm').bootstrapValidator();
+				   $('#addForm').data('bootstrapValidator').resetForm();
+
+			  
+			   });*/
 			
 			$(this).find(".btnClose").off("click").on("click",function() {
 				$('#addForm').bootstrapValidator('resetForm', true);
@@ -230,6 +246,7 @@ $(document).ready(function() {
 		
 		
 		function addLeave(){
+			//alert("addLeave");
 			var id = $("#empId").val();
 			var leave="masleavetypeId="+$("#masleavetype").val()+"&masleavetype="+$("#masleavetype option:selected").text()+"&startTime="+$("#startTime").val()+"&endTime="+$("#endTime").val()+"&reason="+$("#reason").val()+"&aim="+$("#aim").val()+"&employeeId="+id;
 
@@ -407,8 +424,13 @@ $(document).ready(function() {
 		         }
 		         //alert("Param2 "+parseInt(sParameterName[1]));
 		     
-		 }      
-		 	
+		 }  
+		 
+		 
+		 
+		 
+	
+	
 		
 		
 });

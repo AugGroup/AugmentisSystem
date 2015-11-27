@@ -17,6 +17,8 @@
 
 <jsp:include page="employeeMenu.jsp"></jsp:include>
 <jsp:include page="springMessageVariable.jsp"></jsp:include>
+
+
 <script src="<c:url value ="/static/resources/pageJS/leave.js"/>"></script> 
 
 <input id="empId" type="hidden" value="${id}">
@@ -145,8 +147,8 @@
         
 		</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default btnClose " data-dismiss="modal"><spring:message code="label.close" /></button>
-        <button type="button" class="btn btn-primary btnSave"><span class="fa fa-save"></span>&nbsp;&nbsp;<spring:message code="label.save" /></button>
+        <button type="button" class="btn btn-default btnClose" data-dismiss="modal"><spring:message code="label.close" /></button>
+        <button type="button" class="btn btn-primary btnSave"  ><span class="fa fa-save" ></span>&nbsp;&nbsp;<spring:message code="label.save" /></button>
       </div>
     
   
@@ -154,6 +156,9 @@
 </div>
 </div>
 </form:form>
+
+
+
 
 <form:form id="deleteForm" commandName="leave" method="post">
 
