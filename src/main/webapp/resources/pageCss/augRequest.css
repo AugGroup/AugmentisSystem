@@ -12,10 +12,6 @@
     margin-top: 15px;
 }
 
-#jobcase-content {
-	margin-bottom: 50px;	
-}
-
 @media ( max-width : 960px) {
 	.inputRequest{
 		width: 100%;

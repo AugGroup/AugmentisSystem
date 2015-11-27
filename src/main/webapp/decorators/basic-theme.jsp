@@ -25,6 +25,7 @@
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome-animation.min.css"/>">
 	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>

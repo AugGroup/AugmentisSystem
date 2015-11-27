@@ -28,6 +28,7 @@
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.css"/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome-animation.min.css"/>">
 	
 	<%
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -80,26 +81,40 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<div class="container" id="manu-icon-content">
-		<div class="row">
-			<div class="col-md-4 col-lg-4 text-center content-block">
-				<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/applicant">
-					<i class="fa fa-user-plus fa-5x" ></i>
-					<br><spring:message code="recruitment.system" />
-				</a>
-			</div>
-			
-			<div class="col-md-4 col-lg-4 text-center content-block">
-				<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/employee/list">
-					<i class="fa fa-users fa-5x"></i>
-					<br><spring:message code="human.resource.system" />
-				</a>
-			</div>
-			
-			<div class="col-md-4 col-lg-4 text-center content-block">
-				<a type="submit" class="btn_new_app" href="${pageContext.request.contextPath}/reservation">
-					<i class="fa fa-calendar fa-5x"></i>
-					<br><spring:message code="reservation.room.system" />
-				</a>
+		<div class="col-md-10 col-md-offset-1">
+			<div class="row">
+				<div class="col-md-4 col-lg-4 text-center">
+					<div class="row">
+						<div class="col-md-11 content-block">
+							<a type="submit" class="btn_new_app faa-pulse animated-hover" href="${pageContext.request.contextPath}/applicant">
+								<i class="fa fa-user-plus fa-5x" ></i>
+								<br><spring:message code="recruitment.system" />
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-lg-4 text-center">
+					<div class="row">
+						<div class="col-md-11 content-block">
+							<a type="submit" class="btn_new_app faa-pulse animated-hover" href="${pageContext.request.contextPath}/employee/list">
+								<i class="fa fa-users fa-5x"></i>
+								<br><spring:message code="human.resource.system" />
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-lg-4 text-center">
+					<div class="row">
+						<div class="col-md-11 content-block">
+							<a type="submit" class="btn_new_app faa-pulse animated-hover" href="${pageContext.request.contextPath}/reservation">
+								<i class="fa fa-calendar fa-5x"></i>
+								<br><spring:message code="reservation.room.system" />
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>	
 	</div>

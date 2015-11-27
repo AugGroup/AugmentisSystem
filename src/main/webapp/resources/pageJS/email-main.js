@@ -66,7 +66,7 @@ $(function(){
 
 function setBtnEmail(badge, flag) {
 	if (flag != 0) {
-		badge.empty().append(flag);
+		badge.empty().append('<i class="fa fa-bell faa-ring animated fa-1x"></i>&nbsp;' + flag);
 		$("#btn_email").tooltip();
 	} else {
 		badge.empty();
