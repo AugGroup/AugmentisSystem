@@ -55,90 +55,103 @@ where emp.employee_code LIKE $P{empCode};]]>
 	<field name="divisionName" class="java.lang.String"/>
 	<field name="technologyName" class="java.lang.String"/>
 	<field name="lastNameEN" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<textField pattern="">
-				<reportElement x="296" y="12" width="221" height="57" forecolor="#333333" uuid="b0f972b6-ddda-40c0-a37b-fca44835322f"/>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="250" y="29" width="406" height="42" uuid="88f9a0f5-fa8a-4e39-a3e5-1a9af475417d"/>
 				<textElement>
-					<font fontName="Angsana New" size="30" isBold="false"/>
+					<font fontName="Angsana New" size="26"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.empCode}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Employee Report Search By Code]]></text>
+			</staticText>
+			<image>
+				<reportElement x="19" y="7" width="146" height="61" uuid="50dd18f6-5557-49f6-a000-1e262fc5fa54"/>
+				<imageExpression><![CDATA["augmentis-logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
-	<pageHeader>
-		<band height="29" splitType="Stretch"/>
-	</pageHeader>
 	<columnHeader>
-		<band height="47" splitType="Stretch">
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="3" width="752" height="34" forecolor="#FFFFFF" backcolor="#FFFFCC" uuid="0529ad7f-50eb-4219-89f6-489a5843942a"/>
+			</rectangle>
 			<line>
-				<reportElement x="0" y="45" width="752" height="1" forecolor="#666666" uuid="5d14dd15-37ab-4869-885b-6dfb276feb3b"/>
+				<reportElement x="0" y="34" width="752" height="1" forecolor="#000000" uuid="5d14dd15-37ab-4869-885b-6dfb276feb3b"/>
 			</line>
-			<textField pattern="">
-				<reportElement x="654" y="0" width="74" height="45" forecolor="#333333" uuid="700a45e0-2fbf-4bce-891e-cb393653c338"/>
-				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+			<staticText>
+				<reportElement x="35" y="8" width="33" height="21" uuid="a70dde5e-5529-4cbe-85ef-fa34d638d282"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.skill}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="426" y="0" width="98" height="45" forecolor="#333333" uuid="5a5e2772-06af-406a-8157-37306acde4ca"/>
-				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+				<text><![CDATA[Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="8" width="84" height="21" uuid="ede303b3-d4ad-4096-b560-6f64bc44f42a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.type}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="524" y="0" width="130" height="45" forecolor="#333333" uuid="922f46ef-e3f1-4c31-acd2-e919143273ad"/>
-				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+				<text><![CDATA[Start Work]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="8" width="84" height="21" uuid="6aa6ec42-46f8-4e89-b983-9ffdbbf540d6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.position}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="304" y="0" width="122" height="45" forecolor="#333333" uuid="c42e6b3c-47ea-4dd1-ad12-fceefdc109cd"/>
-				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="8" width="89" height="21" uuid="2d9888c9-959b-4b49-a8ed-7db8bc1d93e3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.lastEn}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="76" y="0" width="122" height="45" forecolor="#333333" uuid="a67b23d9-d246-49cc-bd75-6213f11f3813"/>
-				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+				<text><![CDATA[Last Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="8" width="48" height="21" uuid="fb2f101e-9f6f-45de-afb8-2c80bde2dd0f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.DateStartWork}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="0" y="0" width="76" height="45" forecolor="#333333" uuid="6b01512c-ce9e-4831-b8e0-7e7348d9ae21"/>
-				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="9" width="48" height="21" uuid="cb98b9bb-799e-4c8b-8618-626376abc35b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.resourceId}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="198" y="0" width="106" height="45" forecolor="#333333" uuid="12634389-36b0-45cc-9f35-98ac836d0092"/>
+				<text><![CDATA[Position]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="12" width="45" height="20" uuid="ab8ab461-a83f-42bb-b907-7cf03f5f72e9"/>
 				<textElement>
-					<font fontName="Angsana New" size="16" isBold="false"/>
+					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$R{report.nameEn}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Skill]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="37" width="752" height="1" forecolor="#000000" uuid="9f34a3f0-747d-40df-a7d4-ffe379f86c6c"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="2" width="752" height="1" forecolor="#000000" uuid="879ffa24-3869-4701-a93d-56e099ffd4f6"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="26" splitType="Stretch">
-			<line>
-				<reportElement x="0" y="25" width="752" height="1" forecolor="#FF6633" uuid="0fec2103-0617-4def-b171-9001b550ad6f"/>
-			</line>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="1" width="84" height="25" forecolor="#FFFFFF" backcolor="#F5F4F4" uuid="fc7ddd0d-0a63-4d81-a6cc-da5700702a14"/>
+			</rectangle>
 			<textField>
-				<reportElement x="-1" y="0" width="77" height="25" uuid="63be8a75-b7d6-44f6-bed3-2abe82fb4653"/>
+				<reportElement x="7" y="2" width="77" height="25" uuid="63be8a75-b7d6-44f6-bed3-2abe82fb4653"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Angsana New"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{employeeCode}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="524" y="0" width="130" height="25" uuid="cf14b675-e076-48e8-8ca1-9feafae88737"/>
@@ -162,7 +175,7 @@ where emp.employee_code LIKE $P{empCode};]]>
 				<textFieldExpression><![CDATA[$F{employmentName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="76" y="-1" width="122" height="26" uuid="21e62f62-4634-4596-92a4-935f6c39064a"/>
+				<reportElement x="87" y="-1" width="119" height="26" uuid="21e62f62-4634-4596-92a4-935f6c39064a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Angsana New"/>
 				</textElement>
@@ -182,15 +195,12 @@ where emp.employee_code LIKE $P{empCode};]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{lastNameEN}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="85" y="-1" width="1" height="28" uuid="d1b3705b-8c87-4b51-9cf7-93ac0afa87d9"/>
+			</line>
+			<line>
+				<reportElement x="0" y="27" width="752" height="1" forecolor="#000000" uuid="2dd62d4b-82d2-4d1d-8b0b-56615716473f"/>
+			</line>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="47" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

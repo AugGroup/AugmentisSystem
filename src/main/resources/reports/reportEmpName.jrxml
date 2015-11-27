@@ -57,11 +57,11 @@ where app.FIRSTNAME_EN LIKE $P{empKey};]]>
 	<title>
 		<band height="89" splitType="Stretch">
 			<staticText>
-				<reportElement x="862" y="22" width="363" height="42" uuid="f1463de0-bd94-4812-9ffb-16d5050cda58"/>
+				<reportElement x="862" y="29" width="363" height="42" uuid="f1463de0-bd94-4812-9ffb-16d5050cda58"/>
 				<textElement>
 					<font fontName="Angsana New" size="26"/>
 				</textElement>
-				<text><![CDATA[Employee Name Report]]></text>
+				<text><![CDATA[Employee Report Search By Name]]></text>
 			</staticText>
 			<image>
 				<reportElement x="176" y="6" width="247" height="77" uuid="a6dad1a4-2062-4870-9b87-58ed7e9359ee"/>
@@ -92,7 +92,7 @@ where app.FIRSTNAME_EN LIKE $P{empKey};]]>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Angsana New" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Start Work Date]]></text>
+				<text><![CDATA[Start Work]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="392" y="35" width="25" height="18" uuid="932ab860-220a-4807-8a39-7d335edd4c1f"/>
