@@ -169,7 +169,7 @@
 		<jsp:include page="headerHr.jsp" />
 		<div class="container"> <decorator:body /></div>
 		<a href="#" class="scrollToTop" id="goToTop"><img src = "${ pageContext.request.contextPath }/static/decorators/uparrow.png" width="54px" height="54px" /></a>
-		<jsp:include page="footer.jsp"></jsp:include>
+		<%-- <jsp:include page="footer.jsp"></jsp:include> --%>
 		
 	</body>
 </html>
