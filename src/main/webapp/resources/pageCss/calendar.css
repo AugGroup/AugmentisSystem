@@ -5,6 +5,13 @@ div.fc-row>table>thead > tr:first-child {
 	color:#ffffff;
 }
 
+.detailModal{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
 body {
 	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 	font-size: 14px;
@@ -88,8 +95,8 @@ div.popover > h3.popover-title.success{
 }
 
 #calendar-container{
-	margin-top: 20px;
-	margin-right: 40px;
+	/* margin-top: 20px;
+	margin-right: 40px; */
 }
 
 .media{

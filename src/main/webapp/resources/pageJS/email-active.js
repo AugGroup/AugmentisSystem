@@ -94,7 +94,7 @@ $( document ).ready(function() {
 			var title = editTitle;
 			var detail = editAsk;
 			var btn = "btn-warning";
-			$("#btnActive").html('<span class="glyphicon glyphicon-pencil"></span>'+ editBtn);
+			$("#btnActive").html('<span class="fa fa-edit"></span>&nbsp;'+ editBtn);
 			showModal(title,detail,btn);			
 			$("#btnActive").off().on("click",function(){
 				var data = {
@@ -126,7 +126,7 @@ $( document ).ready(function() {
 			var title  = deleteTitle;
 			var detail = deleteAsk;
 			var btn	   = "btn-danger";
-			$("#btnActive").html('<span class="glyphicon glyphicon-remove-sign"></span>'+ delBtn);
+			$("#btnActive").html('<span class="fa fa-trash"></span>&nbsp;'+ delBtn);
 			showModal(title,detail,btn);	
 			$("#btnActive").off().on("click",function(){
 				$.ajax({

@@ -1,20 +1,14 @@
+/* #email-create-content {
+	margin-bottom: 50px;
+} */
 
-.page-header {
-	border-bottom:	1px solid #858C8F;
-}
-
-.page-header {
-	font-family: regular;
-	font-size: 36px;
-}
-
-#email-section {
+/* #email-section {
 	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
 	background: #E0DFDD;
 	padding-bottom: 10px;
-}
+} */
 
 #email-hints {
 	background-color: #F5F3C1;
@@ -25,8 +19,6 @@
 	font-size: 2em;
 	text-decoration: underline;
 }
-
-
 
 /* max-width  960px */
 @media ( max-width : 960px) {
@@ -39,6 +31,10 @@
 	#email-hints {
 		margin-top: 10px;
 	}
+}
+
+h4#title-detail {
+	background-color: #FFFFFF;
 }
 
 /*-----------------collapse------------------*/

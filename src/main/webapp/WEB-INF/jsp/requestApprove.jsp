@@ -3,9 +3,9 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<!-- decorator-title -->
 <title><spring:message code="request.title.approve" /></title>
 
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/main.css" /> --%>
 <script src="<c:url value ="/static/resources/pageJS/aug-approve.js"/>"></script>
 
 <script type="text/javascript">
@@ -21,31 +21,43 @@
 	});
 </script>
 
+<!-- decorator-body -->
 <div class="container">
-
-
-	<div><h1 align="center"><spring:message code="request.title.approve" /></h1></div>
-	<!------------------- Request DataTable------------------->
-	<div class="container table-responsive" id="table2">
-		<table class="dataTable" id="requestTable" class="cell-border" style="width: 100%">
-		<caption title="" class="tableHeader"><spring:message code="request.title.approve" /></caption>
-			<thead>
-				<tr>
-					<th><spring:message code="request.id" /></th>
-					<th>Code</th>
-					<th><spring:message code="request.date" /></th>
-					<th><spring:message code="request.human" /></th>
-					<th><spring:message code="main.position1" /></th>
-					<th><spring:message code="main.position2"/></th>
-					<th><spring:message code="request.number" /></th>
-					<th><spring:message code="main.status" /></th>
-					<th>RmStatus</th>
-					<th><spring:message code="request.approve" /></th>
-					<th>Edit</th>
-				</tr>
-			</thead>
-		</table>
+	<!-- Page-Header -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="request.title.approve" /></strong></h1>
+			</div>
+		</div>
 	</div>
+	
+	<!------------------- Request DataTable------------------->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="table-responsive" id="table2">
+				<table class="dataTable" id="requestTable" class="cell-border" style="width: 100%">
+				<caption title="" class="tableHeader"><spring:message code="request.title.approve" /></caption>
+					<thead>
+						<tr>
+							<th><spring:message code="request.id" /></th>
+							<th>Code</th>
+							<th><spring:message code="request.date" /></th>
+							<th><spring:message code="request.human" /></th>
+							<th><spring:message code="main.position1" /></th>
+							<th><spring:message code="main.position2"/></th>
+							<th><spring:message code="request.number" /></th>
+							<th><spring:message code="main.status" /></th>
+							<th>RmStatus</th>
+							<th><spring:message code="request.approve" /></th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+				</table>
+			</div>	
+		</div>
+	</div>
+	
 	<!------------------- Approve Modal ------------------->
 	<div class="modal fade" id="approveModal" tabindex="-1" role="dialog"
 		aria-labelledby="ModalLabel" aria-hidden="true">

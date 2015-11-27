@@ -32,6 +32,7 @@
 
 <!-- decorator-body -->
 <div class="container">
+	<!-- Pade-Header -->
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="page-header">
@@ -39,10 +40,6 @@
 			</div>
 		</div>
 	</div>
-	
-	<%-- <div>
-		<h1 align="center"><spring:message code="applicant.table.head" /></h1>
-	</div> --%>
 
 	<!--Input text for Search Applicant -->
 	<div class="row" id="search_row">

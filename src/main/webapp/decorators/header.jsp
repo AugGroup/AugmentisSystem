@@ -83,13 +83,13 @@
 								<spring:message code="request.email.header.create" />
 							</a>
 						</li>
-						<li id="emailEditPage">
-							<a href="${pageContext.request.contextPath}/email/edit">
+						<li>
+							<a href="${pageContext.request.contextPath}/email/edit" id="emailEditPage">
 								<spring:message code="request.email.header.edit" />
 							</a>
 						</li>
-						<li id="emailWritePage">
-							<a href="${pageContext.request.contextPath}/email/write">
+						<li>
+							<a href="${pageContext.request.contextPath}/email/write" id="emailWritePage">
 								<spring:message code="request.email.header.write" />
 							</a>
 						</li>

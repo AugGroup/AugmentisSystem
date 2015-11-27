@@ -4,105 +4,104 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<!-- decorator-title -->
 <title><spring:message code="request.email.header.edit" /></title>
 
+<!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/resources/pageCss/email-create.css" />
 
 <script type="text/javascript">
-$(document).ready(function(){
-	$("#emailPage").addClass('active-menu'); 
-	$("#emailEditPage").addClass('active-menu-sub'); 
-});
+	$(document).ready(function(){
+		$(".emailPage").addClass('active-menu'); 
+		$("#emailEditPage").addClass('active-menu'); 
+	});
 </script>
-<div class="container-fluid">
-	<div class="col-sm-1"></div>
-	<div class="col-sm-12 col-md-10" id="email-section">
-		
-		<div class="row">
-			
-			<div class="col-sm-12">
-				<div class="page-header">
-					<div><spring:message code="request.email.header.edit" /></div>
-				</div>
+
+<!-- decorator-body -->
+<div class="container">
+	<!-- <div class="col-sm-1"></div>
+	<div class="col-sm-12 col-md-10" id="email-section"> -->
+	<!-- Pade-Header -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="request.email.header.edit" /></strong></h1>
 			</div>
-			
-		</div>	
-		
-		<div class="row">
-			<div class="col-sm-7">
-				<div id="email-template">
-					<form id="templateFormEdit">
-						<div class="form-group">
-							<label for="name"><spring:message code="request.email.form.template.name" /> </label>
-							<select class="form-control" id="mailTemplate" name="selectTemplate">
-								<option value=""><spring:message code="request.email.form.select.init.template" /></option>
-								<c:forEach items="${mailTemplate}" var="mailTemplate">
-									<option value="${mailTemplate.id}">${mailTemplate.name}</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="template"><spring:message code="request.email.form.template" /> </label>
-							<textarea id="template" name="template"></textarea>
-						</div><br>
-						<button type="button" class="btn btn-warning" id="update" ><span class="glyphicon glyphicon-pencil"></span><spring:message code="button.edit" /></button>
-						<button type="button" class="btn btn-danger" id="delete"><span class="glyphicon glyphicon-remove-sign"></span><spring:message code="request.email.form.delete" /></button>
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-5">
-				<div id="email-hints">
-					<p class="text-center"><strong id="email-hints-header"><spring:message code="request.email.description" /></strong></p>
-						<div id="hint-collapse">
-							<h4><b> <spring:message code="request.email.template.name.appointment" /></b></h4>
-							<div>
-								<p><b>$FIRST_NAME</b> : <spring:message code="request.email.hints.firstName" /></p>
-								<p><b>$LAST_NAME</b> : <spring:message code="request.email.hints.lastName" /></p>
-								<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
-								<p><b>$DATE</b> : <spring:message code="request.email.hints.date" /></p>
-								<p><b>$TIME</b> : <spring:message code="request.email.hints.time" /></p>
-								<p><b>$RECRUIT_FIRST_NAME</b> : <spring:message code="request.email.hints.recruitFirstName" /></p>
-								<p><b>$RECRUIT_LAST_NAME</b> : <spring:message code="request.email.hints.recruitLastName" /></p>
-								<p><b>$RECRUIT_POSITION</b> : <spring:message code="request.email.hints.recruitPosition" /></p>
-								<p><b>$RECRUIT_PHONE</b> : <spring:message code="request.email.hints.recruitPhone" /></p>
-								</div>
-							<h4><b> <spring:message code="request.email.template.name.jobcase" /></b></h4>
-							<div>
-								<p><b>$CODE</b> : <spring:message code="request.email.hints.jobcase.code" /></p>
-								<p><b>$REQUESTER</b> : <spring:message code="request.email.hints.requester" /></p>
-								<p><b>$REQUESTE_DATE</b> : <spring:message code="request.email.hints.request.date" /></p>
-								<p><b>$JOB_LEVEL</b> : <spring:message code="request.email.hints.joblevel" /></p>
-								<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
-								<p><b>$QUANTITY</b> : <spring:message code="request.email.hints.quantity" /></p>
-								<p><b>$SKILL</b> : <spring:message code="request.email.hints.skill" /></p>
-								<p><b>$EXPERIENCE</b> : <spring:message code="request.email.hints.experience" /></p>
-							</div>
-						</div>
-				</div>
-			</div>		</div>
-			
+		</div>
 	</div>
+		
+	<div class="row">
+		<div class="col-sm-7">
+			<div id="email-template">
+				<form id="templateFormEdit">
+					<div class="form-group">
+						<label for="name"><spring:message code="request.email.form.template.name" /> </label>
+						<select class="form-control" id="mailTemplate" name="selectTemplate">
+							<option value=""><spring:message code="request.email.form.select.init.template" /></option>
+							<c:forEach items="${mailTemplate}" var="mailTemplate">
+								<option value="${mailTemplate.id}">${mailTemplate.name}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="template"><spring:message code="request.email.form.template" /> </label>
+						<textarea id="template" name="template"></textarea>
+					</div><br>
+					&nbsp;<button type="button" class="btn btn-warning" id="update" ><span class="fa fa-edit"></span>&nbsp;<spring:message code="button.edit" /></button>
+					&nbsp;<button type="button" class="btn btn-danger" id="delete"><span class="fa fa-trash"></span>&nbsp;<spring:message code="request.email.form.delete" /></button>
+				</form>
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<div id="email-hints">
+				<p class="text-center"><strong id="email-hints-header"><spring:message code="request.email.description" /></strong></p>
+				<div id="hint-collapse">
+					<h4><b> <spring:message code="request.email.template.name.appointment" /></b></h4>
+					<div>
+						<p><b>$FIRST_NAME</b> : <spring:message code="request.email.hints.firstName" /></p>
+						<p><b>$LAST_NAME</b> : <spring:message code="request.email.hints.lastName" /></p>
+						<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
+						<p><b>$DATE</b> : <spring:message code="request.email.hints.date" /></p>
+						<p><b>$TIME</b> : <spring:message code="request.email.hints.time" /></p>
+						<p><b>$RECRUIT_FIRST_NAME</b> : <spring:message code="request.email.hints.recruitFirstName" /></p>
+						<p><b>$RECRUIT_LAST_NAME</b> : <spring:message code="request.email.hints.recruitLastName" /></p>
+						<p><b>$RECRUIT_POSITION</b> : <spring:message code="request.email.hints.recruitPosition" /></p>
+						<p><b>$RECRUIT_PHONE</b> : <spring:message code="request.email.hints.recruitPhone" /></p>
+						</div>
+					<h4><b> <spring:message code="request.email.template.name.jobcase" /></b></h4>
+					<div>
+						<p><b>$CODE</b> : <spring:message code="request.email.hints.jobcase.code" /></p>
+						<p><b>$REQUESTER</b> : <spring:message code="request.email.hints.requester" /></p>
+						<p><b>$REQUESTE_DATE</b> : <spring:message code="request.email.hints.request.date" /></p>
+						<p><b>$JOB_LEVEL</b> : <spring:message code="request.email.hints.joblevel" /></p>
+						<p><b>$TECHNOLOGY</b> : <spring:message code="request.email.hints.technology" /></p>
+						<p><b>$QUANTITY</b> : <spring:message code="request.email.hints.quantity" /></p>
+						<p><b>$SKILL</b> : <spring:message code="request.email.hints.skill" /></p>
+						<p><b>$EXPERIENCE</b> : <spring:message code="request.email.hints.experience" /></p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>			
 </div>
 
 <div class="modal fade" id="showModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    
-      <div class="modal-header">
-        <h4 class="modal-title" id="title-detail">
-        	<span class="glyphicon glyphicon-remove-sign"></span> 
-        </h4>
-      </div>
-      
-      <div class="modal-body" id="body-detail">
-        <p></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" id="btnActive" data-dismiss="modal"><span class="glyphicon glyphicon-pencil"></span><spring:message code="button.edit" /></button>
-        <button type="button" class="btn btn-default" id="btnClose" data-dismiss="modal"><spring:message code="button.cancel" /></button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+	<div class="modal-dialog">
+    	<div class="modal-content">
+			<div class="modal-header">
+        		<h4 class="modal-title" id="title-detail">
+        			<span class="fa fa-trash"></span> 
+        		</h4>
+      		</div>
+			<div class="modal-body" id="body-detail">
+        		<p></p>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn" id="btnActive" data-dismiss="modal"><span class="fa fa-edit"></span>&nbsp;<spring:message code="button.edit" /></button>
+        		<button type="button" class="btn btn-default" id="btnClose" data-dismiss="modal"><spring:message code="button.cancel" /></button>
+      		</div>
+    	</div><!-- /.modal-content -->
+  	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <script type="text/javascript">

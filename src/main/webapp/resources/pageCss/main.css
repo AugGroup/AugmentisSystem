@@ -47,7 +47,9 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  padding: 50px 15px 0;
+  /* padding: 50px 15px 0; */
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 /* ------------------------ */
 

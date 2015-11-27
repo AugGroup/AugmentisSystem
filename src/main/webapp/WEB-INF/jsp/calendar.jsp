@@ -3,12 +3,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
+<!-- decorator-title -->
 <title><spring:message code="request.calendar" /></title>
 
+<!-- Custom CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/pageCss/calendar.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/resources/datetime_picker/bootstrap-datetimepicker.min.css" />
 
-
+<!-- Custom JS -->
+<script type="text/javascript">
+	var contextPath = "${pageContext.request.contextPath}";
+	var languageNow = "${pageContext.response.locale}";
+	var yes = "<spring:message code='appointment.yes' />";
+	var no = "<spring:message code='appointment.no' />";
+	var confirmEditAppointmentDate = "<spring:message code='appointment.confirm.event.move' />";
+	var selectApplicant = "<spring:message code='appointment.select.applicant' />";
+	var validateApplicant = "<spring:message code='appointment.validate.select.applicant' />";
+	var validateTopic = "<spring:message code='appointment.validate.required.topic' />";
+	var validateTopicLenght = "<spring:message code='appointment.validate.required.topic.lenght' />";
+	var validateDatail = "<spring:message code='appointment.validate.required.detail' />";
+	var pnotifyInsert = "<spring:message code='appointment.pnotify.insert' />";
+	var pnotifyEdit = "<spring:message code='appointment.pnotify.edit' />";
+	var pnotifyDelete = "<spring:message code='appointment.pnotify.delete' />";
+	var appointmentEmailNosent = "<spring:message code='appointment.email.status.nosend' />";
+	var appointmentEmailSuccess = "<spring:message code='appointment.email.status.success' />";
+	var appointmentEmailNoUpdate = "<spring:message code='appointment.email.status.noupdate' />";
+	var detailLabel = "<spring:message code='appointment.detail.label' />";
+	var editLabel = "<spring:message code='appointment.edit.label' />";
+	var pnotifySuccess="<spring:message code='pnotify.success'/>";
+	var pnotifyError="<spring:message code='pnotify.error'/>";
+	var movePassTime = "<spring:message code='appointment.move.pass.time' />";
+	var cantInsPassTime = "<spring:message code='appointment.insert.pass.time' />";
+</script>
+<!-- Validate -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/js/jquery.validate.min.js"></script>
+<!-- pageJS -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/pageJS/calendar.js"></script>
+<!-- jQueryValidate -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/js/jquery.validate.min.js"></script>
+<!-- Datetime picker -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/datetime_picker/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript">
 	var approve_tx = '<spring:message code="edit.approve"/>';
 	$(document).ready(function(){
@@ -16,17 +50,17 @@
 	});
 </script>
 
-<style>
-.detailModal{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-</style>
-
-<div id="calendar-container" class="container-fluid">
-	<div><h1 align="center"><spring:message code="request.calendar"/></h1></div>
+<!-- decorator-body -->
+<div class="container" id="calendar-container">
+	<!-- Page-Header -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="page-header">
+		  		<h1><strong><spring:message code="request.calendar"/></strong></h1>
+			</div>
+		</div>
+	</div>
+	
 	<div class="row">
 		<div id="calendarDiv" class="col-xs-11 col-sm-11 col-md-9 col-lg-9">
 			<div id='calendar'></div>
@@ -341,40 +375,3 @@
 	</div>
 </div>
 </div>
-
-<script type="text/javascript">
-	var contextPath = "${pageContext.request.contextPath}";
-	var languageNow = "${pageContext.response.locale}";
-	var yes = "<spring:message code='appointment.yes' />";
-	var no = "<spring:message code='appointment.no' />";
-	var confirmEditAppointmentDate = "<spring:message code='appointment.confirm.event.move' />";
-	var selectApplicant = "<spring:message code='appointment.select.applicant' />";
-	var validateApplicant = "<spring:message code='appointment.validate.select.applicant' />";
-	var validateTopic = "<spring:message code='appointment.validate.required.topic' />";
-	var validateTopicLenght = "<spring:message code='appointment.validate.required.topic.lenght' />";
-	var validateDatail = "<spring:message code='appointment.validate.required.detail' />";
-	var pnotifyInsert = "<spring:message code='appointment.pnotify.insert' />";
-	var pnotifyEdit = "<spring:message code='appointment.pnotify.edit' />";
-	var pnotifyDelete = "<spring:message code='appointment.pnotify.delete' />";
-	var appointmentEmailNosent = "<spring:message code='appointment.email.status.nosend' />";
-	var appointmentEmailSuccess = "<spring:message code='appointment.email.status.success' />";
-	var appointmentEmailNoUpdate = "<spring:message code='appointment.email.status.noupdate' />";
-	var detailLabel = "<spring:message code='appointment.detail.label' />";
-	var editLabel = "<spring:message code='appointment.edit.label' />";
-	var pnotifySuccess="<spring:message code='pnotify.success'/>";
-	var pnotifyError="<spring:message code='pnotify.error'/>";
-	var movePassTime = "<spring:message code='appointment.move.pass.time' />";
-	var cantInsPassTime = "<spring:message code='appointment.insert.pass.time' />";
-</script>
-
-<!-- Validate -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/js/jquery.validate.min.js"></script>
-
-<!-- pageJS -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/pageJS/calendar.js"></script>
-
-<!-- jQueryValidate -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/js/jquery.validate.min.js"></script>
-
-<!-- Datetime picker -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/datetime_picker/bootstrap-datetimepicker.min.js"></script>
