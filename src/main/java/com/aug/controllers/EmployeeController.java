@@ -1007,7 +1007,7 @@ public class EmployeeController {
 		
 		JasperReportsMultiFormatView view = new JasperReportsMultiFormatView();
 		   view.setJdbcDataSource(dataSource);
-		   view.setUrl("classpath:reports/reportStatusEmp.jasper");
+		   view.setUrl("classpath:reports/reportEmpStatus.jasper");
 		   view.setApplicationContext(appContext);
 		   return new ModelAndView(view, parameterMap);
 	}

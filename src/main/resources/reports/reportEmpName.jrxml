@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employee" language="groovy" pageWidth="2100" pageHeight="612" orientation="Landscape" columnWidth="2060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="896b97d3-bb7c-4822-aee2-a94621f66cf4">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="580"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="empKey" class="java.lang.String"/>
 	<queryString>
@@ -57,7 +57,7 @@ where app.FIRSTNAME_EN LIKE $P{empKey};]]>
 	<title>
 		<band height="89" splitType="Stretch">
 			<staticText>
-				<reportElement x="862" y="29" width="363" height="42" uuid="f1463de0-bd94-4812-9ffb-16d5050cda58"/>
+				<reportElement x="862" y="29" width="447" height="42" uuid="f1463de0-bd94-4812-9ffb-16d5050cda58"/>
 				<textElement>
 					<font fontName="Angsana New" size="26"/>
 				</textElement>

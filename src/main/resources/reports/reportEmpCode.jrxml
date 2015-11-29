@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employeeCodeReport" language="groovy" pageWidth="792" pageHeight="1008" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5f6ae44-4baa-47f5-9759-e672f14fa46e">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="empCode" class="java.lang.String"/>
@@ -56,16 +56,16 @@ where emp.employee_code LIKE $P{empCode};]]>
 	<field name="technologyName" class="java.lang.String"/>
 	<field name="lastNameEN" class="java.lang.String"/>
 	<title>
-		<band height="87" splitType="Stretch">
+		<band height="73" splitType="Stretch">
 			<staticText>
-				<reportElement x="250" y="29" width="406" height="42" uuid="88f9a0f5-fa8a-4e39-a3e5-1a9af475417d"/>
+				<reportElement x="250" y="24" width="406" height="42" uuid="88f9a0f5-fa8a-4e39-a3e5-1a9af475417d"/>
 				<textElement>
 					<font fontName="Angsana New" size="26"/>
 				</textElement>
 				<text><![CDATA[Employee Report Search By Code]]></text>
 			</staticText>
 			<image>
-				<reportElement x="19" y="7" width="146" height="61" uuid="50dd18f6-5557-49f6-a000-1e262fc5fa54"/>
+				<reportElement x="19" y="3" width="146" height="61" uuid="50dd18f6-5557-49f6-a000-1e262fc5fa54"/>
 				<imageExpression><![CDATA["augmentis-logo.png"]]></imageExpression>
 			</image>
 		</band>
