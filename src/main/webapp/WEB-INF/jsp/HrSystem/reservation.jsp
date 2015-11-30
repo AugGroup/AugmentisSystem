@@ -6,8 +6,7 @@
 
 <!-- Reservation css -->
 <link href="<c:url value="/static/resources/pageCss/reservation.css" />" rel="stylesheet" type="text/css">
-<!-- font Awesome -->
-<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.css"/>">
+
 
 <jsp:include page="springMessageVariable.jsp"></jsp:include>
 
@@ -17,7 +16,18 @@
 	}); 
 </script>
 
-<div class="container-fluid">
+<!-- Pade-Header -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-header">
+	  		<h1><strong>Reservation</strong></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	
+
 	<input type="hidden" id="employeeId" value="${employeeId}" >
 	<input type="hidden" id="firstNameEn" value="${firstNameEn}" >
 	<input type="hidden" id="lastNameEn" value="${lastNameEn}" >

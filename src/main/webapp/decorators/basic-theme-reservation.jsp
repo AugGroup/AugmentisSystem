@@ -13,6 +13,9 @@
 <head>
 	<!--jQuery -->
 	<script src='<c:url value ="/static/resources/js/jquery-1.11.3.min.js" />'></script>
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
 
 	<!-- Bootstrap -->
 	<script src='<c:url value ="/static/resources/bootstrap/js/bootstrap.min.js"/>'></script>
