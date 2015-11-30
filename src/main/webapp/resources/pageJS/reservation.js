@@ -373,8 +373,7 @@ $(function() {
 						dataType : "json",
 						data : JSON.stringify(reservation),
 						success : function(data) {
-							console.log("return...");
-							console.log(data);
+
 							if (!data.id) {
 								$('#insModal').modal('hide');
 								$('#formInsert').trigger('reset');
@@ -403,8 +402,9 @@ $(function() {
 									reservationType : {
 										"id" : data.id
 									},
-									color : '#CC66CC'
-								};
+									color :  data.color
+										
+								}; 
 								console.log(insData);
 								$calendar.fullCalendar('renderEvent', insData); // stick? = true
 								$('#insModal').modal('hide');
