@@ -195,4 +195,45 @@ public class EmailService {
 		//send email
 		mailSender.send(preparator);
 	}
+	
+	public void sendEmailForgotPassword(final String receiver, 
+			final String content,HttpServletRequest request) throws UnsupportedEncodingException {
+		final String cc = "";
+		final String subject = "Forgot Password";
+		
+		////create mail
+		velocityEngine.init();
+		StringWriter writer = new StringWriter();	
+		
+		//set context
+		Context context = new VelocityContext();
+		
+		//set attachment path 
+		final String path = request.getSession().getServletContext().getRealPath("/") + "/resources/mail-attachment/";
+		
+		//merge context and writer to String 
+		velocityEngine.evaluate(context, writer, "Email", content); 
+		
+		//encode Template
+		final String encode = new String(writer.toString().getBytes("UTF-8"),"UTF-8");
+		
+		//create mime message
+		MimeMessagePreparator preparator = new MimeMessagePreparator() {
+		  public void prepare(MimeMessage mimeMessage) throws Exception {
+		          
+		        MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+		          //message.setTo(receiver);
+		          message.setTo("bp_clash@hotmail.com");
+		          message.setSubject(subject);
+		          //message.setFrom("chalisa.pat@augmentis.biz", "Chalisa Patanadamrongchai");
+		          message.setFrom("anat.abd@augmentis.biz", "Anat Abdullagasim");
+		          
+		          message.setText(encode, true);
+		  }
+		};
+		
+		//send email
+		mailSender.send(preparator);
+		
+	}
 }

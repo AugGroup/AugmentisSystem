@@ -8,4 +8,6 @@ $(function(){
 	} else {
 		$formGroup.removeClass('has-error');
 	}
+	
+	
 });	
