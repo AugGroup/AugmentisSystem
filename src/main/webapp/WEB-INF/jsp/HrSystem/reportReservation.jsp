@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#btn_report").addClass('active-menu'); 
+	$("#report-btn").addClass('active-menu'); 
 	$("#reportPage").addClass('active-menu'); 
 });
 </script>
