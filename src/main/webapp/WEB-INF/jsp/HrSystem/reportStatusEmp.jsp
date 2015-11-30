@@ -16,6 +16,15 @@
 
 </script>
 
+<!-- Pade-Header -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-header">
+	  		<h1><strong><spring:message code="reportstatus.empName" /></strong></h1>
+		</div>
+	</div>
+</div>
+
 <f:form method="post" id="reportForm" name="reportForm" target="_blank" commandName="employee" action="${pageContext.request.contextPath}/employee/searchEmpStatusReport" cssClass="form-horizontal">
 
 	 <div class="modal-body">

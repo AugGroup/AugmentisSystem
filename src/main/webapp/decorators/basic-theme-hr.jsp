@@ -18,8 +18,8 @@
 	<link href='<c:url value="/static/resources/css/jquery-ui.min.css"/>' rel='stylesheet' />
 	
 	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
-	<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
+	<script src='<c:url value ="/static/resources/bootstrap/js/bootstrap.min.js"/>'></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/bootstrap/css/bootstrap.min.css"/>">
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
@@ -151,7 +151,9 @@
 </head>
 <body background="${ pageContext.request.contextPath }/static/decorators/BG_W.jpg">
 	<jsp:include page="headerHr.jsp" />
-	<div class="container"> <decorator:body /></div>
+	<div class="container"> 
+		<decorator:body />
+	</div>
 	<a href="#" class="scrollToTop" id="goToTop"><img src = "${ pageContext.request.contextPath }/static/decorators/uparrow.png" width="54px" height="54px" /></a>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>

@@ -3,8 +3,10 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<!-- Variable -->
 <jsp:include page="springMessageVariable.jsp"></jsp:include>
 
+<!-- Custom JS -->
 <script>
 	$(document).ready(function (){
 		$("#report-btn").addClass("active-menu");
@@ -12,6 +14,15 @@
 	});
 
 </script>
+
+<!-- Pade-Header -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-header">
+	  		<h1><strong><spring:message code="report.empCode" /></strong></h1>
+		</div>
+	</div>
+</div>
 
 <f:form method="post" id="reportForm" name="reportForm" target="_blank" commandName="employee" action="${pageContext.request.contextPath}/employee/searchReportEmpCode" cssClass="form-horizontal">
 

@@ -28,8 +28,8 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/fontawesome/css/font-awesome-animation.min.css"/>">
 	
 	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/bootstrap.min.css'/>"></link>
-	<script src='<c:url value ="/static/resources/js/bootstrap.min.js"/>'></script>
+	<script src='<c:url value ="/static/resources/bootstrap/js/bootstrap.min.js"/>'></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/bootstrap/css/bootstrap.min.css"/>">
 	
 	<!-- Alertify -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ='/static/resources/css/alertify.core.css'/>"></link>

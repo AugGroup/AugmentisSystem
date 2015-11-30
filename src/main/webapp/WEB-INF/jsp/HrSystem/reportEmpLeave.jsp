@@ -3,18 +3,22 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-<!-- <div class="modal-header"> -->
-<%-- 	<h4 class="modal-title"><spring:message code="reportleave.empName" /></h4> --%>
-<!-- </div> -->
-
+<!-- Custom JS -->
 <script>
 	$(document).ready(function (){
 		$("#report-btn").addClass("active-menu");
 		$("#reportLeave-tap").addClass( "active-menu" );
 	});
-
 </script>
+
+<!-- Pade-Header -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-header">
+	  		<h1><strong><spring:message code="reportleave.empName" /></strong></h1>
+		</div>
+	</div>
+</div>
 
 <f:form method="post" id="reportForm" name="reportForm" target="_blank" commandName="applicant" action="${pageContext.request.contextPath}/employee/searchReportEmpLeave" cssClass="form-horizontal">
 

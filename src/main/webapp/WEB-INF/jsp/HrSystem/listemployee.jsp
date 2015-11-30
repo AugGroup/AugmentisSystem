@@ -5,25 +5,38 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
+<!-- Custom JS -->
 <script src="<c:url value="/static/resources/pageJS/listemployee.js" />"></script>
-
-<jsp:include page="springMessageVariable.jsp" />
-<style>
-.form{
-	font-family: Dosis-Regular;
-	font-size:18px;
-	border: 0px solid #eee;
-	background-color:#eee;
-	padding: 5px;
-	
-}
-</style>
-
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#employeePage").addClass('active-menu'); 
 	});
 </script>
+
+<!-- Custom CSS -->
+<style type="text/css">
+	.form{
+		font-family: Dosis-Regular;
+		font-size:18px;
+		border: 0px solid #eee;
+		background-color:#eee;
+		padding: 5px;
+		
+	}
+</style>
+
+<!-- Varaible -->
+<jsp:include page="springMessageVariable.jsp" />
+
+<!-- Pade-Header -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="page-header">
+	  		<h1><strong>Employee</strong></h1>
+		</div>
+	</div>
+</div>
+
 
 <div id="contentemp">
 	<div class="form">
