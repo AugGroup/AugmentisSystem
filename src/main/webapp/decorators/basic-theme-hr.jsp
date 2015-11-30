@@ -137,12 +137,6 @@
 		.scrollToTop:hover{
 			text-decoration:none;
 		}
-		
-		html, body {
-	      height: 100%;
-	      margin: 0 0 1px;
-	      padding: 0;
-		}
 	</style>
 	
 	<!-- Page Context -->
