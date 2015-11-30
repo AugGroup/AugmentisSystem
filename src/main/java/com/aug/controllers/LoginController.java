@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,26 +66,26 @@ public class LoginController implements Serializable {
 	
 	
 	@RequestMapping(value="/login/sendemail", method={RequestMethod.POST})
-	public String sendMail(@RequestParam(value="receiver") String receiver, HttpServletRequest request) throws UnsupportedEncodingException{
+	public @ResponseBody LoginForgotDto sendMail(@RequestBody LoginForgotDto data, HttpServletRequest request) throws UnsupportedEncodingException{
 		
-		
-		LoginForgotDto password = loginService.findPasswordByEmail(receiver);
-		LOGGER.info("forgot email" +receiver);
-		System.out.println("forgot email is" +receiver);
+		String receiver = data.getEmail();
+		LoginForgotDto login = loginService.findPasswordByEmail(receiver);
+		LOGGER.info("forgot email :" + receiver);
+		LOGGER.info("your password :" + login.getPassword());
 		String status = "fail";
 		try {
 			//send mail
-			emailService.sendEmailForgotPassword(receiver,password.getPassword(), request);
+			emailService.sendEmailForgotPassword(receiver,login, request);
 			
 			//set status
 			status = "success";
 			
 		} catch(Exception exception) {
 			exception.printStackTrace();
-			System.out.println(exception);
+			System.out.println("forgot email exception " +exception);
 		}
-				
-		return "redirect:/login"; 
+		LOGGER.info("forgot email status " +status);		
+		return login; 
 	}
 	
 	

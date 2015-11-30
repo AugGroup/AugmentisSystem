@@ -24,6 +24,9 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value ="/static/resources/pageCss/login.css"/>">
 	
 	<!-- Custom JS -->
+	<script>
+		var pageContext = "${pageContext.request.contextPath}";
+	</script>
 	<script src='<c:url value ="/static/resources/pageJS/login.js"/>'></script> 
 	
 </head>

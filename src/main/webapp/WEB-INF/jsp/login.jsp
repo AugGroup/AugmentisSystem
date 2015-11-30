@@ -78,13 +78,13 @@
 			                          
 			                          <p>If you have forgotten your password you can reset it here.</p>
 			                            <div class="panel-body">
-			                                <form action="${pageContext.request.contextPath}/login/sendemail" method="POST" >
+			                                <%-- <form action="${pageContext.request.contextPath}/login/sendemail" method="POST" > --%>
 			                                    <div class="form-group">
-			                                        <input class="form-control input-lg" placeholder="E-mail Address" name="receiver" type="email">
+			                                        <input id="receiver" class="form-control input-lg" placeholder="E-mail Address" name="receiver" type="email">
 			                                    </div>
 			                                  <!--   <input class="btn btn-lg btn-primary btn-block" value="Send My Password" type="submit"> -->
-			                                    <button type="submit" class="btn btn-lg btn-primary btn-block"><spring:message code="request.email.send"/></button>
-			                                </form>
+			                                    <button type="button" id="sendBtn" class="btn btn-lg btn-primary btn-block"><spring:message code="request.email.send"/></button>
+			                                <%-- </form> --%>
 			                            </div>
 			                        </div>
 			                    </div>
@@ -101,3 +101,4 @@
 		  </div>
 </div>
 </body>
+

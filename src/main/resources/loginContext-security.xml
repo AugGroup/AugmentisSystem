@@ -19,6 +19,7 @@
 	<http use-expressions="true" auto-config='true'>
 
 		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/login/sendemail" access="permitAll" />
 		<intercept-url pattern="/logout" access="permitAll" />
 		<intercept-url pattern="/accessdenied" access="permitAll" />
 		<intercept-url pattern="/index" access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF','ROLE_HR')" />

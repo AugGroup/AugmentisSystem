@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aug.hrdb.dto.AugRequestDto;
+import com.aug.hrdb.dto.LoginForgotDto;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Appointment;
 import com.aug.hrdb.entities.AugRequest;
@@ -197,7 +198,7 @@ public class EmailService {
 	}
 	
 	public void sendEmailForgotPassword(final String receiver, 
-			final String content,HttpServletRequest request) throws UnsupportedEncodingException {
+			final LoginForgotDto login, HttpServletRequest request) throws UnsupportedEncodingException {
 		final String cc = "";
 		final String subject = "Forgot Password";
 		
@@ -212,7 +213,10 @@ public class EmailService {
 		final String path = request.getSession().getServletContext().getRealPath("/") + "/resources/mail-attachment/";
 		
 		//merge context and writer to String 
-		velocityEngine.evaluate(context, writer, "Email", content); 
+		velocityEngine.evaluate(context, writer, "Email", "<p>Hello,</p><p>The following information for your account</p><br> "
+				+ "<p><strong>Username:&nbsp;" + login.getUsername() +"</strong></p><p><strong>Password:&nbsp;" + login.getPassword() +"</strong></p><p>&nbsp;</p>"
+				+ "<p>This is an automated message. "
+				+ "Please do not reply to this email.</p><p>Thanks,</p><p>Augmentis Thailand.</p>"); 
 		
 		//encode Template
 		final String encode = new String(writer.toString().getBytes("UTF-8"),"UTF-8");
