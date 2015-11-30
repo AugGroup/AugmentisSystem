@@ -7,8 +7,8 @@
 
 <script>
 	$(document).ready(function (){
-		$("#btn_report").addClass( "active-report" );
-		$("#reportEmpCode-tap").addClass( "active-report" );
+		$("#report-btn").addClass("active-menu");
+		$("#reportEmpCode-tap").addClass( "active-menu" );
 	});
 
 </script>

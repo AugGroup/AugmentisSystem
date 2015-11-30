@@ -10,8 +10,8 @@
 
 <script>
 	$(document).ready(function (){
-		$("#btn_report").addClass( "active-report" );
-		$("#reportStatusEmp-tap").addClass( "active-report" );
+		$("#report-btn").addClass("active-menu");
+		$("#reportStatusEmp-tap").addClass("active-menu");
 	});
 
 </script>

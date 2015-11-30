@@ -11,12 +11,16 @@
 	z-index: 1;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-    box-shadow: 1px 1px 5px #000000;
+    box-shadow: 0px 1px 2px #000000
 }
 
 .navbar {
 	margin-bottom: 0px;
 	border-radius: 0px;
+	background-color: #707070;
+	border-color: #707070;
+	top: 0px;
+	box-shadow: 1px 1px 2px #000000;
 }
 
 .navbar-back {
@@ -70,23 +74,6 @@ ul#nav-menu > li > a{
 .active-menu-sub{
 	background-color: rgb(222, 145, 4) !important;
 	color: #fff !important;
-}
-
-/* dropdown sub menu */
-.nav li>a#btn_report {
-	/* width: 86px;
-	height: 27px;
-	border: 2px solid #ffffff;
-	padding: 2px 2px 2px 15px;
-	margin-top: 10px;
-	text-decoration: none; */
-	
-	 width: 75px;
-    height: 23px;
-    border: 2px solid #ffffff;
-    padding: 1px 2px 2px 15px;
-    margin-top: 14px;
-    text-decoration: none;
 }
 
 .sub-menu>li>a {
@@ -162,12 +149,10 @@ ul#nav-menu > li > a{
 	margin-top: -12px;
 	color: #808080;
 	font-family: Dosis-Regular;
-	text-decoration: none;
 }
-
-#linkLogout:hover {
-	text-decoration: underline;
-}
+	#linkLogout:hover {
+		text-decoration: none;
+	}
 /* ----- end Logout ----- */
 
 /* ----- flag ----- */
@@ -282,13 +267,13 @@ ul#nav-menu > li > a{
 	#email-appointment-new>li>a:hover {
 		color: rgb(222, 145, 4) !important;
 	}
-	.nav li>a#btn_report {
+	/* .nav li>a#btn_report {
 		width: 100%;
 		height: 40px;
 		border:none;
 		padding: 10px 15px;
 		margin-top: 0px;
-	}
+	} */
 	#bgLogout {
 		background-color: #707070;
 		width: auto;
@@ -310,10 +295,10 @@ ul#nav-menu > li > a{
 	.flags-link {
 		margin: 10px 0px 10px 10px;
 	}
-	#btn_report {
+	/* #btn_report {
 		margin-top: auto;
 		text-decoration: none;
-	}
+	} */
 	
 	.active-menu{
 		background-color: #444 !important;

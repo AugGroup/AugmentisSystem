@@ -54,7 +54,7 @@
 			
 				<ul class="nav navbar-nav navbar-right" >
 					<li id="bgLogout">						
-						<a id="linkLogout" class="navbar-link" href="<c:url value="/logout"/>">
+						<a id="linkLogout" href="<c:url value="/logout"/>">
 							<spring:message code="sitemesh.logout" /> | <%=name%>
 						</a>
 					</li>

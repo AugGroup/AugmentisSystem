@@ -11,10 +11,9 @@
 
 <script>
 	$(document).ready(function (){
-		$("#btn_report").addClass( "active-report" );
-		$("#reportEmpName-tap").addClass( "active-report" );
+		$("#report-btn").addClass("active-menu");
+		$("#reportEmpName-tap").addClass("active-menu");
 	});
-
 </script>
 
 <f:form method="post" id="reportForm" name="reportForm" target="_blank" commandName="employee" action="${pageContext.request.contextPath}/employee/searchReportEmpName" cssClass="form-horizontal">
