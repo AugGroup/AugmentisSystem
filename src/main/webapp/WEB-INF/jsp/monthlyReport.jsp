@@ -21,7 +21,7 @@ $(document).ready(function(){
 </script>
 
 <div class="container">
-	<!------------------- Report header-------------------> 
+	<!--page header--> 
  	<div class="row">
 		<div class="col-sm-12">
 			<div class="page-header">
@@ -30,29 +30,26 @@ $(document).ready(function(){
 		</div>
 	</div>
  
-	<!------------------- Report search-------------------> 
-	<div class="container">
-	<div class="report_search " align="right" style="float: right;">
-		<f:form method="post" name="reportForm" target="_blank" commandName="searchReportDTO" action="${pageContext.request.contextPath}/reportMonthly/preview" cssClass="form-inline">
-   			<div class="search_inputgroup" >
-   				<div class="form-group" id="radio_inputgroup">
-   					<label for="reportType"><spring:message code="report.text.type"/> </label>
-					<input type="radio" value="pdf" id="reportType" name="reportType" checked="checked"> <spring:message code="report.text.pdf"/> 
-					<input type="radio" value="xls" id="reportType" name="reportType"> <spring:message code="report.text.xls"/> 
-    			</div>
-    			<button type="button" class="btn btn-primary submit" id="btn_preview" data-toggle="modal" data-target="#previewReportModal" ><span class="glyphicon glyphicon-search"></span> <spring:message code="request.preview"/> </button>		 				
-		 	</div>
-		 	
-		 	<div class="search_inputgroup">
+	<!-- search option --> 
+	<div class="row">
+		<div class="col-sm-12">
+			<f:form method="post" id="reportForm" name="reportForm" target="_blank" commandName="searchReportDTO" action="${pageContext.request.contextPath}/reportMonthly/preview" cssClass="form-inline">
+				<input type="hidden" value="pdf" id="reportType" name="reportType" checked="checked">
 				<div class="form-group">
-					<label for="applyDateStr"><spring:message code="report.text.search.month"/></label>
 					<input type="text" name="applyDateStr" id="applyDateStr" class="form-control" placeholder="<spring:message code="report.text.month"/>"/>
-            	</div>
-       			<button type="button" class="btn btn-primary" id="btn_search"><span class="glyphicon glyphicon-search"></span> <spring:message code="main.button.search"/> </button>				
-   			</div>
-		</f:form>
+					<button type="button" class="btn btn-primary" id="btn_search">
+						<span class="fa fa-search"></span>&nbsp;<spring:message code="main.button.search"/>
+					</button>
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-danger submit" id="btn_download_pdf" data-toggle="modal" data-target="#previewReportModal" >
+						<span class="fa fa-file-pdf-o"></span>&nbsp;<spring:message code="report.text.pdf" />
+					</button>
+				</div>
+			</f:form>		
+		</div>
 	</div>
-	</div>
+	
 	<!------------------- Report DataTable-------------------> 
 	<div class="table-responsive" id="table2">
     	<table  id="reportTable" class="cell-border" style="width: 100%">

@@ -1,3 +1,11 @@
+#reportForm {
+	float: right;
+}
+
+#btn_download_pdf {
+	width: 90px;
+}
+
 
 @media (max-width: 768px){
 	.form-inline .form-control {
