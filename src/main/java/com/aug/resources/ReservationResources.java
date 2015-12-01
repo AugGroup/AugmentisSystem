@@ -32,6 +32,5 @@ public class ReservationResources {
 
         return reservations;
     }
-
-
+    
 }

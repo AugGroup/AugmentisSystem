@@ -30,15 +30,16 @@
 }
 
 #btn_search {
-	font-family:Dosis-Regular;
-	margin-top: 25px ;
-	width: 95px;
+	margin-top: 28px;
+	width: 90px;
 }
 
-#btn_preview {
-	margin: 0px 5px 0px 5px;
-	width: 95px;
-}
+#btn_download_pdf {
+	margin-top: 28px;
+	width: 90px;
+	float: right;
+} 
+
 #divCon{
 	width: 100%;
 }

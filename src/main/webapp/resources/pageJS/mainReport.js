@@ -63,7 +63,13 @@ $(document).ready(function () {
 		isResultTable = true;
 	});
 	
- 	$(".submit").click(function() {
+ 	$("#btn_download_pdf").click(function() {
+ 		$("#reportType").val("pdf");
+		$("form[name='reportForm']").submit();
+	});
+ 	
+ 	$("#btn_download_xls").click(function() {
+ 		$("#reportType").val("xls");
 		$("form[name='reportForm']").submit();
 	});
  

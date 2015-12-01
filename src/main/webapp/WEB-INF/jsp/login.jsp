@@ -36,13 +36,19 @@
 						<input type="password" class="form-control" name='j_password' id="pwd" placeholder="${enter}${password}">	
 				    </div>
 			    </div>
-			    
 			    <input name="submit" type="submit" id="login-btn" class="btn btn-warning" value="${login}" />
-				<br>
-				
-				<div class="container">
-  					<a href="#" data-target="#pwdModal" data-toggle="modal">Forgot my password</a>
+			    <div>
+			   		<div class="checkbox">
+    					<label style="color: #FFFFFF">
+      						<input type="checkbox">&nbsp;Remember me
+    					</label>
+    					
+  					</div>
+  				</div>
+  				<div class="">
+  						<a href="#" data-target="#pwdModal" data-toggle="modal" style="color: #F0AD4E;">Forget password?</a>
 				</div>
+				<br>
 		</div>
 		</form>
 	</div>
