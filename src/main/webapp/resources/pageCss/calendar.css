@@ -89,10 +89,10 @@ div.popover > h3.popover-title.success{
 	color:#ffffff;
 }
 
-#calendarDiv{
+/* #calendarDiv{
 	background-color: #E0DFDD;
 	margin-left : 40px;
-}
+} */
 
 #calendar-container{
 	/* margin-top: 20px;
@@ -103,15 +103,15 @@ div.popover > h3.popover-title.success{
 	margin-left: 15px;	
 }
 
-#mailStatusPropSm{
+/* #mailStatusPropSm{
 	background-color: #E0DFDD;
     margin-top: 15px;
     margin-bottom: 15px;
     padding-top: 10px;
     padding-bottom: 15px;
-}
+} */
 
-#mailStatusPropMd{
+/* #mailStatusPropMd{
 	background-color: #E0DFDD;
 	width : 270px;
 	padding-top: 10px;
@@ -119,7 +119,7 @@ div.popover > h3.popover-title.success{
     padding-left: 5%;
     padding-right: 5%;
 }
-
+ */
 span.label-danger{
 	background-color: #FF4512;
 }
