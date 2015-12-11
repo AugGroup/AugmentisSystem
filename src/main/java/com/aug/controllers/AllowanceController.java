@@ -18,30 +18,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aug.hrdb.services.AllowancesDtoService;
-import com.aug.hrdb.entities.Allowances;
-import com.aug.hrdb.entities.MasAllowances;
-import com.aug.hrdb.dto.AllowancesDto;
-import com.aug.hrdb.services.AllowancesService;
-import com.aug.hrdb.services.MasAllowancesService;
+import com.aug.hrdb.services.AllowanceDtoService;
+import com.aug.hrdb.entities.Allowance;
+import com.aug.hrdb.entities.MasAllowance;
+import com.aug.hrdb.dto.AllowanceDto;
+import com.aug.hrdb.services.AllowanceService;
+import com.aug.hrdb.services.MasAllowanceService;
 
 @Controller
-public class AllowancesController {
+public class AllowanceController {
 
 	@Autowired
-	private AllowancesService allowancesService;
+	private AllowanceService allowancesService;
 	
 	@Autowired
-	private AllowancesDtoService allowancesDtoService;
+	private AllowanceDtoService allowancesDtoService;
 	
 	@Autowired
-	private MasAllowancesService masAllowancesService;
+	private MasAllowanceService masAllowancesService;
 	
 	@RequestMapping(value = "/allowances/{id}", method = { RequestMethod.GET,
 			RequestMethod.POST })
 	public String init(ModelMap model,
 			@PathVariable("id") Integer id,
-			@ModelAttribute AllowancesDto allowancesDto) {
+			@ModelAttribute AllowanceDto allowancesDto) {
 		model.addAttribute("masallowancesList",
 				masAllowancesService.findAll());
 		
@@ -52,30 +52,30 @@ public class AllowancesController {
 	}
 	
 	@RequestMapping(value ="/allowances/listAll/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody List<AllowancesDto> listAll(@PathVariable("id") Integer id){
+	public @ResponseBody List<AllowanceDto> listAll(@PathVariable("id") Integer id){
 		
-		return (List<AllowancesDto>) allowancesDtoService.searchAllowances(id);
+		return (List<AllowanceDto>) allowancesDtoService.searchAllowances(id);
 	}
 	
 	
 	@RequestMapping(value = "/allowances/add", method = RequestMethod.POST)
-	public @ResponseBody AllowancesDto addAllowances(@RequestBody AllowancesDto allowancesDto) {
-		Allowances allowances = new Allowances();
+	public @ResponseBody AllowanceDto addAllowances(@RequestBody AllowanceDto allowancesDto) {
+		Allowance allowances = new Allowance();
 		allowancesService.create(allowances.fromAllowancesDto(allowances, allowancesDto));
 		return allowancesDto;
 	}
 
 	@RequestMapping(value = "/allowances/update", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody AllowancesDto updateAllowances(@RequestBody AllowancesDto allowancesDto) {
-		Allowances allowances = allowancesService.findById(allowancesDto.getId());
-		Allowances allowancesUpdate = allowances.fromAllowancesDto(allowances, allowancesDto);
+	public @ResponseBody AllowanceDto updateAllowances(@RequestBody AllowanceDto allowancesDto) {
+		Allowance allowances = allowancesService.findById(allowancesDto.getId());
+		Allowance allowancesUpdate = allowances.fromAllowancesDto(allowances, allowancesDto);
 		allowancesService.update(allowancesUpdate);
 		return allowances.toAllowancesDto();
 	}
 	
 	@RequestMapping(value = "/allowances/findById", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody AllowancesDto findById(@RequestParam Integer allowancesid) {
-		Allowances allowances = allowancesService.findById(allowancesid);
+	public @ResponseBody AllowanceDto findById(@RequestParam Integer allowancesid) {
+		Allowance allowances = allowancesService.findById(allowancesid);
 		return allowances.toAllowancesDto();
 	}
 	
@@ -86,13 +86,13 @@ public class AllowancesController {
 	}
 
 	@RequestMapping(value = "/allowances/findByIdMas", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody MasAllowances findByIdMas(@RequestParam Integer masAllowancesid) {
-		MasAllowances masAllowances = masAllowancesService.find(masAllowancesid);
+	public @ResponseBody MasAllowance findByIdMas(@RequestParam Integer masAllowancesid) {
+		MasAllowance masAllowances = masAllowancesService.find(masAllowancesid);
 		return masAllowances;
 	}
 	
 	@ModelAttribute("allowances")
-	Allowances setupForm() {
-		return new Allowances();
+	Allowance setupForm() {
+		return new Allowance();
 	}
 }

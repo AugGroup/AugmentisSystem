@@ -51,7 +51,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
 
-import com.aug.hrdb.services.MasJoblevelService;
+import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.EmployeeDtoService;
 import com.aug.hrdb.services.AimEmployeeDtoService;
 import com.aug.hrdb.services.EmployeeCodeDtoService;
@@ -71,7 +71,7 @@ import com.aug.hrdb.entities.Address;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Leave;
-import com.aug.hrdb.entities.MasJoblevel;
+import com.aug.hrdb.entities.MasJobLevel;
 import com.aug.hrdb.services.AddressService;
 import com.aug.hrdb.services.ApplicantService;
 import com.aug.hrdb.services.EmployeeService;
@@ -112,7 +112,7 @@ public class EmployeeController {
 	@Autowired
 	private MasCoreSkillService masCoreSkillService;
 	@Autowired
-	private MasJoblevelService joblevelService;
+	private MasJobLevelService joblevelService;
 	@Autowired
 	private MasLocationService masLocationService;
 	@Autowired

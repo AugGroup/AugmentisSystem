@@ -64,9 +64,9 @@ import com.aug.hrdb.entities.Family;
 import com.aug.hrdb.entities.Language;
 import com.aug.hrdb.entities.Login;
 import com.aug.hrdb.entities.MasAddressType;
-import com.aug.hrdb.entities.MasDegreetype;
+import com.aug.hrdb.entities.MasDegreeType;
 import com.aug.hrdb.entities.MasDivision;
-import com.aug.hrdb.entities.MasJoblevel;
+import com.aug.hrdb.entities.MasJobLevel;
 import com.aug.hrdb.entities.MasLocation;
 import com.aug.hrdb.entities.MasProvince;
 import com.aug.hrdb.entities.MasRelationType;
@@ -85,9 +85,9 @@ import com.aug.hrdb.services.FamilyService;
 import com.aug.hrdb.services.LanguageService;
 import com.aug.hrdb.services.LoginService;
 import com.aug.hrdb.services.MasAddressTypeService;
-import com.aug.hrdb.services.MasDegreetypeService;
+import com.aug.hrdb.services.MasDegreeTypeService;
 import com.aug.hrdb.services.MasDivisionService;
-import com.aug.hrdb.services.MasJoblevelService;
+import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.MasLocationService;
 import com.aug.hrdb.services.MasProvinceService;
 import com.aug.hrdb.services.MasRelationTypeService;
@@ -129,7 +129,7 @@ public class ApplicantController implements Serializable {
 	@Autowired
 	private MasTechnologyService masTechnologyService;
 	@Autowired
-	private MasJoblevelService masJoblevelService;
+	private MasJobLevelService masJoblevelService;
 	@Autowired
 	private MasAddressTypeService masAddressTypeService;
 	@Autowired
@@ -137,7 +137,7 @@ public class ApplicantController implements Serializable {
 	@Autowired
 	private MasRelationTypeService masRelationService;
 	@Autowired
-	private MasDegreetypeService masDegreeTypeService;
+	private MasDegreeTypeService masDegreeTypeService;
 	@Autowired
 	private MasSpecialtyService masSpecialtyService;
 	@Autowired
@@ -235,7 +235,7 @@ public class ApplicantController implements Serializable {
 			employee.setEmployeeCode(str);
 			employee.setStatusemp("Employee");
 			MasDivision masDivision = masDivisionService.findById(5);
-			MasLocation masLocation = masLocationService.find(1);
+			MasLocation masLocation = masLocationService.findById(1);
 			employee.setMasDivision(masDivision);
 			employee.setMasLocation(masLocation);
 			employee.setTelHome("00-0000000");
@@ -490,7 +490,7 @@ public class ApplicantController implements Serializable {
 		familyService.create(family);
 		Family fam = familyService.find(id);
 		Hibernate.initialize(fam.getApplicant().getTechnology());
-		Hibernate.initialize(fam.getApplicant().getJoblevel());
+		Hibernate.initialize(fam.getApplicant().getJobLevel());
 		
         return fam;
 	}
@@ -510,7 +510,7 @@ public class ApplicantController implements Serializable {
 		certificationService.create(certification);
 		Certification cer = certificationService.findById(id);
 		Hibernate.initialize(cer.getApplicant().getTechnology());
-		Hibernate.initialize(cer.getApplicant().getJoblevel());
+		Hibernate.initialize(cer.getApplicant().getJobLevel());
 		
         return cer;
 	}
@@ -569,7 +569,7 @@ public class ApplicantController implements Serializable {
 		experienceService.create(experience);
 		Experience exp = experienceService.findById(id);
 		Hibernate.initialize(exp.getApplicant().getTechnology());
-		Hibernate.initialize(exp.getApplicant().getJoblevel());
+		Hibernate.initialize(exp.getApplicant().getJobLevel());
 		
         return exp;
 	}
@@ -682,8 +682,8 @@ public class ApplicantController implements Serializable {
 	public String updateInfo(@ModelAttribute ApplicantDto applicantDto,@PathVariable Integer id, Model  model) {
 		applicantDto = applicantService.findByIdApplicant(id);
 		model.addAttribute("tag","information");
-		applicantDto.setTechnology(masTechnologyService.find(applicantDto.getTechnologyId()));
-		applicantDto.setJoblevel(masJoblevelService.find(applicantDto.getJoblevelId()));
+		applicantDto.setTechnology(masTechnologyService.findById(applicantDto.getTechnologyId()));
+		applicantDto.setJoblevel(masJoblevelService.findById(applicantDto.getJoblevelId()));
 		model.addAttribute("applicant", applicantDto);
 		System.out.println("TECHNOLOGY : "+applicantDto.getTechnology());
 		System.out.println("JOBLEVEL : "+applicantDto.getJoblevel());
@@ -872,7 +872,7 @@ public class ApplicantController implements Serializable {
 	public @ResponseBody AddressDto updateAddress(@RequestBody AddressDto addressDto, @PathVariable Integer id) {
 		Address address = addressService.findById(addressDto.getId());
 		MasAddressType masAddressType = masAddressTypeService.findById(addressDto.getAddressTypeId());
-		MasProvince masProvince = masProvinceService.find(addressDto.getMasprovinceId());
+		MasProvince masProvince = masProvinceService.findById(addressDto.getMasprovinceId());
 		
 		address.setId(addressDto.getId());
 		address.setAddressType(masAddressType);
@@ -891,7 +891,7 @@ public class ApplicantController implements Serializable {
 	@RequestMapping(value = "/updateFamily/{id}", method = { RequestMethod.POST })
 	public @ResponseBody FamilyDto updateFamily(@RequestBody FamilyDto familyDto, @PathVariable Integer id) {
 		Family family = familyService.find(familyDto.getId());
-		MasRelationType masRelationType = masRelationService.find(familyDto.getMasRelationTypeId());
+		MasRelationType masRelationType = masRelationService.findById(familyDto.getMasRelationTypeId());
 		
 		family.setId(familyDto.getId());
 		family.setAddress(familyDto.getAddress());
@@ -911,7 +911,7 @@ public class ApplicantController implements Serializable {
 	@RequestMapping(value = "/updateEducations/{id}", method = { RequestMethod.POST })
 	public @ResponseBody EducationDto updateEducations(@RequestBody EducationDto educationDto, @PathVariable Integer id) {
 		Education education = educationService.findById(educationDto.getId());
-		MasDegreetype masDegreeType = masDegreeTypeService.find(educationDto.getMasdegreetypeId());
+		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasdegreetypeId());
 		
 		education.setId(educationDto.getId());
 		education.setMasdegreetype(masDegreeType);
@@ -1057,7 +1057,7 @@ public class ApplicantController implements Serializable {
 	}
 	
 	@ModelAttribute("jobLevels")
-	public List<MasJoblevel> jobLevelList(){
+	public List<MasJobLevel> jobLevelList(){
 		return masJoblevelService.findAll();
 	}
 	
@@ -1088,7 +1088,7 @@ public class ApplicantController implements Serializable {
 	}
 	
 	@ModelAttribute("degreeTypes")
-	public List<MasDegreetype> degreeTypesList(){
+	public List<MasDegreeType> degreeTypesList(){
 		return masDegreeTypeService.findAll();
 	}
 	

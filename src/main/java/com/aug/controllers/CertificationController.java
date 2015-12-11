@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aug.hrdb.services.ApplicantService;
-import com.aug.hrdb.services.CertificationDtoService;
-import com.aug.hrdb.services.EmployeeService;
+import com.aug.hrdb.dto.CertificationDto;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Certification;
 import com.aug.hrdb.entities.Employee;
-import com.aug.hrdb.dto.CertificationDto;
+import com.aug.hrdb.services.ApplicantService;
+import com.aug.hrdb.services.CertificationDtoService;
 import com.aug.hrdb.services.CertificationService;
+import com.aug.hrdb.services.EmployeeService;
 
 @Controller
 public class CertificationController {

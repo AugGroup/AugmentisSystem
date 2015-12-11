@@ -10,8 +10,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -24,22 +22,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aug.hrdb.services.EducationDtoService;
 import com.aug.hrdb.dto.EducationDto;
-import com.aug.hrdb.dto.ReferenceDto;
-import com.aug.hrdb.entities.Ability;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Education;
 import com.aug.hrdb.entities.Employee;
-import com.aug.hrdb.entities.MasDegreetype;
-import com.aug.hrdb.entities.Reference;
+import com.aug.hrdb.entities.MasDegreeType;
 import com.aug.hrdb.services.ApplicantService;
+import com.aug.hrdb.services.EducationDtoService;
 import com.aug.hrdb.services.EducationService;
 import com.aug.hrdb.services.EmployeeService;
-import com.aug.hrdb.services.MasDegreetypeService;
+import com.aug.hrdb.services.MasDegreeTypeService;
 
 @Controller
 public class EducationController {
@@ -51,7 +45,7 @@ public class EducationController {
 	private EducationDtoService educationDtoService;
 	
 	@Autowired
-	private MasDegreetypeService masDegreetypeService;
+	private MasDegreeTypeService masDegreetypeService;
 	
 	@Autowired
 	private EmployeeService employeeService;
@@ -61,7 +55,7 @@ public class EducationController {
 	
 	
 	@Autowired
-	private MasDegreetypeService masDegreeTypeService;
+	private MasDegreeTypeService masDegreeTypeService;
 	
 	
 	@InitBinder
@@ -118,7 +112,7 @@ public class EducationController {
 	public @ResponseBody EducationDto addEducation(@RequestBody EducationDto educationDto) {
 		Education education = new Education();
 		Applicant applicant=applicantService.findById(educationDto.getApplicantId());
-		MasDegreetype masDegreeType = masDegreeTypeService.find(educationDto.getMasdegreetypeId());
+		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasdegreetypeId());
 		
 		education.setApplicant(applicant);
 		
@@ -142,7 +136,7 @@ public class EducationController {
 		
 		Education education = educationService.findById(educationDto.getId());
 		Applicant applicant=applicantService.findById(educationDto.getApplicantId());
-		MasDegreetype masDegreeType = masDegreeTypeService.find(educationDto.getMasdegreetypeId());
+		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasdegreetypeId());
 		
 		education.setApplicant(applicant);
 		

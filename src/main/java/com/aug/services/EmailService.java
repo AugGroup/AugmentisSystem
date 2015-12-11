@@ -24,7 +24,7 @@ import com.aug.hrdb.dto.LoginForgotDto;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Appointment;
 import com.aug.hrdb.entities.AugRequest;
-import com.aug.hrdb.services.MasJoblevelService;
+import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.MasTechnologyService;
 
 @Transactional
@@ -38,7 +38,7 @@ public class EmailService {
 	private VelocityEngine velocityEngine;
 	
 	@Autowired
-	private MasJoblevelService masJoblevelService;
+	private MasJobLevelService masJoblevelService;
 	
 	@Autowired
 	private MasTechnologyService masTechnologyService;
@@ -113,7 +113,7 @@ public class EmailService {
 		context.put("TIME", formatTime.format(appointment.getStart()));
 		context.put("RECRUIT_FIRST_NAME", sender.getFirstNameEN());
 		context.put("RECRUIT_LAST_NAME", sender.getLastNameEN());
-		context.put("RECRUIT_POSITION", sender.getJoblevel().getName());
+		context.put("RECRUIT_POSITION", sender.getJobLevel().getName());
 		context.put("RECRUIT_PHONE", sender.getTel());
 		
 		//set email attr
@@ -168,8 +168,8 @@ public class EmailService {
 		context.put("CODE", augRequest.getJobcaseCode());
 		context.put("REQUESTER", sender.getFirstNameEN() + " " + sender.getLastNameEN());
 		context.put("REQUESTE_DATE", formatDate.format(augRequest.getRequestDate()));
-		context.put("JOB_LEVEL", masJoblevelService.find(augRequest.getJoblevelId()).getName());
-		context.put("TECHNOLOGY", masTechnologyService.find(augRequest.getTechnologyId()).getName());
+		context.put("JOB_LEVEL", masJoblevelService.findById(augRequest.getJoblevelId()).getName());
+		context.put("TECHNOLOGY", masTechnologyService.findById(augRequest.getTechnologyId()).getName());
 		context.put("QUANTITY", augRequest.getNumberApplicant());
 		context.put("SKILL", augRequest.getSpecificSkill());
 		context.put("EXPERIENCE", augRequest.getYearExperience());

@@ -27,12 +27,12 @@ import com.aug.hrdb.entities.AugRequest;
 import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Login;
 import com.aug.hrdb.entities.MailTemplate;
-import com.aug.hrdb.entities.MasJoblevel;
+import com.aug.hrdb.entities.MasJobLevel;
 import com.aug.hrdb.entities.MasTechnology;
 import com.aug.hrdb.services.AugRequestService;
 import com.aug.hrdb.services.LoginService;
 import com.aug.hrdb.services.MailTemplateService;
-import com.aug.hrdb.services.MasJoblevelService;
+import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.services.EmailService;
 
@@ -48,7 +48,7 @@ public class JobcaseController implements Serializable {
 	private LoginService loginService;
 	
 	@Autowired
-	private MasJoblevelService masJoblevelService;
+	private MasJobLevelService masJoblevelService;
 	
 	@Autowired
 	private MasTechnologyService masTechnologyService;
@@ -134,8 +134,8 @@ public class JobcaseController implements Serializable {
 	public @ResponseBody AugRequestDto editAugRequest(
 			@RequestBody AugRequestDto augRequestDto, @PathVariable Integer id) throws Exception {
 		
-		MasJoblevel masJoblevel = masJoblevelService.find(augRequestDto.getJoblevelId());
-		MasTechnology masTechnology = masTechnologyService.find(augRequestDto.getTechnologyId());
+		MasJobLevel masJoblevel = masJoblevelService.findById(augRequestDto.getJoblevelId());
+		MasTechnology masTechnology = masTechnologyService.findById(augRequestDto.getTechnologyId());
 		AugRequest augRequest = augRequestService.findById(augRequestDto.getId());
 		
 		augRequest.setId(augRequestDto.getId());
@@ -171,7 +171,7 @@ public class JobcaseController implements Serializable {
 	
 	@ModelAttribute("jobLevels")
 //	@Transactional
-	public List<MasJoblevel> jobLevelList(){
+	public List<MasJobLevel> jobLevelList(){
 		return masJoblevelService.findAll();
 	}
 	
