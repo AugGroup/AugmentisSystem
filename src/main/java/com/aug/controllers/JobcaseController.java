@@ -35,7 +35,7 @@ import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.services.EmailService;
 
 @Controller
-public class JobCaseController implements Serializable {
+public class JobcaseController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
