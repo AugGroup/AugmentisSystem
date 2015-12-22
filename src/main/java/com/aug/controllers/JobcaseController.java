@@ -7,12 +7,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +35,7 @@ import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.services.EmailService;
 
 @Controller
-public class JobcaseController implements Serializable {
+public class JobCaseController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

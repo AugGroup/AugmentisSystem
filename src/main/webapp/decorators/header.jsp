@@ -42,9 +42,13 @@
 				</li>
 				<sec:authorize access="hasAnyRole('ROLE_STAFF','ROLE_ADMIN')">
 					<li>
-						<a href="${pageContext.request.contextPath}/request" id="requestPage">
-							<spring:message code="request.button" />
+						<a href="${pageContext.request.contextPath}/careercase" id="career-case-page">
+							Career Case
 						</a>
+						<%-- <a href="${pageContext.request.contextPath}/careercase" id="requestPage">
+							<spring:message code="request.button" />
+							Career Case
+						</a> --%>
 					</li>
 				</sec:authorize>
 				<sec:authorize access="hasAnyRole('ROLE_HR','ROLE_ADMIN')">

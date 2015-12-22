@@ -72,7 +72,5 @@
 	var pnotifySuccess="<spring:message code="pnotify.success"/>";
 	var pnotifyError="<spring:message code="pnotify.error"/>";
 </script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/resources/bootstrap-tagsinput/bootstrap-tagsinput.css" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/pageJS/email-appointment.js"></script>

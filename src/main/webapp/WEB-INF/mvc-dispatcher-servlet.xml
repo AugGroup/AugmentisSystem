@@ -25,7 +25,7 @@
 	<context:component-scan base-package="com.aug.exception" />
 	<context:component-scan base-package="com.aug.services" />
 	<context:component-scan base-package="com.aug.services.utils"/>	
-	<context:component-scan base-package="com.aug.validators" />
+	<!--<context:component-scan base-package="com.aug.validators" />-->
 	<context:component-scan base-package="com.aug.servlet" />
 	
 	

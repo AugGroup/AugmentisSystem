@@ -22,6 +22,7 @@
 	
 	<!-- jQuery UI -->
 	<link href='<c:url value="/static/resources/css/jquery-ui.min.css"/>' rel='stylesheet' />
+	<%-- <script src='<c:url value ="/static/resources/jQueryUI/jquery-ui.min.js"/>'></script> --%>
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" type="text/css" media="all" href="<c:url value ="/static/resources/fontawesome/css/font-awesome.min.css"/>" />
@@ -39,6 +40,15 @@
 	<!-- momentJS -->
 	<script src='<c:url value ="/static/resources/js/moment.js"/>'></script>
 	<script src='<c:url value="/static/resources/js/moment-timezone.js"/>'></script>
+	
+	<!-- bootstrap-typehead -->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/resources/bootstrap-tokenfield/css/bootstrap-tokenfield.min.css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/resources/bootstrap-tokenfield/css/tokenfield-typeahead.min.css" />
+	<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/bootstrap-typehead/bootstrap3-typeahead.min.js"></script>
+	
+	<!-- bootstrap-tagsinput -->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/resources/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+	<script type="text/javascript" src="${pageContext.request.contextPath}/static/resources/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
 	
 	<!-- Bootstrap Datetime Picker -->
 	<link href="<c:url value="/static/resources/css/bootstrap-datetimepicker.min.css" />" rel="stylesheet" media="all">

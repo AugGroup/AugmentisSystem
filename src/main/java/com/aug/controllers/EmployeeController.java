@@ -1,7 +1,6 @@
 package com.aug.controllers;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -10,25 +9,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import javassist.NotFoundException;
-import javassist.tools.web.BadHttpRequest;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
-import javax.validation.ConstraintViolationException;
-
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRParameter;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpException;
 import org.apache.log4j.Logger;
-import org.hibernate.Hibernate;
-import org.hibernate.JDBCException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.ApplicationContext;
@@ -51,16 +39,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
 
-import com.aug.hrdb.services.MasJobLevelService;
-import com.aug.hrdb.services.EmployeeDtoService;
-import com.aug.hrdb.services.AimEmployeeDtoService;
-import com.aug.hrdb.services.EmployeeCodeDtoService;
-import com.aug.hrdb.services.EmployeeIdDtoService;
-import com.aug.hrdb.services.LeaveDtoService;
 import com.aug.entity.editor.AddressEditor;
 import com.aug.hrdb.dto.AddressDto;
 import com.aug.hrdb.dto.DivisionDto;
-import com.aug.hrdb.dto.EmployeeCodeDto;
 import com.aug.hrdb.dto.EmployeeDto;
 import com.aug.hrdb.dto.EmployeeListDto;
 import com.aug.hrdb.dto.JoblevelDto;
@@ -71,14 +52,19 @@ import com.aug.hrdb.entities.Address;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Leave;
-import com.aug.hrdb.entities.MasJobLevel;
 import com.aug.hrdb.services.AddressService;
+import com.aug.hrdb.services.AimEmployeeDtoService;
 import com.aug.hrdb.services.ApplicantService;
+import com.aug.hrdb.services.EmployeeCodeDtoService;
+import com.aug.hrdb.services.EmployeeDtoService;
+import com.aug.hrdb.services.EmployeeIdDtoService;
 import com.aug.hrdb.services.EmployeeService;
+import com.aug.hrdb.services.LeaveDtoService;
 import com.aug.hrdb.services.MasAddressTypeService;
 import com.aug.hrdb.services.MasCoreSkillService;
 import com.aug.hrdb.services.MasDivisionService;
 import com.aug.hrdb.services.MasEmploymentService;
+import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.MasLocationService;
 import com.aug.hrdb.services.MasProvinceService;
 import com.aug.hrdb.services.MasSpecialtyService;
@@ -86,6 +72,8 @@ import com.aug.hrdb.services.MasStaffTypeService;
 import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.services.ReportService;
 import com.aug.services.utils.UploadService;
+
+import net.sf.jasperreports.engine.JRParameter;
 
 //import com.aug.hrdb.dto.JoblevelDto;
 //import com.aug.hrdb.services.MasJoblevelService;
@@ -112,7 +100,7 @@ public class EmployeeController {
 	@Autowired
 	private MasCoreSkillService masCoreSkillService;
 	@Autowired
-	private MasJobLevelService joblevelService;
+	private MasJobLevelService masJobLevelService;
 	@Autowired
 	private MasLocationService masLocationService;
 	@Autowired
@@ -173,7 +161,7 @@ public class EmployeeController {
 		model.addAttribute("divisionList", masDivisionService.findAll());
 		model.addAttribute("technologyList", masTechnologyService.findAll());
 		model.addAttribute("coreskillList", masCoreSkillService.findAll());
-		model.addAttribute("joblevelList", joblevelService.findAll());
+		model.addAttribute("joblevelList", masJobLevelService.findAll());
 		model.addAttribute("locationList", masLocationService.findAll());
 		model.addAttribute("staffTypeList", masStaffTypeService.findAll());
 		model.addAttribute("aimList", aimEmployeeDtoService.listEmployeeAim());
@@ -240,7 +228,7 @@ public class EmployeeController {
 		model.addAttribute("divisionList", masDivisionService.findAll());
 		model.addAttribute("technologyList", masTechnologyService.findAll());
 		model.addAttribute("coreskillList", masCoreSkillService.findAll());
-		model.addAttribute("joblevelList", joblevelService.findAll());
+		model.addAttribute("joblevelList", masJobLevelService.findAll());
 		model.addAttribute("locationList", masLocationService.findAll());
 		model.addAttribute("staffTypeList", masStaffTypeService.findAll());
 		model.addAttribute("aimList", aimEmployeeDtoService.listEmployeeAimForUpdate(empId));

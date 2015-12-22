@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.context.Context;
-import org.codehaus.groovy.util.Finalizable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -23,7 +22,6 @@ import com.aug.hrdb.dto.AugRequestDto;
 import com.aug.hrdb.dto.LoginForgotDto;
 import com.aug.hrdb.entities.Applicant;
 import com.aug.hrdb.entities.Appointment;
-import com.aug.hrdb.entities.AugRequest;
 import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.MasTechnologyService;
 

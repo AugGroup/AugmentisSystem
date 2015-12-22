@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.aug:hr-db:1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/aug/hr-db/1/hr-db-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/aug/hr-db/1/hr-db-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/aug/hr-db/1/hr-db-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

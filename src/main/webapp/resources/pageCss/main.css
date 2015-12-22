@@ -61,6 +61,11 @@ body > .container {
     background-color: #ffc000;
 }
 
+/* remove focus after click */
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+
 .scrollToTop{
 	width:60px;
 	height:60px;		
