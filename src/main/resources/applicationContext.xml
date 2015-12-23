@@ -1,36 +1,72 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
-	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+			 xmlns:mvc="http://www.springframework.org/schema/mvc"
+			 xmlns:context="http://www.springframework.org/schema/context"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xmlns:int="http://www.springframework.org/schema/integration"
+			 xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+			 xmlns:p="http://www.springframework.org/schema/p"
+			 xmlns:util="http://www.springframework.org/schema/util"
+			 xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+			 xmlns:tx="http://www.springframework.org/schema/tx"
+			 xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
-  		http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.1.xsd
+  			http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.1.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<!-- <import resource="spring-jpa-data.xml"/> -->
-
+	<!--application util-->
 	<util:properties id="appProps"
 		location="classpath:applicationResources.properties" />
+
+	<!--application properties-->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-			<!-- <value>classpath:application.properties</value> -->
 			<value>classpath:applicationResources.properties</value>
 			<value>classpath:rm-system-database.properties</value>
-			<!-- <value>classpath:database.properties</value> -->
-			</list> 
+			</list>
 		</property>
 		<property name="localOverride">
 			<value>true</value>
 		</property>
 	</bean>
+
+	<!--database component-->
+	<jpa:repositories base-package="com.aug.hrdb"/>
+	<context:annotation-config/>
+	<context:component-scan base-package="com.aug.hrdb.interceptor"/>
+	<context:component-scan base-package="com.aug.hrdb.dto"/>
+	<context:component-scan base-package="com.aug.hrdb.repositories"/>
+	<context:component-scan base-package="com.aug.hrdb.services"/>
+
+	<!--data source-->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${database.driverClassName}"/>
+		<property name="url" value="${database.url}"/>
+		<property name="username" value="${database.username}"/>
+		<property name="password" value="${database.password}"/>
+	</bean>
+
+	<!--session factory-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+				p:dataSource-ref="dataSource"
+				p:configLocation="classpath:hibernate.cfg.xml"
+				p:packagesToScan="com.aug.hrdb">
+		<property name="entityInterceptor" ref="auditInterceptor"></property>
+	</bean>
+
+	<!--transaction config-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven/>
+
 </beans>
 

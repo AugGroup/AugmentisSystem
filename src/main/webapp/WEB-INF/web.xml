@@ -29,7 +29,10 @@
   </filter-mapping>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml,classpath:rm-system-db.xml,classpath:loginContext-security.xml</param-value>
+    <param-value>
+      classpath:applicationContext.xml
+      classpath:loginContext-security.xml
+    </param-value>
   </context-param>
   <filter>
     <filter-name>encodingFilter</filter-name>
