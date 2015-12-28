@@ -15,21 +15,21 @@ import com.aug.hrdb.services.CareerCaseService;
 @RestController
 public class CareerCaseResourcecs {
 
-	private Logger LOGGER = LoggerFactory.getLogger(CareerCaseResourcecs.class);
-	
-	@Autowired
-	private CareerCaseService careerCaseService;
-	
-	@RequestMapping(value = "/api/careercases", method = RequestMethod.GET)
-    public List<CareerCase> findAllCareerCase() {
+  private Logger LOGGER = LoggerFactory.getLogger(CareerCaseResourcecs.class);
 
-        LOGGER.debug("Mapping: /api/careercases");
+  @Autowired
+  private CareerCaseService careerCaseService;
 
-        List<CareerCase> careerCases = careerCaseService.findAll();
+  @RequestMapping(value = "/api/careercases", method = RequestMethod.GET)
+  public List<CareerCase> findAllCareerCase() {
 
-        LOGGER.debug("Total CareerCases: " + careerCases.size());
+    LOGGER.debug("Mapping: /api/careercases");
 
-        return careerCases;
-    }
-	
+    List<CareerCase> careerCases = careerCaseService.findAll();
+
+    LOGGER.debug("Total CareerCases: " + careerCases.size());
+
+    return careerCases;
+  }
+
 }

@@ -2,21 +2,14 @@ package com.aug.controllers;
 
 import java.util.List;
 
+import com.aug.hrdb.entities.*;
+import com.aug.services.GenerateCareerCodeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import com.aug.hrdb.entities.Client;
-import com.aug.hrdb.entities.MasCareerCaseStatus;
-import com.aug.hrdb.entities.MasCoreSkill;
-import com.aug.hrdb.entities.MasDivision;
-import com.aug.hrdb.entities.MasJobLevel;
-import com.aug.hrdb.entities.MasSpecialty;
-import com.aug.hrdb.entities.MasTechnology;
 import com.aug.hrdb.services.CareerCaseService;
 import com.aug.hrdb.services.ClientService;
 import com.aug.hrdb.services.MasCareerCaseStatusService;
@@ -54,6 +47,9 @@ public class CareerCaseController {
 	
 	@Autowired
 	private ClientService clientService;
+
+	@Autowired
+	private GenerateCareerCodeService generateCareerCodeService;
 	
 	@ModelAttribute(value="careerCaseStatuses")
 	private List<MasCareerCaseStatus> findAllMasCareerCaseStatuse() {
@@ -90,10 +86,71 @@ public class CareerCaseController {
 		return clientService.findAll();
 	}
 	
-	@RequestMapping(value="careercase", method={RequestMethod.GET})
+	@RequestMapping(value="/careercase", method={RequestMethod.GET})
 	public String careerCase() {
-		LOGGER.debug("Mapping: /careercase");
+
+		LOGGER.info("Mapping: /careercase");
 		return "career-case";
+	}
+
+	@RequestMapping(value = "/careercase/create", method = {RequestMethod.POST})
+	public @ResponseBody CareerCase createCareerCase(@RequestBody CareerCase careerCase) {
+
+		LOGGER.info("Mapping: /careercase/create");
+		try {
+			MasDivision division = masDivisionService.findById(careerCase.getMasDivision().getId());
+			String code = generateCareerCodeService.generateCareerCaseCode(division);
+			if (code == null) {
+				LOGGER.info("generate code: null");
+			} else {
+				LOGGER.info("generate code: " + code);
+				careerCase.setCode(code);
+				careerCaseService.create(careerCase);
+				LOGGER.info("career case id: " + careerCase.getId());
+			}
+		} catch (Exception ex) {
+			LOGGER.info("Error!!");
+			ex.printStackTrace();
+			careerCase = null;
+		}
+
+
+
+		return careerCaseService.findById(careerCase.getId());
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

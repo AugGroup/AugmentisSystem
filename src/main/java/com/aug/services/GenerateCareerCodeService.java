@@ -13,50 +13,50 @@ import com.aug.hrdb.entities.MasDivision;
 import com.aug.hrdb.services.MasDivisionService;
 
 @Transactional
-@Service(value="genarateCareerCodeService")
-public class GenarateCareerCodeService {
+@Service(value="generateCareerCodeService")
+public class GenerateCareerCodeService {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Autowired
 	private MasDivisionService masDivisionService;
-	
-	@RequestMapping(value="/api/careercases/generatecode", method={RequestMethod.GET})
+
 	public String generateCareerCaseCode(MasDivision masDivision) {
-		
+
 		System.out.println("-----generateCareerCaseCode-----");
-		
+
 		String code = null;
-		
+
 		String hql = "FROM CareerCase C WHERE C.masDivision.code = :code ORDER BY C.code DESC";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setParameter("code", masDivision.getCode());
 		query.setMaxResults(1);
-		
+
 		try {
-			
-			CareerCase careerCase = (CareerCase)query.list().get(0);
-			
-			System.out.println("Last : " + careerCase.getCode());
-			System.out.println("Division: " + masDivision.getCode());
-			
-			String[] split = careerCase.getCode().split(masDivision.getCode());
-			
-			int number = Integer.parseInt(split[1]) + 1;
-			
-			code = masDivision.getCode() + String.format("%04d", number); 
-			
+
+			if (query.list().size() != 0) {
+				CareerCase careerCase = (CareerCase)query.list().get(0);
+
+				System.out.println("Last : " + careerCase.getCode());
+				System.out.println("Division: " + masDivision.getCode());
+
+				String[] split = careerCase.getCode().split(masDivision.getCode());
+
+				int number = Integer.parseInt(split[1]) + 1;
+
+				code = masDivision.getCode() + String.format("%04d", number);
+			} else {
+				code = masDivision.getCode() + String.format("%04d", 1);
+			}
 			System.out.println("CODE: " + code);
-			
-		} catch (Exception e) {
-			code = masDivision.getCode() + String.format("%04d", 1);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		
+
 		System.out.println("-----------------------------");
-		
+
 		return code;
-		
 	}
 	
 }
