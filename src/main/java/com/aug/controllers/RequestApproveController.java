@@ -2,12 +2,8 @@ package com.aug.controllers;
 
 import java.io.Serializable;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,10 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.aug.hrdb.dto.AugRequestDto;
 import com.aug.hrdb.entities.AugRequest;
 import com.aug.hrdb.entities.Employee;
-import com.aug.hrdb.entities.Login;
 import com.aug.hrdb.services.AugRequestService;
 import com.aug.hrdb.services.EmployeeService;
-import com.aug.hrdb.services.LoginService;
 
 @Controller
 public class RequestApproveController implements Serializable {
@@ -29,8 +23,7 @@ public class RequestApproveController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	private AugRequestService augRequestService;
-	@Autowired
-	private LoginService loginService;
+	
 	@Autowired
 	private EmployeeService employeeService;
 

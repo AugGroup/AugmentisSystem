@@ -6,16 +6,12 @@
 package com.aug.controllers;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +27,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aug.hrdb.dto.LeaveDto;
-import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Leave;
 import com.aug.hrdb.services.AimEmployeeDtoService;
-import com.aug.hrdb.services.EmployeeDtoService;
 import com.aug.hrdb.services.LeaveDtoService;
 import com.aug.hrdb.services.LeaveService;
 import com.aug.hrdb.services.MasLeaveTypeService;
@@ -48,10 +42,7 @@ public class LeaveController {
 	@Autowired private MasLeaveTypeService masLeaveTypeService;
 	@Autowired private LeaveDtoService leaveDtoService;
 	@Autowired private AimEmployeeDtoService aimEmployeeDtoService;
-	@Autowired private EmployeeDtoService employeeDtoService;
 	
-	private final static Logger logger = Logger
-			.getLogger(Leave.class);
 	
 	
 	
@@ -96,12 +87,9 @@ public class LeaveController {
 			ModelMap model){
 
 		Leave leave = new Leave();
-		List<Leave> findLeaveTypeAmount =new ArrayList<Leave>();
-		findLeaveTypeAmount = leaveService.findLeaveType(leaveDate.getMasleavetypeId(),leaveDate.getEmployeeId());
 		
 
 		
-		int dateNo;
 		int hoursNo = 0;
 		int hoursNo2 = 0;
 		int hoursNo3 = 0;
@@ -199,6 +187,7 @@ public class LeaveController {
 	}*/
 	
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/leave/update", method = {RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody LeaveDto ubdateLeave( Locale locale,
 			@ModelAttribute LeaveDto leaveDto,
@@ -206,7 +195,6 @@ public class LeaveController {
 		Leave leave = leaveService.findById(leaveDto.getId());
 		
 		
-		int dateNo;
 		int hoursNo = 0;
 		int hoursNo2 = 0;
 		int hoursNo3 = 0;

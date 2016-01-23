@@ -86,7 +86,7 @@ public class HealthController {
 			}
 		
 		   
-			Health health = healthService.createSetDtoToEnity(healthDto);	
+			Health health = healthService.createSetDtoToEntity(healthDto);	
 			if(health.getId()!=null){
 				System.out.println("idhealth: "+health.getId());
 				healthDto = healthService.findByIdReturnToDto(health.getId());

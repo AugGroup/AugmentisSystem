@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aug.hrdb.dto.PunsihDto;
+import com.aug.hrdb.dto.PunishDto;
 import com.aug.hrdb.entities.Punish;
 import com.aug.hrdb.services.PunishDtoService;
 import com.aug.hrdb.services.PunishService;
@@ -48,10 +48,10 @@ public class PunishController {
 	@RequestMapping(value = "/punish/{id}", method = {RequestMethod.GET,RequestMethod.POST})
     public String list(HttpSession session,Locale locale, ModelMap model, 
 			@PathVariable("id") Integer id, 
-			@ModelAttribute PunsihDto punsihDto) {
+			@ModelAttribute PunishDto punishDto) {
 		
-		punsihDto.setEmployeeId(id);
-		model.addAttribute("id", punsihDto.getEmployeeId());
+		punishDto.setEmployeeId(id);
+		model.addAttribute("id", punishDto.getEmployeeId());
 		return "/HrSystem/punish";
 	}
 	
@@ -65,23 +65,23 @@ public class PunishController {
 	
 	
 	@RequestMapping(value = "/punish/listAll{id}", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody List<PunsihDto> listAll(@PathVariable("id") Integer id) {
-		return (List<PunsihDto>) punishDtoService.searchPunish(id);
+	public @ResponseBody List<PunishDto> listAll(@PathVariable("id") Integer id) {
+		return (List<PunishDto>) punishDtoService.searchPunish(id);
 	}
 	
 	
 	@RequestMapping(value = "/punish/add", method = RequestMethod.POST)
-	public @ResponseBody PunsihDto addPunsih(@RequestBody PunsihDto punishDto) {
+	public @ResponseBody PunishDto addPunsih(@RequestBody PunishDto punishDto) {
 		Punish punish = new Punish();
 		punishService.create(punish.fromPunishDto(punish,punishDto));
 		return punishDto;
 	}
 	
 	@RequestMapping(value = "/punish/update", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody PunsihDto updatePunish(@RequestBody PunsihDto punishDto ) {
+	public @ResponseBody PunishDto updatePunish(@RequestBody PunishDto punishDto ) {
 		
 		Punish entityLoaded = punishService.findById(punishDto.getId());
-		entityLoaded.setDatepunish(punishDto.getDatepunish());
+		entityLoaded.setDatePunish(punishDto.getDatePunish());
 		entityLoaded.setDescription(punishDto.getDescription());	
 		entityLoaded.setPenalty(punishDto.getPenalty());
 		
@@ -90,7 +90,7 @@ public class PunishController {
 	}
 	
 	@RequestMapping(value = "/punish/findById/{punishid}", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody PunsihDto findById(@PathVariable("punishid") Integer punishid) {
+	public @ResponseBody PunishDto findById(@PathVariable("punishid") Integer punishid) {
 		Punish punish = punishService.findById(punishid);
 		return punish.toPunishDto();
 	}

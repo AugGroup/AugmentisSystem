@@ -20,10 +20,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
@@ -54,10 +52,7 @@ import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Leave;
 import com.aug.hrdb.services.AddressService;
 import com.aug.hrdb.services.AimEmployeeDtoService;
-import com.aug.hrdb.services.ApplicantService;
-import com.aug.hrdb.services.EmployeeCodeDtoService;
 import com.aug.hrdb.services.EmployeeDtoService;
-import com.aug.hrdb.services.EmployeeIdDtoService;
 import com.aug.hrdb.services.EmployeeService;
 import com.aug.hrdb.services.LeaveDtoService;
 import com.aug.hrdb.services.MasAddressTypeService;
@@ -67,7 +62,6 @@ import com.aug.hrdb.services.MasEmploymentService;
 import com.aug.hrdb.services.MasJobLevelService;
 import com.aug.hrdb.services.MasLocationService;
 import com.aug.hrdb.services.MasProvinceService;
-import com.aug.hrdb.services.MasSpecialtyService;
 import com.aug.hrdb.services.MasStaffTypeService;
 import com.aug.hrdb.services.MasTechnologyService;
 import com.aug.services.ReportService;
@@ -75,16 +69,12 @@ import com.aug.services.utils.UploadService;
 
 import net.sf.jasperreports.engine.JRParameter;
 
-//import com.aug.hrdb.dto.JoblevelDto;
-//import com.aug.hrdb.services.MasJoblevelService;
 
 @Controller
 public class EmployeeController {
 	@Resource(name = "employeeService")
 	@Autowired
 	private EmployeeService employeeService;
-	@Autowired
-	private MasSpecialtyService masSpecialtyService;
 	@Autowired
 	private AddressService addressService;
 	@Autowired
@@ -112,19 +102,11 @@ public class EmployeeController {
 	@Autowired
 	private UploadService uploadService;
 	@Autowired
-	private EmployeeCodeDtoService employeeCodeDtoService;
-	@Autowired
 	private ReportService reportService;
-	@Autowired
-	private EmployeeIdDtoService employeeIdService;
 	@Autowired
 	private LeaveDtoService leaveDtoService;
 	@Autowired
 	private EmployeeDtoService employeeDtoService;
-	@Autowired
-	private ApplicantService applicantService;
-	@Autowired 
-	private MessageSource message;
 	@Autowired 
     private ApplicationContext appContext;  
 	@Autowired 
@@ -298,6 +280,7 @@ public class EmployeeController {
 
 	}
 
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/employee/submit", method = RequestMethod.POST)
 	public String manageSubmit(@ModelAttribute EmployeeDto employeeDto, Model model,
 			final RedirectAttributes redirectAttributes, HttpServletRequest request, HttpServletResponse response)
@@ -311,6 +294,7 @@ public class EmployeeController {
 		String employeeCode = null;
 		Employee employee1;
 		String[] result1;
+		
 		String img = null;
 
 		System.out.println("locations: " + employeeDto.getMasLocation());
@@ -463,7 +447,7 @@ public class EmployeeController {
 						}
 					}
 
-					employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+					employee = employeeService.updateEmployeeAndReturnId(employeeDto);
 
 					if (employeeDto.getFileupload().getOriginalFilename() != null) {
 
@@ -481,24 +465,19 @@ public class EmployeeController {
 											employeeDto.getFileupload());
 
 								} catch (RuntimeException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 
 							} else if (employee1.getApplicant().getImage() != null) {
 
 								// delete file upload
-
 								try {
 									uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
 								} catch (RuntimeException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								} catch (IOException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}
 
@@ -508,10 +487,8 @@ public class EmployeeController {
 											employeeDto.getFileupload());
 
 								} catch (RuntimeException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 
@@ -557,7 +534,7 @@ public class EmployeeController {
 						}
 					}
 
-					employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+					employee = employeeService.updateEmployeeAndReturnId(employeeDto);
 
 					if (employeeDto.getFileupload().getOriginalFilename() == null) {
 						if (employee1.getApplicant().getImage() == null
@@ -607,10 +584,8 @@ public class EmployeeController {
 											employeeDto.getFileupload());
 
 								} catch (RuntimeException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 
@@ -621,10 +596,8 @@ public class EmployeeController {
 								try {
 									uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
 								} catch (RuntimeException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								} catch (IOException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}
 
@@ -634,10 +607,8 @@ public class EmployeeController {
 											employeeDto.getFileupload());
 
 								} catch (RuntimeException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 
@@ -686,7 +657,7 @@ public class EmployeeController {
 							}
 						}
 
-						employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+						employee = employeeService.updateEmployeeAndReturnId(employeeDto);
 
 						if (employeeDto.getFileupload().getOriginalFilename() != null) {
 
@@ -705,10 +676,8 @@ public class EmployeeController {
 												employeeDto.getFileupload());
 
 									} catch (RuntimeException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									} catch (IOException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 
@@ -719,10 +688,8 @@ public class EmployeeController {
 									try {
 										uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
 									} catch (RuntimeException e1) {
-										// TODO Auto-generated catch block
 										e1.printStackTrace();
 									} catch (IOException e1) {
-										// TODO Auto-generated catch block
 										e1.printStackTrace();
 									}
 
@@ -732,10 +699,8 @@ public class EmployeeController {
 												employeeDto.getFileupload());
 
 									} catch (RuntimeException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									} catch (IOException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 
@@ -782,7 +747,7 @@ public class EmployeeController {
 							}
 						}
 
-						employee = employeeService.updateEmployeeAndReturnId(employeeDto, employeeCode, img);
+						employee = employeeService.updateEmployeeAndReturnId(employeeDto);
 
 						if (employeeDto.getFileupload().getOriginalFilename() != null) {
 
@@ -801,10 +766,8 @@ public class EmployeeController {
 												employeeDto.getFileupload());
 
 									} catch (RuntimeException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									} catch (IOException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 
@@ -815,10 +778,8 @@ public class EmployeeController {
 									try {
 										uploadService.deleteImage("EMPLOYEE", employee1.getApplicant().getImage());
 									} catch (RuntimeException e1) {
-										// TODO Auto-generated catch block
 										e1.printStackTrace();
 									} catch (IOException e1) {
-										// TODO Auto-generated catch block
 										e1.printStackTrace();
 									}
 
@@ -828,10 +789,8 @@ public class EmployeeController {
 												employeeDto.getFileupload());
 
 									} catch (RuntimeException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									} catch (IOException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 
@@ -856,11 +815,12 @@ public class EmployeeController {
 		return "redirect:/employee/list";
 	}
 
+	@SuppressWarnings("null")
 	@RequestMapping(value = "/employee/deleteemp/{id}", method = RequestMethod.POST)
 	public String deleteEmployeeAndRelateTable(@PathVariable("id") Integer id) throws Exception {
 
 		Employee employee = new Employee();
-		employee = employeeService.findAndinitializeOfficial(id);
+		employee = employeeService.findAndInitializeOfficial(id);
 
 		List<Employee> aimList = employeeService.findAimRelateWithEmployee(employee.getId());
 		if (aimList != null || aimList.isEmpty() == false) {
@@ -870,7 +830,7 @@ public class EmployeeController {
 				if (aim.getId() != null) {
 					System.out.println("not null aim");
 					aim = employeeService.findById(aim.getId());
-					aim.setAimempid(null);
+					aim.setAimEmpId(null);
 					System.out.println("id: " + aim.getId());
 					employeeService.update(aim);
 
@@ -880,18 +840,17 @@ public class EmployeeController {
 
 		}
 
-		employee = employeeService.findAndinitializeOfficial(id);
+		employee = employeeService.findAndInitializeOfficial(id);
 
 		if (employee.getApplicant().getImage() != null) {
 			try {
 				uploadService.deleteImage("EMPLOYEE", employee.getApplicant().getImage());
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				throw new Exception();
 			}
 		}
 
-		employeeService.deleteEmployeeByHibernate(employee);
+		employeeService.delete(employee);
 		return "redirect:/employee/list";
 
 	}
@@ -1109,7 +1068,6 @@ public class EmployeeController {
 	}
 
 	@ModelAttribute("checktagsDivision")
-	@Transactional
 	public List<DivisionDto> tagList() {
 		return employeeService.checkTag("B");
 	}

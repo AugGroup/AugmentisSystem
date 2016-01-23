@@ -5,12 +5,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aug.hrdb.entities.CareerCase;
 import com.aug.hrdb.entities.MasDivision;
-import com.aug.hrdb.services.MasDivisionService;
 
 @Transactional
 @Service(value="generateCareerCodeService")
@@ -18,9 +15,6 @@ public class GenerateCareerCodeService {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	@Autowired
-	private MasDivisionService masDivisionService;
 
 	public String generateCareerCaseCode(MasDivision masDivision) {
 

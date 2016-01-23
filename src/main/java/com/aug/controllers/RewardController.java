@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -19,16 +18,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.aug.hrdb.entities.Address;
-import com.aug.hrdb.entities.Employee;
-import com.aug.hrdb.entities.Reward;
-import com.aug.hrdb.dto.RewardDto;
+
 import com.aug.entity.editor.RewardEditor;
+import com.aug.hrdb.dto.RewardDto;
+import com.aug.hrdb.entities.Address;
+import com.aug.hrdb.entities.Reward;
 import com.aug.hrdb.services.EmployeeService;
-import com.aug.hrdb.services.RewardService;
 import com.aug.hrdb.services.RewardDtoService;
+import com.aug.hrdb.services.RewardService;
 
 
 @Controller
@@ -82,13 +80,12 @@ public class RewardController {
 		return rewardDto;
 	}
 	
-	@Transactional
 	@RequestMapping(value = "/reward/update", method = RequestMethod.POST)
 	public @ResponseBody RewardDto updateReward(@RequestBody RewardDto rewardDto ) {
 			
 		Reward entityLoaded = rewardService.findById(rewardDto.getId());	
 		//entityLoaded.setId(rewardDto.getId());
-		entityLoaded.setTypereward(rewardDto.getTypereward());	
+		entityLoaded.setTypeReward(rewardDto.getTypeReward());	
 		entityLoaded.setYear(rewardDto.getYear());	
 		entityLoaded.setReason(rewardDto.getReason());
 		entityLoaded.setIsActive(rewardDto.getIsActive());

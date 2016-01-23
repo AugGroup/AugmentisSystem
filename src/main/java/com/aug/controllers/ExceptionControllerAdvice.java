@@ -1,21 +1,5 @@
 package com.aug.controllers;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
-import javassist.tools.web.BadHttpRequest;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.hibernate.exception.ConstraintViolationException;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.acls.model.NotFoundException;
-import org.springframework.web.HttpMediaTypeNotSupportedException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 //@ControllerAdvice
 public class ExceptionControllerAdvice {
 	//BAD_REQUEST(400, "Bad Request")

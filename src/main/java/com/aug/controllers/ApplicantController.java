@@ -61,7 +61,6 @@ import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Experience;
 import com.aug.hrdb.entities.Family;
 import com.aug.hrdb.entities.Language;
-import com.aug.hrdb.entities.Login;
 import com.aug.hrdb.entities.MasAddressType;
 import com.aug.hrdb.entities.MasDegreeType;
 import com.aug.hrdb.entities.MasDivision;
@@ -82,7 +81,6 @@ import com.aug.hrdb.services.EmployeeService;
 import com.aug.hrdb.services.ExperienceService;
 import com.aug.hrdb.services.FamilyService;
 import com.aug.hrdb.services.LanguageService;
-import com.aug.hrdb.services.LoginService;
 import com.aug.hrdb.services.MasAddressTypeService;
 import com.aug.hrdb.services.MasDegreeTypeService;
 import com.aug.hrdb.services.MasDivisionService;
@@ -147,8 +145,7 @@ public class ApplicantController implements Serializable {
 	private MasDivisionService masDivisionService;
 	@Autowired
 	private MasLocationService masLocationService;
-	@Autowired
-	private LoginService loginService;
+	
 	@Autowired
 	private ReportService reportService;
 	@Autowired
@@ -184,6 +181,7 @@ public class ApplicantController implements Serializable {
 		}
 		final List<ApplicantDto> datas = data;
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<ApplicantDto> getData() {
 				return datas;
 			}
@@ -223,7 +221,6 @@ public class ApplicantController implements Serializable {
 			//find user
 			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			System.out.println("userName : " + userDetails.getUsername());
-			Login login = loginService.findByUserName(userDetails.getUsername());
 			System.out.println("LOCATIONAPPLICANT :: " + applicant.getMasLocation());
 			
 			Employee employee = new Employee();
@@ -232,7 +229,7 @@ public class ApplicantController implements Serializable {
 			String str = employeeService.generateEmployeeCodeFixData(applicant.getMasLocation());
 			System.out.println("SSTRING :: " + str);
 			employee.setEmployeeCode(str);
-			employee.setStatusemp("Employee");
+			employee.setStatusEmp("Employee");
 			MasDivision masDivision = masDivisionService.findById(5);
 			MasLocation masLocation = masLocationService.findById(1);
 			employee.setMasDivision(masDivision);
@@ -278,6 +275,7 @@ public class ApplicantController implements Serializable {
 		data = applicantService.findReportByCriteria(technology,joblevel, masdegreetype, major, university, gpa);
 
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<ReportApplicantDto> getData() {
 				return data;
 			}
@@ -372,6 +370,7 @@ public class ApplicantController implements Serializable {
 		}
 		final List<ReportApplicantDto> datas = data;
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<ReportApplicantDto> getData() {
 				return datas;
 			}
@@ -748,7 +747,7 @@ public class ApplicantController implements Serializable {
 	
 	@RequestMapping(value = "/findEducationId/{id}", method = { RequestMethod.POST })
 	public @ResponseBody EducationDto findEducation(@PathVariable Integer id) {
-		return educationService.findEducation(id);
+		return educationService.findByEducationId(id);
 		
 	}
 	
@@ -759,12 +758,12 @@ public class ApplicantController implements Serializable {
 	
 	@RequestMapping(value = "/findSkillId/{id}", method = { RequestMethod.POST })
 	public @ResponseBody AbilityDto findSkill(@PathVariable Integer id) {
-		return abilityService.findAbility(id);
+		return abilityService.findByAbilityId(id);
 	}
 	
 	@RequestMapping(value = "/findLanguagesId/{id}", method = { RequestMethod.POST })
 	public @ResponseBody LanguageDto findLanguage(@PathVariable Integer id) {
-		return languageService.findLanguages(id);
+		return languageService.findByLanguagesId(id);
 	}
 	
 	@RequestMapping(value = "/findReferenceId/{id}", method = { RequestMethod.POST })
@@ -783,6 +782,7 @@ public class ApplicantController implements Serializable {
 	public @ResponseBody Object findByIdAddress(@PathVariable Integer id) {
 		final List<AddressDto> list= addressService.findAddressById(id);
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<AddressDto> getData() {
 				return list;
 			}
@@ -800,6 +800,7 @@ public class ApplicantController implements Serializable {
 		 final List<EducationDto> list = educationService.findEducationById(id);
 		 
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<EducationDto> getData() {
 				return list;
 			}
@@ -814,6 +815,7 @@ public class ApplicantController implements Serializable {
 		}
 		 
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<CertificationDto> getData() {
 				return list;
 			}
@@ -822,9 +824,10 @@ public class ApplicantController implements Serializable {
 	
 	@RequestMapping(value = "/findByIdSkill/{id}", method = { RequestMethod.POST })
 	public @ResponseBody Object findByIdSkill(@PathVariable Integer id) {
-		 final List<AbilityDto> list = abilityService.findAbilityList(id);
+		 final List<AbilityDto> list = abilityService.searchAbility(id);
 		 
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<AbilityDto> getData() {
 				return list;
 			}
@@ -837,6 +840,7 @@ public class ApplicantController implements Serializable {
 		 final List<LanguageDto> list = languageService.findLanguagesById(id);
 		 
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<LanguageDto> getData() {
 				return list;
 			}
@@ -848,6 +852,7 @@ public class ApplicantController implements Serializable {
 		 final List<ReferenceDto> list = referenceService.findReferenceById(id);
 		 
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<ReferenceDto> getData() {
 				return list;
 			}
@@ -859,6 +864,7 @@ public class ApplicantController implements Serializable {
 		final List<ExperienceDto> list= experienceService.findExperienceById(id);
  
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<ExperienceDto> getData() {
 				return list;
 			}
@@ -910,7 +916,7 @@ public class ApplicantController implements Serializable {
 	@RequestMapping(value = "/updateEducations/{id}", method = { RequestMethod.POST })
 	public @ResponseBody EducationDto updateEducations(@RequestBody EducationDto educationDto, @PathVariable Integer id) {
 		Education education = educationService.findById(educationDto.getId());
-		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasdegreetypeId());
+		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasDegreeTypeId());
 		
 		education.setId(educationDto.getId());
 		education.setMasdegreetype(masDegreeType);

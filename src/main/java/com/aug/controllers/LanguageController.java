@@ -126,7 +126,7 @@ public class LanguageController {
 		
     
 	LanguageDto languageDto = new LanguageDto();
-	languageDto = languageService.findLanguageById(languageInfo.getId());
+	languageDto = languageService.findByLanguagesId(languageInfo.getId());
 	return languageDto;
 	
 		

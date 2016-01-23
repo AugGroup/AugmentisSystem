@@ -53,7 +53,6 @@ public class TestEncryptController {
         String key1 = "Bar12345Bar12345"; // 128 bit key
         String key2 = "ThisIsASecretKet";
         String encrypt = encrypt(key1, key2, "/info/1");
-        String decrypt = decrypt(key1, "ThisIsASecretKet", encrypt);
        return encrypt;
     }
 }

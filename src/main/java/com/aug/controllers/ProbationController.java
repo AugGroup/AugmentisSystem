@@ -7,8 +7,6 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.hateoas.ExposesResourceFor;
@@ -25,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aug.hrdb.dto.ProbationDto;
 import com.aug.hrdb.entities.Probation;
-import com.aug.hrdb.services.ProbationDtoService;
 import com.aug.hrdb.services.ProbationService;
 
 
@@ -33,11 +30,8 @@ import com.aug.hrdb.services.ProbationService;
 @ExposesResourceFor(Probation.class)
 public class ProbationController {
 
-    private static Logger logger = LoggerFactory.getLogger(ProbationController.class);
-
     @Autowired private ProbationService probationService;
 
-	@Autowired private ProbationDtoService probationDtoService;
 	
 //	@RequestMapping(method = RequestMethod.GET)
 //	public ModelAndView getPages() throws Exception {
@@ -79,7 +73,7 @@ public class ProbationController {
 	@RequestMapping(value ="/probation/listAll/{id}", method = {RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody List<ProbationDto> listAll(@PathVariable("id") Integer id){
 		
-		return (List<ProbationDto>) probationDtoService.searchProbation(id);
+		return (List<ProbationDto>) probationService.searchProbation(id);
 	}
 	
 	@RequestMapping(value = "/probation/test", consumes = "application/json" ,method = {RequestMethod.GET, RequestMethod.POST})

@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aug.hrdb.services.AllowanceDtoService;
+import com.aug.hrdb.dto.AllowanceDto;
 import com.aug.hrdb.entities.Allowance;
 import com.aug.hrdb.entities.MasAllowance;
-import com.aug.hrdb.dto.AllowanceDto;
+import com.aug.hrdb.services.AllowanceDtoService;
 import com.aug.hrdb.services.AllowanceService;
 import com.aug.hrdb.services.MasAllowanceService;
 
@@ -32,7 +32,7 @@ public class AllowanceController {
 	private AllowanceService allowancesService;
 	
 	@Autowired
-	private AllowanceDtoService allowancesDtoService;
+	private AllowanceDtoService AllowanceDtoService;
 	
 	@Autowired
 	private MasAllowanceService masAllowancesService;
@@ -41,12 +41,12 @@ public class AllowanceController {
 			RequestMethod.POST })
 	public String init(ModelMap model,
 			@PathVariable("id") Integer id,
-			@ModelAttribute AllowanceDto allowancesDto) {
+			@ModelAttribute AllowanceDto AllowanceDto) {
 		model.addAttribute("masallowancesList",
 				masAllowancesService.findAll());
 		
-		allowancesDto.setEmployeeId(id);
-		model.addAttribute("id", allowancesDto.getEmployeeId());
+		AllowanceDto.setEmployeeId(id);
+		model.addAttribute("id", AllowanceDto.getEmployeeId());
 		
 		return "/HrSystem/allowances";
 	}
@@ -54,29 +54,29 @@ public class AllowanceController {
 	@RequestMapping(value ="/allowances/listAll/{id}", method = {RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody List<AllowanceDto> listAll(@PathVariable("id") Integer id){
 		
-		return (List<AllowanceDto>) allowancesDtoService.searchAllowances(id);
+		return (List<AllowanceDto>) AllowanceDtoService.searchAllowances(id);
 	}
 	
 	
 	@RequestMapping(value = "/allowances/add", method = RequestMethod.POST)
-	public @ResponseBody AllowanceDto addAllowances(@RequestBody AllowanceDto allowancesDto) {
+	public @ResponseBody AllowanceDto addAllowances(@RequestBody AllowanceDto AllowanceDto) {
 		Allowance allowances = new Allowance();
-		allowancesService.create(allowances.fromAllowancesDto(allowances, allowancesDto));
-		return allowancesDto;
+		allowancesService.create(allowances.fromAllowanceDto(allowances, AllowanceDto));
+		return AllowanceDto;
 	}
 
 	@RequestMapping(value = "/allowances/update", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody AllowanceDto updateAllowances(@RequestBody AllowanceDto allowancesDto) {
-		Allowance allowances = allowancesService.findById(allowancesDto.getId());
-		Allowance allowancesUpdate = allowances.fromAllowancesDto(allowances, allowancesDto);
+	public @ResponseBody AllowanceDto updateAllowances(@RequestBody AllowanceDto AllowanceDto) {
+		Allowance allowances = allowancesService.findById(AllowanceDto.getId());
+		Allowance allowancesUpdate = allowances.fromAllowanceDto(allowances, AllowanceDto);
 		allowancesService.update(allowancesUpdate);
-		return allowances.toAllowancesDto();
+		return allowances.toAllowanceDto();
 	}
 	
 	@RequestMapping(value = "/allowances/findById", method = {RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody AllowanceDto findById(@RequestParam Integer allowancesid) {
 		Allowance allowances = allowancesService.findById(allowancesid);
-		return allowances.toAllowancesDto();
+		return allowances.toAllowanceDto();
 	}
 	
 	@RequestMapping(value = "/allowances/delete", method = RequestMethod.POST)

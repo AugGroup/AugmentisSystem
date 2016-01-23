@@ -2,7 +2,6 @@ package com.aug.exception;
 
 public class CustomExceptionMassageJson {
 	
-	private static final long serialVersionUID = 1L;	
 	private String status;
 	private String errMsg;
 	

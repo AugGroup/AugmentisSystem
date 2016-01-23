@@ -157,7 +157,7 @@ public class FamilyController {
 							ModelMap modal){
 		
 	    logger.info("init edit");
-		return familyService.findForInitEdit(family);
+		return familyService.findFamily(family.getId());
 		
 	}
 	
@@ -212,7 +212,7 @@ public class FamilyController {
 							ModelMap modal){
 		
 	    logger.info("delete");	 
-	    familyService.deleteByNameQuery(familyDtoTest);
+	    familyService.deleteById(familyDtoTest.getId());
 		return familyDtoTest;		
 	}	
 

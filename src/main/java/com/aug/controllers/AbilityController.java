@@ -21,12 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aug.hrdb.services.AbilityDtoService;
+import com.aug.hrdb.dto.AbilityDto;
 import com.aug.hrdb.entities.Ability;
 import com.aug.hrdb.entities.Applicant;
-import com.aug.hrdb.entities.Certification;
 import com.aug.hrdb.entities.MasSpecialty;
-import com.aug.hrdb.dto.AbilityDto;
 import com.aug.hrdb.services.AbilityService;
 import com.aug.hrdb.services.ApplicantService;
 import com.aug.hrdb.services.MasSpecialtyService;
@@ -36,8 +34,6 @@ import com.aug.hrdb.services.MasSpecialtyService;
 public class AbilityController {
 
 	@Autowired private AbilityService abilityService;
-	
-	@Autowired private AbilityDtoService abilityDtoService;
 	
 	@Autowired private MasSpecialtyService masSpecialtyService;
 	
@@ -71,7 +67,7 @@ public class AbilityController {
 	@RequestMapping(value ="/ability/listAll/{id}", method = {RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody List<AbilityDto> listAll(@PathVariable("id") Integer id){
 		
-		return (List<AbilityDto>) abilityDtoService.searchAbility(id);
+		return (List<AbilityDto>) abilityService.searchAbility(id);
 	}
 	
 	

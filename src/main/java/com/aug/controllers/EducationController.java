@@ -13,7 +13,6 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -76,7 +75,7 @@ public class EducationController {
 		model.addAttribute("masdegreetypeList",
 				masDegreetypeService.findAll());
 		
-		educationDto.setApplicant(employee.getApplicant().getId());
+		educationDto.setApplicantId(employee.getApplicant().getId());
 		model.addAttribute("id", employee.getId());
 		model.addAttribute("appId", employee.getApplicant().getId());
 		return "/HrSystem/education";
@@ -112,7 +111,7 @@ public class EducationController {
 	public @ResponseBody EducationDto addEducation(@RequestBody EducationDto educationDto) {
 		Education education = new Education();
 		Applicant applicant=applicantService.findById(educationDto.getApplicantId());
-		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasdegreetypeId());
+		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasDegreeTypeId());
 		
 		education.setApplicant(applicant);
 		
@@ -130,13 +129,12 @@ public class EducationController {
 		return educationDto;
 	}
 
-	@Transactional
 	@RequestMapping(value = "/education/update", method = {RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody EducationDto updateEducation(@RequestBody EducationDto educationDto) {
 		
 		Education education = educationService.findById(educationDto.getId());
 		Applicant applicant=applicantService.findById(educationDto.getApplicantId());
-		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasdegreetypeId());
+		MasDegreeType masDegreeType = masDegreeTypeService.findById(educationDto.getMasDegreeTypeId());
 		
 		education.setApplicant(applicant);
 		

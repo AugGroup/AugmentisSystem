@@ -17,21 +17,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
-import javax.sql.DataSource;
-
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRParameter;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,18 +34,20 @@ import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiForm
 
 import com.aug.hrdb.dto.ReportReservationDto;
 import com.aug.hrdb.dto.ReservationDto;
-import com.aug.hrdb.entities.Reservation;
-import com.aug.hrdb.services.ReservationService;
 import com.aug.hrdb.entities.Employee;
 import com.aug.hrdb.entities.Login;
 import com.aug.hrdb.entities.MasDivision;
 import com.aug.hrdb.entities.MasReservationType;
+import com.aug.hrdb.entities.Reservation;
 import com.aug.hrdb.entities.Room;
-import com.aug.hrdb.services.EmployeeService;
 import com.aug.hrdb.services.LoginService;
 import com.aug.hrdb.services.MasDivisionService;
 import com.aug.hrdb.services.MasReservationTypeService;
+import com.aug.hrdb.services.ReservationService;
 import com.aug.hrdb.services.RoomService;
+
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 
 @Controller
@@ -61,9 +55,6 @@ public class ReservationController {
 	
 	@Autowired
 	private ReservationService reservationService;
-	
-	@Autowired
-	private EmployeeService employeeService;
 	
 	@Autowired
 	private LoginService loginService;
@@ -80,9 +71,6 @@ public class ReservationController {
 	@Autowired
 	private ApplicationContext appContext;
 	
-	@Autowired
-	private DataSource dataSource;
-	
 	@ModelAttribute("rooms")
 	public List<Room> roomList(){
 		return roomService.findAll();
@@ -98,7 +86,6 @@ public class ReservationController {
 		return masReservationTypeService.findAll();
 	}
 	
-	@Transactional
 	@RequestMapping(value="/reservation",method=RequestMethod.GET)
 	public ModelAndView reservationPage(){
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -135,7 +122,6 @@ public class ReservationController {
 			/*                Change time for insert                      */
 			Date dateStart = reservation.getStart();//get date from calendar
 			Date dateEnd = reservation.getEnd();
-			DateFormat formatterDate = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
 			
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
 			formatter.setTimeZone(TimeZone.getTimeZone("GMT"));//set Timezone to be GMT
@@ -148,11 +134,9 @@ public class ReservationController {
 				System.out.println("Can");
 			DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);//new format to convert String to Date
 				try {
-					//System.out.println(format.parse(startString));
 					reservation.setStart(format.parse(startString));//set date with new timezone 
 					reservation.setDateReservation(reservation.getStart());
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -160,7 +144,6 @@ public class ReservationController {
 					//System.out.println(format.parse(endString));
 					reservation.setEnd(format.parse(endString));
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				reservationService.create(reservation);

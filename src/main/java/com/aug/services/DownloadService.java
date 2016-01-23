@@ -10,17 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.aug.services.utils.UploadService;
-
 @Service(value = "downloadService")
 public class DownloadService {
-	
-	private static Logger LOGGER = LoggerFactory.getLogger(UploadService.class);
 	
 	@Value("#{appProps['file.path']}")
 	private String picpath;

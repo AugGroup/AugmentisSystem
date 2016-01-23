@@ -5,12 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
-import javassist.tools.web.BadHttpRequest;
-
 import javax.validation.ConstraintViolationException;
 
 import org.apache.http.HttpException;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,20 +20,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aug.exception.CustomException;
-import com.aug.hrdb.services.SiteDtoService;
-import com.aug.hrdb.entities.Site;
-import com.aug.hrdb.entities.Language;
 import com.aug.hrdb.dto.SiteDto;
+import com.aug.hrdb.entities.Site;
+import com.aug.hrdb.services.SiteDtoService;
 import com.aug.hrdb.services.SiteService;
+
+import javassist.tools.web.BadHttpRequest;
 
 
 
 @Controller
 public class SiteController {
-	
-
-	private final static Logger logger = Logger
-			.getLogger(Language.class);
 	
 	@Autowired
 	private SiteDtoService siteDtoService;
@@ -89,7 +83,7 @@ public class SiteController {
 
 					
 				}else if(siteDto.getStartDate().compareTo(siteDto.getEndDate())<0){
-					siteService.createSetDtoToEnity(siteDto);
+					siteService.createSetDtoToEntity(siteDto);
 				}
 				
 			}

@@ -62,7 +62,6 @@ public class JobcaseController implements Serializable {
 	public String listRequest(Model model){
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("userName : " + userDetails.getUsername());
-		Login login = loginService.findByUserName(userDetails.getUsername());
 //		Employee employee = login.getEmployee();
 //		Hibernate.initialize(employee.getApplicant());
 
@@ -78,6 +77,7 @@ public class JobcaseController implements Serializable {
 			throw new NullPointerException();
 		}
 		return new Object() {
+			@SuppressWarnings("unused")
 			public List<AugRequestDto> getData() {
 				return data;
 			}
